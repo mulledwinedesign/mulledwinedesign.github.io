@@ -1,1 +1,70 @@
+<<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- <title>mulledwine.design</title> -->
+    <!-- <title>résumé view | mulled by Xueer Zhang</title> -->
+    <title>Xueer is actively seeking full-time opportunities!</title>
+  </head>
+  <body>
+    <svg id="animated logo">logo</svg>
+    <!-- Which structure is more semantically coherent?
+    <div class="grid system">
+      <h1>Xueer Zhang</h1>
+      <h2>headline</h2>
+      <h2>experience</h2>
+      <h2>education</h2>
+      <h2>skills</h2>
+      <h2>contact</h2>
+      <footer>copyright+licenses</footer>
+    </div>
+    -->
+    <div class="grid system">
+      <section>
+        <!-- <h1>Xueer Zhang</h1> + ruby /sure·are·john/
+          https://www.w3.org/TR/html50/text-level-semantics.html#the-ruby-element
+          https://www.w3.org/TR/ruby-use-cases/
+          https://drafts.csswg.org/css-ruby/
+        -->
+        <ruby>
+          <rb>Xue
+          <rt>sure
+          <rb>er
+          <rt>are
+        </ruby>
 
+        <ruby>
+          <rb>Zhang
+          <rt>john
+        </ruby>
+      </section>
+
+      <section>
+        <h1>headline</h1>
+        <p></p>
+      </section>
+
+      <section>
+        <h1>experience</h1>
+        <p></p>
+      </section>
+
+      <section>
+        <h1>education</h1>
+        <p></p>
+      </section>
+
+      <section>
+        <h1>skills</h1>
+        <p></p>
+      </section>
+
+      <section>
+        <h1>contact</h1>
+        <p></p>
+      </section>
+
+      <footer>Mulled with ❤︎ by Xueer Zhang © 2014-2019 + licenses</footer>
+    </div>
+  </body>
+</html>
