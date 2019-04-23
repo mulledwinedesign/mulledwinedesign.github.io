@@ -4,67 +4,218 @@
     <meta charset="utf-8">
     <!-- <title>mulledwine.design</title> -->
     <!-- <title>résumé view | mulled by Xueer Zhang</title> -->
-    <title>Xueer is actively seeking full-time opportunities!</title>
+    <!-- <title>Xueer is actively seeking full-time opportunities!</title> -->
+    <title>Xueer Zhang seeks product design opportunities!</title>
   </head>
   <body>
-    <svg id="animated logo">logo</svg>
-    <!-- Which structure is more semantically coherent?
-    <div class="grid system">
-      <h1>Xueer Zhang</h1>
-      <h2>headline</h2>
-      <h2>experience</h2>
-      <h2>education</h2>
-      <h2>skills</h2>
-      <h2>contact</h2>
-      <footer>copyright+licenses</footer>
-    </div>
-    -->
-    <div class="grid system">
-      <section>
-        <!-- <h1>Xueer Zhang</h1> + ruby /sure·are·john/
-          https://www.w3.org/TR/html50/text-level-semantics.html#the-ruby-element
-          https://www.w3.org/TR/ruby-use-cases/
-          https://drafts.csswg.org/css-ruby/
-        -->
-        <ruby>
-          <rb>Xue
-          <rt>sure
-          <rb>er
-          <rt>are
-        </ruby>
+    <main>
+      <svg id="animated logo">logo</svg>
+      <!-- Which structure is more semantically coherent?
+      <div class="grid system">
+        <h1>Xueer Zhang</h1>
+        <h2>headline</h2>
+        <h2>experience</h2>
+        <h2>education</h2>
+        <h2>skills</h2>
+        <h2>contact</h2>
+        <footer>copyright+licenses</footer>
+      </div>
+      -->
 
-        <ruby>
-          <rb>Zhang
-          <rt>john
-        </ruby>
-      </section>
+      <!-- master grid -->
+      <div class="grid system">
+        <section>
+          <!-- name -->
+          <h1>
+            <!-- <h1>Xueer Zhang</h1> + ruby /sure·are·john/
+              https://www.w3.org/TR/html50/text-level-semantics.html#the-ruby-element
+              https://www.w3.org/TR/ruby-use-cases/
+              https://drafts.csswg.org/css-ruby/ -->
+            <ruby><rb>Xue<rt>sure<rb>er<rt>are</ruby>
+            <ruby><rb>Zhang<rt>john</ruby>
+          </h1>
+          <!-- headline/summary -->
+          <p>headline</p>
+        </section>
 
-      <section>
-        <h1>headline</h1>
-        <p></p>
-      </section>
+        <!-- experience -->
+        <section>
+          <h1>experience</h1>
 
-      <section>
-        <h1>experience</h1>
-        <p></p>
-      </section>
+          <!-- work experience -->
+          <section>
+            <h2>Interaction Designer <del>(Part-Time)</del></h2>
+            <strong>Phosphene Designs LLC</strong>
+            <small>A boutique studio specializing in ...</small>
+            <span>Brooklyn, NY</span> <span>Sep 2016 - present</span>
+          </section>
 
-      <section>
-        <h1>education</h1>
-        <p></p>
-      </section>
+          <section>
+            <!--
+              201805-07 web designer(contract)
+              201803-05 exhibition design intern
+              201802-04 culinary intern
+              201801-08(-present) program volunteer
+              201707-201802 docent
+            -->
+            <!-- <h2>Freelance Web Designer, Exhibition/Culinary Design Intern, Program Volunteer & Docent</h2>
+            <strong>Musuem of Food and Drink</strong>
+            <small>The first brick and mortar food musuem dedicated to educate ...</small>
+            <span>Brooklyn, NY</span> <span>Jul 2017 - present</span> -->
+            <h2>Freelance Web Designer & Exhibition/Culinary Design Intern</h2>
+            <strong>Musuem of Food and Drink</strong>
+            <small>The first brick and mortar food musuem dedicated to educate ...</small>
+            <span>Brooklyn, NY</span> <span>Feb - Jul 2018</span>
+          </section>
 
-      <section>
-        <h1>skills</h1>
-        <p></p>
-      </section>
+          <!-- volunteer experience -->
+          <section>
+            <h2>Program Volunteer & Docent</h2>
+            <strong>Musuem of Food and Drink</strong>
+            <span>Brooklyn, NY</span> <span>Jul 2017 - present</span>
+          </section>
 
-      <section>
-        <h1>contact</h1>
-        <p></p>
-      </section>
+          <!-- dated internship -->
+          <!-- <section>
+            <h2>Network Maintenance & Marketing Intern</h2>
+            <strong>China Mobile</strong>
+            <span>Haikou, China</span> <span>Aug 2011</span>
+          </section> -->
+        </section>
 
-      <footer>Mulled with ❤︎ by Xueer Zhang © 2014-2019 + licenses</footer>
-    </div>
+        <!-- education -->
+        <section>
+          <h1>education</h1>
+
+          <!-- graduate -->
+          <section>
+            <h2><strong>MFA</strong> <strong>Design and Technology</strong></h2>
+            <strong>Parsons School of Design</strong>
+            <span>New York, NY</span> <span>2014 - 2016</span>
+            <p>Thesis: <i>Situation, Adventure!</i></p>
+            <p></p>
+          </section>
+
+          <!-- undergraduate -->
+          <section>
+            <!-- How do I better present dual-degree?
+              <h2><strong>BSc(2:1 Hons)</strong> <strong>Queen Mary, University of London</strong></h2>
+              <h2><strong>BEng</strong> <strong>Beijing University of Posts and Telecommunications</strong></h2>
+              <span>Telecommunications Engineering with Management</span>
+              <span>London, UK</span> <span>2012 - 2013</span>
+              <span>Beijing, China</span> <span>2009 - 2012</span>
+              <p></p>
+            -->
+            <h2><span>BSc & BEng with 2:1 Honours</span> <span>Telecommunications Engineering with Management</span></h2>
+            <strong>Queen Mary, University of London</strong>
+            <strong>Beijing University of Posts and Telecommunications</strong>
+            <span>London, UK & Beijing, China</span> <span>2009 - 2013</span>
+            <p>Dual-degree programme jointly taught by the Schools of <u>Electronic Engineering and Computer Science</u> of <abbr title="Queen Mary, University of London">QMUL</abbr> & <abbr title="Beijing University of Posts and Telecommunications">BUPT</abbr></p>
+            <p>Thesis: <i>Developing Spatial Audio Overview Feature for Collaborative Cross-modal Interfaces (CCmI) Editor</i></p>
+          </section>
+        </section>
+
+        <!-- skills + pun intended -->
+        <section>
+          <h1>skills</h1>
+          <ul>
+            <li>wine</li>
+            <li>apple cider (no added sugar pls)</li>
+            <li>orange</li>
+            <li>cloves</li>
+            <li>cardamom</li>
+            <li>cinnamon sticks</li>
+            <li>star anise</li>
+          </ul>
+          <ul>
+            <!-- design tools -->
+            <li>Adobe CC: Xd Id Ai Ps Ae Pr</li>
+            <li>Sketch</li>
+            <li>InVision</li>
+            <li>Flinto</li>
+            <li>Marvel</li>
+            <li>Zeplin</li>
+            <li>wireframe.cc</li>
+            <!-- <li>/webflow</li>
+            <li>/InVision Studio</li>
+            <li>/Framer</li>
+            <li>/Framer X</li>
+            <li>/Craft</li>
+            <li>/Axure</li>
+            <li>Figma</li>
+            <li>/Balsamiq</li>
+            <li>/origami studio</li>
+            <li>/Principle</li>
+            <li>uxpin</li>
+            <li>/Proto.io</li>
+            <li>/abstract</li>
+            <li>/kactus</li>
+            <li>/hotjar</li>
+            <li>/tableau</li> -->
+
+            <!-- tools in between -->
+            <!--
+              <li>Github</li>
+              <li>Slack</li>
+              <li>Trello</li>
+              <li>/Keynote</li>
+              <li>/Sublime Text</li>
+              <li>/Atom</li>
+            -->
+
+            <!-- languages n libraries -->
+            <li>C</li>
+            <li>Java</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>OpenGL</li>
+            <li>Javascript</li>
+            <li>OpenAL</li>
+            <li>Processing</li>
+            <li>OpenFrameworks</li>
+            <li>SQL</li>
+            <li>JQuery</li>
+            <li>C++</li>
+            <li>Python</li>
+
+            <li>Rhinoceros</li>
+            <li>Maya</li>
+            <li>Arduino</li>
+            <li>Raspberry Pi</li>
+            <li>Matlab</li>
+            <li>/Unity</li>
+
+            <li>information architecture</li>
+            <li>critical thinking</li>
+            <li>wireframing</li>
+            <li>brainstorming</li>
+            <li>rapid prototyping</li>
+            <li>usability testing</li>
+            <li>user journey mapping</li>
+            <li>user research</li>
+            <li>domain research</li>
+            <li>conceptualization</li>
+            <li>/heuristic evaluation</li>
+            <li>/competitive analysis</li>
+            <li>/agile development</li>
+            <li>/content strategy</li>
+            <li>/mental model</li>
+          </ul>
+        </section>
+
+        <!-- contact -->
+        <section>
+          <h1>contact</h1>
+          <p></p>
+        </section>
+
+        <!-- copyright credit license info -->
+        <footer>Mulled with ❤︎ by Xueer Zhang © 2014-2019 + licenses</footer>
+      </div>
+    </main>
+
+    <script type="text/javascript">
+
+    </script>
   </body>
 </html>
