@@ -10,124 +10,113 @@
     <!-- <title>Xueer Zhang designs eXperience /eXueerience.</title> -->
     <!-- <title>Xueer is heading to Shanghai!</title> -->
     <!-- <title>Xueer Zhang seeks product design opportunities!</title> -->
+
+    <!-- <style>internal css</style> -->
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <main>
-      <!-- ///to do
-      \outline
-      narrative: the first person, occasionally break the fourth wall -->
-      <svg id="animated logo">logo</svg>
-      <!-- add svg accessibility support later: title, desc, aria-labelledby, role -->
-      <!-- Which structure is more semantically coherent?
-      <div class="grid system">
-        <h1>Xueer Zhang</h1>
-        <h2>headline</h2>
-        <h2>experience</h2>
-        <h2>education</h2>
-        <h2>skills</h2>
-        <h2>contact</h2>
-        <footer>copyright+licenses</footer>
-      </div>
-      -->
+      <div id="grids">
+        <!-- ///to-do \outline
+        narrative: the first person, occasionally break the fourth wall -->
+        <!-- Which structure is more semantically coherent?
+        <div class="grid system">
+          <h1>Xueer Zhang</h1>
+          <h2>headline</h2>
+          <h2>experience</h2>
+          <h2>education</h2>
+          <h2>skills</h2>
+          <h2>contact</h2>
+          <footer>copyright+licenses</footer>
+        </div>
+        -->
 
-      <!-- master grid -->
-      <div class="grid system">
-        <!-- resume -->
+        <svg id="logo">animated logo</svg>
+        <!-- add svg accessibility support later: title, desc, aria-labelledby, role -->
+
         <section>
-          <section>
-            <!-- name -->
-            <h1>
+          <section id="name">
               <!-- <h1>Xueer Zhang</h1> + ruby /sure·are·john/
                 https://www.w3.org/TR/html50/text-level-semantics.html#the-ruby-element
                 https://www.w3.org/TR/ruby-use-cases/
                 https://drafts.csswg.org/css-ruby/ -->
               <ruby><rb>Xue<rt>sure<rb>er<rt>are</ruby>
               <ruby><rb>Zhang<rt>john</ruby>
-            </h1>
-            <!-- headline/summary -->
-            <p>headline</p>
           </section>
 
-          <!-- experience -->
-          <section>
-            <h1>experience</h1>
-
-            <!-- work experience -->
-            <section>
-              <h2>Interaction Designer <del>(Part-Time)</del></h2>
-              <strong>Phosphene Designs LLC</strong>
-              <small>A boutique studio specializing in ...</small>
-              <span>Brooklyn, NY</span> <span>Sep 2016 - present</span>
-            </section>
-
-            <section>
-              <!--
-                201805-07 web designer(contract)
-                201803-05 exhibition design intern
-                201802-04 culinary intern
-                201801-08(-present) program volunteer
-                201707-201802 docent
-              -->
-              <!-- <h2>Freelance Web Designer, Exhibition/Culinary Design Intern, Program Volunteer & Docent</h2>
-              <strong>Museum of Food and Drink</strong>
-              <small>The first brick and mortar food museum dedicated to educate ...</small>
-              <span>Brooklyn, NY</span> <span>Jul 2017 - present</span> -->
-              <h2>Freelance Web Designer & Exhibition/Culinary Design Intern</h2>
-              <strong>Museum of Food and Drink</strong>
-              <small>The first brick and mortar food museum dedicated to educate ...</small>
-              <span>Brooklyn, NY</span> <span>Feb - Jul 2018</span>
-            </section>
-
-            <!-- volunteer experience -->
-            <section>
-              <h2>Program Volunteer & Docent</h2>
-              <strong>Museum of Food and Drink</strong>
-              <span>Brooklyn, NY</span> <span>Jul 2017 - present</span>
-            </section>
-
-            <!-- dated internship -->
-            <!-- <section>
-              <h2>Network Maintenance & Marketing Intern</h2>
-              <strong>China Mobile</strong>
-              <span>Haikou, China</span> <span>Aug 2011</span>
-            </section> -->
+          <section id="headline">
+            <p>headline/summary</p>
           </section>
 
-          <!-- education -->
-          <section>
-            <h1>education</h1>
+          <section id="exp-mofad">
+            <!--
+              201805-07 web designer(contract)
+              201803-05 exhibition design intern
+              201802-04 culinary intern
+              201801-08(-present) program volunteer
+              201707-201802 docent
+            -->
+            <!-- <h2>Freelance Web Designer, Exhibition/Culinary Design Intern, Program Volunteer & Docent</h2>
+            <strong>Museum of Food and Drink</strong>
+            <small>The first brick and mortar food museum dedicated to educate ...</small>
+            <span>Brooklyn, NY</span> <span>Jul 2017 - present</span> -->
+            <h2>Freelance Web Designer & Exhibition/Culinary Design Intern</h2>
+            <strong>Museum of Food and Drink</strong>
+            <small>The first brick and mortar food museum dedicated to educate ...</small>
+            <span>Brooklyn, NY</span> <span>Feb - Jul 2018</span>
 
-            <!-- graduate -->
-            <section>
-              <h2><strong>MFA</strong> <strong>Design and Technology</strong></h2>
-              <strong>Parsons School of Design</strong>
-              <span>New York, NY</span> <span>2014 - 2016</span>
-              <p>Thesis: <cite>Situation, Adventure!</cite></p>
+            <h2>Program Volunteer & Docent</h2>
+            <strong>Museum of Food and Drink</strong>
+            <span>Brooklyn, NY</span> <span>Jul 2017 - present</span>
+          </section>
+
+          <section id="exp-ppd">
+            <h2>Interaction Designer <del>(Part-Time)</del></h2>
+            <strong>Phosphene Designs LLC</strong>
+            <small>A boutique studio specializing in ...</small>
+            <span>Brooklyn, NY</span> <span>Sep 2016 - present</span>
+          </section>
+
+          <!-- dated internship -->
+          <!-- <section id="ex-intern">
+            <h2>Network Maintenance & Marketing Intern</h2>
+            <strong>China Mobile</strong>
+            <span>Haikou, China</span> <span>Aug 2011</span>
+          </section> -->
+
+          <section id="contact">
+            <h1>contact</h1>
+            <p></p>
+          </section>
+
+          <section id="edu-grad">
+            <h2><strong>MFA</strong> <strong>Design and Technology</strong></h2>
+            <strong>Parsons School of Design</strong>
+            <span>New York, NY</span> <span>2014 - 2016</span>
+            <p>Thesis: <cite>Situation, Adventure!</cite></p>
+            <p></p>
+          </section>
+
+          <section id="edu-undergrad">
+            <!-- How do I better present dual-degree?
+              <h2><strong>BSc(2:1 Hons)</strong> <strong>Queen Mary, University of London</strong></h2>
+              <h2><strong>BEng</strong> <strong>Beijing University of Posts and Telecommunications</strong></h2>
+              <span>Telecommunications Engineering with Management</span>
+              <span>London, UK</span> <span>2012 - 2013</span>
+              <span>Beijing, China</span> <span>2009 - 2012</span>
               <p></p>
-            </section>
-
-            <!-- undergraduate -->
-            <section>
-              <!-- How do I better present dual-degree?
-                <h2><strong>BSc(2:1 Hons)</strong> <strong>Queen Mary, University of London</strong></h2>
-                <h2><strong>BEng</strong> <strong>Beijing University of Posts and Telecommunications</strong></h2>
-                <span>Telecommunications Engineering with Management</span>
-                <span>London, UK</span> <span>2012 - 2013</span>
-                <span>Beijing, China</span> <span>2009 - 2012</span>
-                <p></p>
-              -->
-              <h2><span>BSc & BEng with 2:1 Honours</span> <span>Telecommunications Engineering with Management</span></h2>
-              <strong>Queen Mary, University of London</strong>
-              <strong>Beijing University of Posts and Telecommunications</strong>
-              <span>London, UK & Beijing, China</span> <span>2009 - 2013</span>
-              <p>Dual-degree programme jointly taught by the Schools of <u>Electronic Engineering and Computer Science</u> of <abbr title="Queen Mary, University of London">QMUL</abbr> & <abbr title="Beijing University of Posts and Telecommunications">BUPT</abbr></p>
-              <p>Thesis: <cite>Developing Spatial Audio Overview Feature for Collaborative Cross-modal Interfaces (CCmI) Editor</cite></p>
-            </section>
+            -->
+            <h2><span>BSc & BEng with 2:1 Honours</span> <span>Telecommunications Engineering with Management</span></h2>
+            <strong>Queen Mary, University of London</strong>
+            <strong>Beijing University of Posts and Telecommunications</strong>
+            <span>London, UK & Beijing, China</span> <span>2009 - 2013</span>
+            <p>Dual-degree programme jointly taught by the Schools of <u>Electronic Engineering and Computer Science</u> of <abbr title="Queen Mary, University of London">QMUL</abbr> & <abbr title="Beijing University of Posts and Telecommunications">BUPT</abbr></p>
+            <p>Thesis: <cite>Developing Spatial Audio Overview Feature for Collaborative Cross-modal Interfaces (CCmI) Editor</cite></p>
           </section>
 
-          <!-- skills + pun intended -->
-          <section>
+          <section id="skills">
             <h1>skills</h1>
+            <!-- pun intended -->
             <ul>
               <li>wine</li>
               <li>apple cider (no added sugar pls)</li>
@@ -212,735 +201,729 @@
               <li>/mental model</li>
             </ul>
           </section>
+        </section>
 
-          <!-- contact -->
-          <section>
-            <h1>contact</h1>
-            <p></p>
+        <section id="casestudy">
+          <!-- case study 01 cloudrone -->
+          <!-- III: Inspiration Ideation Implementation -->
+          <!-- <section>
+            <h1>context</h1>
+            <h1>inspiration</h1>
+            <h1>ideation</h1>
+            <h1>implementation</h1>
+            <h1>takeaway///word help figurative synonym wine residue leftover</h1>
+          </section> -->
+          <section id="cs-cloudrone">
+            <p>
+              ///narrative dirn: introduce an already-dzned-product or chronological?
+              \context\smog
+              It was the spring of 2015. It had been three consecutive winters that hundreds of millions of people in northern China suffered from the alarmingly poisonous smog. The documentary <cite>Under the Dome</cite> had just gone viral online <!--(150228)-->, spurring extensive discussions on what the culprit of the air pollution was and how individuals could start to take responsibility.
+
+              The air pollution in China is severe now. Truly, big factories contribute a lot to the air pollution. However, there are plenty of restaurants, gas stations and cars releasing waste gas without filtration. Up to 20% of the air pollution results from those waste gas.
+
+              if you've heard of the China's smog problem, you probably know there's a renowned documentary ... /you probably know there is a documentary that once went viral
+
+              We both have lived in BEIJING for at least THREE years. So we FEEL the air pollution there.
+              Because of the smog, people have no choice but to wear 3M masks in order to protect themselves against noxious emissions from factory chimneys and motor vehicles. At the time we saw a commercial drone, we knew the mobility of drones can be of great use on tackling urban air quality issues.
+
+              The designers and makers behind this project, Haotian Li and Xueer Zhang, have both lived in Beijing, China for at least three years. They feel the air pollution there. Because of the smog, people have no choice but to wear 3M masks in order to protect themselves against noxious emissions from factory chimneys and motor vehicles. At the time they saw a commercial drone, they knew the mobility of drones can be of great use on tackling urban air quality issues. They were mainly inspired by Under The Dome (www.youtube.com/watch?v=T6X2uwlQGQM //® imdb link?), a documentary directing at China’s environmental conditions and policies which has provoked a great deal of discussion since March 2015.
+
+              As students moving from Beijing to New York, my project partner Haotian Li and I asked ourselves: How might we ///?
+
+              \context\drone
+              It was a snowy January. Drones were still
+                ///public image shift fr military to commercial app
+                ///amazon delivery testing
+                ///white house lawn
+                ///compare industry reports 2014/5 vs 2018/9
+              The leader of the commercial <abbr title="Unmanned Aerial Vehicle">UAV</abbr> industry, <abbr title="Dà Jiāng Innovations">DJI</abbr> had not yet updated its most celebrated <cite>Phantom 2 Vision+</cite> to the next generation.
+                ///aerial cinematography
+
+              \thematic analysis
+              ///bkg research infographics
+              ///contextual interviews
+              ///directed storytelling
+              ///shadowing
+
+              \hmw
+              How might we design an aesthetic drone to help people get the air quality of their surrounding environment?
+
+              \constraints
+
+              \dzn\personas + scenarios
+              To better contextualize their idea, Haotian and Xueer created a <b>persona</b> followed by a <b>scenario</b> for each of three hypothetical users. Here is one of them. Chris Johnson, aged 46, is originally from Dallas, Texas, US. He owns a PhD degree in Economics. He is an associate professor who teaches Microeconomics at University of Illinois at Urbana–Champaign (UIUC). His annual income is about US$70k. In 2010, the School of Economics at UIUC and the Peking University (PU) established partnership. Chris then became a guest professor in the School of Economics at PU. Thus he would go to Beijing twice a year and stays there for about two weeks each time. Chris is very concerned about the air quality of where he lives. He wants to know if there is smog before he goes out of his apartment at PU. He would like to be informed when the outdoor air condition is good for exercise. Chris tends to cough when the air condition is poor. He doesn't believe the air condition data provided by the Ministry of Environmental Protection of China. Even though Chris is aware of the smog in China, he has no idea how much harm there is to his body under different air quality indices. Chris will go to Beijing in the coming March. But the air pollution in Beijing is severe, especially in spring. He believes that the statistics released by U.S. Embassy are more accurate.
+
+              A <b>detailed scenario</b> is described as the following. Chris has been staying in Beijing for 7 days. He wakes up at 6am when the sun has not totally risen up. He likes to exercise in the morning. But he is not sure about the current outdoor air condition. He asks an attendant in the hotel about the air quality. The attendant flies a cloudrone out in the air, at the same height of Chris, so that he can get the information of air which Chris would be breathing. Chris notices that there are lights on the drone blinking in blue, which means the air condition is good for exercising. He opens an application on his phone to check the data sent from the drone. It shows that the PM2.5 index is below 50. Chris is happy about it and goes out running for half an hour. After that, he comes back, takes a shower and has his breakfast. His lecture starts at 10am. His driver drives him to the school. At about 11am, during his short break, Chris finds it windy outside and the visibility is lower than that in the morning. He asks one of his students to check the air condition using a cloudrone. The light on the cloudrone changes to brown, indicating the air quality is poor. Chris is very disappointed because he planned to go to the Forbidden City after work. But under such circumstances, that will only gives him continuous cough. So he gives up the plan and has his driver send him back to the hotel. It’s so boring to stay indoor and he wishes the weather could be better tomorrow.
+
+              The above is an example showcasing how Cloudrone can be used in a city to facilitate air quality related activities. Haotian and Xueer believe in the value of deploying Cloudrone to make a <b>social and environmental change</b>.
+
+              \dzn\storyboards
+
+              \dzn\pttp \solution ///look for insp: industrial dzn case study
+              \dzn\pttp\intro
+              Cloudrone is an accessible semi-stationary device for measuring and monitoring air quality in public spaces.
+              An Accessible, Drone-powered, Semi-stationary
+              Air Quality Monitor
+
+              We equip the brain of a commercial drone with an Arduino board and a bluetooth module, and attach an air quality sensor to the bottom of the drone with a distance from the propellers.
+              <b>Parts</b> breakdown:
+              1 Arduino Uno,
+              1 battery for drone,
+              1 battery for Arduino,
+              1 dust sensor
+
+              We design the <b>appearance</b> of Cloudrone to be hospitable and user-friendly to express the hope of clearer sky.
+
+              \dzn\pttp\modes
+              Cloudrone has two <b>modes</b>, static mode and mobile mode.
+
+              \dzn\pttp\modes\static
+              We envision to set up these stations at existing bus stops, which can provide shelters for Cloudrone and reduce the cost.
+              We envision this product being deployed along the streets in a city, at existing bus stops, bike stops, telephone booths or wifi stations, where <b>statically</b>, Cloudrone serves as a fixed station measuring concentrations of main harmful chemicals that cause urban smog.
+
+              All the data Cloudrone collects is open-source, which can be synchronized to a database enabling the general public to check related indices about local air pollution.
+              The Cloudrone sends these data to the database.
+              By analyzing the data captured by Cloudrone, the database is able to send an alert to a city’s air quality monitoring center when an index exceeds its standard reading range.
+
+              It keeps charging through wireless charging method.
+
+              \dzn\pttp\modes\mobile
+              More importantly, When people suspect harmful gas release in the city, they can easily control Cloudrone to measure the air quality at specific sites, such as a place closer to a restaurant’s chimney, a car’s tailpipe or a construction site.
+
+              Once Cloudrone detects a party who release excessive exhaust without proper purification, it sends an alert to a monitoring center.
+
+              \dzn\pttp\Technical Description
+              Hardware
+              The Cloudrone prototype makes use of an Arduino, specifically Sparkfun Redboard, as the core processing and connection unit. It reads data from sensors through Serial port and transmits the data to a database through Bluetooth channels. We have successfully tested the communication between sensors and Arduino as well as that between Arduino and database. In current iteration, we use Processing (a creative coding software) as a data receiver at the database end. We produced data visualization in a Processing sketch to simulate the operation in a real database.
+              Power
+              The Cloudrone is powered by a 7.4V 850mAh rechargeable battery, which allows 10 minutes continuous flying. The controller requires six AA battery. The Arduino board and bluetooth module is powered by a 9V battery. The static stations at local bus stops not only provide shelters for Cloudrone, but also perform as charging stations.
+              Sensors
+              Current prototype is equipped with a GP2Y1010AU0F compact optical dust sensor. It detects the reflected light of dust particles in air. This sensor sends readings to the Serial port of an Arduino (Sparkfun Redboard). The data is processed and transmitted to a monitoring center through Bluetooth. We have also tested a Carbon Monoxide Gas Sensor MQ-7. It can be integrated into the prototype in later iterations to support more indices on air condition.
+              Control
+              Our prototype is not autonomous. It is controlled by a hand-held controller. The controller is secured with our product, Cloudrone, at the stations we envision to set up at existing bus stops. A user would operate Cloudrone after reading the instructions we present at the station. Though we do not require special training, the operation has an inevitable learning curve. We plan to recruit volunteers to facilitate users in the beginning of the deployment.
+              Possible iterations would be to redesign the controller to make it autonomous, to collaborate with institutions who can provide support crew to operate Cloudrone for end users, or to market Cloudrone only to a narrow targeted group of institutions.
+              Safety
+              We built a soft cloud-shaped enclosure to protect the main technical components. Cloudrone is designed to stay and function in urban smog or dusty sites. We spray-painted the body of Cloudrone to be bright blue and white. It is the colors that are easily recognizable in a smoggy background. For real-world scenario, we would add a transparent layer to protect Cloudrone from being contaminated and discolored by pollutants in the air.
+              Customers
+              The target end users of Cloudrone are urban dwellers who are concerned about air quality and suspicious about particular pollution emitters. We aim at collaborating with certain transportation department who maintain bus stops to deploy Cloudrone stations at existing bus stops. We look forward to sponsorships and partners to help us build and maintain these stations at scale. Potential stakeholders could be existing advertisers who target at bus stop billboards, or urban sustainability activists.
+              Economy
+              Cloudrone attaches inexpensive microprocessors and sensors to off-the-shelf commercial drones. Cloudrone is not necessarily equipped with a camera while most common commercial drones do. This reduces the cost and provides more load quota for technical components. Existing bus stops are mostly equipped with power supply for electrical billboards, which Cloudrone charging stations will make full use of.
+              Novelty
+              There has not been an accessible air quality monitoring tool available in public. Most countries have dedicated institutions to monitor national air quality. In China, it is the Ministry of Environmental Protection, which is affiliated to the government. There has been doubts about official data source, so we want to create a platform which enables the public to supervise and contribute to the database. By witnessing and engaging with a Cloudrone locally, the public can build a sense of trust and responsibility. In addition, air quality related mobile applications have been as popular as weather forecast applications. We also envision contributing our data to larger databases so that users can check air quality indices provided by Cloudrone on mobile devices and websites.
+              Future Potential
+              Aiming at a real social and environmental change, Cloudrone serves as an accessible and effective tool for the public to build a more transparent, proactive and convincing platform to contribute to the supervision and management of urban air quality. Cloudrone also has the potential to become a practical strategy which governments use to improve air pollution management policies.
+
+              \dzn\pttp\itrt
+
+              \dzn\pttp\demo pitch
+              \dzn\pttp\video hmmm
+
+              <section> <!-- on the side col -->
+                \reflt
+                - I was not enough familiared w/ industrial product dzn process as I thought.
+              </section>
+            </p>
+          </section>
+
+          <!-- case study 02 mofad -->
+          <!-- not much existing copy, need to connect dots -->
+          <section id="cs-mofad">
+            <!-- domains: ed ex dzn, graphic dzn, event planning, cultural food knowledge -->
+            <h1>CNY menu + planning a festive dinner</h1>
+            <p>
+              \context\new year
+              \context\task
+              \hmw:menu+event
+              \r: dishes
+              \menu\dishes
+                /assets/ntbk p-27
+              \menu\sketch: graphic dzn
+                /assets/ntbk p-26,-25
+              \menu\brainstorm, word help w/ debbie john
+                /assets/ntbk p-24
+              \event\planning w/ hutt
+              \menu\sketch itrt
+              \menu\printing tests
+              \event, serve
+              \observe, fdbk, reception
+            </p>
+
+            <!-- domains: ed ex dzn, exhibition dzn, installation, museum, curation -->
+            <h1>ex panels</h1>
+            <!-- ed ex dzn: not just graphic dzn
+            long living in acutual museum space, ongoing exhibition -->
+            <p>
+              \context\intern, museum renovation
+              \context\req, needs, goal: 9 panels, sizes, corresponding object, types, colors
+                /assets/ntbk p-22,-21
+              \hmw
+              \r\study the space n objects:
+                ///space layout scheme map
+                ///callout marks, grid scheme analysis of panels
+                ///considerations of items' surroundings, ux, viewer x
+              \r\dzn system: ability to adhere to brand guide
+              \dzn\sketches
+                /assets/ntbk p-20,-19
+                ///extract line drawings out of original ntbk pg, instead of screenshot img, this way transfers organic handrawing onto a digital canvas
+                ///link to ./howto- :peep into/at how she (learns to) work(s)/how I (learn to) work
+              \fdbk fr cmp
+                /assets/ntbk p-18,-17
+              \dzn itrt
+              \demo, result: irl pics
+              \fdbk: fr volunteers community, ask adama, read sns comments of @mofad
+            </p>
+
+            <!-- domains: web dzn, ed ex dzn -->
+            <h1>redesign mofadcity.org = city.mofad.org + brochure</h1>
+            <!-- ///collaborating w/ multiple team members -->
+            <p>
+              \context\clients' needs, goal\web
+              \context\req\brochure: link/artifact/takeaway/prompt
+              \context\contract, constraints: web
+                /assets/ntbk p-15(1/2),-14,-13 n emails
+              \context\contract, limitation: brochure
+                /assets/ntbk p-12 n emails
+              \hmw
+
+              \r\vox data
+              \r\old site\iA, sitemap
+              \r\web\old site probs: traffic, hierachy, map
+              \r\brochure: previous neighborhood guides
+
+              \dzn\web\wf
+              \dzn\web\wf\fdbk fr client, dev
+
+              \receive copy, collaborate w/ pm, copywriter, photographer
+                /assets/ntbk p-8 n emails
+              \dzn\web\wf itrt
+              \dzn\web\pttp
+              \dzn\web\pttp\fdbk fr client, dev <!-- on the side col \reflt -->
+                /assets/ntbk p-6,-5,-4,-3 n emails
+              \dzn\web\pttp itrt
+              \dzn\web\testing\a/b test ///need more testing
+              \dzn\web\testing\///need evaluation metrics
+
+              \brochure\dzn
+              \brochure\dzn\fdbk fr client
+                /assets/ntbk p-3 n emails
+              \brochure\dzn itrt
+            </p>
+          </section>
+
+          <!-- case study 03 thesis -->
+          <!-- domains: critical design, psychogeography study, immersive interaction, ux design, curatorial design, installation, craft, sculpture, graphic design, product design, social impact-->
+          <section id="cs-thesis">
+            <p>
+              Hi, I’m Xueer. I’m building an installation to participate in the exhibition <del>and the symposium</del>.
+              <!-- why did I not attend it? why do I (constantly over the past 3yrs) regret not attending it?
+              cindy; niche; confidence; incomplete; perfectionism;
+              however, exhibition only does exactly "show not tell". so let it be – done. -->
+
+              Xue Er Zhang (sure∙are∙jang) is a flâneuse, a neo-gastronome and an interdisciplinary experience designer. She joined MFADT with backgrounds in Electronic Engineering and Computer Science, but has indulged herself in Art and Design. Her practice focuses on creating tangible, ephemeral experiences while exploring physical materials and fabrication techniques.
+
+              Xue Er (sure∙are) is a flâneuse, a neo-gastronome and an interdisciplinary experience designer. She came to MFADT with backgrounds in Electronic Engineering and Computer Science, but has indulged herself in Art and Design. Her practice focuses on creating tangible, ephemeral experiences while exploring physical materials and fabrication techniques.
+
+              /assets/quantitative wordmap score: foodstores, lackitchen, nofruits
+
+              \acknowledgements
+
+              This project would not have been possible without the guidance and support from Kate Sicchio and Aneta Genova, my thesis studio professors. I cannot thank Andrew Zornoza, my thesis writing professor, enough for his help and enlightenment. I am grateful to Lydia Matthews and Todd Shalom for engaging me into the world of psychogeography, and Fabio Parasecoli, who helped me with the research of food studies. I have been fortunate to have Abby Mechanic who has given me tremendous help on woodworking. I will always be grateful to the MFA Design and Technology program at Parsons School of Design for giving me the opportunity and resources to pursuit my interests. I truly value all of the critics that faculty members and peers gave me. Last but not least, thank you my families and friends, for all your support.
+
+              \abstract
+
+              Keywords: art, chaos, city, craft, design, display design, experience design, food, installation, interaction design, map, order, psychogeography, structure, urbanism.
+
+              Situation, Adventure! creates a playful walking experience for urban dwellers, adventurers and flâneurs in New York City, to evoke their reflections on urban structures. The experience involves a poetic object that spurs discussions on being constrained versus acting at one’s free will, through interactions with food, within the domain of psychogeography.
+
+              This monograph formally documents a yearlong project, starting with a succinct statement that elucidates the core concept behind the research and the making. The research addresses, investigates and synopsizes the domains this project embodies, as well as identifies the community of practice and historical background. The precedents outline the projects that have inspired the development of this project. The iterative prototyping process is thoroughly described and discussed thereafter, followed by an annotated bibliography.
+
+              \concept statement
+
+              In the process of building a better city, we, as urban dwellers, have produced tremendous rules, plans, maps, standards, habits, routines, social etiquette ... to make our space more organized and structural. We are bounded by these urban structures yet we tend to overlook how they are shaping our life, especially how they affect our interaction with food.
+
+
+              My concept is that city dwellers constrained by <strong>urban structures</strong> can engage their <strong>free will</strong> more than they think.
+
+              urban structures: the <b>limiting frameworks</b> that humans have created in the process of building a better city, including physically: urban plans, maps and rules; or routines and habits, in a psychological or behavioral sense. These structures are definitely <b>essential</b> for us; <b>yet</b> we tend to ignore how they are shaping our life. I see <b>food</b> as an <b>result</b> of urban structures. e.g. bounded, subway, eating on the go which is why I’m displaying food to convey my thesis.
+
+              free will: I want to prompt my audience to <b>engage</b> their free will, which is to pay <b>more</b> attention to their <b>perception</b> about the surroundings. My <b>goal</b> is to provoke an <b>angle</b> for <b>reflection</b>, <b>rather</b> than to <b>dictate</b> a direction to <b>change</b> the objective existence.
+
+
+              As a structural thinker, the artist has been bothered by her highly methodical mind. She is bored by her rigid habits from which she tries to break away.
+
+              To contextualize her situation in a general sense, she defines urban structures as the limiting frameworks that humans have created in the process of building a better city, which includes urban plans, maps, rules, standards, disciplines, regulations, routines, habits and social etiquette.
+
+              Situation, Adventure! tries to convey that city dwellers constrained by urban structures can engage their free will more than they think. The artist engages/aims at engaging urban adventurers in a playful walking experience inspired by a community of practice named psychogeography, which was established in France by the Situationist International in the 1950s, and studies how individual feels in urban spaces.
+
+              Xueer believes that structural urban lifestyle plays an important role in changing the shape, packaging, preparation and preservation of food. For instance, eating on-the-go is a common experience for urban commuters and a result of urban structures. Therefore, she utilizes food as an inviting stimulus to remind her audience of the overlooked urban structures / of the pain points caused by urban structures.
+
+              The concept materializes into an interactive physical indoor installation, that is 5 feet long, 5 feet wide and 5.5 feet high. It is a freestanding wooden cubic shelf that embodies restraining urban structure. Bagels, hawthorn berry cakes, French fries and more … fill this shelf while their texture and presentation communicate the symbolic resemblances between food and urban structure. The packaging of these foods bears a walking score that prompts the audience to an urban adventure. The audience is free to take a package of food, and go for a jolly stroll on their own time.
+
+              \dzn values
+
+              A MAP, NO DESTINATIONS
+              The artist realizes from a way-finding walking score prototype that her participants are easily preoccupied with looking for the destination if she sets one. Therefore she chooses to only present a map, but set no destinations, to help the audience focus on what they encounter along the way.
+
+              PLAYFUL, BUT NOT A GAME
+              A playful activity is not necessarily a game. A game usually has a clear goal or target. The walking experience the artist anticipates sets no destination, in other words, there is no explicit goal for the participants to achieve. Therefore this project does not fall in line with game design, though they may share similar characteristics. This experience embraces unsolicited pleasure, but it should not be evaluated as a game.
+
+              THE FINE LINE
+              This project applies a new structure to an existing structure, in order to open a discussion about freedom. This may sound paradoxical. However, it is the artist’s belief that freedom is relative, which means there is always a structure that can be found in a definition of freedom. The fruitful part is that how and when the participants become aware of and negotiate their own inner fine line between freedom and control. It is this project’s goal to excite, capture and present different people's placements of the fine line.
+
+              QUALITATIVE TESTING
+              The artist uses a qualitative method to test her prototypes throughout the process. This means sometimes it only takes a few participants for the artist to realize a point about the design. It is more important to look at the effectiveness of an iteration, rather than quantitative responses.
+
+              \Designer/Artist Statement
+
+              Keep an artistic mind, be versatile and be free.
+
+              In a world that is increasingly interconnected and integrated where fields of study are no longer as self-contained as before both in academia and in industry, I believe a designer should be informed in many spheres and always be prepared to learn new things from emerging areas which could be useful to the design. This inevitable trend of convergence asks designers to be versatile. Only by understanding new methods, skills and tools, and incorporating them into daily work, can designers truly make use of the technological advancement and contribute to the development of design. Technology shall not be just a medium that facilitates the act of design, but be integrated into the essence of design from the very beginning. This encourages designers to think about the possibilities current technologies enable them to achieve in the ideation phase, instead of starting to look for technological tools to realize their idea in the prototyping stage. By making full use of this opportunity of integration, the work of contemporary design will reach a brand-new epoch. As for my individual thinking on design and art, I have found that art has become a broader and freer territory for me as my design practice goes on.
+
+              As being discussed constantly, artists ask questions while designers solve problems. It seems less meaningful to produce more problems, just as to design new things when we have already had a lot. However, life’s NOT but a walking shadow. It blossoms colorful experience and harvests thoughtful self. It becomes richer than the ultimate end, just as new design improves efficiency, just as new questions inspires perspectives. Art examines a subject through speculative and critical lenses which enlarge the possibilities of the audience’s interpretation and the amount of approaches if an answer or solution is desired. Based on this understanding, I revised my goal as to be an interaction designer with artistic practice, not necessarily just for technology companies, but for any experience that could use a little revolution.
+
+              Packing up my current thoughts and getting on my journey, I shall use New York City as my canvas and focus on how this particular urban space has influenced humans who interact with it, and shall not constrain myself by usual assumptions about this place, just as user experience designers should not be limited by screens and patterns.
+
+              \r
+
+              Situation, Adventure! has gone through several iterations from a poetic walking score immersing its audience in the thinking on the politics of drifting versus map-guided navigation, to an interactive physical installation resembling a part of a restraining, commercial, and colorful supermarket. The research domains relating to this project span from information organization, cartography, psychogeography, ergonomics, absurdity to food studies.
+
+              /assets/relational keywords map
+
+              This relational word map illustrates the artist’s encounter with her research domains.
+
+              \r\information organization
+
+              Before human intelligence, there has been unlimited information floating in the universe. Upon the emergence of human, there was order being applied to the chaotic information. By organizing the information, chaos forms an order. As the act of information organization went on, humans developed rules, methods and strategies to better organize chaotic facts. In this way a territory is built, a field of study is developed, and a map is drawn. People follow, practice and improve these products of organization to make them into more complicated systems. By learning these systems, humans can understand what was not understandable before. This is the natural learning process for most of human knowledge. American neo-conceptual artist Mark Lombardi used this process to find out corporate connections, commercial interactions, social hierarchies and alleged political fraud. He presented his discoveries as diagrammatic drawings called Narrative Structures.1 As data visualization expert Ben Fry once commented, “[Lombardi’s] drawings walk the fine line of the informative and the aesthetic, but even more important, his projects give us an eye into the possibility, and the depth to which we can understand complicated information”,2 it is extraordinary to realize that human can comprehend such intricate organization. However, even though there is ordered, planned, organized knowledge in certain limited area, there is always a greater sphere of chaos that humans are unable to fight. Human can never organize the whole universe, because part of human is unorganizable and incomprehensible. A viewer in front of a painting by Jackson Pollock, Number One,3 may never figure out what the painter was trying to express. Even when the viewer turns to Sol LeWitt’s Line Etchings,4 which appears to have certain kind of pattern, one may still fail to decipher the essence behind the chaotic appearance. So why make an effort to organize? What is the point to reduce the entropy knowing that it is always increasing?5 This is the paradox, at one time, this project tries to explore.
+
+              \r\cartography
+
+              Maps are one of the products from humans’ information organization. Map makers, known as cartographers, capture the nature and human plans for further reference. Over the centuries, maps have been used for orientation, travel, comparative study, planning, strategy, data storage, decoration, symbolism, propaganda and simulation.6 The wide use of maps makes them not only an organization, but also languages, and communication systems.7 “The term ‘mapping’ is often used metaphorically in an abstract, non-cartographic sense to connote organizing, planning, presenting and knowing”.8 Maps have become the tool for cultural critic and theorist Giuliana Bruno to illustrate emotions.9 Maps have been the canvas for artists Rick Meyerowitz and Maira Kalman to demonstrate a subway system from a perspective of culinary cultures.10 Maps have become cartoons, data visualization forms and fool’s heads.11 Along the history and variation of maps, the carriers of maps have also transformed across media. Besides paper and screens, people even consider themselves, the human body, as a mapping medium.12
+
+              \r\psychogeography
+
+              "
+              Constant, Another City for Another Life, 1959
+
+              We crave <b>adventure</b>.
+              Not finding it on earth,
+              some men have gone to seek it on the moon.
+              We prefer to wager on a change on earth.
+              We propose creating <b>situations</b>, […]
+              We are at the dawn of a new era and are already attempting to sketch out the image of a happier life, of unitary urbanism,
+              the urbanism intended to bring <b>pleasure</b>.
+              "
+
+
+              One of the effects that maps have on human bodies is that maps inspire urban exploration and expand walking ranges.
+
+              \r\psychogeography\overview
+
+              In the 1950s, Guy Debord and a group of social revolutionaries called the Situationist International decoded urban spaces in an unexpected way through a practice of walking. They established a field called psychogeography. In Greek, psycho- means breath, and -geography means to write. By its definition, the field explores how human body is writing a space. During their practice, they paid attention to specific effects of the geographical environment on the emotions and behaviors of individuals.13 The followers of this field have developed rich context around the simple activity of walking. Apparently, there is a broader territory physically and psychologically once one starts to walk.
+
+              "
+              rebecca solnit, wanderlust: a history of walking
+
+              Walking has created paths, roads, trade routes, generated local and cross continental senses of place, shaped cities, parks, generated maps, guidebooks, gear, and further afield, a vast library of walking stories and poems, of pilgrimages, mountaineering expeditions, meanders, and summer picnics.
+
+              Muscles tense. One leg a pillar, holding the body upright between the earth and sky. The other a pendulum, swinging from behind. Heel touches down. The whole weight of the body rolls forward onto the ball of the foot. The big toe pushes off, and the delicately balanced weight of the body shifts again. The legs reverse position. It starts with a step and then another step and then another that add up like taps on a drum to a rhythm, the rhythm of walking. The most obvious and the most obscure thing in the world, this walking that wanders so readily into religion, philosophy, landscape, urban policy, anatomy, allegory, and heartbreak.
+              "
+
+              Walking without a destination specifically put one into an unplanned experience. To get lost is sometimes efficient in the exploration of consciousness and identity as well as in the pursuit of an answer to one’s chaotic mind state.14 The nature of drifting has appealed to the artist as a way to bridge a planned activity and its unplanned elements in an ordered urban space. Therefore the community of practice of this project aligns with those who work in the realm of psychogeography. The field work matters the most in this domain as “new knowledge comes […] from attending more closely to the environment rather than assembling one’s picture of it along new conceptual lines”.15
+
+              \r\psychogeography\history
+
+              To take a closer look at the history of the Situationist International (SI), there are lots of landmark events and theories in art history that have to be mentioned.
+
+              The WWI broke out in 1914. The artistic world responded to the war with the Dada movement in Europe and New York. Dadaists advocated anti-war, anti-art and anti-bourgeois politics. They were radically left wing among the voices of the world at that time. In the early 1920s, Surrealism came to the stage firstly in Paris. Surrealists were activists of illogicality and unconsciousness. They paid attention to the relationship between dream and reality as well as the element of surprise.
+
+              Being inspired by these two avant-garde movements, Romanian-born French poet Isidore Isou established Lettrism in Paris about twenty years later. Letterists’ artistic practice originated from and focused on letters, the visual symbols. In 1952, a group of left-wing radical artists and theorists separated from the former Letterist group, and formed a collective called the Letterist International (LI) in Paris.
+
+              Under the leadership of French Marxist theorist Guy Debord, LI developed two methods in their practice. One is dérive in French, drift in English, which means to wander around in urban spaces for hours even days. For example, in the Introduction to a Critique of Urban Geography, Debord described a man drifted through a part of Germany, but followed a map of London. Note that this is still a popular methodology among psychogeographers today. There were two important texts during the period: Debord's Theory of the Dérive in 1956 and French political theorist Ivan Chtcheglov's Formulary for a New Urbanism. Chtcheglov defined unitary urbanism as the critique of status quo urbanism. LI mainly held two believes: the rejection of the standard Euclidean approach to urban architectural design as well as the rejection of detaching art from its surroundings. The other method LI used a lot was détournement, which means rerouting in English. Debord and French artist Gil Wolman defined the term in 1956 in A User's Guide to Détournement, as
+
+              "
+              guy debord and gil wolman. “a user’s guide to détournement.” situationist international anthology, 2006
+
+              [t]he integration of present or past artistic productions into a superior construction of a milieu. In this sense there can be no situationist painting or music, but only a situationist use of those means. In a more elementary sense, détournement within the old cultural spheres is a method of propaganda, a method which reveals the wearing out and loss of importance of those spheres
+              "
+
+              /assets/si history timeline
+
+              This timeline briefly illustrates the history of the Situationist International active from 1956 to 1972.
+
+              One of the notable adventures during the time of LI was Charlie Chaplin protest. Isou admired Chaplin as a great cinematic artist. LI thought Chaplin’s work was not pertinent with the time and claimed to represent freedom which made him an idol. LI members urged to destruct idols in order to express freedom. Thus they criticized Chaplin in his press conference with a title No More Flat Feet!. They said, "the footlights have melted the make-up of the supposedly brilliant mime. All we can see now is a lugubrious and mercenary old man. Go home Mister Chaplin.”16
+
+              In 1956, LI members met people from another avant-garde group called International Movement for an Imaginist Bauhaus (IMIB), which was a branch of Copenhagen Brussels Amsterdam (CoBrA), in a conference in Alba, Italy. Both parties found that they shared a lot of common interests and beliefs politically and philosophically. The situation was similar between LI and London Psychogeographical Association. As a result, in the following year, these three groups officially united and became SI. The actual leader of SI was still Debord. During the first four years, he worked closely with Danish painter Asger Jorn, who was the founder of CoBrA, another European avant-garde movement group, and the predecessor of IMIB.
+
+              In 1957, Guy Debord wrote the manifesto of SI named Report on the Construction of Situations. He brought in the thoughts of Karl Marx’s Das Kapital and defined a constructed situation as “a moment of life concretely and deliberately constructed by the collective organization of a unitary ambiance and a game of events”.17
+
+              The years from 1958 to 1962 was the artistic period of SI. During that time, a lot of avant-garde artistic groups joined SI, including Gruppe SPUR, later considered the German section of SI. In 1962, there were a lot of splits from the SI. The main part of SI thought that Gruppe SPUR misunderstood the theses of SI and was only using SI for art success. The disagreements led to the exclusion of Gruppe SPUR. Following this, the Scandinavian section of SI, Nashists, led by Danish artist Jørgen Nash, were excluded from the organization as well.
+
+              Then there followed the political period of SI from 1963 to 1968. In 1967 and 1968, SI reached the apex of its creative output and influence. Two significant publications were The Society of the Spectacle by Debord and The Revolution of Everyday Life by Belgian writer Raoul Vaneigem. Debord defined the term spectacle in his publication, which means the mass media in its limited sense. At that time, there was only Franco-Belgian section left in SI.
+
+              In 1968, SI was involved dominantly in the May events in France, expanding their theories to working class and students. In 1972, SI dissolved with only two members left, Italian writer Gianfranco Sanguinetti and Debord.
+
+              \r\efficiency & urban structures
+
+              Humans have been surpassing ourselves in developing faster, greater and better machinery and strategies, especially since the Industrial Revolution. The pursuit of efficiency in our society produces plans, standards, rules, habits, routines, disciplines, legislation, social etiquette and so forth. These are man-made structures that define an urban space. To enjoy the benefits that a city has to offer, a dweller has to submit oneself to the structures that come along.
+
+              To use urban commuters as an example, they may find it hard to take their time at home every morning to have a proper sit-down breakfast. In a city like New York City, subway during the morning rush hour is always inevitably packed. An office is not a good place for breakfast as well, which leaves people no choice but to eat on their way from subway station to workplace. Similar scenario can be applied to lunch break. Accordingly, there has been lots of food designed to accommodate modern pace of cities, in terms of the shape, packaging, preparation and preservation methods. Setting aside the debate about healthy eating, these advancements in food industries help commuters to better survive the urban structural life.
+
+              \r\chaos & absurdity
+
+              As mentioned previously in the section of information organization, the artist believes that before human applies an organizing behavior onto a domain, everything within that domain is chaotic. Chaotic information usually does not make any sense. However, senseless information is sometimes meaningful. No matter it was Vladimir and Estragon’s endless and vain waiting for Godot, or French novelist Albert Camus's philosophy of life being inherently meaningless as stated in his The Myth of Sisyphus, the theatre of the absurd has inspired generations not only in philosophy, but also in some practical fields, such as game design.
+
+              Starry Heavens is a physical, social, strategic and moral game developed by game designer Eric Zimmerman and architect Nathalie Pozzi.18 The rule is that players can join by stepping on one of the steel plates at any time, only move according to the directives from the ruler who occupies the only yellow plate at the center, and try to overthrow the ruler. From other players’ perspective, it does not make sense that one must follow the enemy’s instructions to defeat the enemy. Once a ruler is dethroned and one become a new ruler, it does not make sense that this new ruler has to give orders to be overthrown. However, putting together this game depicts an absurdist story of a pointless conflict which produces rich discussions and deep connotations.19 It could be equally fruitful if this thesis project generates similar conversations in an absurdism sense.
+
+              \r\food studies
+
+              The artist cannot use food as the medium to manifest her thesis without researching food systems. A food system is defined as “the path that food travels from field to fork, [which] includes the growing, harvesting, processing, packaging, transporting, marketing, consuming, and disposing of food”.20 On this spectrum, the packaging, marketing and consuming of food are three aspects this project examines.
+
+              The artist realizes that conceptually, she zooms in her lens from two perspectives. Influenced by psychogeography, she looks at limiting urban structures not from the social scale but on an individual level. This shift from macro level to micro level focuses the articulation on the audience’s personal perception. In other words, she shifts the angle from looking down upon human activities to provoking human emotions from the inside out. Similarly in the field of food studies, Italian architect and designer Luigi Bistagnino argues that in order to obtain zero emission, food industries should plan and design for the being, which is human, rather than for the having, which means product.21 He encourages people to approach food systems strategy from hedonistic design viewpoint to humanistic design angle. For example, he suggests applying new localization locally and creating non-globalized indistinct markets to better sustain the environment, which is also an attempt to start from a smaller scale for a bigger question.
+
+              This project uses eating on-the-go as one example of the connections between food and urban structure. From a holistic angle, British-born American writer Raj Patel believes that “guided by the profit motive, the corporations that sell our food shape and constrain how we eat, and how we think about food”.22
+
+              "
+              patel, raj. stuffed and starved: the hidden battle for the world food supply. brooklyn, ny: melville house, 2007.
+
+              Our choices [of food] are not entirely our own because, even in a supermarket, the menu is crafted not by our choices, nor by the seasons, nor where we find ourselves, nor by the full range of apples available, nor by the full spectrum of available nutrition and tastes, but by the power of food corporations.
+              "
+
+              These corporations, just as urban structures, seem to be the ones who are in control. This project accepts the existence of these powers, but focuses on the perception and reflection of humans who are in the shadow of objective controls.
+
+              \precedents
+
+              There has been lots of artists employing walking as a main method to develop or perform their artworks. Written, cinematic or participatory walking scores are generated as a form of art. Throughout the fall of 2015, the artist has gone on nine artistic walks and one touristic food tour in total, which provides her with abundant field research findings and inspirations. She has also looked at various other forms of projects, including atlases, anthropological research, games and fashion shows.
+
+              \precedents\JANET CARDIFF’S HER LONG BLACK HAIR
+
+              Canadian artist Janet Cardiff presented an immersive experience through a site-specific psychogeographic walking score named Her Long Black Hair first in 2004.23 A participant simply put on a pair of headphones, take a map and five printed photographs, and start following Cardiff’s footsteps from the south entrance of Central Park in New York City. The walk presents “stream-of-consciousness observations with fact and fiction, local history, opera and gospel music, and other atmospheric and cultural elements”24 vividly through multiple senses. It took Cardiff six years to carefully design the soundtracks with multiple layers as well as the narrative to lead the journey. There is audio, visual and other human perception combined in this marvelous adventure that the audience can reflect on. The craftsmanship and novelty of form has made this cinematic walk the artist’s favorite.
+
+              \precedents\LEE WALTON’S THE CITY SYSTEM
+
+              American visual artist Lee Walton’s The City System is an instance that an artwork engages its audience in a participatory urban stroll.25 However, this type of walking score gives specific instructions to challenge its audience with observation and decision making. The written walking score has more than a hundred pages of interconnecting short quizzes, which form a highly structured system. The artist is generally stunned by the degree of its convolution and articulation.
+
+              \precedents\REBECCA SOLNIT’S ATLASES
+
+              Atlases have been made through psychogeographic techniques. American writer Rebecca Solnit exhibits infinite cities within one city, San Francisco Bay Area, with an atlas illustrating the same urban space from various perspectives.26 A similar technique has been used in her Unfathomable City: A New Orleans Atlas,27 which opens up readers’ interpretations of a planned urban area. An upcoming atlas that portrays New York City will be published in early 2016. Solnit’s atlases are drawn from others’ eyes which manifests the diversity of a single geographic area. In a similar sense, the artist’s thesis project aims at collecting others’ reflections and responses of a single topic by inviting them to a single urban space.
+
+              \precedents\HELEN MIRRA’S THE HALFSMILER
+
+              In the fall of 2014, American conceptual artist Helen Mirra walked and invited people to walk separately with her, departing from one of the cemeteries in New York City generally towards southwestern direction. A half-smile is all what Mirra asks for a participant to take on in this meditation walk. This particular facial expression is “not a grin or a smirk.”28 It is “both autonomous and intended towards other beings.”29 It is an instrument that Mirra invents to turn on and maintain a participant’s meditative mind state. The half-smile as well as the walking is “both a substantial commitment and an easy employment.”30 By being conscious about the half-smile at all times during the walk, the artist found her sensory perception sharper as if she was having an out-of-body experience. Likewise, to effectively restrain participants’ thinking within certain boundaries is what the artist looks for in order to engage the audience in a desired mindful reflection domain.
+
+              \precedents\ANDREW IRVING’S NEW YORK STORIES: THE LIVES OF OTHER CITIZENS
+
+              An anthropologist based in the University of Manchester in UK, Andrew Irving has been conducting his research around “a peripatetic transcription of consciousness”.31 He came to New York City in 2011 and approached pedestrians with “a strange question, […] can I ask you what you were thinking before I stopped you?”32 Surprisingly, a hundred strangers gave him positive answers and agreed to put on a microphone headset with voice recorder as they continued to walk. Irving documented their walk with a camera from their back while they were thinking out loud. He later incorporated the audio into the footage.33 In this naturalistic and objective way, he captured people’s soliloquy in an urban environment. He mapped “the city's thoughtscape layered beneath its audible soundscape,”34 and found out “how much changes in physical surroundings affected pedestrians' modes of thinking.”35
+
+              \precedents\ELASTIC CITY AND TODD SHALOM’S DIRTY GAY SOUNDWALK
+
+              Elastic City is a major organization in New York City devoted to producing artistic walks. It was launched in 2010 by artist Todd Shalom. Over the past years, Elastic City has delivered “over 125 new sets of walks, talks, ways and performances by over 100 artists”.36 In July 2016, Elastic City will have its seventh and final festival, to which this project was aiming at pitching. Shalom’s walks usually rely greatly on audience’s participation. He has developed from his experience a set of useful techniques in terms of how to lead and engage the participants effectively and considerately. The artist personally found his Dirty Gay Soundwalk37 very intriguing and illuminating.
+
+              \precedents\GLOWLAB’S NEWS.BOX.WALK
+
+              News.Box.Walk is a game developed by Glowlab, a psychogeographic collective, where players keep track of the features of news boxes they encounter on the street, which tells them which way to go next and who wins.38 It is an example of combining a playful activity with psychogeography.
+
+              \precedents\COLLEEN MACKLIN’S RE:ACTIVISM
+
+              Game designer and professor Colleen Macklin’s Re:Activism is a location-based urban game, which maps the history of activism onto the streets, as players re-enact and re-create the events that once happened there.39 The history and events support the play, which is what the artist seeks in her iterations to link up existing elements in an urban space.
+
+              \precedents\KARL LAGERFELD’S CHANEL CATWALKS
+
+              German fashion designer Karl Lagerfeld presented the Chanel fall/winter 2014/15 ready-to-wear collection in a systematically designed Chanel Shopping Center.40 Apart from complimenting him on the spectacle and novelty of set design, the artist audaciously speculate that Lagerfeld put on a gesture of making luxuries appear to be more accessible, only to make it even more upscale. After all, what a celebrated designer and a renowned brand needs, is some element of imaginativeness. It actually seems similar that Lagerfeld and the artist are both trying to elevate something in a supermarket playground. It is just this thesis project aims at a spontaneous awakening of one’s own free will, instead of a celebration or satire of consumerism.41
+
+              \pttp itrt
+              <!-- pttp itrt:
+                Way-Finding Walking Score
+                Eating On-The-Go Interaction/
+                Whole Foods Maze
+                Situation, Adventure! -->
+
+              \pttp itrt\Way-Finding Walking Score
+
+              Generally speaking, the artist started this project by asking: How do people interact with maps? How do maps capture, present and communicate the fact of order? What kind of effect does using maps have on people’s perception about order and chaos in their lives? How do people deal with the planned/organized/systematic/structural and the unplanned/arbitrary/random/chaotic? Where does realizing/noticing/paying attention to this thinking about order versus chaos lead us? How do New York City map users deal with the planned as well as the unplanned? She proposed to research psychogeography in order to understand the politics of drifting versus map-guided navigation for urban adventurers. In her research, drifting is interpreted as instruction-based exploration without set starting points, destinations or routes. She also studied order in urban spaces and chaos in general nature because she wanted to find out how she, as a structural thinker, can deal with her personal confrontation between order and chaos in her life in order to understand what role do the act of organizing play.
+
+              \pttp itrt\Way-Finding Walking Score\plan & implementation
+
+              By researching through walking, she wanted to find out that how one might raise awareness and encourage thinking on the paradox between a planned activity and its unplanned elements through the creation of a walking score. She was trying to create a playful walking experience for New York City dwellers to evoke their reflections on structural urban lifestyle, and spur discussions on structural and chaotic thinking, through interactions with food and map.
+
+              For the first prototype, the artist created a walking score by giving a map and a destination to her participants, letting them to choose a spot on the edge of the map and physically navigate without any map from the spot to the destination by asking strangers for directions at each crossroad they encounter. In this way, they put themselves into chaotic way finding and generate their route as a new map.
+
+              \pttp itrt\Way-Finding Walking Score\feedback & evaluation
+
+              The artist’s intention was to make the participants pay attention to what they discover along the way, and reflect on the discussion of order and chaos. Based on her notes, this chaotic way finding approach turned out to be efficient because the journeys usually ended up taking the shortest route, which gave another layer of implications on order and chaos. However, she found that her participants were easily preoccupied with looking for the destination. They can hardly relate the experience to the abstract, philosophical thinking on order and chaos. In general, the experience was not playful enough to engage her audience, and she realized that if she wanted people to reflect on two contrasting subjects, she had better push them to one extreme first, to make them uncomfortable so that they hope to choose the other direction.
+
+              /assets/round map
+              /assets/Way-Finding Walking Score
+              /assets/Way-Finding Walking Score Test
+
+              \pttp itrt\Eating On-The-Go Interaction
+
+              The artist started this iteration with the following questions. How might one use food to attract people into the experience that she was creating? How might one use food as a practical, accessible tool to demonstrate the abstract, philosophical, serious topic about structural living and chaotic thinking?
+
+              There has been food designed to accommodate fast-paced urban rhythm. The pursuit of efficiency in our society has produced routines, standards, rules and habits, which the artist refers to as the structural. Because she wanted to criticize structural living, she intended to remind her participants of the pain points of the structural first.
+
+              The second prototype focused on a part of the entire walking experience, in which the artist wanted to use food as a stimuli to evoke participants’ reflection on structural urban lifestyle. She would like to test if a direct reflection can be triggered by the experience.
+
+              \pttp itrt\Eating On-The-Go Interaction\plan & implementation
+
+              The artist videotaped the process of the tests and interviewed her participants afterwards to gain feedback in terms of their physical feelings, mental reflections and further comments and suggestions. Since the artist was offering and testing an experience, it was optimal to talk about the experience while it was fresh. A straight-forward conversation was more natural and effective than a questionnaire or other forms of feedback.
+
+              The elements that the artist took into consideration in this prototype were the specifics of the food, the parameters of walking and the participants’ interaction with food while walking. She chose a slice of Italiano panini as an example of hot food, and frozen smoothie as an example of cold food. In this indoor test, she asked each participant to choose one item of the food as his/her breakfast on the way to work, and imagined that he/she worked for IBM. Just as another subway ride of the participant’s daily commute, it was too crowded and not appropriate to eat on the subway, nor did he/she had enough time to have a proper breakfast at home. The participant had no choice but to finish the breakfast on the way from 57th St F train station to the IBM building on Madison Avenue in New York City. The artist instructed the participants to eat and finish the portion of the food they chose within two minutes. She created a short video by recording a computer screen while navigating in Google Street View, and showed it to each participant while one was eating. She chose IBM because it was a well-known company and most importantly, the distance between the subway station and the IBM building took fairly short amount of time to navigate in Google Street View, which was suitable for this particular test. In this way, the artist simulated the scenario of a participant taking an item of food and going on to start a walking experience in the streets of Manhattan. Being rushed to finish their breakfast, participants might feel a level of discomfort which would remind them of the pace of urban living.
+
+              The artist recorded the participants’ reactions while she orally pressed them to hurry up during their experience. She only revealed the aim of her project after their experience in order to test if there was a natural connection between the experience and intended reflections on order and chaos.
+
+              The test took place in Room 610 at 6 E 16th St in the afternoon of October 29, 2015. There were four participants who completed the experience. They were students and faculty in Design and Technology program at Parsons. They were all conscious about a designed experience and had had similar experience of eating on-the-go. They were all living in New York.
+
+              \pttp itrt\Eating On-The-Go Interaction\feedback & evaluation
+
+              I want to use food as the stimulus to remind my participants of the pain points of structural urban lifestyle by re’living the experience of eating on-the-go.
+              In an indoor test, I let my testers to choose one item of the food and imagine they work for IBM and just got off the 57th St F train station.
+              Just as another subway ride of their daily commute, it was too crowded and not appropriate to eat on the subway, nor did they have the time to have a proper breakfast at home.
+              They have no choice but to finish their breakfast on their way to the IBM building on Madison Avenue.
+              I simulated the atmosphere by showing them a short video created by recording my computer screen while navigating in Google Street View.
+              I verbally rushed them to eat and finish the food within 2 minutes.
+              No matter they choose smoothie, which is usually cold, or panini, which is usually steaming, it will not be a joyful experience to consume the food super fast.
+              This is a certain level of discomfort I want to create in the first half of the walking experience, and the tests confirmed its effectiveness.
+
+
+              Food was an effective element to attract participants to approach the project. No matter they chose smoothie, which was usually cold, or panini, which was usually steaming, it would not be a joyful experience to consume the food super fast. This was a certain level of discomfort the artist wanted to create in the walking experience, and the tests confirmed its effectiveness.
+
+              The use of Google Street View successfully simulated the atmosphere of walking in the streets of Manhattan. The visual characteristic of navigating in Google Street View together with the verbal pressure had an effect on the participants which gave them the feeling of being rushed. The participants were able to relate the experience to the pace of urban living.
+
+              Some of the participants felt that the food element was a little out of the place in contextualizing the deeper concept of the project. Some expressed that there was not a direct connection between their experience and the intended reflection. The results showed several valuable points and confirmed that the connection between experience and reflection needed more thoughts and revisions.
+
+              The artist was satisfied with the use of Google Street View. However, ideally the experience would take place outdoor where people could physically walk, which was the subsequent scenario the artist intended to work on. The results confirmed the effectiveness of incorporating food, yet whether or not the element of food was the best medium to carry the experience became a new question. Other questions were: how might one effectively make the participants relate to the thinking and discussion about order and chaos? What were the specific aspects in this topic that the artist was interested in exploring and amplifying? What were the specific angles in the topic of order and chaos that this project talked about? How might the artist design the other part of the experience to show the benefits of chaotic thinking? The artist thought that she found the right spot to dig a hole on the ground, but there were so many paths underground that she had to find the right one to lead her to her gold mine.
+
+              By the end of this iteration, which was a quarter of the progress in the development of this project, the artist was clear about the following points.
+
+              The form of her project embodied the concept. Food was an inviting element to engage potential participants. She valued heavily on the deep research, argument, reasoning and reflection during the development of her project. She put herself into the audience’s shoes to think and design. Her project aimed at initiating a serious discussion through a playful experience.
+
+              One of the premises of her project was that the pursuit of efficiency had created too much structure in modern society. Efficiency seemed to be a topic that the artist had not carefully evaluated. The rules, habits, routines, standards, procedures and such were the structural that she criticized with this project. Was this definition complete? It seemed to some people that it was a paradox that she used an imaginary maze which had its virtual structure to represent chaos. In addition, what indeed were the benefits of chaos? By bringing efficiency into consideration, by positioning the topic in an urban environment, by rushing participants to finish their food and by setting rules and obstacles to form a maze, was the artist talking about time and space rather than order and chaos? Was the order and chaos that she wanted to talk about actually rationality and absurdity? The structural, efficiency, chaos, time and space, rationality and absurdity, were the keywords that would lead her subsequent research and concept development. By clarifying, deciding, keeping and abandoning some of these terms, she hoped to address the issues above to make her concept clearer, sharper, more critical and straight-forward. What were the effective rules that had been applied to an urban environment in order to turn it into an alternative space? What was the politics of map-making and labyrinth-designing? What were the examples of that efficiency creates structure?
+
+              The artist was on the right path by this time in terms of concept development. She thought she should definitely push herself forward in terms of physical prototyping. Apart from resolving the deeper philosophical issues, she also needed to look for ways to complete a feedback loop from her participants.
+
+              \pttp itrt\Whole Foods Maze
+
+              For the third iteration, the artist mainly focused on two questions: How might she design a walk that would be both psychogeographic and playful? What rules would be effective in order to turn an urban space into a physical maze?
+
+              \pttp itrt\Whole Foods Maze\plan & implementation
+
+              Thanks to the artist’s peers in a course called Walking as Research Practice, she managed to put together a persona by asking them to spend at least 10mins in the Whole Foods Market at Union Square, pay attention to either their internal emotions, or their interaction with physical objects, or their communication with other people, and mark the moments when they feel they are being controlled or when they feel they can follow their own free will.
+
+              \pttp itrt\Whole Foods Maze\feedback & evaluation
+
+              Walis Johnson is a filmmaker living in Brooklyn. She frequents another Whole Foods Market rather than the tested one. One day, Johnson saw the woman in pink talking about a super delicious sandwich and was tempted to buy the same one. Johnson felt she was manipulated by another customer’s words. She found herself near the seafood counter and was upset by an intense smell. Johnson then made eye contact with those whole fish, and suddenly felt sad, about dead fish, dead shrimp, even packaged meat. She smelled death and thought she was turning vegetarian. At the end, Johnson waited in the line organized by, what she considered, the most anxiety-provoking screen system.
+
+              This iteration honed in a supermarket setting as a special system of control. The artist was commented as performing clear qualitative user testing. Critics mentioned that Whole Foods Market was a great jumping off point. Specific questions raised were: How might one turn a grocery store into a maze? What were the existing elements in Whole Foods Market that can be used to define this maze? What hypothesis did the artist have? What were the materials that she would like to deliver? Would it be a paper map, or an audio tour? What would the participants produce? How would people navigate the space? Would a map make sense anymore? Would there be another form or a list?
+
+              By gathering more inputs like the persona shown in the documentation, the artist hoped to figure out the mechanics of this Whole Foods maze. Further investigation on consumerism, consumer capitalism and social media precedents might help her clarify her hypothesis and the final material that the artist or her participants would produce.
+
+              From her field research, the artist had discovered a list of elements that can be employed in the design of the instructions, such as smell, color, text on posters, menus and signs, number on price tags, existing classifications, employees and customers, as well as the merchandise. The question was, what should she do with these elements to deliver an effective mechanics of this Whole Foods maze?
+
+              /assets/persona walis johnson
+
+              \pttp itrt\Situation, Adventure!
+
+              /assets/relational shelf mockup + zdog: rotating shelf
+              /assets/monograph: Situation, Adventure! both printed n available in tns lib digitally
+
+              This project culminates in a 5ft (length) x 5ft (width) x 5.5ft (height) interactive physical indoor installation, which resembles a part of a restraining, commercial, and colorful supermarket to evoke reflections on urban structures. The setting involves two shelves and a counter equipped with a RFID reader and a thermal printer. She identifies specific solid or liquid food items, produces bite-size samples and designs food packaging accordingly. Each item of the foods involves at least one ethnic or rare ingredient, which can only be bought in certain neighborhood or store in NYC. The RFID-tagged packaging shows the name, ingredients and recipe of the enclosed food. These food packages fill the shelves at the installation. The audience is free to take a package of food; however, one must scan the package before open it at a labeled area on the counter. When the RFID reader recognizes the tag on a package, the thermal printer generates a receipt as a takeaway. The receipt illustrates instructions on obtaining the special ingredient, which leads to an outdoor site-specific scavenger hunt. The audience decides at their own discretion to go on this adventure on their own time.
+
+
+              My idea about the installation is primarily inspired by Sol Lewitt’s incomplete open cubes.
+              He drew <cite>variations of incomplete open cubes</cite> and made them into sculptures.
+              gave me modernism conceptualism inspiration
+
+              a 4 by 4 by 5 feet freestanding cubic shelf
+              7 edges, no sides
+              I form a part either by displaying packaged food that allows the audience to take away, or by constructing an urban scene using unpackaged food with plexiglass closure.
+
+              started with the most symbolic recognizable visual representation of this city, the map of Manhattan
+              silhouette of Manhattan looks like a french fry
+              send to CNC
+
+              For the design of the pkging + the choice of food,
+              I’ve been collecting geometric pattern as visual examples of urban structures
+
+              I’m <b>incorporating</b> these found structures <b>onto</b> the pkging (hand out lil yellow box
+              n using these patterns to <b>decide</b> the food items, e.g. haw snack
+              I’m basically looking at the <b>texture</b> of the food that <b>resonates</b> with a structural pattern.
+              The pkging not <b>only</b> carries urban pattern, it also illustrates a <b>score</b> that prompt the audience to go out into the city to look for these structures.
+              This process allows the audience to <b>see the unseen</b>, objects that are easily overlooked, or things that we take it for granted. In other words, it’s an <b>adventure</b> that make urban structures <b>obvious</b>.
+              The interaction between players give some insights
+
+
+              Situation, Adventure! is a freestanding wooden shelf that embodies restraining urban structure. Bagels, hawthorn berry cakes, French fries and more … fill this shelf while their texture and presentation communicate the symbolic resemblances between food and urban structure. Their packaging prompts a psychogeographic walking score to spur discussions on being constrained versus acting at one’s free will. You are welcome to take a packaged snack, and go for a jolly stroll!
+
+
+              Situation, Adventure! is a freestanding wooden cubic shelf that embodies restraining urban structure. Bagels, hawthorn berry cakes, French fries and more … fill this shelf while their texture and presentation communicate the symbolic resemblances between food and urban structure. Their packaging bears a walking score that prompts the audience to an urban adventure. The audience is free to take a package of food, and go for a jolly stroll.
+
+
+              Situation, Adventure! is the final installation that manifests this project in Between Spaces, the MFADT Thesis Show 2016. It is a freestanding wooden cubic shelf that embodies restraining urban structure. A regular cube has twelve edges which generate six sides. This shelf has seven edges and no sides, and measures four feet long, four feet wide and five feet high. It creates physical limiting space with its architectural features. Inside each edge, the artist forms an individual section either by displaying packaged food that allows the audience to take away, or by constructing an urban scene using unpackaged food with plexiglass closure.
+
+              Inspired by Sol Lewitt’s Incomplete Open Cubes, the artist feel that this wooden structure as a food display platform is able to carry all the elements that have been thought about in the project, including control, order, physical structure, urban structure, food, packaging and walking score. Bagels, hawthorn berry cakes, French fries and more … fill this shelf while their texture and presentation communicate the symbolic resemblances between food and urban structure. The packaging of the foods bears a walking score that prompts the audience to an urban adventure. The audience who visits the exhibition from May 17 to 21, 2016 is free to take a package of food, and go for a jolly stroll.
+
+              \bibliography
+
+              /assets/woodworking documentation
+
+              \reflt, postscript
+                ///many turns, detours
+                ///less commercial, pragmatic, b lucky for woodworking, good for theoratical critical thinking, rare/few opportunity to practice in a lifetime
+                ///light on pkging
+                ///did not quite close the loop
+            </p>
+          </section>
+
+          <!-- case study 04 mobile media -->
+          <!-- domains: mobile ux dzn, ui dzn, product dzn -->
+          <section id="cs-mm">
+            <h1>go foodies. an iphone app</h1>
+            <!-- pretty inmature screen, needs polish/update, change type? -->
+            <p>
+              \context: goal
+              \hmw
+              \app map
+              \wf
+              \fdbk fr drew:
+              When presenting it’s helpful to start with your app map. It gives people an architectural overview of your app and gives you a chance to outline the major features of the app. It’d also be helpful if you labelled your each wireframe page view. I got a little lost about what view I was looking at, and that would help fix that.
+
+              Your presentation had a really nice justification ///? why this app was necessary instead of using Open Table.
+
+              This was brought up in class, but the most important thing to do will be simplify your landing/main view. You can start with the map view with a search bar on top. There’s no need to have a view before there. The interactions on your existing starting view are complicated and would be hard to figure out.
+
+              For the map view, which we’ll now consider the main/landing view, think about what would happen for a user from Ohio. Maybe you’d just see the whole of New York, or the area with all the pins of all the restaurants. It might be useful for folks in general to first see the overview of the city and then to optionally zoom into close by places. I’d imagine many users, perhaps the majority, would be thinking further out that finding a meal to eat soon that is nearby me.
+
+              I’m wondering if a list view could be valuable in addition to the map view as well. It might give you a different view of the content to highlight the restaurants in a different way.
+
+              Likewise, it could perhaps be useful to search by the time/date that I want to go out to eat, so that restaurants that are booked at that time won’t come up.
+
+              There’s no need to include the app name/slogan in the app. You’ve got the app icon to brand the app; it’s worth saving that area for functional content.
+
+              This came up in class, but it could be useful to see reservations that I have made, since many users may want to make more than one reservation, or at very least, they may want to be reminded about reservations that they have made.
+
+              \pttp v1
+              Please find my first digital prototype at www.flinto.com/p/db9835a0
+
+              Paper prototyping helps me realize that the bottom navigation bar should clearly indicate all the views available in an app. A user should always stay on one of the views. It becomes obvious that a constant navigation bar will keep the interaction flow, i.e. avoid that a user got stuck at some point in the app.
+
+              Apart from this, I do have a feeling that paper prototyping for mobile app is becoming less efficient compared to evolving, convenient digital prototyping tools we have today. Because the mobile application is a species born from the very medium of digital screen, a traditional medium is not capable of many of the interactions the mobile screen cultivates.
+
+              \pttp v2
+              Please find my second digital prototype at www.flinto.com/p/b74505c0.
+
+              There were a lot of valuable feedback I got based on the first digital prototype, and I made adjustments accordingly.
+
+              It was suggested that it would be better to give users an option for searching restaurants by type of cuisine, so I added filters.
+              The restaurant recommendation list on the first view was a bit long, so I reduced the quantity to 2, one for a restaurant that has a last spot very soon, the other for the most popular restaurant near a user’s current location.
+              The use of warm colors in the app was suggested, and using one hue with different shades was said to be more relevant and focused for an app. So I dedicated the overall color theme of the app to shades of red. It is usually considered a color that easily works up people’s appetite.
+              The consideration for color-blinded people was brought up, so I abandoned the previous design of having red button related to unavailability and green button for availability. In the newer version, an unavailable restaurant will not allow to make a reservation.
+              I included a form for credit card information, as for certain restaurants, it was required to have that info when booking a table.
+              The map on the first view was thought to be too zoomed-out, so I modified it to show only the range of all the participating restaurants.
+            </p>
+
+            <h1>china aqi. an apple watch app</h1>
+            <!-- before the 1st apple watch released, among the 1st crowd to dzn for watch.
+            check out what current dzn is -->
+            <p>
+              \context: china aqi iphone app
+              \hmw
+
+              \app map
+              \wf
+
+              \pttp v1
+              Please find my first digital prototype at marvl.in/77h17g.
+
+              \pttp v2
+              Please find my second prototype at marvl.in/a26g84.
+
+              \ppr pttp testing
+              According to the feedback based on paper prototype, I improve the following aspects in my design:
+
+              I add the Air Quality Index in the long-look notification view. It was pointed out that it would be better to let user have a brief understanding of basic parameters.
+
+              In the main view, a user can allow the app to show multiple cities in a list. Some people liked this capability, while others expressed that they might only care about their current location. I keep this function for people to customize, but highlight the current city with an compass icon.
+
+              Also in the main view, AQIs of different cities have already been color-coded. It was suggested that the city names were not very clear compared to the numbers. So I prioritize the city names by putting them above AQIs and increasing the font size. AQIs remain their colors with a smaller font size.
+
+              There was a lot of text in detail views for specific cities. I add health advice icons as visual aids and reduce the text to facilitate reading.
+            </p>
+
+            <h1>pooli. an iphone app</h1>
+            <!-- teamwork -->
+            <p>
+              \context: problem
+              \hmw
+
+              \app map
+              \wf v1
+              Order Together is a working title for Feng and Xueer’s final project. We can hardly find an apposite name for our app, so we are opening for any suggestion or recommendation.
+
+              Our target users are those who are New Yorkers, online shoppers, Metro riders and most importantly those who want to get a great deal. It is not easy to satisfy the seller’s conditions for an individual customer, eg. reaching certain total amount in a single order, in order to get the desired deal.
+
+              We offer a solution for our users by letting them pool their orders. You may just want to buy one item that costs $29.99 but still expect to get a “15% off when you spend more than $80” deal. Now you can order with others to qualify for that, with no extra charge. By connecting online shoppers, we have the opportunity to bring bigger deal to them and also create a new daily habit for our customers and merchant partners.
+
+              Building for the long term, Order Together is not just an iPhone app. It is an e-commerce platform. To provide our web buyers a great experience, we will leverage the company’s global relationships and scale to offer consumers a vast marketplace of unbeatable deals all over the world.
+
+              Based on this theory, we start this project at a point where hypothetically we have already had a strong marketing team, a professional developer team and also a lot of pick-up spots located around NYC Metro stations.
+
+              Here is the initial sketch of our app map.
+
+              appMap.sketch
+
+              Here is our revised app map. This app has four views.
+
+              Screen Shot 2015-04-18 at 4.21.04 PM
+              Screen Shot 2015-04-18 at 4.21.15 PM
+              Screen Shot 2015-04-18 at 4.21.31 PM
+
+              According to the app map, we started to design our wireframes. Here are the sketches of our wireframes.
+
+              2015-04-18 16.42.42
+
+              We assume that our users have already known what they want to buy and have already found the product online. They only need to enter the product url in our app. We can get all the product info via this url. Here we had a question: what is the most user-friendly way to enter a url in this app? The first idea we got is “Copy and Paste”. We design a url input bar on the top of the main view.
+
+              2015-04-18 16.43.06
+
+              \wf v2
+              Feedbacks: We realized that online shoppers would prefer searching for a product on a computer rather than a smartphone via our test during class last week. This changed the whole thing. We have to redesign the approach of entering a url.  Therefore, in the second version of our wireframe, users can enter a product url by either “Copy and Paste” or “Scan”. By “Scan”, we mean using your phone to scan a url on your laptop browser. We leave the implementation of this important and innovative interaction to our wonderful developer team. [presentation]
+
+              Here are our revised wireframes.
+              wf.v2 p1-8
+
+              \pttp v1
+              Please find our first digital prototype at marvl.in/b82j9e.
+
+              Possible names: Porder / Pooli (Pool in Finnish). Vote!
+
+              What we learnt from paper prototyping
+
+              Cart view is redundant for our app. So our tab bar iterated from [Feeds, Cart, Profile, History] to [Buy, Cart, Profile, Orders] to [Buy, Orders, Profile].
+              We reduced the complexity of settings by merging personal info/notification/security settings to a single page.
+              We simplified the process of placing an order by reducing the quantity of confirmations.
+              We found that it is more convenient for users to allow them to scan their cards instead of entering card information. Reference: Uber.
+
+              \pttp v2
+              Here are our Final Presentation and Digital Prototype (marvl.in/bg1b10).
+
+              We got many helpful feedbacks from the first version of digital prototype.
+
+              The three ways of searching a product on the main view can be integrated and simplified to take small space, so that room can be made for some editorial content, such as popular/recommended products/orders. A clear finishing moment or confirmation screen is important for users to commit to an order and the purchasing action. For first-time users, it would be great to have some instructions/tutorials or hints to walk them through the flow and get an idea of how the order pool works. Safari sharing plugin can be a possible way to send a product link from a browser to Pooli. Apple Pay and Paypal can be used as payment alternatives.
+            </p>
           </section>
         </section>
 
         <!-- side col, hidden unless wordy view -->
-        <section>
-          uncut n raw, self-doubts, unfiltered, raw, reflt
-        </section>
-
-        <!-- case study 01 cloudrone -->
-        <!-- III: Inspiration Ideation Implementation -->
-        <!-- <section>
-          <h1>context</h1>
-          <h1>inspiration</h1>
-          <h1>ideation</h1>
-          <h1>implementation</h1>
-          <h1>takeaway///word help figurative synonym wine residue leftover</h1>
-        </section> -->
-        <section>
-          <p>
-            ///narrative dirn: introduce an already-dzned-product or chronological?
-            \context\smog
-            It was the spring of 2015. It had been three consecutive winters that hundreds of millions of people in northern China suffered from the alarmingly poisonous smog. The documentary <cite>Under the Dome</cite> had just gone viral online <!--(150228)-->, spurring extensive discussions on what the culprit of the air pollution was and how individuals could start to take responsibility.
-
-            The air pollution in China is severe now. Truly, big factories contribute a lot to the air pollution. However, there are plenty of restaurants, gas stations and cars releasing waste gas without filtration. Up to 20% of the air pollution results from those waste gas.
-
-            if you've heard of the China's smog problem, you probably know there's a renowned documentary ... /you probably know there is a documentary that once went viral
-
-            We both have lived in BEIJING for at least THREE years. So we FEEL the air pollution there.
-            Because of the smog, people have no choice but to wear 3M masks in order to protect themselves against noxious emissions from factory chimneys and motor vehicles. At the time we saw a commercial drone, we knew the mobility of drones can be of great use on tackling urban air quality issues.
-
-            The designers and makers behind this project, Haotian Li and Xueer Zhang, have both lived in Beijing, China for at least three years. They feel the air pollution there. Because of the smog, people have no choice but to wear 3M masks in order to protect themselves against noxious emissions from factory chimneys and motor vehicles. At the time they saw a commercial drone, they knew the mobility of drones can be of great use on tackling urban air quality issues. They were mainly inspired by Under The Dome (www.youtube.com/watch?v=T6X2uwlQGQM //® imdb link?), a documentary directing at China’s environmental conditions and policies which has provoked a great deal of discussion since March 2015.
-
-            As students moving from Beijing to New York, my project partner Haotian Li and I asked ourselves: How might we ///?
-
-            \context\drone
-            It was a snowy January. Drones were still
-              ///public image shift fr military to commercial app
-              ///amazon delivery testing
-              ///white house lawn
-              ///compare industry reports 2014/5 vs 2018/9
-            The leader of the commercial <abbr title="Unmanned Aerial Vehicle">UAV</abbr> industry, <abbr title="Dà Jiāng Innovations">DJI</abbr> had not yet updated its most celebrated <cite>Phantom 2 Vision+</cite> to the next generation.
-              ///aerial cinematography
-
-            \thematic analysis
-            ///bkg research infographics
-            ///contextual interviews
-            ///directed storytelling
-            ///shadowing
-
-            \hmw
-            How might we design an aesthetic drone to help people get the air quality of their surrounding environment?
-
-            \constraints
-
-            \dzn\personas + scenarios
-            To better contextualize their idea, Haotian and Xueer created a <b>persona</b> followed by a <b>scenario</b> for each of three hypothetical users. Here is one of them. Chris Johnson, aged 46, is originally from Dallas, Texas, US. He owns a PhD degree in Economics. He is an associate professor who teaches Microeconomics at University of Illinois at Urbana–Champaign (UIUC). His annual income is about US$70k. In 2010, the School of Economics at UIUC and the Peking University (PU) established partnership. Chris then became a guest professor in the School of Economics at PU. Thus he would go to Beijing twice a year and stays there for about two weeks each time. Chris is very concerned about the air quality of where he lives. He wants to know if there is smog before he goes out of his apartment at PU. He would like to be informed when the outdoor air condition is good for exercise. Chris tends to cough when the air condition is poor. He doesn't believe the air condition data provided by the Ministry of Environmental Protection of China. Even though Chris is aware of the smog in China, he has no idea how much harm there is to his body under different air quality indices. Chris will go to Beijing in the coming March. But the air pollution in Beijing is severe, especially in spring. He believes that the statistics released by U.S. Embassy are more accurate.
-
-            A <b>detailed scenario</b> is described as the following. Chris has been staying in Beijing for 7 days. He wakes up at 6am when the sun has not totally risen up. He likes to exercise in the morning. But he is not sure about the current outdoor air condition. He asks an attendant in the hotel about the air quality. The attendant flies a cloudrone out in the air, at the same height of Chris, so that he can get the information of air which Chris would be breathing. Chris notices that there are lights on the drone blinking in blue, which means the air condition is good for exercising. He opens an application on his phone to check the data sent from the drone. It shows that the PM2.5 index is below 50. Chris is happy about it and goes out running for half an hour. After that, he comes back, takes a shower and has his breakfast. His lecture starts at 10am. His driver drives him to the school. At about 11am, during his short break, Chris finds it windy outside and the visibility is lower than that in the morning. He asks one of his students to check the air condition using a cloudrone. The light on the cloudrone changes to brown, indicating the air quality is poor. Chris is very disappointed because he planned to go to the Forbidden City after work. But under such circumstances, that will only gives him continuous cough. So he gives up the plan and has his driver send him back to the hotel. It’s so boring to stay indoor and he wishes the weather could be better tomorrow.
-
-            The above is an example showcasing how Cloudrone can be used in a city to facilitate air quality related activities. Haotian and Xueer believe in the value of deploying Cloudrone to make a <b>social and environmental change</b>.
-
-            \dzn\storyboards
-
-            \dzn\pttp \solution ///look for insp: industrial dzn case study
-            \dzn\pttp\intro
-            Cloudrone is an accessible semi-stationary device for measuring and monitoring air quality in public spaces.
-            An Accessible, Drone-powered, Semi-stationary
-            Air Quality Monitor
-
-            We equip the brain of a commercial drone with an Arduino board and a bluetooth module, and attach an air quality sensor to the bottom of the drone with a distance from the propellers.
-            <b>Parts</b> breakdown:
-            1 Arduino Uno,
-            1 battery for drone,
-            1 battery for Arduino,
-            1 dust sensor
-
-            We design the <b>appearance</b> of Cloudrone to be hospitable and user-friendly to express the hope of clearer sky.
-
-            \dzn\pttp\modes
-            Cloudrone has two <b>modes</b>, static mode and mobile mode.
-
-            \dzn\pttp\modes\static
-            We envision to set up these stations at existing bus stops, which can provide shelters for Cloudrone and reduce the cost.
-            We envision this product being deployed along the streets in a city, at existing bus stops, bike stops, telephone booths or wifi stations, where <b>statically</b>, Cloudrone serves as a fixed station measuring concentrations of main harmful chemicals that cause urban smog.
-
-            All the data Cloudrone collects is open-source, which can be synchronized to a database enabling the general public to check related indices about local air pollution.
-            The Cloudrone sends these data to the database.
-            By analyzing the data captured by Cloudrone, the database is able to send an alert to a city’s air quality monitoring center when an index exceeds its standard reading range.
-
-            It keeps charging through wireless charging method.
-
-            \dzn\pttp\modes\mobile
-            More importantly, When people suspect harmful gas release in the city, they can easily control Cloudrone to measure the air quality at specific sites, such as a place closer to a restaurant’s chimney, a car’s tailpipe or a construction site.
-
-            Once Cloudrone detects a party who release excessive exhaust without proper purification, it sends an alert to a monitoring center.
-
-            \dzn\pttp\Technical Description
-            Hardware
-            The Cloudrone prototype makes use of an Arduino, specifically Sparkfun Redboard, as the core processing and connection unit. It reads data from sensors through Serial port and transmits the data to a database through Bluetooth channels. We have successfully tested the communication between sensors and Arduino as well as that between Arduino and database. In current iteration, we use Processing (a creative coding software) as a data receiver at the database end. We produced data visualization in a Processing sketch to simulate the operation in a real database.
-            Power
-            The Cloudrone is powered by a 7.4V 850mAh rechargeable battery, which allows 10 minutes continuous flying. The controller requires six AA battery. The Arduino board and bluetooth module is powered by a 9V battery. The static stations at local bus stops not only provide shelters for Cloudrone, but also perform as charging stations.
-            Sensors
-            Current prototype is equipped with a GP2Y1010AU0F compact optical dust sensor. It detects the reflected light of dust particles in air. This sensor sends readings to the Serial port of an Arduino (Sparkfun Redboard). The data is processed and transmitted to a monitoring center through Bluetooth. We have also tested a Carbon Monoxide Gas Sensor MQ-7. It can be integrated into the prototype in later iterations to support more indices on air condition.
-            Control
-            Our prototype is not autonomous. It is controlled by a hand-held controller. The controller is secured with our product, Cloudrone, at the stations we envision to set up at existing bus stops. A user would operate Cloudrone after reading the instructions we present at the station. Though we do not require special training, the operation has an inevitable learning curve. We plan to recruit volunteers to facilitate users in the beginning of the deployment.
-            Possible iterations would be to redesign the controller to make it autonomous, to collaborate with institutions who can provide support crew to operate Cloudrone for end users, or to market Cloudrone only to a narrow targeted group of institutions.
-            Safety
-            We built a soft cloud-shaped enclosure to protect the main technical components. Cloudrone is designed to stay and function in urban smog or dusty sites. We spray-painted the body of Cloudrone to be bright blue and white. It is the colors that are easily recognizable in a smoggy background. For real-world scenario, we would add a transparent layer to protect Cloudrone from being contaminated and discolored by pollutants in the air.
-            Customers
-            The target end users of Cloudrone are urban dwellers who are concerned about air quality and suspicious about particular pollution emitters. We aim at collaborating with certain transportation department who maintain bus stops to deploy Cloudrone stations at existing bus stops. We look forward to sponsorships and partners to help us build and maintain these stations at scale. Potential stakeholders could be existing advertisers who target at bus stop billboards, or urban sustainability activists.
-            Economy
-            Cloudrone attaches inexpensive microprocessors and sensors to off-the-shelf commercial drones. Cloudrone is not necessarily equipped with a camera while most common commercial drones do. This reduces the cost and provides more load quota for technical components. Existing bus stops are mostly equipped with power supply for electrical billboards, which Cloudrone charging stations will make full use of.
-            Novelty
-            There has not been an accessible air quality monitoring tool available in public. Most countries have dedicated institutions to monitor national air quality. In China, it is the Ministry of Environmental Protection, which is affiliated to the government. There has been doubts about official data source, so we want to create a platform which enables the public to supervise and contribute to the database. By witnessing and engaging with a Cloudrone locally, the public can build a sense of trust and responsibility. In addition, air quality related mobile applications have been as popular as weather forecast applications. We also envision contributing our data to larger databases so that users can check air quality indices provided by Cloudrone on mobile devices and websites.
-            Future Potential
-            Aiming at a real social and environmental change, Cloudrone serves as an accessible and effective tool for the public to build a more transparent, proactive and convincing platform to contribute to the supervision and management of urban air quality. Cloudrone also has the potential to become a practical strategy which governments use to improve air pollution management policies.
-
-            \dzn\pttp\itrt
-
-            \dzn\pttp\demo pitch
-            \dzn\pttp\video hmmm
-
-            <section> <!-- on the side col -->
-              \reflt
-              - I was not enough familiared w/ industrial product dzn process as I thought.
-            </section>
-          </p>
-        </section>
-
-        <!-- case study 02 mofad -->
-        <!-- not much existing copy, need to connect dots -->
-        <section>
-          <!-- domains: ed ex dzn, graphic dzn, event planning, cultural food knowledge -->
-          <h1>CNY menu + planning a festive dinner</h1>
-          <p>
-            \context\new year
-            \context\task
-            \hmw:menu+event
-            \r: dishes
-            \menu\dishes
-              /assets/ntbk p-27
-            \menu\sketch: graphic dzn
-              /assets/ntbk p-26,-25
-            \menu\brainstorm, word help w/ debbie john
-              /assets/ntbk p-24
-            \event\planning w/ hutt
-            \menu\sketch itrt
-            \menu\printing tests
-            \event, serve
-            \observe, fdbk, reception
-          </p>
-
-          <!-- domains: ed ex dzn, exhibition dzn, installation, museum, curation -->
-          <h1>ex panels</h1>
-          <!-- ed ex dzn: not just graphic dzn
-          long living in acutual museum space, ongoing exhibition -->
-          <p>
-            \context\intern, museum renovation
-            \context\req, needs, goal: 9 panels, sizes, corresponding object, types, colors
-              /assets/ntbk p-22,-21
-            \hmw
-            \r\study the space n objects:
-              ///space layout scheme map
-              ///callout marks, grid scheme analysis of panels
-              ///considerations of items' surroundings, ux, viewer x
-            \r\dzn system: ability to adhere to brand guide
-            \dzn\sketches
-              /assets/ntbk p-20,-19
-              ///extract line drawings out of original ntbk pg, instead of screenshot img, this way transfers organic handrawing onto a digital canvas
-              ///link to ./howto- :peep into/at how she (learns to) work(s)/how I (learn to) work
-            \fdbk fr cmp
-              /assets/ntbk p-18,-17
-            \dzn itrt
-            \demo, result: irl pics
-            \fdbk: fr volunteers community, ask adama, read sns comments of @mofad
-          </p>
-
-          <!-- domains: web dzn, ed ex dzn -->
-          <h1>redesign mofadcity.org = city.mofad.org + brochure</h1>
-          <!-- ///collaborating w/ multiple team members -->
-          <p>
-            \context\clients' needs, goal\web
-            \context\req\brochure: link/artifact/takeaway/prompt
-            \context\contract, constraints: web
-              /assets/ntbk p-15(1/2),-14,-13 n emails
-            \context\contract, limitation: brochure
-              /assets/ntbk p-12 n emails
-            \hmw
-
-            \r\vox data
-            \r\old site\iA, sitemap
-            \r\web\old site probs: traffic, hierachy, map
-            \r\brochure: previous neighborhood guides
-
-            \dzn\web\wf
-            \dzn\web\wf\fdbk fr client, dev
-
-            \receive copy, collaborate w/ pm, copywriter, photographer
-              /assets/ntbk p-8 n emails
-            \dzn\web\wf itrt
-            \dzn\web\pttp
-            \dzn\web\pttp\fdbk fr client, dev <!-- on the side col \reflt -->
-              /assets/ntbk p-6,-5,-4,-3 n emails
-            \dzn\web\pttp itrt
-            \dzn\web\testing\a/b test ///need more testing
-            \dzn\web\testing\///need evaluation metrics
-
-            \brochure\dzn
-            \brochure\dzn\fdbk fr client
-              /assets/ntbk p-3 n emails
-            \brochure\dzn itrt
-          </p>
-        </section>
-
-        <!-- case study 03 thesis -->
-        <!-- domains: critical design, psychogeography study, immersive interaction, ux design, curatorial design, installation, craft, sculpture, graphic design, product design, social impact-->
-        <section>
-          <p>
-            Hi, I’m Xueer. I’m building an installation to participate in the exhibition <del>and the symposium</del>.
-            <!-- why did I not attend it? why do I (constantly over the past 3yrs) regret not attending it?
-            cindy; niche; confidence; incomplete; perfectionism;
-            however, exhibition only does exactly "show not tell". so let it be – done. -->
-
-            Xue Er Zhang (sure∙are∙jang) is a flâneuse, a neo-gastronome and an interdisciplinary experience designer. She joined MFADT with backgrounds in Electronic Engineering and Computer Science, but has indulged herself in Art and Design. Her practice focuses on creating tangible, ephemeral experiences while exploring physical materials and fabrication techniques.
-
-            Xue Er (sure∙are) is a flâneuse, a neo-gastronome and an interdisciplinary experience designer. She came to MFADT with backgrounds in Electronic Engineering and Computer Science, but has indulged herself in Art and Design. Her practice focuses on creating tangible, ephemeral experiences while exploring physical materials and fabrication techniques.
-
-            /assets/quantitative wordmap score: foodstores, lackitchen, nofruits
-
-            \acknowledgements
-
-            This project would not have been possible without the guidance and support from Kate Sicchio and Aneta Genova, my thesis studio professors. I cannot thank Andrew Zornoza, my thesis writing professor, enough for his help and enlightenment. I am grateful to Lydia Matthews and Todd Shalom for engaging me into the world of psychogeography, and Fabio Parasecoli, who helped me with the research of food studies. I have been fortunate to have Abby Mechanic who has given me tremendous help on woodworking. I will always be grateful to the MFA Design and Technology program at Parsons School of Design for giving me the opportunity and resources to pursuit my interests. I truly value all of the critics that faculty members and peers gave me. Last but not least, thank you my families and friends, for all your support.
-
-            \abstract
-
-            Keywords: art, chaos, city, craft, design, display design, experience design, food, installation, interaction design, map, order, psychogeography, structure, urbanism.
-
-            Situation, Adventure! creates a playful walking experience for urban dwellers, adventurers and flâneurs in New York City, to evoke their reflections on urban structures. The experience involves a poetic object that spurs discussions on being constrained versus acting at one’s free will, through interactions with food, within the domain of psychogeography.
-
-            This monograph formally documents a yearlong project, starting with a succinct statement that elucidates the core concept behind the research and the making. The research addresses, investigates and synopsizes the domains this project embodies, as well as identifies the community of practice and historical background. The precedents outline the projects that have inspired the development of this project. The iterative prototyping process is thoroughly described and discussed thereafter, followed by an annotated bibliography.
-
-            \concept statement
-
-            In the process of building a better city, we, as urban dwellers, have produced tremendous rules, plans, maps, standards, habits, routines, social etiquette ... to make our space more organized and structural. We are bounded by these urban structures yet we tend to overlook how they are shaping our life, especially how they affect our interaction with food.
-
-
-            My concept is that city dwellers constrained by <strong>urban structures</strong> can engage their <strong>free will</strong> more than they think.
-
-            urban structures: the <b>limiting frameworks</b> that humans have created in the process of building a better city, including physically: urban plans, maps and rules; or routines and habits, in a psychological or behavioral sense. These structures are definitely <b>essential</b> for us; <b>yet</b> we tend to ignore how they are shaping our life. I see <b>food</b> as an <b>result</b> of urban structures. e.g. bounded, subway, eating on the go which is why I’m displaying food to convey my thesis.
-
-            free will: I want to prompt my audience to <b>engage</b> their free will, which is to pay <b>more</b> attention to their <b>perception</b> about the surroundings. My <b>goal</b> is to provoke an <b>angle</b> for <b>reflection</b>, <b>rather</b> than to <b>dictate</b> a direction to <b>change</b> the objective existence.
-
-
-            As a structural thinker, the artist has been bothered by her highly methodical mind. She is bored by her rigid habits from which she tries to break away.
-
-            To contextualize her situation in a general sense, she defines urban structures as the limiting frameworks that humans have created in the process of building a better city, which includes urban plans, maps, rules, standards, disciplines, regulations, routines, habits and social etiquette.
-
-            Situation, Adventure! tries to convey that city dwellers constrained by urban structures can engage their free will more than they think. The artist engages/aims at engaging urban adventurers in a playful walking experience inspired by a community of practice named psychogeography, which was established in France by the Situationist International in the 1950s, and studies how individual feels in urban spaces.
-
-            Xueer believes that structural urban lifestyle plays an important role in changing the shape, packaging, preparation and preservation of food. For instance, eating on-the-go is a common experience for urban commuters and a result of urban structures. Therefore, she utilizes food as an inviting stimulus to remind her audience of the overlooked urban structures / of the pain points caused by urban structures.
-
-            The concept materializes into an interactive physical indoor installation, that is 5 feet long, 5 feet wide and 5.5 feet high. It is a freestanding wooden cubic shelf that embodies restraining urban structure. Bagels, hawthorn berry cakes, French fries and more … fill this shelf while their texture and presentation communicate the symbolic resemblances between food and urban structure. The packaging of these foods bears a walking score that prompts the audience to an urban adventure. The audience is free to take a package of food, and go for a jolly stroll on their own time.
-
-            \dzn values
-
-            A MAP, NO DESTINATIONS
-            The artist realizes from a way-finding walking score prototype that her participants are easily preoccupied with looking for the destination if she sets one. Therefore she chooses to only present a map, but set no destinations, to help the audience focus on what they encounter along the way.
-
-            PLAYFUL, BUT NOT A GAME
-            A playful activity is not necessarily a game. A game usually has a clear goal or target. The walking experience the artist anticipates sets no destination, in other words, there is no explicit goal for the participants to achieve. Therefore this project does not fall in line with game design, though they may share similar characteristics. This experience embraces unsolicited pleasure, but it should not be evaluated as a game.
-
-            THE FINE LINE
-            This project applies a new structure to an existing structure, in order to open a discussion about freedom. This may sound paradoxical. However, it is the artist’s belief that freedom is relative, which means there is always a structure that can be found in a definition of freedom. The fruitful part is that how and when the participants become aware of and negotiate their own inner fine line between freedom and control. It is this project’s goal to excite, capture and present different people's placements of the fine line.
-
-            QUALITATIVE TESTING
-            The artist uses a qualitative method to test her prototypes throughout the process. This means sometimes it only takes a few participants for the artist to realize a point about the design. It is more important to look at the effectiveness of an iteration, rather than quantitative responses.
-
-            \Designer/Artist Statement
-
-            Keep an artistic mind, be versatile and be free.
-
-            In a world that is increasingly interconnected and integrated where fields of study are no longer as self-contained as before both in academia and in industry, I believe a designer should be informed in many spheres and always be prepared to learn new things from emerging areas which could be useful to the design. This inevitable trend of convergence asks designers to be versatile. Only by understanding new methods, skills and tools, and incorporating them into daily work, can designers truly make use of the technological advancement and contribute to the development of design. Technology shall not be just a medium that facilitates the act of design, but be integrated into the essence of design from the very beginning. This encourages designers to think about the possibilities current technologies enable them to achieve in the ideation phase, instead of starting to look for technological tools to realize their idea in the prototyping stage. By making full use of this opportunity of integration, the work of contemporary design will reach a brand-new epoch. As for my individual thinking on design and art, I have found that art has become a broader and freer territory for me as my design practice goes on.
-
-            As being discussed constantly, artists ask questions while designers solve problems. It seems less meaningful to produce more problems, just as to design new things when we have already had a lot. However, life’s NOT but a walking shadow. It blossoms colorful experience and harvests thoughtful self. It becomes richer than the ultimate end, just as new design improves efficiency, just as new questions inspires perspectives. Art examines a subject through speculative and critical lenses which enlarge the possibilities of the audience’s interpretation and the amount of approaches if an answer or solution is desired. Based on this understanding, I revised my goal as to be an interaction designer with artistic practice, not necessarily just for technology companies, but for any experience that could use a little revolution.
-
-            Packing up my current thoughts and getting on my journey, I shall use New York City as my canvas and focus on how this particular urban space has influenced humans who interact with it, and shall not constrain myself by usual assumptions about this place, just as user experience designers should not be limited by screens and patterns.
-
-            \r
-
-            Situation, Adventure! has gone through several iterations from a poetic walking score immersing its audience in the thinking on the politics of drifting versus map-guided navigation, to an interactive physical installation resembling a part of a restraining, commercial, and colorful supermarket. The research domains relating to this project span from information organization, cartography, psychogeography, ergonomics, absurdity to food studies.
-
-            /assets/relational keywords map
-
-            This relational word map illustrates the artist’s encounter with her research domains.
-
-            \r\information organization
-
-            Before human intelligence, there has been unlimited information floating in the universe. Upon the emergence of human, there was order being applied to the chaotic information. By organizing the information, chaos forms an order. As the act of information organization went on, humans developed rules, methods and strategies to better organize chaotic facts. In this way a territory is built, a field of study is developed, and a map is drawn. People follow, practice and improve these products of organization to make them into more complicated systems. By learning these systems, humans can understand what was not understandable before. This is the natural learning process for most of human knowledge. American neo-conceptual artist Mark Lombardi used this process to find out corporate connections, commercial interactions, social hierarchies and alleged political fraud. He presented his discoveries as diagrammatic drawings called Narrative Structures.1 As data visualization expert Ben Fry once commented, “[Lombardi’s] drawings walk the fine line of the informative and the aesthetic, but even more important, his projects give us an eye into the possibility, and the depth to which we can understand complicated information”,2 it is extraordinary to realize that human can comprehend such intricate organization. However, even though there is ordered, planned, organized knowledge in certain limited area, there is always a greater sphere of chaos that humans are unable to fight. Human can never organize the whole universe, because part of human is unorganizable and incomprehensible. A viewer in front of a painting by Jackson Pollock, Number One,3 may never figure out what the painter was trying to express. Even when the viewer turns to Sol LeWitt’s Line Etchings,4 which appears to have certain kind of pattern, one may still fail to decipher the essence behind the chaotic appearance. So why make an effort to organize? What is the point to reduce the entropy knowing that it is always increasing?5 This is the paradox, at one time, this project tries to explore.
-
-            \r\cartography
-
-            Maps are one of the products from humans’ information organization. Map makers, known as cartographers, capture the nature and human plans for further reference. Over the centuries, maps have been used for orientation, travel, comparative study, planning, strategy, data storage, decoration, symbolism, propaganda and simulation.6 The wide use of maps makes them not only an organization, but also languages, and communication systems.7 “The term ‘mapping’ is often used metaphorically in an abstract, non-cartographic sense to connote organizing, planning, presenting and knowing”.8 Maps have become the tool for cultural critic and theorist Giuliana Bruno to illustrate emotions.9 Maps have been the canvas for artists Rick Meyerowitz and Maira Kalman to demonstrate a subway system from a perspective of culinary cultures.10 Maps have become cartoons, data visualization forms and fool’s heads.11 Along the history and variation of maps, the carriers of maps have also transformed across media. Besides paper and screens, people even consider themselves, the human body, as a mapping medium.12
-
-            \r\psychogeography
-
-            "
-            Constant, Another City for Another Life, 1959
-
-            We crave <b>adventure</b>.
-            Not finding it on earth,
-            some men have gone to seek it on the moon.
-            We prefer to wager on a change on earth.
-            We propose creating <b>situations</b>, […]
-            We are at the dawn of a new era and are already attempting to sketch out the image of a happier life, of unitary urbanism,
-            the urbanism intended to bring <b>pleasure</b>.
-            "
-
-
-            One of the effects that maps have on human bodies is that maps inspire urban exploration and expand walking ranges.
-
-            \r\psychogeography\overview
-
-            In the 1950s, Guy Debord and a group of social revolutionaries called the Situationist International decoded urban spaces in an unexpected way through a practice of walking. They established a field called psychogeography. In Greek, psycho- means breath, and -geography means to write. By its definition, the field explores how human body is writing a space. During their practice, they paid attention to specific effects of the geographical environment on the emotions and behaviors of individuals.13 The followers of this field have developed rich context around the simple activity of walking. Apparently, there is a broader territory physically and psychologically once one starts to walk.
-
-            "
-            rebecca solnit, wanderlust: a history of walking
-
-            Walking has created paths, roads, trade routes, generated local and cross continental senses of place, shaped cities, parks, generated maps, guidebooks, gear, and further afield, a vast library of walking stories and poems, of pilgrimages, mountaineering expeditions, meanders, and summer picnics.
-
-            Muscles tense. One leg a pillar, holding the body upright between the earth and sky. The other a pendulum, swinging from behind. Heel touches down. The whole weight of the body rolls forward onto the ball of the foot. The big toe pushes off, and the delicately balanced weight of the body shifts again. The legs reverse position. It starts with a step and then another step and then another that add up like taps on a drum to a rhythm, the rhythm of walking. The most obvious and the most obscure thing in the world, this walking that wanders so readily into religion, philosophy, landscape, urban policy, anatomy, allegory, and heartbreak.
-            "
-
-            Walking without a destination specifically put one into an unplanned experience. To get lost is sometimes efficient in the exploration of consciousness and identity as well as in the pursuit of an answer to one’s chaotic mind state.14 The nature of drifting has appealed to the artist as a way to bridge a planned activity and its unplanned elements in an ordered urban space. Therefore the community of practice of this project aligns with those who work in the realm of psychogeography. The field work matters the most in this domain as “new knowledge comes […] from attending more closely to the environment rather than assembling one’s picture of it along new conceptual lines”.15
-
-            \r\psychogeography\history
-
-            To take a closer look at the history of the Situationist International (SI), there are lots of landmark events and theories in art history that have to be mentioned.
-
-            The WWI broke out in 1914. The artistic world responded to the war with the Dada movement in Europe and New York. Dadaists advocated anti-war, anti-art and anti-bourgeois politics. They were radically left wing among the voices of the world at that time. In the early 1920s, Surrealism came to the stage firstly in Paris. Surrealists were activists of illogicality and unconsciousness. They paid attention to the relationship between dream and reality as well as the element of surprise.
-
-            Being inspired by these two avant-garde movements, Romanian-born French poet Isidore Isou established Lettrism in Paris about twenty years later. Letterists’ artistic practice originated from and focused on letters, the visual symbols. In 1952, a group of left-wing radical artists and theorists separated from the former Letterist group, and formed a collective called the Letterist International (LI) in Paris.
-
-            Under the leadership of French Marxist theorist Guy Debord, LI developed two methods in their practice. One is dérive in French, drift in English, which means to wander around in urban spaces for hours even days. For example, in the Introduction to a Critique of Urban Geography, Debord described a man drifted through a part of Germany, but followed a map of London. Note that this is still a popular methodology among psychogeographers today. There were two important texts during the period: Debord's Theory of the Dérive in 1956 and French political theorist Ivan Chtcheglov's Formulary for a New Urbanism. Chtcheglov defined unitary urbanism as the critique of status quo urbanism. LI mainly held two believes: the rejection of the standard Euclidean approach to urban architectural design as well as the rejection of detaching art from its surroundings. The other method LI used a lot was détournement, which means rerouting in English. Debord and French artist Gil Wolman defined the term in 1956 in A User's Guide to Détournement, as
-
-            "
-            guy debord and gil wolman. “a user’s guide to détournement.” situationist international anthology, 2006
-
-            [t]he integration of present or past artistic productions into a superior construction of a milieu. In this sense there can be no situationist painting or music, but only a situationist use of those means. In a more elementary sense, détournement within the old cultural spheres is a method of propaganda, a method which reveals the wearing out and loss of importance of those spheres
-            "
-
-            /assets/si history timeline
-
-            This timeline briefly illustrates the history of the Situationist International active from 1956 to 1972.
-
-            One of the notable adventures during the time of LI was Charlie Chaplin protest. Isou admired Chaplin as a great cinematic artist. LI thought Chaplin’s work was not pertinent with the time and claimed to represent freedom which made him an idol. LI members urged to destruct idols in order to express freedom. Thus they criticized Chaplin in his press conference with a title No More Flat Feet!. They said, "the footlights have melted the make-up of the supposedly brilliant mime. All we can see now is a lugubrious and mercenary old man. Go home Mister Chaplin.”16
-
-            In 1956, LI members met people from another avant-garde group called International Movement for an Imaginist Bauhaus (IMIB), which was a branch of Copenhagen Brussels Amsterdam (CoBrA), in a conference in Alba, Italy. Both parties found that they shared a lot of common interests and beliefs politically and philosophically. The situation was similar between LI and London Psychogeographical Association. As a result, in the following year, these three groups officially united and became SI. The actual leader of SI was still Debord. During the first four years, he worked closely with Danish painter Asger Jorn, who was the founder of CoBrA, another European avant-garde movement group, and the predecessor of IMIB.
-
-            In 1957, Guy Debord wrote the manifesto of SI named Report on the Construction of Situations. He brought in the thoughts of Karl Marx’s Das Kapital and defined a constructed situation as “a moment of life concretely and deliberately constructed by the collective organization of a unitary ambiance and a game of events”.17
-
-            The years from 1958 to 1962 was the artistic period of SI. During that time, a lot of avant-garde artistic groups joined SI, including Gruppe SPUR, later considered the German section of SI. In 1962, there were a lot of splits from the SI. The main part of SI thought that Gruppe SPUR misunderstood the theses of SI and was only using SI for art success. The disagreements led to the exclusion of Gruppe SPUR. Following this, the Scandinavian section of SI, Nashists, led by Danish artist Jørgen Nash, were excluded from the organization as well.
-
-            Then there followed the political period of SI from 1963 to 1968. In 1967 and 1968, SI reached the apex of its creative output and influence. Two significant publications were The Society of the Spectacle by Debord and The Revolution of Everyday Life by Belgian writer Raoul Vaneigem. Debord defined the term spectacle in his publication, which means the mass media in its limited sense. At that time, there was only Franco-Belgian section left in SI.
-
-            In 1968, SI was involved dominantly in the May events in France, expanding their theories to working class and students. In 1972, SI dissolved with only two members left, Italian writer Gianfranco Sanguinetti and Debord.
-
-            \r\efficiency & urban structures
-
-            Humans have been surpassing ourselves in developing faster, greater and better machinery and strategies, especially since the Industrial Revolution. The pursuit of efficiency in our society produces plans, standards, rules, habits, routines, disciplines, legislation, social etiquette and so forth. These are man-made structures that define an urban space. To enjoy the benefits that a city has to offer, a dweller has to submit oneself to the structures that come along.
-
-            To use urban commuters as an example, they may find it hard to take their time at home every morning to have a proper sit-down breakfast. In a city like New York City, subway during the morning rush hour is always inevitably packed. An office is not a good place for breakfast as well, which leaves people no choice but to eat on their way from subway station to workplace. Similar scenario can be applied to lunch break. Accordingly, there has been lots of food designed to accommodate modern pace of cities, in terms of the shape, packaging, preparation and preservation methods. Setting aside the debate about healthy eating, these advancements in food industries help commuters to better survive the urban structural life.
-
-            \r\chaos & absurdity
-
-            As mentioned previously in the section of information organization, the artist believes that before human applies an organizing behavior onto a domain, everything within that domain is chaotic. Chaotic information usually does not make any sense. However, senseless information is sometimes meaningful. No matter it was Vladimir and Estragon’s endless and vain waiting for Godot, or French novelist Albert Camus's philosophy of life being inherently meaningless as stated in his The Myth of Sisyphus, the theatre of the absurd has inspired generations not only in philosophy, but also in some practical fields, such as game design.
-
-            Starry Heavens is a physical, social, strategic and moral game developed by game designer Eric Zimmerman and architect Nathalie Pozzi.18 The rule is that players can join by stepping on one of the steel plates at any time, only move according to the directives from the ruler who occupies the only yellow plate at the center, and try to overthrow the ruler. From other players’ perspective, it does not make sense that one must follow the enemy’s instructions to defeat the enemy. Once a ruler is dethroned and one become a new ruler, it does not make sense that this new ruler has to give orders to be overthrown. However, putting together this game depicts an absurdist story of a pointless conflict which produces rich discussions and deep connotations.19 It could be equally fruitful if this thesis project generates similar conversations in an absurdism sense.
-
-            \r\food studies
-
-            The artist cannot use food as the medium to manifest her thesis without researching food systems. A food system is defined as “the path that food travels from field to fork, [which] includes the growing, harvesting, processing, packaging, transporting, marketing, consuming, and disposing of food”.20 On this spectrum, the packaging, marketing and consuming of food are three aspects this project examines.
-
-            The artist realizes that conceptually, she zooms in her lens from two perspectives. Influenced by psychogeography, she looks at limiting urban structures not from the social scale but on an individual level. This shift from macro level to micro level focuses the articulation on the audience’s personal perception. In other words, she shifts the angle from looking down upon human activities to provoking human emotions from the inside out. Similarly in the field of food studies, Italian architect and designer Luigi Bistagnino argues that in order to obtain zero emission, food industries should plan and design for the being, which is human, rather than for the having, which means product.21 He encourages people to approach food systems strategy from hedonistic design viewpoint to humanistic design angle. For example, he suggests applying new localization locally and creating non-globalized indistinct markets to better sustain the environment, which is also an attempt to start from a smaller scale for a bigger question.
-
-            This project uses eating on-the-go as one example of the connections between food and urban structure. From a holistic angle, British-born American writer Raj Patel believes that “guided by the profit motive, the corporations that sell our food shape and constrain how we eat, and how we think about food”.22
-
-            "
-            patel, raj. stuffed and starved: the hidden battle for the world food supply. brooklyn, ny: melville house, 2007.
-
-            Our choices [of food] are not entirely our own because, even in a supermarket, the menu is crafted not by our choices, nor by the seasons, nor where we find ourselves, nor by the full range of apples available, nor by the full spectrum of available nutrition and tastes, but by the power of food corporations.
-            "
-
-            These corporations, just as urban structures, seem to be the ones who are in control. This project accepts the existence of these powers, but focuses on the perception and reflection of humans who are in the shadow of objective controls.
-
-            \precedents
-
-            There has been lots of artists employing walking as a main method to develop or perform their artworks. Written, cinematic or participatory walking scores are generated as a form of art. Throughout the fall of 2015, the artist has gone on nine artistic walks and one touristic food tour in total, which provides her with abundant field research findings and inspirations. She has also looked at various other forms of projects, including atlases, anthropological research, games and fashion shows.
-
-            \precedents\JANET CARDIFF’S HER LONG BLACK HAIR
-
-            Canadian artist Janet Cardiff presented an immersive experience through a site-specific psychogeographic walking score named Her Long Black Hair first in 2004.23 A participant simply put on a pair of headphones, take a map and five printed photographs, and start following Cardiff’s footsteps from the south entrance of Central Park in New York City. The walk presents “stream-of-consciousness observations with fact and fiction, local history, opera and gospel music, and other atmospheric and cultural elements”24 vividly through multiple senses. It took Cardiff six years to carefully design the soundtracks with multiple layers as well as the narrative to lead the journey. There is audio, visual and other human perception combined in this marvelous adventure that the audience can reflect on. The craftsmanship and novelty of form has made this cinematic walk the artist’s favorite.
-
-            \precedents\LEE WALTON’S THE CITY SYSTEM
-
-            American visual artist Lee Walton’s The City System is an instance that an artwork engages its audience in a participatory urban stroll.25 However, this type of walking score gives specific instructions to challenge its audience with observation and decision making. The written walking score has more than a hundred pages of interconnecting short quizzes, which form a highly structured system. The artist is generally stunned by the degree of its convolution and articulation.
-
-            \precedents\REBECCA SOLNIT’S ATLASES
-
-            Atlases have been made through psychogeographic techniques. American writer Rebecca Solnit exhibits infinite cities within one city, San Francisco Bay Area, with an atlas illustrating the same urban space from various perspectives.26 A similar technique has been used in her Unfathomable City: A New Orleans Atlas,27 which opens up readers’ interpretations of a planned urban area. An upcoming atlas that portrays New York City will be published in early 2016. Solnit’s atlases are drawn from others’ eyes which manifests the diversity of a single geographic area. In a similar sense, the artist’s thesis project aims at collecting others’ reflections and responses of a single topic by inviting them to a single urban space.
-
-            \precedents\HELEN MIRRA’S THE HALFSMILER
-
-            In the fall of 2014, American conceptual artist Helen Mirra walked and invited people to walk separately with her, departing from one of the cemeteries in New York City generally towards southwestern direction. A half-smile is all what Mirra asks for a participant to take on in this meditation walk. This particular facial expression is “not a grin or a smirk.”28 It is “both autonomous and intended towards other beings.”29 It is an instrument that Mirra invents to turn on and maintain a participant’s meditative mind state. The half-smile as well as the walking is “both a substantial commitment and an easy employment.”30 By being conscious about the half-smile at all times during the walk, the artist found her sensory perception sharper as if she was having an out-of-body experience. Likewise, to effectively restrain participants’ thinking within certain boundaries is what the artist looks for in order to engage the audience in a desired mindful reflection domain.
-
-            \precedents\ANDREW IRVING’S NEW YORK STORIES: THE LIVES OF OTHER CITIZENS
-
-            An anthropologist based in the University of Manchester in UK, Andrew Irving has been conducting his research around “a peripatetic transcription of consciousness”.31 He came to New York City in 2011 and approached pedestrians with “a strange question, […] can I ask you what you were thinking before I stopped you?”32 Surprisingly, a hundred strangers gave him positive answers and agreed to put on a microphone headset with voice recorder as they continued to walk. Irving documented their walk with a camera from their back while they were thinking out loud. He later incorporated the audio into the footage.33 In this naturalistic and objective way, he captured people’s soliloquy in an urban environment. He mapped “the city's thoughtscape layered beneath its audible soundscape,”34 and found out “how much changes in physical surroundings affected pedestrians' modes of thinking.”35
-
-            \precedents\ELASTIC CITY AND TODD SHALOM’S DIRTY GAY SOUNDWALK
-
-            Elastic City is a major organization in New York City devoted to producing artistic walks. It was launched in 2010 by artist Todd Shalom. Over the past years, Elastic City has delivered “over 125 new sets of walks, talks, ways and performances by over 100 artists”.36 In July 2016, Elastic City will have its seventh and final festival, to which this project was aiming at pitching. Shalom’s walks usually rely greatly on audience’s participation. He has developed from his experience a set of useful techniques in terms of how to lead and engage the participants effectively and considerately. The artist personally found his Dirty Gay Soundwalk37 very intriguing and illuminating.
-
-            \precedents\GLOWLAB’S NEWS.BOX.WALK
-
-            News.Box.Walk is a game developed by Glowlab, a psychogeographic collective, where players keep track of the features of news boxes they encounter on the street, which tells them which way to go next and who wins.38 It is an example of combining a playful activity with psychogeography.
-
-            \precedents\COLLEEN MACKLIN’S RE:ACTIVISM
-
-            Game designer and professor Colleen Macklin’s Re:Activism is a location-based urban game, which maps the history of activism onto the streets, as players re-enact and re-create the events that once happened there.39 The history and events support the play, which is what the artist seeks in her iterations to link up existing elements in an urban space.
-
-            \precedents\KARL LAGERFELD’S CHANEL CATWALKS
-
-            German fashion designer Karl Lagerfeld presented the Chanel fall/winter 2014/15 ready-to-wear collection in a systematically designed Chanel Shopping Center.40 Apart from complimenting him on the spectacle and novelty of set design, the artist audaciously speculate that Lagerfeld put on a gesture of making luxuries appear to be more accessible, only to make it even more upscale. After all, what a celebrated designer and a renowned brand needs, is some element of imaginativeness. It actually seems similar that Lagerfeld and the artist are both trying to elevate something in a supermarket playground. It is just this thesis project aims at a spontaneous awakening of one’s own free will, instead of a celebration or satire of consumerism.41
-
-            \pttp itrt
-            <!-- pttp itrt:
-              Way-Finding Walking Score
-              Eating On-The-Go Interaction/
-              Whole Foods Maze
-              Situation, Adventure! -->
-
-            \pttp itrt\Way-Finding Walking Score
-
-            Generally speaking, the artist started this project by asking: How do people interact with maps? How do maps capture, present and communicate the fact of order? What kind of effect does using maps have on people’s perception about order and chaos in their lives? How do people deal with the planned/organized/systematic/structural and the unplanned/arbitrary/random/chaotic? Where does realizing/noticing/paying attention to this thinking about order versus chaos lead us? How do New York City map users deal with the planned as well as the unplanned? She proposed to research psychogeography in order to understand the politics of drifting versus map-guided navigation for urban adventurers. In her research, drifting is interpreted as instruction-based exploration without set starting points, destinations or routes. She also studied order in urban spaces and chaos in general nature because she wanted to find out how she, as a structural thinker, can deal with her personal confrontation between order and chaos in her life in order to understand what role do the act of organizing play.
-
-            \pttp itrt\Way-Finding Walking Score\plan & implementation
-
-            By researching through walking, she wanted to find out that how one might raise awareness and encourage thinking on the paradox between a planned activity and its unplanned elements through the creation of a walking score. She was trying to create a playful walking experience for New York City dwellers to evoke their reflections on structural urban lifestyle, and spur discussions on structural and chaotic thinking, through interactions with food and map.
-
-            For the first prototype, the artist created a walking score by giving a map and a destination to her participants, letting them to choose a spot on the edge of the map and physically navigate without any map from the spot to the destination by asking strangers for directions at each crossroad they encounter. In this way, they put themselves into chaotic way finding and generate their route as a new map.
-
-            \pttp itrt\Way-Finding Walking Score\feedback & evaluation
-
-            The artist’s intention was to make the participants pay attention to what they discover along the way, and reflect on the discussion of order and chaos. Based on her notes, this chaotic way finding approach turned out to be efficient because the journeys usually ended up taking the shortest route, which gave another layer of implications on order and chaos. However, she found that her participants were easily preoccupied with looking for the destination. They can hardly relate the experience to the abstract, philosophical thinking on order and chaos. In general, the experience was not playful enough to engage her audience, and she realized that if she wanted people to reflect on two contrasting subjects, she had better push them to one extreme first, to make them uncomfortable so that they hope to choose the other direction.
-
-            /assets/round map
-            /assets/Way-Finding Walking Score
-            /assets/Way-Finding Walking Score Test
-
-            \pttp itrt\Eating On-The-Go Interaction
-
-            The artist started this iteration with the following questions. How might one use food to attract people into the experience that she was creating? How might one use food as a practical, accessible tool to demonstrate the abstract, philosophical, serious topic about structural living and chaotic thinking?
-
-            There has been food designed to accommodate fast-paced urban rhythm. The pursuit of efficiency in our society has produced routines, standards, rules and habits, which the artist refers to as the structural. Because she wanted to criticize structural living, she intended to remind her participants of the pain points of the structural first.
-
-            The second prototype focused on a part of the entire walking experience, in which the artist wanted to use food as a stimuli to evoke participants’ reflection on structural urban lifestyle. She would like to test if a direct reflection can be triggered by the experience.
-
-            \pttp itrt\Eating On-The-Go Interaction\plan & implementation
-
-            The artist videotaped the process of the tests and interviewed her participants afterwards to gain feedback in terms of their physical feelings, mental reflections and further comments and suggestions. Since the artist was offering and testing an experience, it was optimal to talk about the experience while it was fresh. A straight-forward conversation was more natural and effective than a questionnaire or other forms of feedback.
-
-            The elements that the artist took into consideration in this prototype were the specifics of the food, the parameters of walking and the participants’ interaction with food while walking. She chose a slice of Italiano panini as an example of hot food, and frozen smoothie as an example of cold food. In this indoor test, she asked each participant to choose one item of the food as his/her breakfast on the way to work, and imagined that he/she worked for IBM. Just as another subway ride of the participant’s daily commute, it was too crowded and not appropriate to eat on the subway, nor did he/she had enough time to have a proper breakfast at home. The participant had no choice but to finish the breakfast on the way from 57th St F train station to the IBM building on Madison Avenue in New York City. The artist instructed the participants to eat and finish the portion of the food they chose within two minutes. She created a short video by recording a computer screen while navigating in Google Street View, and showed it to each participant while one was eating. She chose IBM because it was a well-known company and most importantly, the distance between the subway station and the IBM building took fairly short amount of time to navigate in Google Street View, which was suitable for this particular test. In this way, the artist simulated the scenario of a participant taking an item of food and going on to start a walking experience in the streets of Manhattan. Being rushed to finish their breakfast, participants might feel a level of discomfort which would remind them of the pace of urban living.
-
-            The artist recorded the participants’ reactions while she orally pressed them to hurry up during their experience. She only revealed the aim of her project after their experience in order to test if there was a natural connection between the experience and intended reflections on order and chaos.
-
-            The test took place in Room 610 at 6 E 16th St in the afternoon of October 29, 2015. There were four participants who completed the experience. They were students and faculty in Design and Technology program at Parsons. They were all conscious about a designed experience and had had similar experience of eating on-the-go. They were all living in New York.
-
-            \pttp itrt\Eating On-The-Go Interaction\feedback & evaluation
-
-            I want to use food as the stimulus to remind my participants of the pain points of structural urban lifestyle by re’living the experience of eating on-the-go.
-            In an indoor test, I let my testers to choose one item of the food and imagine they work for IBM and just got off the 57th St F train station.
-            Just as another subway ride of their daily commute, it was too crowded and not appropriate to eat on the subway, nor did they have the time to have a proper breakfast at home.
-            They have no choice but to finish their breakfast on their way to the IBM building on Madison Avenue.
-            I simulated the atmosphere by showing them a short video created by recording my computer screen while navigating in Google Street View.
-            I verbally rushed them to eat and finish the food within 2 minutes.
-            No matter they choose smoothie, which is usually cold, or panini, which is usually steaming, it will not be a joyful experience to consume the food super fast.
-            This is a certain level of discomfort I want to create in the first half of the walking experience, and the tests confirmed its effectiveness.
-
-
-            Food was an effective element to attract participants to approach the project. No matter they chose smoothie, which was usually cold, or panini, which was usually steaming, it would not be a joyful experience to consume the food super fast. This was a certain level of discomfort the artist wanted to create in the walking experience, and the tests confirmed its effectiveness.
-
-            The use of Google Street View successfully simulated the atmosphere of walking in the streets of Manhattan. The visual characteristic of navigating in Google Street View together with the verbal pressure had an effect on the participants which gave them the feeling of being rushed. The participants were able to relate the experience to the pace of urban living.
-
-            Some of the participants felt that the food element was a little out of the place in contextualizing the deeper concept of the project. Some expressed that there was not a direct connection between their experience and the intended reflection. The results showed several valuable points and confirmed that the connection between experience and reflection needed more thoughts and revisions.
-
-            The artist was satisfied with the use of Google Street View. However, ideally the experience would take place outdoor where people could physically walk, which was the subsequent scenario the artist intended to work on. The results confirmed the effectiveness of incorporating food, yet whether or not the element of food was the best medium to carry the experience became a new question. Other questions were: how might one effectively make the participants relate to the thinking and discussion about order and chaos? What were the specific aspects in this topic that the artist was interested in exploring and amplifying? What were the specific angles in the topic of order and chaos that this project talked about? How might the artist design the other part of the experience to show the benefits of chaotic thinking? The artist thought that she found the right spot to dig a hole on the ground, but there were so many paths underground that she had to find the right one to lead her to her gold mine.
-
-            By the end of this iteration, which was a quarter of the progress in the development of this project, the artist was clear about the following points.
-
-            The form of her project embodied the concept. Food was an inviting element to engage potential participants. She valued heavily on the deep research, argument, reasoning and reflection during the development of her project. She put herself into the audience’s shoes to think and design. Her project aimed at initiating a serious discussion through a playful experience.
-
-            One of the premises of her project was that the pursuit of efficiency had created too much structure in modern society. Efficiency seemed to be a topic that the artist had not carefully evaluated. The rules, habits, routines, standards, procedures and such were the structural that she criticized with this project. Was this definition complete? It seemed to some people that it was a paradox that she used an imaginary maze which had its virtual structure to represent chaos. In addition, what indeed were the benefits of chaos? By bringing efficiency into consideration, by positioning the topic in an urban environment, by rushing participants to finish their food and by setting rules and obstacles to form a maze, was the artist talking about time and space rather than order and chaos? Was the order and chaos that she wanted to talk about actually rationality and absurdity? The structural, efficiency, chaos, time and space, rationality and absurdity, were the keywords that would lead her subsequent research and concept development. By clarifying, deciding, keeping and abandoning some of these terms, she hoped to address the issues above to make her concept clearer, sharper, more critical and straight-forward. What were the effective rules that had been applied to an urban environment in order to turn it into an alternative space? What was the politics of map-making and labyrinth-designing? What were the examples of that efficiency creates structure?
-
-            The artist was on the right path by this time in terms of concept development. She thought she should definitely push herself forward in terms of physical prototyping. Apart from resolving the deeper philosophical issues, she also needed to look for ways to complete a feedback loop from her participants.
-
-            \pttp itrt\Whole Foods Maze
-
-            For the third iteration, the artist mainly focused on two questions: How might she design a walk that would be both psychogeographic and playful? What rules would be effective in order to turn an urban space into a physical maze?
-
-            \pttp itrt\Whole Foods Maze\plan & implementation
-
-            Thanks to the artist’s peers in a course called Walking as Research Practice, she managed to put together a persona by asking them to spend at least 10mins in the Whole Foods Market at Union Square, pay attention to either their internal emotions, or their interaction with physical objects, or their communication with other people, and mark the moments when they feel they are being controlled or when they feel they can follow their own free will.
-
-            \pttp itrt\Whole Foods Maze\feedback & evaluation
-
-            Walis Johnson is a filmmaker living in Brooklyn. She frequents another Whole Foods Market rather than the tested one. One day, Johnson saw the woman in pink talking about a super delicious sandwich and was tempted to buy the same one. Johnson felt she was manipulated by another customer’s words. She found herself near the seafood counter and was upset by an intense smell. Johnson then made eye contact with those whole fish, and suddenly felt sad, about dead fish, dead shrimp, even packaged meat. She smelled death and thought she was turning vegetarian. At the end, Johnson waited in the line organized by, what she considered, the most anxiety-provoking screen system.
-
-            This iteration honed in a supermarket setting as a special system of control. The artist was commented as performing clear qualitative user testing. Critics mentioned that Whole Foods Market was a great jumping off point. Specific questions raised were: How might one turn a grocery store into a maze? What were the existing elements in Whole Foods Market that can be used to define this maze? What hypothesis did the artist have? What were the materials that she would like to deliver? Would it be a paper map, or an audio tour? What would the participants produce? How would people navigate the space? Would a map make sense anymore? Would there be another form or a list?
-
-            By gathering more inputs like the persona shown in the documentation, the artist hoped to figure out the mechanics of this Whole Foods maze. Further investigation on consumerism, consumer capitalism and social media precedents might help her clarify her hypothesis and the final material that the artist or her participants would produce.
-
-            From her field research, the artist had discovered a list of elements that can be employed in the design of the instructions, such as smell, color, text on posters, menus and signs, number on price tags, existing classifications, employees and customers, as well as the merchandise. The question was, what should she do with these elements to deliver an effective mechanics of this Whole Foods maze?
-
-            /assets/persona walis johnson
-
-            \pttp itrt\Situation, Adventure!
-
-            /assets/relational shelf mockup + zdog: rotating shelf
-            /assets/monograph: Situation, Adventure! both printed n available in tns lib digitally
-
-            This project culminates in a 5ft (length) x 5ft (width) x 5.5ft (height) interactive physical indoor installation, which resembles a part of a restraining, commercial, and colorful supermarket to evoke reflections on urban structures. The setting involves two shelves and a counter equipped with a RFID reader and a thermal printer. She identifies specific solid or liquid food items, produces bite-size samples and designs food packaging accordingly. Each item of the foods involves at least one ethnic or rare ingredient, which can only be bought in certain neighborhood or store in NYC. The RFID-tagged packaging shows the name, ingredients and recipe of the enclosed food. These food packages fill the shelves at the installation. The audience is free to take a package of food; however, one must scan the package before open it at a labeled area on the counter. When the RFID reader recognizes the tag on a package, the thermal printer generates a receipt as a takeaway. The receipt illustrates instructions on obtaining the special ingredient, which leads to an outdoor site-specific scavenger hunt. The audience decides at their own discretion to go on this adventure on their own time.
-
-
-            My idea about the installation is primarily inspired by Sol Lewitt’s incomplete open cubes.
-            He drew <cite>variations of incomplete open cubes</cite> and made them into sculptures.
-            gave me modernism conceptualism inspiration
-
-            a 4 by 4 by 5 feet freestanding cubic shelf
-            7 edges, no sides
-            I form a part either by displaying packaged food that allows the audience to take away, or by constructing an urban scene using unpackaged food with plexiglass closure.
-
-            started with the most symbolic recognizable visual representation of this city, the map of Manhattan
-            silhouette of Manhattan looks like a french fry
-            send to CNC
-
-            For the design of the pkging + the choice of food,
-            I’ve been collecting geometric pattern as visual examples of urban structures
-
-            I’m <b>incorporating</b> these found structures <b>onto</b> the pkging (hand out lil yellow box
-            n using these patterns to <b>decide</b> the food items, e.g. haw snack
-            I’m basically looking at the <b>texture</b> of the food that <b>resonates</b> with a structural pattern.
-            The pkging not <b>only</b> carries urban pattern, it also illustrates a <b>score</b> that prompt the audience to go out into the city to look for these structures.
-            This process allows the audience to <b>see the unseen</b>, objects that are easily overlooked, or things that we take it for granted. In other words, it’s an <b>adventure</b> that make urban structures <b>obvious</b>.
-            The interaction between players give some insights
-
-
-            Situation, Adventure! is a freestanding wooden shelf that embodies restraining urban structure. Bagels, hawthorn berry cakes, French fries and more … fill this shelf while their texture and presentation communicate the symbolic resemblances between food and urban structure. Their packaging prompts a psychogeographic walking score to spur discussions on being constrained versus acting at one’s free will. You are welcome to take a packaged snack, and go for a jolly stroll!
-
-
-            Situation, Adventure! is a freestanding wooden cubic shelf that embodies restraining urban structure. Bagels, hawthorn berry cakes, French fries and more … fill this shelf while their texture and presentation communicate the symbolic resemblances between food and urban structure. Their packaging bears a walking score that prompts the audience to an urban adventure. The audience is free to take a package of food, and go for a jolly stroll.
-
-
-            Situation, Adventure! is the final installation that manifests this project in Between Spaces, the MFADT Thesis Show 2016. It is a freestanding wooden cubic shelf that embodies restraining urban structure. A regular cube has twelve edges which generate six sides. This shelf has seven edges and no sides, and measures four feet long, four feet wide and five feet high. It creates physical limiting space with its architectural features. Inside each edge, the artist forms an individual section either by displaying packaged food that allows the audience to take away, or by constructing an urban scene using unpackaged food with plexiglass closure.
-
-            Inspired by Sol Lewitt’s Incomplete Open Cubes, the artist feel that this wooden structure as a food display platform is able to carry all the elements that have been thought about in the project, including control, order, physical structure, urban structure, food, packaging and walking score. Bagels, hawthorn berry cakes, French fries and more … fill this shelf while their texture and presentation communicate the symbolic resemblances between food and urban structure. The packaging of the foods bears a walking score that prompts the audience to an urban adventure. The audience who visits the exhibition from May 17 to 21, 2016 is free to take a package of food, and go for a jolly stroll.
-
-            \bibliography
-
-            /assets/woodworking documentation
-
-            \reflt, postscript
-              ///many turns, detours
-              ///less commercial, pragmatic, b lucky for woodworking, good for theoratical critical thinking, rare/few opportunity to practice in a lifetime
-              ///light on pkging
-              ///did not quite close the loop
-          </p>
-        </section>
-
-        <!-- case study 04 mobile media -->
-        <!-- domains: mobile ux dzn, ui dzn, product dzn -->
-        <section>
-          <h1>go foodies. an iphone app</h1>
-          <!-- pretty inmature screen, needs polish/update, change type? -->
-          <p>
-            \context: goal
-            \hmw
-            \app map
-            \wf
-            \fdbk fr drew:
-            When presenting it’s helpful to start with your app map. It gives people an architectural overview of your app and gives you a chance to outline the major features of the app. It’d also be helpful if you labelled your each wireframe page view. I got a little lost about what view I was looking at, and that would help fix that.
-
-            Your presentation had a really nice justification ///? why this app was necessary instead of using Open Table.
-
-            This was brought up in class, but the most important thing to do will be simplify your landing/main view. You can start with the map view with a search bar on top. There’s no need to have a view before there. The interactions on your existing starting view are complicated and would be hard to figure out.
-
-            For the map view, which we’ll now consider the main/landing view, think about what would happen for a user from Ohio. Maybe you’d just see the whole of New York, or the area with all the pins of all the restaurants. It might be useful for folks in general to first see the overview of the city and then to optionally zoom into close by places. I’d imagine many users, perhaps the majority, would be thinking further out that finding a meal to eat soon that is nearby me.
-
-            I’m wondering if a list view could be valuable in addition to the map view as well. It might give you a different view of the content to highlight the restaurants in a different way.
-
-            Likewise, it could perhaps be useful to search by the time/date that I want to go out to eat, so that restaurants that are booked at that time won’t come up.
-
-            There’s no need to include the app name/slogan in the app. You’ve got the app icon to brand the app; it’s worth saving that area for functional content.
-
-            This came up in class, but it could be useful to see reservations that I have made, since many users may want to make more than one reservation, or at very least, they may want to be reminded about reservations that they have made.
-
-            \pttp v1
-            Please find my first digital prototype at www.flinto.com/p/db9835a0
-
-            Paper prototyping helps me realize that the bottom navigation bar should clearly indicate all the views available in an app. A user should always stay on one of the views. It becomes obvious that a constant navigation bar will keep the interaction flow, i.e. avoid that a user got stuck at some point in the app.
-
-            Apart from this, I do have a feeling that paper prototyping for mobile app is becoming less efficient compared to evolving, convenient digital prototyping tools we have today. Because the mobile application is a species born from the very medium of digital screen, a traditional medium is not capable of many of the interactions the mobile screen cultivates.
-
-            \pttp v2
-            Please find my second digital prototype at www.flinto.com/p/b74505c0.
-
-            There were a lot of valuable feedback I got based on the first digital prototype, and I made adjustments accordingly.
-
-            It was suggested that it would be better to give users an option for searching restaurants by type of cuisine, so I added filters.
-            The restaurant recommendation list on the first view was a bit long, so I reduced the quantity to 2, one for a restaurant that has a last spot very soon, the other for the most popular restaurant near a user’s current location.
-            The use of warm colors in the app was suggested, and using one hue with different shades was said to be more relevant and focused for an app. So I dedicated the overall color theme of the app to shades of red. It is usually considered a color that easily works up people’s appetite.
-            The consideration for color-blinded people was brought up, so I abandoned the previous design of having red button related to unavailability and green button for availability. In the newer version, an unavailable restaurant will not allow to make a reservation.
-            I included a form for credit card information, as for certain restaurants, it was required to have that info when booking a table.
-            The map on the first view was thought to be too zoomed-out, so I modified it to show only the range of all the participating restaurants.
-          </p>
-
-          <h1>china aqi. an apple watch app</h1>
-          <!-- before the 1st apple watch released, among the 1st crowd to dzn for watch.
-          check out what current dzn is -->
-          <p>
-            \context: china aqi iphone app
-            \hmw
-
-            \app map
-            \wf
-
-            \pttp v1
-            Please find my first digital prototype at marvl.in/77h17g.
-
-            \pttp v2
-            Please find my second prototype at marvl.in/a26g84.
-
-            \ppr pttp testing
-            According to the feedback based on paper prototype, I improve the following aspects in my design:
-
-            I add the Air Quality Index in the long-look notification view. It was pointed out that it would be better to let user have a brief understanding of basic parameters.
-
-            In the main view, a user can allow the app to show multiple cities in a list. Some people liked this capability, while others expressed that they might only care about their current location. I keep this function for people to customize, but highlight the current city with an compass icon.
-
-            Also in the main view, AQIs of different cities have already been color-coded. It was suggested that the city names were not very clear compared to the numbers. So I prioritize the city names by putting them above AQIs and increasing the font size. AQIs remain their colors with a smaller font size.
-
-            There was a lot of text in detail views for specific cities. I add health advice icons as visual aids and reduce the text to facilitate reading.
-          </p>
-
-          <h1>pooli. an iphone app</h1>
-          <!-- teamwork -->
-          <p>
-            \context: problem
-            \hmw
-
-            \app map
-            \wf v1
-            Order Together is a working title for Feng and Xueer’s final project. We can hardly find an apposite name for our app, so we are opening for any suggestion or recommendation.
-
-            Our target users are those who are New Yorkers, online shoppers, Metro riders and most importantly those who want to get a great deal. It is not easy to satisfy the seller’s conditions for an individual customer, eg. reaching certain total amount in a single order, in order to get the desired deal.
-
-            We offer a solution for our users by letting them pool their orders. You may just want to buy one item that costs $29.99 but still expect to get a “15% off when you spend more than $80” deal. Now you can order with others to qualify for that, with no extra charge. By connecting online shoppers, we have the opportunity to bring bigger deal to them and also create a new daily habit for our customers and merchant partners.
-
-            Building for the long term, Order Together is not just an iPhone app. It is an e-commerce platform. To provide our web buyers a great experience, we will leverage the company’s global relationships and scale to offer consumers a vast marketplace of unbeatable deals all over the world.
-
-            Based on this theory, we start this project at a point where hypothetically we have already had a strong marketing team, a professional developer team and also a lot of pick-up spots located around NYC Metro stations.
-
-            Here is the initial sketch of our app map.
-
-            appMap.sketch
-
-            Here is our revised app map. This app has four views.
-
-            Screen Shot 2015-04-18 at 4.21.04 PM
-            Screen Shot 2015-04-18 at 4.21.15 PM
-            Screen Shot 2015-04-18 at 4.21.31 PM
-
-            According to the app map, we started to design our wireframes. Here are the sketches of our wireframes.
-
-            2015-04-18 16.42.42
-
-            We assume that our users have already known what they want to buy and have already found the product online. They only need to enter the product url in our app. We can get all the product info via this url. Here we had a question: what is the most user-friendly way to enter a url in this app? The first idea we got is “Copy and Paste”. We design a url input bar on the top of the main view.
-
-            2015-04-18 16.43.06
-
-            \wf v2
-            Feedbacks: We realized that online shoppers would prefer searching for a product on a computer rather than a smartphone via our test during class last week. This changed the whole thing. We have to redesign the approach of entering a url.  Therefore, in the second version of our wireframe, users can enter a product url by either “Copy and Paste” or “Scan”. By “Scan”, we mean using your phone to scan a url on your laptop browser. We leave the implementation of this important and innovative interaction to our wonderful developer team. [presentation]
-
-            Here are our revised wireframes.
-            wf.v2 p1-8
-
-            \pttp v1
-            Please find our first digital prototype at marvl.in/b82j9e.
-
-            Possible names: Porder / Pooli (Pool in Finnish). Vote!
-
-            What we learnt from paper prototyping
-
-            Cart view is redundant for our app. So our tab bar iterated from [Feeds, Cart, Profile, History] to [Buy, Cart, Profile, Orders] to [Buy, Orders, Profile].
-            We reduced the complexity of settings by merging personal info/notification/security settings to a single page.
-            We simplified the process of placing an order by reducing the quantity of confirmations.
-            We found that it is more convenient for users to allow them to scan their cards instead of entering card information. Reference: Uber.
-
-            \pttp v2
-            Here are our Final Presentation and Digital Prototype (marvl.in/bg1b10).
-
-            We got many helpful feedbacks from the first version of digital prototype.
-
-            The three ways of searching a product on the main view can be integrated and simplified to take small space, so that room can be made for some editorial content, such as popular/recommended products/orders. A clear finishing moment or confirmation screen is important for users to commit to an order and the purchasing action. For first-time users, it would be great to have some instructions/tutorials or hints to walk them through the flow and get an idea of how the order pool works. Safari sharing plugin can be a possible way to send a product link from a browser to Pooli. Apple Pay and Paypal can be used as payment alternatives.
-          </p>
+        <section id="cellar">
+          uncut n raw, self-doubts, unfiltered, raw, reflt, blueprint, behind the scenes, back-kitchen, behind-the-bar 🍷, in the cellar, cellared thoughts
         </section>
 
         <!-- copyright credit license info -->
-        <footer>Mulled with ❤︎ by Xueer Zhang © 2014-2019 + licenses</footer>
+        <footer id="credits">Mulled with ❤︎ by Xueer Zhang © 2014-2019 + licenses</footer>
         <!-- <footer>Designed with ❤︎ by Xueer Zhang © 2014-2019 + cc licenses</footer> -->
       </div>
     </main>
 
-    <script type="text/javascript">
-
-    </script>
+    <script type="text/javascript"></script>
   </body>
 </html>
