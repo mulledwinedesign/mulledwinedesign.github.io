@@ -1,6 +1,6 @@
 .grids {
 display: grid;
-grid: auto-flow / 19% auto 19%;
+grid: auto-flow / 19% auto auto 19%;
 grid-template-areas:
   "logo . . ."
   ". cv__name cv__contact cellar"
@@ -13,8 +13,6 @@ grid-gap: 0px;
 }
 
 .logo { grid-area: logo; }
-/* .header { grid-area: 1 / 2 / 3 / 7; } */
-/* .index { grid-area: 3 / 1 / 13 / 2; } */
 .cv__name { grid-area: cv__name; }
 .cv__headline { grid-area: cv__headline; }
 .cv__exp-mofad { grid-area: cv__exp-mofad; }
