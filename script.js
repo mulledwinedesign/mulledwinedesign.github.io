@@ -5,8 +5,9 @@
 // }
 
 function callback (entries, observer) {
-  console.log(observer);
+  console.log("intersection over 50%");
 
+  console.log(observer);
   entries.forEach(entry => {
     console.log(entry);
   });
