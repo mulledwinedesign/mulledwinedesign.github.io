@@ -10,7 +10,7 @@ function callback (entries, observer) {
   entries.forEach(entry => {
     console.log(entry);
 
-    if (entry.isIntersecting == true && entry.intersectionRatio > 0.5) {
+    if (entry.isIntersecting == true && entry.intersectionRatio >= 0.5) {
       console.log("intersection over 50%");
     }
   });
