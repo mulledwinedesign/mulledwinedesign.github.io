@@ -1,6 +1,5 @@
 function buildThresholdList (numSteps) {
   let thresholds = [];
-  let numSteps;
 
   for (let i=1.0; i<=numSteps; i++) {
     let ratio = i/numSteps;
