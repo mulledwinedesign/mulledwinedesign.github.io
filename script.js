@@ -31,9 +31,11 @@ function callback (entries, observer) {
   // });
 
   entries.forEach(function(entry){
-    console.log(entry);
+    // console.log(entry);
     if (entry.isIntersecting) {
       console.log(entry.intersectionRatio);
+    } else {
+      console.log("out of range");
     }
   });
 
