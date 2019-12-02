@@ -21,7 +21,7 @@ const options = {
 // }
 
 function callback (entries, observer) {
-  console.log(observer);
+  // console.log(observer);
 
   // entries.forEach(entry => {
   //   console.log(entry);
