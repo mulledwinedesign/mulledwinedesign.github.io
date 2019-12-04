@@ -6,7 +6,7 @@ function buildThresholdList (numSteps) {
     thresholds.push(ratio);
   }
 
-  thresholds.push(0);
+  thresholds.push(0);//[0.01,0.02,...,1,0]
   return thresholds;
 }
 
@@ -22,7 +22,10 @@ function callback (entries, observer) {
   entries.forEach(entry => {
     // console.log(entry);
     if (entry.isIntersecting) {
-      console.log(entry.intersectionRatio);
+      let ratios = push(entry.intersectionRatio);
+      ratios.sort((a, b) => a - b);
+      console.log(ratios[ratios.length-1]);
+      // console.log(entry.intersectionRatio);
     } else {
       console.log("out of range");
     }
