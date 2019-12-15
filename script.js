@@ -24,28 +24,36 @@ function callback (entries, observer) {
   entries.forEach(entry => {
     console.log(entry);
     if (entry.isIntersecting) {
-      ratios.push(entry.intersectionRatio); // store all visible ratios to be compared
-      // console.log(entry.intersectionRatio);
+      data[0].push(entry.intersectionRatio); // store all visible ratios to be compared
+      data[1].push(entry.target.id); // corresponding target id names
     } else {
       console.log("out of range");
     }
   });
 
-  ratios.sort((a, b) => a - b); // sort numbers in ascending order
-  console.log(ratios[ratios.length-1]+" ["+ratios+"]");
+  // ratios.sort((a, b) => a - b); // sort numbers in ascending order
+  console.log(data);
 
-  ratios.forEach(ratio => {
-    if (ratio === 1) {
-      // multiple targets are 100% visible, choose the topmost one
-    }
-  });
-
-// even if these all works, is there a way to trace back to the corresponding target element? yes, entry.target;
-// or change to: button.onclick inside each callback?
-
+  // ratios.forEach(ratio => {
+  //   if (ratio === 1) {
+  //     // if multiple targets are 100% visible, choose the topmost one
+  //     btn.onclick = function() {
+  //
+  //       // change content to display entry.target in min view:
+  //       // shift vp to left/right, or
+  //       // currentlyReading.innerHTML = entry.target;
+  //       // document.getElementById(entry.target).innerHTML = ;
+  //     }
+  //   }
+  // });
+  //
 } // end of callback
 
-let ratios = []; // need to clear this after each bulk callback
+const btn = document.querySelector('button');
+let data = new Array();
+data[0] = new Array();
+data[1] = new Array();
+
 let observer = new IntersectionObserver(callback, options);
 // observer.observe(document.querySelector('#test-target'));
 document.querySelectorAll('.cs-cloudrone p').forEach(p => { observer.observe(p) });
