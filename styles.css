@@ -24,3 +24,11 @@ grid-gap: 0px;
 .case-study { grid-area: case-study; }
 .cellar { grid-area: cellar; }
 .credits { grid-area: credits; }
+
+button { /* to be sticky when animation added */
+  position: fixed;
+  
+}
+
+.left{}
+.right{}
