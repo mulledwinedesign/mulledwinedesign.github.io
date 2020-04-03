@@ -27,8 +27,18 @@ grid-gap: 0px;
 
 button { /* to be sticky when animation added */
   position: fixed;
-  
+  bottom: 1vw;
 }
 
-.left{}
-.right{}
+.left{
+  left: 1vw;
+}
+.right{
+  right: 1vw;
+}
+
+p {
+  font-family: Georgia, serif;
+  line-height: 1.5;
+  max-width: 33em;
+}
