@@ -1,29 +1,26 @@
-.grids {
-display: grid;
-grid: auto-flow / 19% auto auto 19%;
-grid-template-areas:
-  "logo . . ."
-  ". cv__name cv__contact cellar"
-  ". cv__headline cv__edu-grad cellar"
-  ". cv__exp-mofad cv__edu-undergrad cellar"
-  ". cv__exp-ppd cv__skills cellar"
-  ". case-study case-study cellar"
-  ". credits credits credits";
-grid-gap: 0px;
+:root{
+  --font-display: canela, serif;
+  --font-body: bernina, sans-serif;
+  --font-serif: ivar text, serif;
+  --font-sans: aktiv, sans-serif;
+
+  --font-s: 0.618rem;
+  --font-l: 1.618rem;
+  --font-xl: 2.618rem;
+  --font-xxl: 4.236rem; /* 6.854 11.089 */
+  --font-line-height: calc(1.618em + 1vw);
+
+  /* --color-base: #;
+  --color-mid: #;
+  --color-dim: #; */
+
+  /* --spacing-s: 0.25rem;
+  --spacing-m: 1rem;
+  --spacing-l: 2rem;
+  --spacing-xl: 4rem */
 }
 
-.logo { grid-area: logo; }
-.cv__name { grid-area: cv__name; }
-.cv__headline { grid-area: cv__headline; }
-.cv__exp-mofad { grid-area: cv__exp-mofad; }
-.cv__exp-ppd { grid-area: cv__exp-ppd; }
-.cv__contact { grid-area: cv__contact; }
-.cv__edu-grad { grid-area: cv__edu-grad; }
-.cv__edu-undergrad { grid-area: cv__edu-undergrad; }
-.cv__skills { grid-area: cv__skills; }
-.case-study { grid-area: case-study; }
-.cellar { grid-area: cellar; }
-.credits { grid-area: credits; }
+*{box-sizing:border-box}
 
 button { /* to be sticky when animation added */
   position: fixed;
@@ -37,8 +34,65 @@ button { /* to be sticky when animation added */
   right: 1vw;
 }
 
-p {
-  font-family: Georgia, serif;
-  line-height: 1.5;
-  max-width: 33em;
+body {
+  max-width: 60ch;
+  font: 100 1rem/1.3 'aktiv', sans-serif;
+  /* font: 400 1rem/1.5 'bernino', sans-serif; */
+  /* font: 400 1rem/1.3 'bernina', sans-serif; */
+  /* font: 400 1rem/1.5 'siri', sans-serif; */
+  /* font: 400 1rem/1.5 'swedish gothic', sans-serif; */
 }
+
+strong, span{
+  font: 700 1rem/1.3 'bernina', sans-serif;
+}
+
+h1 {
+  font: 600 2rem 'canela text', serif;
+  /* font: 100 1.5rem/1.5 'recoleta alt', serif; */
+  /* font: 300 1.5rem/1.5 'tenez', serif; */
+  /* font: 600 2rem 'schnyder s 18–40', serif; */
+}
+
+h2 {
+  /* font: 100 1.2rem/1.5 'recoleta alt', serif; */
+  /* font: 300 1.2rem/1.5 'tenez', serif; */
+  font: 300 1.3rem 'schnyder s 18–40', serif;
+}
+
+@@media(min-width:56.25em){
+  /* mobile 900px desktop */
+}
+
+/*.grids {
+display: grid;
+grid: auto / 19% auto auto 19%;
+grid-template-areas:
+  "logo . . ."
+  ". cv__name cv__contact cellar"
+  ". cv__headline cv__edu-grad cellar"
+  ". cv__exp-mofad cv__edu-undergrad cellar"
+  ". cv__exp-ppd cv__skills cellar"
+  ". case-study case-study cellar"
+  ". credits credits credits";
+grid-gap: 5em;
+}
+
+.logo { grid-area: logo; }
+.cv__name {
+  grid-area: cv__name;
+  font: 400 3.5rem 'canela', serif;
+}
+.cv__headline {
+  grid-area: cv__headline;
+}
+.cv__exp-mofad { grid-area: cv__exp-mofad; }
+.cv__exp-ppd { grid-area: cv__exp-ppd; }
+.cv__contact { grid-area: cv__contact; }
+.cv__edu-grad { grid-area: cv__edu-grad; }
+.cv__edu-undergrad { grid-area: cv__edu-undergrad; }
+.cv__skills { grid-area: cv__skills; }
+.case-study { grid-area: case-study; }
+.cellar { grid-area: cellar; }
+.credits { grid-area: credits; }
+*/
