@@ -2,23 +2,20 @@
   --font-display: "canela", serif;
   --font-display-deck: "canela deck", sans-serif;
   --font-caption: "aktiv", sans-serif;
-  --font-body: "bernino", sans-serif;
+  --font-body: "bernina", sans-serif;
   /* --font-body: "ivar text", serif; */
-
   --font-s: 0.618rem;
   --font-l: 1.618rem;
   --font-xl: 2.618rem;
   --font-xxl: 4.236rem; /* 6.854 11.089 */
   --font-line-height: calc(1em + 0.618vw);
-
   /* --color-base: #;
   --color-mid: #;
   --color-dim: #; */
-
   --spacing-s: 0.618rem;
   --spacing-m: 1.618rem;
   --spacing-l: 2.618rem;
-  --spacing-xl: 4.236rem;
+  --spacing-xl: 4.236rem
 }
 
 *{box-sizing:border-box}
@@ -28,27 +25,40 @@ html{
   line-height:var(--font-line-height);
   /* font-family:var(--font-body); */
   /* font-feature-settings:"kern","liga","ss02"; */
-  /* padding:0 calc(1rem + 6vw); */
-  max-width:60ch;
-  margin:0 auto;
+  padding:0 calc(1rem + 6vw);
+  margin:0 auto
   /* -moz-font-feature-settings:"liga" 1!important;
   font-feature-settings:"liga" 1!important */
 }
-
-p {
+.cv{
+  display: grid;
+  grid-template-columns: 1fr 1.618fr;
+  grid-gap: var(--spacing-m)
+}
+p{
+  max-width:75ch;
   font-family:var(--font-body);
   font-weight:400
 }
 
-strong, span{
+/* strong, span{
   font-family:var(--font-body);
   font-weight:600
 }
+span{display:block}
+mark{}
+address{display:inline}
+time{} */
 
 h1{
   font-family:var(--font-display);
   font-size:var(--font-xxl);
-  font-weight:500
+  font-weight:500;
+  line-height:1.2
+}
+h1 span{
+  display:block;
+  font-size:var(--font-l);
 }
 h2{
   font-family:var(--font-display-deck);
@@ -56,10 +66,10 @@ h2{
   font-weight:400
 }
 h3{
-  font-family:var(--font-caption);
+  font-family:var(--font-display-deck);
   font-size:var(--font-l);
   /* color:var(--color-mid); */
-  font-weight:400
+  font-weight:300
 }
 
 @@media(min-width:56.25em){
