@@ -21,14 +21,11 @@
 *{box-sizing:border-box}
 html{
   -webkit-font-smoothing:antialiased;
-  /* font-size:var(--font-default); */
   line-height:var(--font-line-height);
-  /* font-family:var(--font-body); */
-  /* font-feature-settings:"kern","liga","ss02"; */
-  padding:0 calc(1rem + 6vw);
+  font-family:var(--font-body);
+  padding:0 calc(1rem + 6.854vw);
+  max-width: 1200px;
   margin:0 auto
-  /* -moz-font-feature-settings:"liga" 1!important;
-  font-feature-settings:"liga" 1!important */
 }
 .cv{
   display: grid;
@@ -82,36 +79,3 @@ button { /* to be sticky when animation added */
 }
 .left{left: 1vw;}
 .right{right: 1vw;}
-
-/*.grids {
-display: grid;
-grid: auto / 19% auto auto 19%;
-grid-template-areas:
-  "logo . . ."
-  ". cv__name cv__contact cellar"
-  ". cv__headline cv__edu-grad cellar"
-  ". cv__exp-mofad cv__edu-undergrad cellar"
-  ". cv__exp-ppd cv__skills cellar"
-  ". case-study case-study cellar"
-  ". credits credits credits";
-grid-gap: 5em;
-}
-
-.logo { grid-area: logo; }
-.cv__name {
-  grid-area: cv__name;
-  font: 400 3.5rem 'canela', serif;
-}
-.cv__headline {
-  grid-area: cv__headline;
-}
-.cv__exp-mofad { grid-area: cv__exp-mofad; }
-.cv__exp-ppd { grid-area: cv__exp-ppd; }
-.cv__contact { grid-area: cv__contact; }
-.cv__edu-grad { grid-area: cv__edu-grad; }
-.cv__edu-undergrad { grid-area: cv__edu-undergrad; }
-.cv__skills { grid-area: cv__skills; }
-.case-study { grid-area: case-study; }
-.cellar { grid-area: cellar; }
-.credits { grid-area: credits; }
-*/
