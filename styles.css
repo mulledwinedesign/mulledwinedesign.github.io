@@ -1,6 +1,7 @@
 :root{
   --font-display: "canela", serif;
   --font-display-deck: "canela deck", sans-serif;
+  --font-display-text: "canela text", serif;
   --font-caption: "aktiv", sans-serif;
   --font-body: "bernina", sans-serif;
   /* --font-body: "ivar text", serif; */
@@ -15,7 +16,7 @@
   --spacing-s: 0.618rem;
   --spacing-m: 1.618rem;
   --spacing-l: 2.618rem;
-  --spacing-xl: 4.236rem
+  --spacing-xl: 4.236rem;
 }
 
 *{box-sizing:border-box}
@@ -25,48 +26,63 @@ html{
   font-family:var(--font-body);
   padding:0 calc(1rem + 6.854vw);
   max-width: 1200px;
-  margin:0 auto
+  margin:0 auto;
 }
 .cv{
   display: grid;
   grid-template-columns: 1fr 1.618fr;
-  grid-gap: var(--spacing-m)
+  grid-gap: var(--spacing-m);
 }
 p{
-  max-width:75ch;
+  max-width:80ch;
   font-family:var(--font-body);
-  font-weight:400
+  font-weight:400;
 }
 
-/* strong, span{
-  font-family:var(--font-body);
-  font-weight:600
+span,i,strong,mark,address,time{display:block}
+abbr{
+  text-decoration: none;
+  font-variant: none;
 }
-span{display:block}
-mark{}
-address{display:inline}
-time{} */
-
 h1{
   font-family:var(--font-display);
   font-size:var(--font-xxl);
   font-weight:500;
-  line-height:1.2
+  line-height:1.2;
 }
 h1 span{
   display:block;
   font-size:var(--font-l);
+  font-weight:500;
 }
-h2{
-  font-family:var(--font-display-deck);
-  font-size:var(--font-l);
-  font-weight:400
+
+.cv h2{
+  font-family:var(--font-body);
+  font-size:12pt;
+  font-weight:400;
+}
+.cv h2,.cv p,.skills{display: none}
+ins{display: none}
+.cv i{
+  font-family:var(--font-display-text);
+  /* font-size:var(--font-l); */
+  font-weight:400;
+  font-style:normal;
+  margin-top: 2.618vh;
+}
+.cv strong{
+  font-family:var(--font-body);
+  /* font-size:var(--font-l); */
+  font-weight:500;
+}
+.cv mark{
+  
 }
 h3{
   font-family:var(--font-display-deck);
   font-size:var(--font-l);
   /* color:var(--color-mid); */
-  font-weight:300
+  font-weight:300;
 }
 
 @@media(min-width:56.25em){
@@ -77,5 +93,5 @@ button { /* to be sticky when animation added */
   position: fixed;
   bottom: 1vw;
 }
-.left{left: 1vw;}
-.right{right: 1vw;}
+.left{left: 1vw}
+.right{right: 1vw}
