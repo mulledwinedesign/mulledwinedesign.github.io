@@ -11,13 +11,19 @@
     <link rel="stylesheet" media="screen" href="styles.css">
     <link rel="stylesheet" media="print" href="print.css">
     <title>Xueer Zhang designs eXperiences.</title>
-    <!-- <title>Xueer's mulled wine recipe</title> -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165944777-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-165944777-1');
+    </script>
   </head>
   <body>
     <header role="banner">
       <nav role="navigation">
-        <a href="/" class="logo">
-          <svg>animated logo</svg><!-- add svg accessibility support later: title, desc, aria-labelledby, role -->
+        <a href="" class="logo">
+          <svg>zdog logo</svg><!-- add svg accessibility support later: title, desc, aria-labelledby, role -->
         </a>
         <button type="button" name="more" class="left">More Details</button>
         <button type="button" name="less" class="right">Less Noise</button>
@@ -34,7 +40,7 @@
           <ruby><rb>Xue<rt>&sol;&prime;sure<rb>er<rt>are</ruby>
           <ruby><rb>Zhang<rt>&prime;john&sol;</ruby>
           She -->
-          <span>is a digital/tangible <abbr title="User Experience, UE, Interaction">UX</abbr> Designer,</span>
+          <span>is a digital/tangible <abbr title="or User Experience or UE, or Interaction">UX</abbr> Designer,</span>
           <span>who thinks big picture and cares about minutiae.</span>
           <span>She diverges and converges, and is not afraid of detours.</span>
         </h1>
@@ -43,52 +49,58 @@
         <!--
         EXP               SEMANTICS   EDU
         job title         i           major
-        company           strong      school
+        company name      strong      school
         company intro     mark
         address           address     address
         time              time        time
         description       p           description
         -->
         <section class="exp">
-          <h2>EXPERIENCE</h2>
-          <ins>She has worked at Phosphene Designs, and with the Museum of Food and Drink</ins>
-
-          <i>Contract Web Designer, Exhibition&sol;Culinary Design Intern<ins>, Program Volunteer & Docent</ins></i>
-          <strong>Museum of Food and Drink</strong>
-          <mark>a NYC nonprofit that is creating the world’s first large-scale museum with exhibits you can eat</mark>
-          <address>Williamsburg, Brooklyn, NY</address>
-          <time>Jul 2017 &ndash; Aug 2018</time>
-          <p>&bull; redesigned and launched an informative website, designed nine museum panels, a brochure and a menu, renovated installations and conducted culinary research for four exhibitions/projects and ten events, reaching tens of thousands of visitors</p>
-          <p>&bull; collaborated with curators, chefs, product managers, developers, photographers, operations managers and volunteers, and enhanced <abbr title="Museum of Food and Drink">MOFAD</abbr>’s brand and value</p>
-
-          <i>Interaction Designer &sol; Creative Technologist</i>
-          <strong>Phosphene Designs</strong>
-          <mark>a start-up design studio based in <address>Downtown Brooklyn, NY</address></mark>
-          <time>Sep 2016 &ndash; May 2019</time>
-          <p>&bull; converted a prospect to a client, and represented the studio in the full product design cycle­—from concept, to research and design, to iterations and testing, and through to product launch—of a project crafting web and mobile interactions</p>
-          <p>&bull; assisted group user testing sessions, documented user feedback, and provided constructive critique for teammates, clients and stakeholders</p>
-          <p>&bull; facilitated object-oriented programming in building Unity visual shaders for a VR paintbrush game</p>
+          <h2 class="less">EXPERIENCE</h2>
+          <h2>She’s been a&sol;an ...</h2>
+          <ins>She has worked at Phosphene Designs, and with the Museum of Food and Drink.</ins>
+          <section class="exp-mofad">
+            <i>Web Designer &amp; </i>
+            <i>Exhibition&sol;Culinary Design Intern<ins>, Program Volunteer & Docent</ins></i>
+            <span>@ </span><strong>Museum of Food and Drink</strong>
+            <mark>a NYC nonprofit that is creating the world’s first large-scale museum with exhibits you can eat</mark>
+            <address>Williamsburg, Brooklyn, NY</address>
+            <time>Jul 2017 &ndash; Aug 2018</time>
+            <!-- <p>&bull; redesigned and launched an informative website, designed nine museum panels, a brochure and a menu, renovated installations and conducted culinary research for four exhibitions/projects and ten events, reaching tens of thousands of visitors</p>
+            <p>&bull; collaborated with curators, chefs, product managers, developers, photographers, operations managers and volunteers, and enhanced <abbr title="Museum of Food and Drink">MOFAD</abbr>’s brand and value</p> -->
+          </section>
+          <section class="exp-ppd">
+            <i>Interaction Designer &sol;</i>
+            <i>Creative Technologist</i>
+            <span>@ </span><strong>Phosphene Designs</strong>
+            <mark>a start-up design studio based in <address>Downtown Brooklyn, NY</address></mark>
+            <time>Sep 2016 &ndash; May 2019</time>
+            <!-- <p>&bull; converted a prospect to a client, and represented the studio in the full product design cycle­—from concept, to research and design, to iterations and testing, and through to product launch—of a project crafting web and mobile interactions</p>
+            <p>&bull; assisted group user testing sessions, documented user feedback, and provided constructive critique for teammates, clients and stakeholders</p>
+            <p>&bull; facilitated object-oriented programming in building Unity visual shaders for a VR paintbrush game</p> -->
+          </section>
         </section>
         <section class="edu">
-          <h2>EDUCATION</h2>
-
-          <i>MFA Design and Technology</i>
-          <strong>Parsons School of Design</strong>
-          <address>Greenwich Village, Manhattan, NY</address>
-          <time>2014 &ndash; 2016</time>
-
-          <p>&bull; focused on creating ephemeral experiences while exploring physical materials and digital fabrication techniques</p>
-          <p>&bull; exhibited thesis <a href="https://digitalarchives.library.newschool.edu/index.php/Detail/objects/PC020402_2016_zhanx203">paper</a> and <a href="http://mfadt.parsons.edu/2016/projects/situation-adventure/">installation</a> on psychogeography, food, woodworking, immersive interaction and urbanism, titled <cite>Situation, Adventure!</cite></p>
-
-          <i>Telecommunications Engineering with Management</i>
-          <strong>BSc(2:1 Honours) Queen Mary, University of London</strong>
-          <strong>BEng Beijing University of Posts and Telecommunications</strong>
-          <address>Mile End, London, UK &amp; Beijing, China</address>
-          <time>2009 &ndash; 2013</time>
-          <mark>a dual-degree programme jointly taught by the Schools of <u>Electronic Engineering and Computer Science</u> of <abbr title="Queen Mary, University of London">QMUL</abbr> & <abbr title="Beijing University of Posts and Telecommunications">BUPT</abbr></mark>
-
-          <p>&bull; focused on Multimedia, 3D Graphics Programming, Interactive Media Design and Production and Digital Signal Processing</p>
-          <p>&bull; accomplished thesis paper and project on Human-Computer Interaction (HCI), audio interface design, sonification and software development, named <cite>Developing Spatial Audio Overview Feature for Collaborative Cross-modal Interfaces (CCmI) Editor</cite>, using Java and Open Audio Library (OpenAL)</p>
+          <h2 class="less">EDUCATION</h2>
+          <h2>and an alumna of ...</h2>
+          <section class="edu-grad">
+            <strong>Parsons School of Design</strong>
+            <i>MFA Design and Technology</i>
+            <address>Greenwich Village, Manhattan, NY</address>
+            <time>2014 &ndash; 2016</time>
+            <!-- <p>&bull; focused on creating ephemeral experiences while exploring physical materials and digital fabrication techniques</p>
+            <p>&bull; exhibited thesis <a href="https://digitalarchives.library.newschool.edu/index.php/Detail/objects/PC020402_2016_zhanx203">paper</a> and <a href="http://mfadt.parsons.edu/2016/projects/situation-adventure/">installation</a> on psychogeography, food, woodworking, immersive interaction and urbanism, titled <cite>Situation, Adventure!</cite></p> -->
+          </section>
+          <section class="edu-undergrad">
+            <strong>Queen Mary, University of London</strong>
+            <strong>Beijing University of Posts and Telecommunications</strong>
+            <i>BSc &amp; BEng Telecommunications Engineering with Management</i>
+            <address>Mile End, London, UK &amp; Beijing, China</address>
+            <time>2009 &ndash; 2013</time>
+            <mark>a dual-degree programme jointly taught by the Schools of <u>Electronic Engineering and Computer Science</u> of <abbr title="Queen Mary, University of London">QMUL</abbr> & <abbr title="Beijing University of Posts and Telecommunications">BUPT</abbr></mark>
+            <!-- <p>&bull; focused on Multimedia, 3D Graphics Programming, Interactive Media Design and Production and Digital Signal Processing</p>
+            <p>&bull; accomplished thesis paper and project on Human-Computer Interaction (HCI), audio interface design, sonification and software development, named <cite>Developing Spatial Audio Overview Feature for Collaborative Cross-modal Interfaces (CCmI) Editor</cite>, using Java and Open Audio Library (OpenAL)</p> -->
+          </section>
         </section>
         <section class="skills">
           <h2>SKILLS &amp; TOOLS</h2>
@@ -179,10 +191,20 @@
       </section>
       <section class="recipe">
         <p>Here's how she mulls over a project:</p>
-        <p>This is called <span>Xueer's mulled wine recipe</span>.</p>
-        <p>Let's see how her recipe works.</p>
+        <ul>
+          <li>context</li>
+          <li>Inspiration</li>
+          <li>Ideation</li>
+          <li>Implementation</li>
+          <li>iteration</li>
+        </ul>
       </section>
       <section class="cs">
+        <nav role="navigation">
+          <button type="button" name="cs1">Cloudrone</button>
+          <button type="button" name="cs2">MOFAD City</button>
+          <button type="button" name="cs3">Situation, Adventure!</button>
+        </nav>
         <article class="cloudrone">
           <h2>Case Study 01 Cloudrone</h2><!-- needs a title -->
           <section class="info">
@@ -213,7 +235,7 @@
               To most people, drones first entered the public discussions as a controversial military powerhouse weapon, such as the <i>Predator</i>. This impression of warfare brutality started to shift as the commercial applications of drones increased since <time>2014</time>. All of a sudden, venture capitalists were interested, the media was talking about it, and a drone (actually at least three drones in the year of 2015) crashed on the White House South Lawn, attracting extensive public attention to civilian drones and relevant legislations. Amazon was approved by the Federal Aviation Administration to test drone flights outdoors for package delivery. The leader of the commercial Unmanned Aerial Vehicle industry, <abbr title="Dà Jiāng Innovations">DJI</abbr>, had not yet iterated its most celebrated aerial cinematography product, <cite>Phantom 2 Vision+</cite>, to the next version. The market was already estimated to ramp up quickly and even double over the next decade. Consumer drones were becoming the new popular toy for the tech-savvy generations.
             </p>
             <p class="drone">
-              Good Drones LLC is a human-centered drone innovation and design lab founded by Mehdi Salehi and Kristen Kersh. Their mission is to solves human problems with drones, focusing on emotional connections between the human and the drone at the time. They came to be our mentors and providing us with rich feedback on identifying existing human-centered problems and designing drones to solve the problems. We met every Thursday for 
+              Good Drones LLC is a human-centered drone innovation and design lab founded by Mehdi Salehi and Kristen Kersh. Their mission is to solves human problems with drones, focusing on emotional connections between the human and the drone at the time. They came to be our mentors and providing us with rich feedback on identifying existing human-centered problems and designing drones to solve the problems. We met every Thursday for
             </p>
             <p>
               At the time we saw a commercial drone, we knew the <em>mobility</em> of drones can be of great use on tackling urban air quality issues.
@@ -296,7 +318,8 @@
           <section class="implementation">
             <h3>implementation</h3>
             <p>
-              \dzn\pttp \solution ///look for insp: industrial dzn case study
+              \dzn\pttp \solution
+              <!-- ///look for insp: industrial dzn case study -->
             </p>
             <p>
               \dzn\pttp\intro
@@ -369,7 +392,7 @@
           <section class="takeaway">
             <h3>takeaway</h3>
             \reflt
-            - I was not enough familiared w/ industrial product dzn process as I thought.
+            <!-- - I was not enough familiared w/ industrial product dzn process as I thought. -->
           </section>
         </article>
         <!-- case study 02 mofad -->
