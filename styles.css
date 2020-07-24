@@ -35,10 +35,32 @@ html{
   -webkit-font-smoothing:antialiased;
   line-height:var(--font-line-height);
   font-family:var(--font-body);
-  padding:0 calc(1rem + 6.854vw);
   max-width: 1200px;
   margin:0 auto;
 }
+body{
+  padding:0 calc(1rem + 6.854vw);
+  margin:0 auto; /*override browser deft*/
+}
+
+svg.flow{
+  position: absolute;
+  z-index: -1;
+  width: 100vw;
+}
+svg.logo{
+  /* position: absolute; */
+  width: 20vw;
+  /* margin: 0 0 0 auto; */
+  /* padding-right: 0; */
+}
+
+button.left,button.right{ /* to be sticky when animation added */
+  position: fixed;
+  bottom: 1vw;
+}
+.left{left: 1vw}
+.right{right: 1vw}
 
 ins,
 .cellar,.mofad,.thesis,.mm,.less,
@@ -50,15 +72,11 @@ ins,
 .cs>span
 {display:block}
 
-.logo{
-  /* margin-left: auto; */
-  padding-right: 0;
-}
-
 .cv{
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: var(--spacing-m);
+  grid-auto-flow: column;
 }
 p{
   max-width:55ch;
@@ -100,7 +118,7 @@ h1 span{
   font-weight:500;
 }
 .cv section section+section{
-    margin-top: var(--spacing-m);
+  margin-top: var(--spacing-m);
 }
 h3{
   font-family:var(--font-display-deck);
@@ -113,12 +131,11 @@ h5{}
 /* .rq{max-width:80ch} */
 
 @media(min-width:56.25em){
-  /* mobile 900px desktop */
+  /* mobile < 900px < desktop */
 }
-
-button.left,button.right{ /* to be sticky when animation added */
-  position: fixed;
-  bottom: 1vw;
+@media(min-width:125em){
+  /* desktop < 2000px < monitor */
+  html{
+    max-width: 80vw;
+  }
 }
-.left{left: 1vw}
-.right{right: 1vw}
