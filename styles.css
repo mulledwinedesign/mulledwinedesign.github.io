@@ -38,21 +38,23 @@ html{
   max-width: 1200px;
   margin:0 auto;
 }
-body{
-  padding:0 calc(1rem + 6.854vw);
-  margin:0 auto; /*override browser deft*/
-}
+body{margin:0 auto}/* override browser deft 8px */
+main{padding:0 calc(1rem + 6.854vw)}
 
 svg.flow{
   position: absolute;
   z-index: -1;
   width: 100vw;
+  max-width: 1200px;
+}
+
+.logo-container{
+  display: flex;
+  justify-content: flex-end;
 }
 svg.logo{
-  /* position: absolute; */
   width: 20vw;
-  /* margin: 0 0 0 auto; */
-  /* padding-right: 0; */
+  min-width: 100px;
 }
 
 button.left,button.right{ /* to be sticky when animation added */
@@ -71,6 +73,11 @@ ins,
 .edu strong,.cv i,
 .cs>span
 {display:block}
+
+.name{
+  /* prevent widow lines: em width + mq */
+  /* min-width: 40em; */
+}
 
 .cv{
   display: grid;
@@ -130,12 +137,13 @@ h4{}
 h5{}
 /* .rq{max-width:80ch} */
 
-@media(min-width:56.25em){
-  /* mobile < 900px < desktop */
+@media(max-width:31.25em){
+  /* mobile < 500px < desktop */
+
 }
 @media(min-width:125em){
   /* desktop < 2000px < monitor */
-  html{
+  html,svg.flow{
     max-width: 80vw;
   }
 }
