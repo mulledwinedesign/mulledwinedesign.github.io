@@ -147,3 +147,8 @@ h5{}
     max-width: 80vw;
   }
 }
+
+/* .nowrap {
+  white-space: nowrap;
+  word-break: keep-all;
+} */
