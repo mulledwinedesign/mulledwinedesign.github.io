@@ -33,3 +33,15 @@ function callback (entries, observer) {
 }
 let observer = new IntersectionObserver(callback, options);
 document.querySelectorAll('.cs-cloudrone p').forEach(p => { observer.observe(p) });
+
+
+let start = document.getElementsByClassName('logo-container')[0];
+let points = [start.left, start.top+start.height/2];
+points.forEach((item, i) => {
+
+});
+
+let pointsString = " ";
+
+let path = document.getElementById('flowpath');
+path.setAttribute("d","M"+pointsString+"Z");
