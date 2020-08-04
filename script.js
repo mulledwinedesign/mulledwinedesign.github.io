@@ -34,20 +34,16 @@ function callback (entries, observer) {
 let observer = new IntersectionObserver(callback, options);
 document.querySelectorAll('.cs-cloudrone p').forEach(p => { observer.observe(p) });
 
-let classNames = ["logo-container",""];
-document.getElementsByClassName("dots").forEach(div => {
 
-});
-
-let node = document.getElementsByClassName("dots")[0];
-let x = node.getBoundingClientRect().left;
-let y = node.getBoundingClientRect().top + node.getBoundingClientRect().height/2;
-let points = [{node.className:[x,y]}];
-points.forEach(point => {
-
-});
-
-let pointsString = " ";
-
+let points = [];
+let dots2BConnected = document.getElementsByClassName("dots");
+for(item of dots2BConnected) {
+  let x = item.getBoundingClientRect().left;
+  let y = item.getBoundingClientRect().top + item.getBoundingClientRect().height/2;
+  points.push([x,y]);
+  console.log(item,points);
+}
+// let points = [{node.className:[x,y]}];
+// let pointsString = " ";
 let path = document.getElementById("flowpath");
-path.setAttribute("d","M"+pointsString+"Z");
+path.setAttribute("d","M"+points[0][0]+" "+points[0][1]+" h100"+"Z");
