@@ -35,26 +35,35 @@ html{
   -webkit-font-smoothing:antialiased;
   line-height:var(--font-line-height);
   font-family:var(--font-body);
-  max-width: 1200px;
+  max-width:1200px;
   margin:0 auto;
 }
 body{margin:0 auto}/* override browser deft 8px */
 main{padding:0 calc(1rem + 6.854vw)}
 
+.svg-container{
+  /* height:0; */
+  position:relative;
+  width:100%;
+  /* padding-top:62.25%; */
+  z-index:-1;
+}
+
 svg.flow{
-  position: absolute;
-  z-index: -1;
-  width: 100vw;
-  max-width: 1200px;
+  position:absolute;
+  /* top:0; */
+  /* left:0; */
+  /* width: 100%; */
+  /* max-width: 1200px; */
 }
 
 .logo-container{
-  display: flex;
-  justify-content: flex-end;
+  display:flex;
+  justify-content:flex-end;
 }
 svg.logo{
-  width: 20vw;
-  min-width: 100px;
+  width:20vw;
+  min-width:100px;
 }
 
 button.left,button.right{ /* to be sticky when animation added */
