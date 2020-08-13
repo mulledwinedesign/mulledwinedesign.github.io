@@ -15,7 +15,7 @@ function idExistsInData(id) {
   return bool;
 }
 
-const options = {threshold: buildThresholdList(10)}
+const options = {threshold: buildThresholdList(10)};
 function callback (entries, observer) {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -36,29 +36,37 @@ document.querySelectorAll('.cs-cloudrone p').forEach(p => { observer.observe(p) 
 
 
 function getViewportSize() {
-    let docEle = (document.compatMode && document.compatMode === "CSS1Compat") ? document.documentElement : document.body;
-    let w = docEle.clientWidth;
-    let h = docEle.clientHeight;
-    // mobile zoomed in?
-    if(window.innerWidth && w > window.innerWidth){
-      w = window.innerWidth;
-      h = window.innerHeight;
-    }
-    return {width: w, height: h};
+  let docEle = (document.compatMode && document.compatMode === "CSS1Compat") ? document.documentElement : document.body;
+  let w = docEle.clientWidth;
+  let h = docEle.clientHeight;
+  // mobile zoomed in?
+  if (window.innerWidth && w > window.innerWidth) {
+    w = window.innerWidth;
+    h = window.innerHeight;
+  }
+  return {width: w, height: h};
 }
 
-let points = [];
-let pointsString = "";
-let dots2BConnected = document.getElementsByClassName("dots");
-for(item of dots2BConnected) {
-  let rect = item.getBoundingClientRect();
-  let x = rect.left;
-  let y = rect.top + item.clientHeight/2;
-  points.push([x,y]);
+function updateViewBox() {
+  document.getElementsByClassName("flow")[0].setAttribute("viewBox","0 0 "+getViewportSize().width+" "+getViewportSize().height);
 }
-points.forEach((item, i) => {
-  pointsString += "m"+points[i][0]+" "+points[i][1]+" v10 h10 v-10 h-10";
-});
-document.getElementById("flowpath").setAttribute("d",pointsString+"z");
-let svg = document.getElementsByClassName("flow")[0];
-svg.setAttribute("viewBox","0 0 "+getViewportSize().width+" "+getViewportSize().height);
+
+function connectDots() {
+  let points = [];
+  let pointsString = "";
+  let dots2BConnected = document.getElementsByClassName("dots");
+  for(item of dots2BConnected) {
+    let x = item.getBoundingClientRect().left + window.pageXOffset;
+    let y = item.getBoundingClientRect().top + window.pageYOffset + item.clientHeight/2;
+    points.push([x,y]);
+  }
+  points.forEach((item, i) => {
+    pointsString += "M"+points[i][0]+" "+points[i][1]+"v10h10v-10h-10";
+  });
+  document.getElementById("flowpath").setAttribute("d",pointsString+"z");
+}
+
+updateViewBox();
+connectDots();
+window.addEventListener("resize", updateViewBox);
+window.addEventListener("resize", connectDots);

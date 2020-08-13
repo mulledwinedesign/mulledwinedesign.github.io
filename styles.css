@@ -35,10 +35,12 @@ html{
   -webkit-font-smoothing:antialiased;
   line-height:var(--font-line-height);
   font-family:var(--font-body);
-  max-width:1200px;
   margin:0 auto;
 }
-body{margin:0 auto}/* override browser deft 8px */
+body{
+  margin:0 auto;
+  /* max-width:1200px; */
+  }
 main{padding:0 calc(1rem + 6.854vw)}
 
 .svg-container{
@@ -49,11 +51,11 @@ main{padding:0 calc(1rem + 6.854vw)}
   z-index:-1;
 }
 
-svg.flow{
+svg.flow, #flowpath{
   position:absolute;
   /* top:0; */
   /* left:0; */
-  /* width: 100%; */
+  width: 100%;
   /* max-width: 1200px; */
 }
 
@@ -153,7 +155,7 @@ h5{}
 @media(min-width:125em){
   /* desktop < 2000px < monitor */
   html,svg.flow{
-    max-width: 80vw;
+    /* max-width: 80vw; */
   }
 }
 
