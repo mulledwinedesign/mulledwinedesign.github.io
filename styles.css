@@ -51,7 +51,7 @@ main{padding:0 calc(1rem + 6.854vw)}
   z-index:-1;
 }
 
-svg.flow, #flowpath{
+svg.flow{
   position:absolute;
   /* top:0; */
   /* left:0; */

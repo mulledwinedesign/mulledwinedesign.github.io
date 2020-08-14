@@ -53,17 +53,30 @@ function updateViewBox() {
 
 function connectDots() {
   let points = [];
-  let pointsString = "";
   let dots2BConnected = document.getElementsByClassName("dots");
   for(item of dots2BConnected) {
-    let x = item.getBoundingClientRect().left + window.pageXOffset;
-    let y = item.getBoundingClientRect().top + window.pageYOffset + item.clientHeight/2;
-    points.push([x,y]);
+    // console.log(item);
+    let xLeft = item.getBoundingClientRect().left +window.pageXOffset;
+    let xRight = item.getBoundingClientRect().left +window.pageXOffset +item.clientWidth;
+    let y = item.getBoundingClientRect().top +window.pageYOffset +item.clientHeight/2;
+    points.push({xLeft:xLeft,xRight:xRight,y:y});
   }
-  points.forEach((item, i) => {
-    pointsString += "M"+points[i][0]+" "+points[i][1]+"v10h10v-10h-10";
-  });
-  document.getElementById("flowpath").setAttribute("d",pointsString+"z");
+  console.log(points);
+  document.getElementById("flowpath").setAttribute("d",
+    "M"+points[0].xLeft +" "+points[0].y+
+    "L"+points[1].xRight+" "+points[1].y+
+    "M"+points[1].xLeft +" "+points[1].y+
+    "L"+points[2].xLeft +" "+points[2].y+
+    "M"+points[2].xRight+" "+points[2].y+
+    "L"+points[3].xLeft +" "+points[3].y+
+    "M"+points[3].xRight+" "+points[3].y+
+    "L"+points[4].xRight+" "+points[4].y+
+    "M"+points[4].xLeft +" "+points[4].y+
+    "L"+points[5].xLeft +" "+points[5].y+
+    "M"+points[5].xRight+" "+points[5].y+
+    "L"+points[6].xLeft +" "+points[6].y+
+    "M"+points[6].xRight+" "+points[6].y+
+    "L"+points[7].xLeft +" "+points[7].y);
 }
 
 updateViewBox();

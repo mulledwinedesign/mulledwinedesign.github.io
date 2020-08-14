@@ -54,13 +54,13 @@
     <header>
       <div class="svg-container">
         <svg class="flow" preserveAspectRatio="xMinYMin meet">
-          <path id="flowpath" stroke="red" d=""/>
+          <path id="flowpath" stroke="red" fill="transparent" d=""/>
         </svg>
       </div>
       <div class="logo-container">
         <svg class="logo dots" viewBox="0 0 100 100">
           <a href="#">
-            <circle stroke="black" fill="transparent" cx="50" cy="50" r="50">
+            <circle stroke="black" fill="pink" cx="50" cy="50" r="50">
           </a>
         </svg>
       </div>
@@ -70,7 +70,8 @@
     <main>
       <!-- add svg accessibility support later: title, desc, aria-labelledby, role -->
       <header class="name">
-        <h1><div class="dots">Xueer Zhang</div>
+        <h1>
+          <div class="dots">Xueer Zhang</div>
           <!-- Xueer Zhang
           Xueer Zhang &sol;&prime;sure &middot; are &middot; &prime;john&sol;
           Xueer &sol;&prime;sure &middot; are&sol; Zhang &sol;&prime;john&sol;
@@ -96,7 +97,7 @@
         -->
         <section class="exp">
           <h2 class="less">EXPERIENCE</h2>
-          <div class="dots"><h2>She’s been a&sol;an ...</h2></div>
+          <h2><div class="dots">She’s been a&sol;an ...</div></h2>
           <ins>She has worked at Phosphene Designs, and with the Museum of Food and Drink.</ins>
           <section class="exp-mofad">
             <i>Web Designer &amp; </i>
@@ -229,7 +230,7 @@
         </section>
       </section>
       <section class="recipe">
-        <p>Here's how she mulls over a project:</p>
+        <div class="dots"><p>Here's how she mulls over a project:</p></div>
         <ul>
           <li>context</li>
           <li>Inspiration</li>
@@ -240,9 +241,9 @@
       </section>
       <section class="cs">
         <nav role="navigation">
-          <button type="button" name="cs1">Cloudrone</button>
-          <button type="button" name="cs2">MOFAD City</button>
-          <button type="button" name="cs3">Situation, Adventure!</button>
+          <div class="dots"><button type="button" name="cs1">Cloudrone</button></div>
+          <div class="dots"><button type="button" name="cs2">MOFAD City</button></div>
+          <div class="dots"><button type="button" name="cs3">Situation, Adventure!</button></div>
         </nav>
         <article class="cloudrone">
           <h2>Case Study 01 Cloudrone</h2><!-- needs a title -->
