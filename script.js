@@ -61,7 +61,7 @@ function connectDots() {
     let y = item.getBoundingClientRect().top +window.pageYOffset +item.clientHeight/2;
     points.push({xLeft:xLeft,xRight:xRight,y:y});
   }
-  console.log(points);
+  // console.log(points);
   document.getElementById("flowpath").setAttribute("d",
     "M"+points[0].xLeft +" "+points[0].y+
     "L"+points[1].xRight+" "+points[1].y+
