@@ -119,11 +119,14 @@ h1 span:nth-child(n+2){
   font-size:var(--font-l);
   font-weight:500;
 }
-span.dots{display:inline-block}
+span.dots{
+  display:inline-block;
+  /* width:max-content; */
+}
 
 .cv h2{
   font-family:var(--font-body);
-  font-size:12pt;
+  font-size:var(--font-m);
   font-weight:400;
 }
 .cv i{

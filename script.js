@@ -55,11 +55,23 @@ function connectDots() {
   let points = [];
   let dots2BConnected = document.getElementsByClassName("dots");
   for(item of dots2BConnected) {
-    // console.log(item);
     let xLeft = item.getBoundingClientRect().left +window.pageXOffset;
     let xRight = item.getBoundingClientRect().left +window.pageXOffset +item.clientWidth;
     let y = item.getBoundingClientRect().top +window.pageYOffset +item.clientHeight/2;
     points.push({xLeft:xLeft,xRight:xRight,y:y});
+
+    console.log(
+      item.getBoundingClientRect().left,
+      item.getBoundingClientRect().top,
+      window.pageXOffset,
+      window.pageYOffset,
+      window.getComputedStyle(item).getPropertyValue("width"),
+      item.getBoundingClientRect().width,
+      item.clientWidth,
+      xRight-xLeft,
+      item.scrollWidth,
+      item.offsetWidth
+    )
   }
   // console.log(points);
   document.getElementById("flowpath").setAttribute("d",
@@ -80,6 +92,6 @@ function connectDots() {
 }
 
 updateViewBox();
-connectDots();
+window.addEventListener("load", connectDots);
 window.addEventListener("resize", updateViewBox);
 window.addEventListener("resize", connectDots);
