@@ -66,7 +66,7 @@ function connectDots() {
     "C"+p[0].xLeft+" "+(p[0].y+(p[1].y-p[0].y)*1.618)+","
        +(p[1].xRight+(p[0].xLeft-p[1].xRight)*0.618)+" "+p[1].y+","
        +p[1].xRight+" "+p[1].y+
-    "M"+p[1].xLeft +" "+p[1].y+
+    "M"+p[1].xLeft +" "+p[1].y+"h-20"+
     "C"+p[1].xLeft+" "+(p[1].y+(p[2].y-p[1].y)*0.618/2)+","
        +p[1].xLeft*0.618+" "+(p[1].y+(p[2].y-p[1].y)*0.618)+","
        +p[2].xLeft +" "+p[2].y+

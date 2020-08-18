@@ -55,9 +55,13 @@ svg.flow{
   position:absolute;
   /* top:0; */
   /* left:0; */
-  width: 100%;
+  width:100%;
   /* max-width: 1200px; */
   overflow:visible;
+  fill:transparent;
+  stroke:pink;
+  stroke-width:0.3rem;
+  stroke-linecap:round;
 }
 
 .logo-container{
@@ -143,6 +147,9 @@ span.dots{
 .cv section section+section{
   margin-top: var(--spacing-m);
 }
+
+.recipe,.cs nav{text-align:center}
+
 h3{
   font-family:var(--font-display-deck);
   font-size:var(--font-l);
@@ -151,7 +158,7 @@ h3{
 }
 h4{}
 h5{}
-/* .rq{max-width:80ch} */
+/* strong .rq{max-width:80ch} */
 
 @media(max-width:31.25em){
   /* mobile < 500px < desktop */
