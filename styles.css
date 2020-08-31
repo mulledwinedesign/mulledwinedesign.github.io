@@ -1,44 +1,47 @@
 :root{
-  --font-display: "canela", serif;
-  --font-display-deck: "canela deck", sans-serif;
-  --font-display-text: "canela text", serif;
-  --font-caption: "aktiv", sans-serif;
-  --font-body: "bernina", sans-serif;
-  /* --font-body: "ivar text", serif; */
-  /* --font-s: 0.618rem;
-  --font-l: 1.618rem;
-  --font-xl: 2.618rem;
-  --font-xxl: 4.236rem; */
-  /* --spacing-s: 0.618rem;
-  --spacing-m: 1.618rem;
-  --spacing-l: 2.618rem;
-  --spacing-xl: 4.236rem;
-  --spacing-xxl: 6.854rem; */
-  /* --color-base: #;
-  --color-mid: #;
-  --color-dim: #; */
-  --line-height: calc(1em + 0.618vw);
-  --xxs: 0.618rem;
-  --xs: 1rem;
-  --s: 1.618rem;
-  --m: 2.618rem;
-  --l: 4.236rem;
-  --xl: 6.854rem;
-  --xxl: 11.089rem;
+  --font-display:"canela", serif;
+  --font-display-deck:"canela deck", sans-serif;
+  --font-display-text:"canela text", serif;
+  --font-caption:"aktiv", sans-serif;
+  --font-body:"bernina", sans-serif;
+  /* --font-body:"ivar text", serif; */
+  /* --font-s:0.618rem;
+  --font-l:1.618rem;
+  --font-xl:2.618rem;
+  --font-xxl:4.236rem; */
+  /* --spacing-s:0.618rem;
+  --spacing-m:1.618rem;
+  --spacing-l:2.618rem;
+  --spacing-xl:4.236rem;
+  --spacing-xxl:6.854rem; */
+  /* --color-base:#;
+  --color-mid:#;
+  --color-dim:#; */
+  --line-height:calc(1em + 0.618vw);
+  --xxs:0.618rem;
+  --xs:1rem;
+  --s:1.618rem;
+  --m:2.618rem;
+  --l:4.236rem;
+  --xl:6.854rem;
+  --xxl:11.089rem;
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+  margin:0;
+}
 html{
   -webkit-font-smoothing:antialiased;
   line-height:var(--line-height);
   font-family:var(--font-body);
-  font-size: min(16px, 1.618vw);
+  /* font-size:min(16px, 1.618vw); */
   margin:0 auto;
 }
-body{margin:0 auto}
-main{padding:0 calc(1rem + 11.089vw)}
-
-main section{margin-bottom:var(--xl)}
+header{padding:6.854vw 6.854vw 0 0}
+main,footer{padding:0 17.942vw}
+footer{margin:var(--xl) 0 var(--m)}
+main>section{margin-top:var(--xl)}
 .cv section section+section{margin-top:var(--s)}
 .cs article section h3+h4{margin-top:var(--m)}
 .cs article section h4+p{margin-top:var(--xxs)}
@@ -59,7 +62,6 @@ svg.flow{
   stroke-linecap:round;
 }
 
-header{padding:10vw 10vw 0 0}
 .logo-container{
   display:flex;
   justify-content:flex-end;
@@ -70,26 +72,26 @@ svg.logo{
 }
 
 button.left,button.right{ /* to be sticky when animation added */
-  position: fixed;
-  bottom: 1vw;
+  position:fixed;
+  bottom:1vw;
 }
-.left{left: 1vw}
-.right{right: 1vw}
+.left{left:1vw}
+.right{right:1vw}
 
 .edu strong,.cv i,
 .cs>span
 {display:block}
 
 .name{
-  /* prevent widow lines: em width + mq */
-  /* min-width: 40em; */
+  /* prevent widow lines:em width + mq */
+  /* min-width:40em; */
 }
 
 .cv{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: var(--s);
-  grid-auto-flow: column;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-gap:var(--s);
+  grid-auto-flow:column;
 }
 p{
   max-width:55ch;
@@ -100,15 +102,15 @@ p{
 p.col2{margin-left:50%}
 
 abbr{
-  text-decoration: none;
-  font-variant: none;
+  text-decoration:none;
+  font-variant:none;
 }
 h1{
   font-family:var(--font-display);
   font-size:var(--l);
   font-weight:500;
   line-height:1.2;
-  margin:var(--xl) 0;
+  /* margin:var(--xl) 0; */
 }
 h1 span:nth-child(n+2){
   display:block;
@@ -166,7 +168,7 @@ ins,aside,
 .less,.more,
 .cv mark,.cv address,.cv time,
 .skills
-{display: none}
+{display:none}
 
 @media(max-width:31.25em){
   /* mobile < 500px < desktop */
@@ -175,11 +177,11 @@ ins,aside,
 @media(min-width:125em){
   /* desktop < 2000px < monitor */
   html,svg.flow{
-    /* max-width: 80vw; */
+    /* max-width:80vw; */
   }
 }
 
 /* .nowrap {
-  white-space: nowrap;
-  word-break: keep-all;
+  white-space:nowrap;
+  word-break:keep-all;
 } */
