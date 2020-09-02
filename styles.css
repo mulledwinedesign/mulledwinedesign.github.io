@@ -1,9 +1,9 @@
 :root{
-  --font-display:"canela", serif;
-  --font-display-deck:"canela deck", sans-serif;
-  --font-display-text:"canela text", serif;
-  --font-caption:"aktiv", sans-serif;
-  --font-body:"bernina", sans-serif;
+  --font-display:"canela",serif;
+  --font-display-deck:"canela deck",sans-serif;
+  --font-display-text:"canela text",serif;
+  --font-caption:"aktiv",sans-serif;
+  --font-body:"bernina",sans-serif;
   /* --font-body:"ivar text", serif; */
   /* --font-s:0.618rem;
   --font-l:1.618rem;
@@ -19,7 +19,7 @@
   --color-dim:#; */
   --line-height:calc(1em + 0.618vw);
   --xxs:0.618rem;
-  --xs:1rem;
+  --xs:16px;
   --s:1.618rem;
   --m:2.618rem;
   --l:4.236rem;
@@ -33,15 +33,15 @@
 }
 html{
   -webkit-font-smoothing:antialiased;
+  margin:0 auto;
+  /* font-size:min(16px, 1.618vw); */
   line-height:var(--line-height);
   font-family:var(--font-body);
-  /* font-size:min(16px, 1.618vw); */
-  margin:0 auto;
 }
 header{padding:6.854vw 6.854vw 0 0}
 main,footer{padding:0 17.942vw}
-footer{margin:var(--xl) 0 var(--m)}
 main>section{margin-top:var(--xl)}
+footer{margin:var(--xl) 0 var(--l)}
 .cv section section+section{margin-top:var(--s)}
 .cs article section h3+h4{margin-top:var(--m)}
 .cs article section h4+p{margin-top:var(--xxs)}
@@ -51,7 +51,6 @@ main>section{margin-top:var(--xl)}
   width:100%;
   z-index:-1;
 }
-
 svg.flow{
   position:absolute;
   width:100%;
@@ -60,6 +59,10 @@ svg.flow{
   stroke:pink;
   stroke-width:0.3rem;
   stroke-linecap:round;
+}
+span.dots{
+  display:inline-block;
+  /* width:max-content; */
 }
 
 .logo-container{
@@ -78,21 +81,6 @@ button.left,button.right{ /* to be sticky when animation added */
 .left{left:1vw}
 .right{right:1vw}
 
-.edu strong,.cv i,
-.cs>span
-{display:block}
-
-.name{
-  /* prevent widow lines:em width + mq */
-  /* min-width:40em; */
-}
-
-.cv{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  grid-gap:var(--s);
-  grid-auto-flow:column;
-}
 p{
   max-width:55ch;
   font-family:var(--font-body);
@@ -101,58 +89,74 @@ p{
 }
 p.col2{margin-left:50%}
 
-abbr{
-  text-decoration:none;
-  font-variant:none;
-}
+abbr{text-decoration:none}
+
 h1{
-  font-family:var(--font-display);
-  font-size:var(--l);
   font-weight:500;
+  font-size:var(--l);
   line-height:1.2;
-  /* margin:var(--xl) 0; */
+  font-family:var(--font-display);
 }
 h1 span:nth-child(n+2){
   display:block;
-  font-size:var(--s);
   font-weight:500;
+  font-size:var(--s);
 }
-span.dots{
-  display:inline-block;
-  /* width:max-content; */
+h1 .more{
+  margin-top:var(--s);
+  font-weight:;
+  font-size:var(--s);
+  font-family:;
+}
+
+.cv i.default,.edu strong,
+.cs>span
+{display:block}
+
+.cv{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-gap:var(--s);
+  grid-auto-flow:column;
 }
 
 .cv h2{
-  font-family:var(--font-body);
-  font-size:var(--xs);
   font-weight:400;
+  font-size:var(--xs);
+  font-family:var(--font-body);
 }
 .cv i{
-  font-family:var(--font-display-text);
-  /* font-size:var(--s); */
-  font-weight:400;
   font-style:normal;
+  font-weight:400;
+  /* font-size:var(--s); */
+  font-family:var(--font-display-text);
 }
 .cv strong{
-  font-family:var(--font-body);
-  /* font-size:var(--s); */
   font-weight:500;
+  /* font-size:var(--s); */
+  font-family:var(--font-body);
+}
+.cv mark{
+  background-color:transparent;
+  font-weight:;
+  font-size:;
+  font-family:;
 }
 
 .recipe,.cs nav{text-align:center}
 
 h3{
-  font-family:var(--font-display-deck);
-  font-size:var(--s);
-  /* color:var(--color-mid); */
   font-weight:300;
+  font-size:var(--s);
+  font-family:var(--font-display-deck);
+  /* color:var(--color-mid); */
 }
 h4{margin-bottom:0}
 h5{}
 
 div.rq-container{
-  padding-right:60%;
   margin:var(--xxs) 0;
+  padding-right:60%;
 }
 div.rq-container p{
   display:inline;
@@ -163,10 +167,11 @@ div.rq-container strong.rq{
   vertical-align:top;
 }
 
-ins,aside,
+/* ins, */
+aside,
 .cellar,.mofad,.thesis,.mm,
 .less,.more,
-.cv mark,.cv address,.cv time,
+.print-cv,
 .skills
 {display:none}
 
@@ -185,3 +190,4 @@ ins,aside,
   white-space:nowrap;
   word-break:keep-all;
 } */
+.smallcaps{font-variant:small-caps}
