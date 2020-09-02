@@ -9,7 +9,7 @@
   --color-dim:#; */
   --line-height:calc(1em + 0.618vw);
   --xxs:0.618rem;
-  --xs:16px;
+  --xs:1rem;
   --s:1.618rem;
   --m:2.618rem;
   --l:4.236rem;
@@ -31,7 +31,7 @@ header{padding:6.854vw 6.854vw 0 0}
 main,footer{padding:0 17.942vw}
 main>section{margin-top:var(--xl)}
 footer{margin:var(--xl) 0 var(--l)}
-.cv section section+section{margin-top:var(--s)}
+.cv section section+section{margin-top:var(--xs)}
 .cs article section h3+h4{margin-top:var(--m)}
 .cs article section h4+p{margin-top:var(--xxs)}
 
@@ -47,7 +47,6 @@ svg.flow{
   fill:transparent;
   stroke:pink;
   stroke-width:0.3rem;
-  stroke-linecap:round;
 }
 span.dots{display:inline-block}
 
@@ -87,6 +86,7 @@ h1 span:nth-child(n+2){
   display:block;
   font-weight:500;
   font-size:var(--s);
+  font-family:var(--font-display-deck);
 }
 /* h1 .more{
   margin-top:var(--s);
@@ -105,38 +105,38 @@ h1 span:nth-child(n+2){
   grid-gap:var(--s);
   grid-auto-flow:column;
 }
-
-.cv h2{
-  font-weight:400;
-  font-size:var(--xs);
-  font-family:var(--font-body);
+.cv h2,.recipe h2{
+  margin-bottom:var(--m);
+  font-weight:300;
+  font-size:var(--s);
 }
+.cv h2{font-family:var(--font-display)}
+.recipe h2{font-family:var(--font-display-deck)}
+.cv section section *{font-family:var(--font-caption)}
 .cv i{
   font-style:normal;
   font-weight:400;
-  /* font-size:var(--s); */
-  font-family:var(--font-display-text);
 }
-.cv strong{
-  font-weight:500;
-  /* font-size:var(--s); */
-  font-family:var(--font-body);
-}
-.cv mark{
+.cv strong{font-weight:600}
+/* .cv mark{
   background-color:transparent;
   font-weight:;
   font-size:;
   font-family:;
-}
-
+} */
 .recipe,.cs nav{text-align:center}
-
-h3{
+.recipe ul{
+  padding:0;
+  list-style:none;
+}
+.cs nav{margin-bottom:var(--l)}
+.cs h2{}
+.cs h3{
   font-weight:300;
   font-size:var(--s);
   font-family:var(--font-display-deck);
 }
-h4{margin-bottom:0}
+.cs h4{margin-bottom:0}
 h5{}
 
 div.rq-container{
