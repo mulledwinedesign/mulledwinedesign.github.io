@@ -4,16 +4,6 @@
   --font-display-text:"canela text",serif;
   --font-caption:"aktiv",sans-serif;
   --font-body:"bernina",sans-serif;
-  /* --font-body:"ivar text", serif; */
-  /* --font-s:0.618rem;
-  --font-l:1.618rem;
-  --font-xl:2.618rem;
-  --font-xxl:4.236rem; */
-  /* --spacing-s:0.618rem;
-  --spacing-m:1.618rem;
-  --spacing-l:2.618rem;
-  --spacing-xl:4.236rem;
-  --spacing-xxl:6.854rem; */
   /* --color-base:#;
   --color-mid:#;
   --color-dim:#; */
@@ -34,7 +24,6 @@
 html{
   -webkit-font-smoothing:antialiased;
   margin:0 auto;
-  /* font-size:min(16px, 1.618vw); */
   line-height:var(--line-height);
   font-family:var(--font-body);
 }
@@ -60,10 +49,7 @@ svg.flow{
   stroke-width:0.3rem;
   stroke-linecap:round;
 }
-span.dots{
-  display:inline-block;
-  /* width:max-content; */
-}
+span.dots{display:inline-block}
 
 .logo-container{
   display:flex;
@@ -74,7 +60,7 @@ svg.logo{
   min-width:100px;
 }
 
-button.left,button.right{ /* to be sticky when animation added */
+button.left,button.right{
   position:fixed;
   bottom:1vw;
 }
@@ -88,8 +74,8 @@ p{
   margin:var(--xxs) 0;
 }
 p.col2{margin-left:50%}
-
 abbr{text-decoration:none}
+.smallcaps{font-variant:small-caps}
 
 h1{
   font-weight:500;
@@ -102,14 +88,14 @@ h1 span:nth-child(n+2){
   font-weight:500;
   font-size:var(--s);
 }
-h1 .more{
+/* h1 .more{
   margin-top:var(--s);
   font-weight:;
   font-size:var(--s);
   font-family:;
-}
+} */
 
-.cv i.default,.edu strong,
+.cv i,.edu strong,
 .cs>span
 {display:block}
 
@@ -149,7 +135,6 @@ h3{
   font-weight:300;
   font-size:var(--s);
   font-family:var(--font-display-deck);
-  /* color:var(--color-mid); */
 }
 h4{margin-bottom:0}
 h5{}
@@ -167,13 +152,13 @@ div.rq-container strong.rq{
   vertical-align:top;
 }
 
-/* ins, */
+/* ins,
 aside,
 .cellar,.mofad,.thesis,.mm,
 .less,.more,
 .print-cv,
 .skills
-{display:none}
+{display:none} */
 
 @media(max-width:31.25em){
   /* mobile < 500px < desktop */
@@ -185,9 +170,3 @@ aside,
     /* max-width:80vw; */
   }
 }
-
-/* .nowrap {
-  white-space:nowrap;
-  word-break:keep-all;
-} */
-.smallcaps{font-variant:small-caps}
