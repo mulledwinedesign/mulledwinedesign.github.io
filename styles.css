@@ -27,16 +27,26 @@ html{
   margin:0 auto;
   font-family:var(--font-body);
 }
+
+/* vertical rhythm */
 main>section{margin-top:var(--xl)}
 footer{margin:var(--xl) 0 var(--l)}
 .cv section section+section{margin-top:var(--xs)}
-.cs article section+section{margin-top:var(--l)}
-.cs article section h3+h4{margin-top:var(--m)}
-.cs article section h4+p{margin-top:var(--xs)}
+/* .cs article section+section{margin-top:var(--l)} */
+/* .cs h4{margin-top:var(--m)} */
+article{
+  margin-top:var(--l);
+  grid-row-gap:var(--l);
+}
+h4+p{margin-top:var(--xs)}
 
+/* horizontal rhythm */
 header{padding:6.854vw 6.854vw 0 0}
 .name,.cv,.recipe,footer{padding:0 17.942vw}
+/* .cs>nav,article>h2{padding:0 11.089vw}
+.info,article>section{padding:0 11.089vw 0 17.942vw} */
 .cs{padding:0 11.089vw}
+article{grid-column-gap:var(--s)}
 
 .svg-container{
   position:relative;
@@ -98,8 +108,7 @@ h1 span:nth-child(n+2){
   font-family:;
 } */
 
-.cv i,.edu strong,
-.cs>span
+.cv i,.edu strong
 {display:block}
 
 .cv{
@@ -128,6 +137,7 @@ h1 span:nth-child(n+2){
   font-family:;
 } */
 .recipe,.cs nav{text-align:center}
+/* article>h3{text-align:right} */
 .recipe ul{
   padding:0;
   list-style:none;
@@ -153,19 +163,26 @@ h1 span:nth-child(n+2){
   font-size:var(--s);
   font-family:var(--font-display-text);
 }
-.cs h2{
-  margin:var(--l) 0;
 
+article{
+  display:grid;
+  grid-template-columns:10% 1fr;
+}
+.cs h2,.info{grid-column:1/3}
+article>section{grid-column:2/3}
+article>h3{grid-column:1/2}
+
+.cs h2{
   font-weight:400;
   font-size:var(--m);
   font-family:var(--font-caption);
 }
-.cs h3{
+h3{
   font-weight:300;
   font-size:var(--s);
   font-family:var(--font-display-deck);
 }
-.cs h4{margin-bottom:0}
+h4{}
 h5{}
 
 div.rq-container{
