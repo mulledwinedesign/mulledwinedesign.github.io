@@ -29,7 +29,7 @@
 html{
   -webkit-font-smoothing:antialiased;
   margin:0 auto;
-  font-family:"JAF Bernina Sans Regular";
+  /* font-family:"JAF Bernina Sans Regular"; */
 }
 ol,ul{
   padding:0;
@@ -58,7 +58,9 @@ header{padding:6.854vw 6.854vw 0 0}
 .info,article>section{padding:0 11.089vw 0 17.942vw} */
 .cs{padding:0 11.089vw}
 article{grid-column-gap:var(--s)}
+p.col2{margin-left:50%}
 
+/* layout */
 .svg-container{
   position:relative;
   width:100%;
@@ -90,27 +92,58 @@ button.left,button.right{
 .left{left:1vw}
 .right{right:1vw}
 
+.cv i,.edu strong{display:block}
+.cv{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  grid-gap:var(--s);
+  grid-auto-flow:column;
+}
+.recipe>ol,.cs nav{
+  display:flex;
+  justify-content:space-between;
+}
+
+article{
+  display:grid;
+  grid-template-columns:15% auto;
+}
+.cs h2,.info{grid-column:1/3}
+article>section{grid-column:2/3}
+article>h3{grid-column:1/2}
+
+div.rq-container{
+  margin:var(--xxs) 0;
+  padding-right:60%;
+}
+div.rq-container p{
+  display:inline;
+}
+div.rq-container strong.rq{
+  display:inline-block;
+  margin-right:-100%;
+  vertical-align:top;
+}
+
+/* text */
 p{
   max-width:55ch;
-  /* font-weight:400; */
+  font-weight:400;
   font-family:"JAF Bernina Sans Regular";
   margin:var(--xxs) 0;
 }
-p.col2{margin-left:50%}
 abbr{text-decoration:none}
 .smallcaps{font-variant:small-caps}
 
 h1{
-  /* font-weight:500; */
+  font-weight:500;
   font-size:var(--l);
   line-height:1.2;
   font-family:"Canela Medium";
 }
 h1 span:nth-child(n+2){
   display:block;
-  /* font-weight:500; */
   font-size:var(--s);
-  font-family:"Canela Deck Medium";
 }
 /* h1 .more{
   margin-top:var(--s);
@@ -118,22 +151,11 @@ h1 span:nth-child(n+2){
   font-size:var(--s);
   font-family:;
 } */
-
-.cv i,.edu strong
-{display:block}
-
-.cv{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  grid-gap:var(--s);
-  grid-auto-flow:column;
-}
 .cv h2,.recipe h2{
-  /* font-weight:300; */
   font-size:var(--s);
+  font-weight:300;
+  font-family:"Canela Deck Light";
 }
-.cv h2{font-family:"Canela Light"}
-.recipe h2{font-family:"Canela Deck Light"}
 .cv section section *{font-family:var(--font-caption)}
 .cv i{
   font-style:normal;
@@ -151,11 +173,6 @@ h1 span:nth-child(n+2){
   font-size:var(--s);
   font-family:var(--font-caption);
 }
-.recipe>ol,.cs nav{
-  display:flex;
-  justify-content:space-between;
-}
-/* article>h3{text-align:right} */
 /* header button{
   border-width:0;
   background-color:transparent;
@@ -169,44 +186,22 @@ h1 span:nth-child(n+2){
   /* padding:.618ex;
   border-width:0 0 .382ex 0;
   background-color:transparent; */
-  /* font-weight:300; */
+  font-weight:300;
   font-size:var(--s);
   font-family:"Canela Text Light";
 }
-
-article{
-  display:grid;
-  grid-template-columns:15% auto;
-}
-.cs h2,.info{grid-column:1/3}
-article>section{grid-column:2/3}
-article>h3{grid-column:1/2}
-
 .cs h2{
   font-weight:400;
   font-size:var(--m);
   font-family:var(--font-caption);
 }
 h3{
-  /* font-weight:300; */
+  font-weight:300;
   font-size:var(--s);
   font-family:"Canela Deck Light";
 }
 h4{}
 h5{}
-
-div.rq-container{
-  margin:var(--xxs) 0;
-  padding-right:60%;
-}
-div.rq-container p{
-  display:inline;
-}
-div.rq-container strong.rq{
-  display:inline-block;
-  margin-right:-100%;
-  vertical-align:top;
-}
 
 /* ins,
 aside,
