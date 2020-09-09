@@ -3,7 +3,7 @@
   --font-display-deck:"canela deck",sans-serif;
   --font-display-text:"canela text",serif;
   --font-caption:"aktiv",sans-serif;
-  --font-body:"bernina",sans-serif;
+  --font-body:"bernina","bernino",sans-serif;
   /* --color-base:#;
   --color-mid:#;
   --color-dim:#; */
@@ -29,7 +29,7 @@
 html{
   -webkit-font-smoothing:antialiased;
   margin:0 auto;
-  font-family:var(--font-body);
+  font-family:"JAF Bernina Sans Regular";
 }
 ol,ul{
   padding:0;
@@ -92,8 +92,8 @@ button.left,button.right{
 
 p{
   max-width:55ch;
-  font-family:var(--font-body);
-  font-weight:400;
+  /* font-weight:400; */
+  font-family:"JAF Bernina Sans Regular";
   margin:var(--xxs) 0;
 }
 p.col2{margin-left:50%}
@@ -101,16 +101,16 @@ abbr{text-decoration:none}
 .smallcaps{font-variant:small-caps}
 
 h1{
-  font-weight:500;
+  /* font-weight:500; */
   font-size:var(--l);
   line-height:1.2;
-  font-family:var(--font-display);
+  font-family:"Canela Medium";
 }
 h1 span:nth-child(n+2){
   display:block;
-  font-weight:500;
+  /* font-weight:500; */
   font-size:var(--s);
-  font-family:var(--font-display-deck);
+  font-family:"Canela Deck Medium";
 }
 /* h1 .more{
   margin-top:var(--s);
@@ -129,11 +129,11 @@ h1 span:nth-child(n+2){
   grid-auto-flow:column;
 }
 .cv h2,.recipe h2{
-  font-weight:300;
+  /* font-weight:300; */
   font-size:var(--s);
 }
-.cv h2{font-family:var(--font-display)}
-.recipe h2{font-family:var(--font-display-deck)}
+.cv h2{font-family:"Canela Light"}
+.recipe h2{font-family:"Canela Deck Light"}
 .cv section section *{font-family:var(--font-caption)}
 .cv i{
   font-style:normal;
@@ -169,9 +169,9 @@ h1 span:nth-child(n+2){
   /* padding:.618ex;
   border-width:0 0 .382ex 0;
   background-color:transparent; */
-  font-weight:300;
+  /* font-weight:300; */
   font-size:var(--s);
-  font-family:var(--font-display-text);
+  font-family:"Canela Text Light";
 }
 
 article{
@@ -188,9 +188,9 @@ article>h3{grid-column:1/2}
   font-family:var(--font-caption);
 }
 h3{
-  font-weight:300;
+  /* font-weight:300; */
   font-size:var(--s);
-  font-family:var(--font-display-deck);
+  font-family:"Canela Deck Light";
 }
 h4{}
 h5{}
