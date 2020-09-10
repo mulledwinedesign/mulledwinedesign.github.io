@@ -1,9 +1,9 @@
 :root{
-  --font-display:"canela",serif;
+  /* --font-display:"canela",serif;
   --font-display-deck:"canela deck",sans-serif;
   --font-display-text:"canela text",serif;
   --font-caption:"aktiv",sans-serif;
-  --font-body:"bernina","bernino",sans-serif;
+  --font-body:"bernina","bernino",sans-serif; */
   /* --color-base:#;
   --color-mid:#;
   --color-dim:#; */
@@ -144,16 +144,20 @@ h1 span:nth-child(n+2){
   font-family:;
 } */
 .cv h2,.recipe h2{
-  font-size:var(--s);
   font-weight:300;
+  font-size:var(--s);
   font-family:"Canela Deck Light";
 }
-.cv section section *{font-family:var(--font-caption)}
+/* .cv>section>section *{font-family:var(--font-caption)} */
 .cv i{
   font-style:normal;
   font-weight:400;
+  font-family:"Aktiv Regular";
 }
-.cv strong{font-weight:600}
+.cv strong{
+  font-weight:500;
+  font-family:"Aktiv Medium";
+}
 /* .cv mark{
   background-color:transparent;
   font-weight:;
@@ -161,14 +165,14 @@ h1 span:nth-child(n+2){
   font-family:;
 } */
 .recipe>ol{
-  font-weight:600;
+  font-weight:500;
   font-size:var(--xs);
-  font-family:var(--font-caption);
+  font-family:"Aktiv Medium";
 }
 .recipe>ol ul{
   font-weight:400;
   font-size:var(--xs);
-  font-family:var(--font-caption);
+  font-family:"Aktiv Regular";
 }
 /* header button{
   border-width:0;
@@ -176,7 +180,7 @@ h1 span:nth-child(n+2){
   font-variant-caps:small-caps;
   font-weight:400;
   font-size:var(--xs);
-  font-family:var(--font-caption);
+  font-family:"Aktiv Regular";
 } */
 .cs nav button{
   padding:1ex;
