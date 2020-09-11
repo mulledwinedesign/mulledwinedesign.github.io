@@ -29,7 +29,7 @@
 html{
   -webkit-font-smoothing:antialiased;
   margin:0 auto;
-  /* font-family:"JAF Bernina Sans Regular"; */
+  /* font-family:jaf-bernino-sans; */
 }
 ol,ul{
   padding:0;
@@ -42,14 +42,13 @@ footer{margin:var(--xl) 0 var(--l)}
 .cv section section+section{margin-top:var(--xs)}
 .cv h2,.recipe h2{margin-bottom:var(--m)}
 .recipe ul{margin-top:var(--xs)}
-/* .cs article section+section{margin-top:var(--l)} */
-/* .cs h4{margin-top:var(--m)} */
 article{
   margin-top:var(--l);
   grid-row-gap:var(--l);
 }
-h4+p{margin-top:var(--xs)}
-p{margin:var(--xxs) 0}
+h4{margin-bottom:var(--xs)}
+p+p{margin-top:var(--xs)}
+p+h4{margin-top:var(--m)}
 
 /* horizontal rhythm */
 header{padding:6.854vw 6.854vw 0 0}
@@ -59,7 +58,8 @@ header{padding:6.854vw 6.854vw 0 0}
 .info,article>section{padding:0 11.089vw 0 17.942vw} */
 .cs{padding:0 11.089vw}
 article{grid-column-gap:var(--s)}
-p.col2{margin-left:50%}
+/* p{max-width:70ch} */
+/* p.sub{margin-left:25%} */
 
 /* layout */
 .svg-container{
@@ -107,22 +107,29 @@ button.left,button.right{
 
 article{
   display:grid;
-  grid-template-columns:15% auto;
+  grid-template-columns:auto 1fr;
 }
-.cs h2,.overview{grid-column:1/3}
-article>section{grid-column:2/3}
+.cs h2,.overview{grid-column:1/-1}
 article>h3{grid-column:1/2}
-
-div.rq-container{
-  margin:var(--xxs) 0;
-  padding-right:60%;
+article>h3+section{
+  grid-column:2/-1;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
 }
-div.rq-container p{
+h4,div{grid-column:1/-1}
+h4+p{grid-column:1/4}
+.sub{grid-column:2/4}
+
+.rq-container{
+  margin:var(--xxs) 0;
+  padding-right:50%;
+}
+.rq-container p{
   display:inline;
 }
-div.rq-container strong.rq{
+.rq-container .rq{
   display:inline-block;
-  margin-right:-100%;
+  margin-right:-200%;
   vertical-align:top;
 }
 
@@ -152,11 +159,11 @@ h1 span:nth-child(n+2){
 .cv i{
   font-style:normal;
   font-weight:400;
-  font-family:"Aktiv Regular";
+  font-family:aktiv-grotesk,sans-serif;
 }
 .cv strong{
-  font-weight:500;
-  font-family:"Aktiv Medium";
+  font-weight:700;
+  font-family:aktiv-grotesk,sans-serif;
 }
 /* .cv mark{
   background-color:transparent;
@@ -167,12 +174,12 @@ h1 span:nth-child(n+2){
 .recipe>ol{
   font-weight:500;
   font-size:var(--xs);
-  font-family:"Aktiv Medium";
+  font-family:aktiv-grotesk,sans-serif;
 }
 .recipe>ol ul{
   font-weight:400;
   font-size:var(--xs);
-  font-family:"Aktiv Regular";
+  font-family:aktiv-grotesk,sans-serif;
 }
 /* header button{
   border-width:0;
@@ -180,7 +187,7 @@ h1 span:nth-child(n+2){
   font-variant-caps:small-caps;
   font-weight:400;
   font-size:var(--xs);
-  font-family:"Aktiv Regular";
+  font-family:aktiv-grotesk;
 } */
 .cs nav button{
   padding:1ex;
@@ -199,7 +206,7 @@ h1 span:nth-child(n+2){
 .overview{
   font-weight:400;
   font-size:var(--xs);
-  font-family:"JAF Bernino Sans Regular";
+  font-family:jaf-bernino-sans;
 }
 h3{
   font-weight:300;
@@ -209,18 +216,21 @@ h3{
 h4{
   font-weight:700;
   font-size:var(--xs);
-  font-family:"JAF Bernino Sans Bold";
+  font-family:jaf-bernino-sans;
 }
 h5{}
 p{
-  max-width:55ch;
   font-weight:400;
-  font-family:"JAF Bernino Sans Regular";
+  font-family:jaf-bernino-sans;
 }
+/* .sub{
+  font-weight:400;
+  font-family:jaf-bernino-sans-narrow;
+} */
 .cs strong{
-  font-weight:300;
+  font-weight:100;
   font-size:var(--s);
-  font-family:"Canela Text Light";
+  font-family:"Canela Text Thin";
 }
 abbr{text-decoration:none}
 .smallcaps{font-variant:small-caps}
