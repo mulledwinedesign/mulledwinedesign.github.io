@@ -155,31 +155,24 @@ h1 span:nth-child(n+2){
   font-size:var(--s);
   font-family:"Canela Deck Light";
 }
-/* .cv>section>section *{font-family:var(--font-caption)} */
+.cv,.recipe{font-family:aktiv-grotesk,sans-serif}
 .cv i{
   font-style:normal;
   font-weight:400;
-  font-family:aktiv-grotesk,sans-serif;
 }
-.cv strong{
-  font-weight:700;
-  font-family:aktiv-grotesk,sans-serif;
-}
+.cv strong{font-weight:700}
 /* .cv mark{
   background-color:transparent;
   font-weight:;
   font-size:;
-  font-family:;
 } */
 .recipe>ol{
   font-weight:500;
   font-size:var(--xs);
-  font-family:aktiv-grotesk,sans-serif;
 }
 .recipe>ol ul{
   font-weight:400;
   font-size:var(--xs);
-  font-family:aktiv-grotesk,sans-serif;
 }
 /* header button{
   border-width:0;
