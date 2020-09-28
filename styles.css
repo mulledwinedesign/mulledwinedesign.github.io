@@ -7,14 +7,23 @@
   /* --color-base:#;
   --color-mid:#;
   --color-dim:#; */
+  --xxs-rem:.618rem;
+  --xs-rem:1rem;
+  --s-rem:1.618rem;
+  --m-rem:2.618rem;
+  --l-rem:4.236rem;
+  --xl-rem:6.854rem;
+  --xxl-rem:11.089rem;
+  --xxxl-rem:17.942rem;
   --line-height:calc(1em + .618vw);
-  --xxs:.618rem;
-  --xs:1rem;
-  --s:1.618rem;
-  --m:2.618rem;
-  --l:4.236rem;
-  --xl:6.854rem;
-  --xxl:11.089rem;
+  --xxs-vw:.618vw;
+  --xs-vw:1vw;
+  --s-vw:1.618vw;
+  --m-vw:2.618vw;
+  --l-vw:4.236vw;
+  --xl-vw:6.854vw;
+  --xxl-vw:11.089vw;
+  --xxxl-vw:17.942vw;
 }
 
 *{
@@ -36,32 +45,35 @@ ol,ul{
   list-style:none;
 }
 
-/* vertical rhythm */
-main>section{margin-top:var(--xl)}
-footer{margin:var(--xl) 0 var(--l)}
-.cv section section+section{margin-top:var(--xs)}
-.cv h2,.recipe h2{margin-bottom:var(--m)}
-.recipe ul{margin-top:var(--xs)}
+/************************************************ vertical rhythm */
+main{margin-top:var(--s-rem)}
+main>section{margin-top:var(--xxl-rem)}
+footer{margin:var(--xl-rem) 0 var(--l-rem)}
+.cv section section+section{margin-top:var(--xs-rem)}
+.cv h2{margin-bottom:var(--m-rem)}
+.recipe h2{margin-bottom:var(--l-rem)}
+.recipe ul{margin-top:var(--xs-rem)}
 article{
-  margin-top:var(--l);
-  grid-row-gap:var(--l);
+  margin-top:var(--l-rem);
+  grid-row-gap:var(--l-rem);
 }
-h4{margin-bottom:var(--xs)}
-p+p{margin-top:var(--xs)}
-p+h4{margin-top:var(--m)}
+h4{margin-bottom:var(--xs-rem)}
+p+p{margin-top:var(--xs-rem)}
+p+h4{margin-top:var(--m-rem)}
 
-/* horizontal rhythm */
-header{padding:6.854vw 6.854vw 0 0}
-.name,.cv,.recipe,footer{padding:0 17.942vw}
+/********************************************** horizontal rhythm */
+header{padding:var(--xxl-vw) var(--xxl-vw) 0 0}
+.name,.cv,footer{padding:0 var(--xxxl-vw)}
+.cv{grid-gap:var(--s-rem)}
 .recipe h2{text-align:center}
 /* .cs>nav,article>h2{padding:0 11.089vw}
 .info,article>section{padding:0 11.089vw 0 17.942vw} */
-.cs{padding:0 11.089vw}
-article{grid-column-gap:var(--s)}
+.recipe,.cs{padding:0 var(--xxl-vw)}
+article{grid-column-gap:var(--s-rem)}
 /* p{max-width:70ch} */
 /* p.sub{margin-left:25%} */
 
-/* layout */
+/********************************************************* layout */
 .svg-container{
   position:relative;
   width:100%;
@@ -76,11 +88,13 @@ svg.flow{
   stroke-width:.3rem;
 }
 span.dots{display:inline-block}
+.cv i,.edu strong{display:block}
 
-.logo-container{
-  display:flex;
-  justify-content:flex-end;
-}
+.logo-container,.recipe>ol,.cs nav{display:flex}
+.logo-container{justify-content:flex-end}
+.recipe>ol{justify-content:space-evenly}
+.cs nav{justify-content:space-between}
+
 svg.logo{
   width:20vw;
   min-width:100px;
@@ -93,35 +107,24 @@ button.left,button.right{
 .left{left:1vw}
 .right{right:1vw}
 
-.cv i,.edu strong{display:block}
+.cv,article,article>h3+section{display:grid}
 .cv{
-  display:grid;
   grid-template-columns:repeat(2,1fr);
-  grid-gap:var(--s);
   grid-auto-flow:column;
 }
-.recipe>ol,.cs nav{
-  display:flex;
-  justify-content:space-between;
-}
-
-article{
-  display:grid;
-  grid-template-columns:auto 1fr;
-}
+article{grid-template-columns:auto 1fr}
 .cs h2,.overview{grid-column:1/-1}
 article>h3{grid-column:1/2}
 article>h3+section{
   grid-column:2/-1;
-  display:grid;
   grid-template-columns:repeat(4,1fr);
 }
-h4,div{grid-column:1/-1}
+h4,.cs div{grid-column:1/-1}
 h4+p{grid-column:1/4}
 .sub{grid-column:2/4}
 
 .rq-container{
-  margin:var(--xxs) 0;
+  margin:var(--xxs-rem) 0;
   padding-right:50%;
 }
 .rq-container p{
@@ -133,54 +136,44 @@ h4+p{grid-column:1/4}
   vertical-align:top;
 }
 
-/* text */
+/*********************************************************** text */
 h1{
   font-weight:500;
-  font-size:var(--l);
+  font-size:var(--l-rem);
   line-height:1.2;
   font-family:"Canela Medium";
 }
 h1 span:nth-child(n+2){
   display:block;
-  font-size:var(--s);
+  font-size:var(--s-rem);
 }
 /* h1 .more{
-  margin-top:var(--s);
+  margin-top:var(--s-rem);
   font-weight:;
-  font-size:var(--s);
+  font-size:var(--s-rem);
   font-family:;
 } */
 .cv h2,.recipe h2{
   font-weight:300;
-  font-size:var(--s);
+  font-size:var(--s-rem);
   font-family:"Canela Deck Light";
 }
-.cv,.recipe{font-family:aktiv-grotesk,sans-serif}
-.cv i{
-  font-style:normal;
+.cv,.recipe ul{
   font-weight:400;
+  font-size:var(--xs-rem);
+  font-family:aktiv-grotesk,sans-serif;
 }
-.cv strong{font-weight:700}
+.cv i{font-style:normal}
+
+.recipe h3{
+  font-weight:400;
+  font-size:var(--s-rem);
+  font-family:"Canela Text Regular";
+}
 /* .cv mark{
   background-color:transparent;
   font-weight:;
   font-size:;
-} */
-.recipe>ol{
-  font-weight:500;
-  font-size:var(--xs);
-}
-.recipe>ol ul{
-  font-weight:400;
-  font-size:var(--xs);
-}
-/* header button{
-  border-width:0;
-  background-color:transparent;
-  font-variant-caps:small-caps;
-  font-weight:400;
-  font-size:var(--xs);
-  font-family:aktiv-grotesk;
 } */
 .cs nav button{
   padding:1ex;
@@ -188,27 +181,27 @@ h1 span:nth-child(n+2){
   border-width:0 0 .382ex 0;
   background-color:transparent; */
   font-weight:300;
-  font-size:var(--s);
+  font-size:var(--s-rem);
   font-family:"Canela Text Light";
 }
 .cs h2{
   font-weight:400;
-  font-size:var(--m);
+  font-size:var(--m-rem);
   font-family:"Canela Text Regular No 2";
 }
 .overview{
   font-weight:400;
-  font-size:var(--xs);
+  font-size:var(--xs-rem);
   font-family:jaf-bernino-sans;
 }
 h3{
   font-weight:300;
-  font-size:var(--s);
+  font-size:var(--s-rem);
   font-family:"Canela Deck Light";
 }
 h4{
   font-weight:700;
-  font-size:var(--xs);
+  font-size:var(--xs-rem);
   font-family:jaf-bernino-sans;
 }
 h5{}
@@ -222,7 +215,7 @@ p{
 } */
 .cs strong{
   font-weight:100;
-  font-size:var(--s);
+  font-size:var(--s-rem);
   font-family:"Canela Text Thin";
 }
 abbr{text-decoration:none}
