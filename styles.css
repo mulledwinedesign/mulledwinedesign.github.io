@@ -74,31 +74,33 @@ article{grid-column-gap:var(--s-rem)}
 /* p.sub{margin-left:25%} */
 
 /********************************************************* layout */
+span.dots,span.0to1dots{display:inline-block}
+.cv i,.edu strong{display:block}
+
 .svg-container{
   position:relative;
   width:100%;
   z-index:-1;
 }
-svg.flow{
-  position:absolute;
-  width:100%;
+svg.flow,svg.logo,svg.0to1{
   overflow:visible;
   fill:transparent;
-  stroke:pink;
+  stroke:black;
   stroke-width:.3rem;
 }
-span.dots{display:inline-block}
-.cv i,.edu strong{display:block}
+svg.flow,svg.0to1{
+  position:absolute;
+  width:100%;
+}
+svg.logo{
+  width:20vw;
+  min-width:100px;
+}
 
 .logo-container,.recipe>ol,.cs nav{display:flex}
 .logo-container{justify-content:flex-end}
 .recipe>ol{justify-content:space-evenly}
 .cs nav{justify-content:space-between}
-
-svg.logo{
-  width:20vw;
-  min-width:100px;
-}
 
 button.left,button.right{
   position:fixed;
