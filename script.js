@@ -94,12 +94,11 @@ window.addEventListener("resize", connectDots);
 // svg recipe line: from 0 to 1
 function draw0to1() {
   // get recipeBox size
-
+  let recipeBox = document.getElementsByClassName("recipe")[0];
   // update recipeBox viewBox
-  document.getElementsByClassName("0to1")[0].setAttribute("viewBox","0 0 "+recipeBox.width+" "+recipeBox.height);
-
+  document.getElementsByClassName("0to1")[0].setAttribute("viewBox","0 0 "+recipeBox.clientWidth+" "+recipeBox.clientHeight);
   // collect 0to1dots coordinates
-  let d = [];
+  let c = [];
   let dots2BConnected = document.getElementsByClassName("0to1dots");
   for(item of dots2BConnected) {
     let xLeft = item.getBoundingClientRect().left +window.pageXOffset;
@@ -107,29 +106,33 @@ function draw0to1() {
     let y = item.getBoundingClientRect().top +window.pageYOffset +item.clientHeight/2;
     d.push({xLeft:xLeft,xRight:xRight,y:y});
   }
-
+  // draw 0
+  let gap = c[1].xLeft-c[0].xRight;
+  let y = c[0].y;
+  let r = y/2;
+  document.getElementById("0").setAttribute("cx",c[0].xLeft-gap-r);
+  document.getElementById("0").setAttribute("cy",y);
+  document.getElementById("0").setAttribute("r",r);
   // connect 0to1dots to draw the line
-  document.getElementById("0").setAttribute("cx",);
-  document.getElementById("0").setAttribute("cy",);
-  document.getElementById("0").setAttribute("r",);
   document.getElementById("0to1path").setAttribute("d",
-    "M"+(d[0].xLeft-(gap))+" "+d[0].y+
-    "H"+d[0].xLeft+" "+
-    "M"+d[0].xRight+" "+d[0].y+
-    "H"+d[1].xLeft+" "+
-    "M"+d[1].xRight+" "+d[0].y+
-    "H"+d[2].xLeft+" "+
-    "M"+d[2].xRight+" "+d[0].y+
-    "H"+d[3].xLeft+" "+
-    "M"+d[3].xRight+" "+d[0].y+
-    // "C"+  d[4].xLeft+" "+
-    "M"+d[4].xRight+" "+d[0].y+
-    "h"+(gap)
+    "M"+(c[0].xLeft-gap)+" "+y+
+    "H"+c[0].xLeft+" "+
+    "M"+c[0].xRight+" "+y+
+    "H"+c[1].xLeft+" "+
+    "M"+c[1].xRight+" "+y+
+    "H"+c[2].xLeft+" "+
+    "M"+c[2].xRight+" "+y+
+    "H"+c[3].xLeft+" "+
+    "M"+c[3].xRight+" "+y+
+    // "C"+  c[4].xLeft+" "+
+    "M"+c[4].xRight+" "+y+
+    "h"+gap
   );
-  document.getElementById("1").setAttribute("x1",);
-  document.getElementById("1").setAttribute("y1",);
-  document.getElementById("1").setAttribute("x2",);
-  document.getElementById("1").setAttribute("y2",);
+  // draw 1
+  document.getElementById("1").setAttribute("x1",c[4].xRight+gap);
+  document.getElementById("1").setAttribute("y1",y-r);
+  document.getElementById("1").setAttribute("x2",c[4].xRight+gap);
+  document.getElementById("1").setAttribute("y2",y+r);
 }
 window.addEventListener("load", draw0to1);
 window.addEventListener("resize", draw0to1);

@@ -68,7 +68,11 @@ header{padding:var(--xxl-vw) var(--xxl-vw) 0 0}
 .recipe h2{text-align:center}
 /* .cs>nav,article>h2{padding:0 11.089vw}
 .info,article>section{padding:0 11.089vw 0 17.942vw} */
-.recipe,.cs{padding:0 var(--xxl-vw)}
+.recipe{
+  margin-left:var(--xxl-vw);
+  margin-right:var(--xxl-vw);
+}
+.cs{padding:0 var(--xxl-vw)}
 article{grid-column-gap:var(--s-rem)}
 /* p{max-width:70ch} */
 /* p.sub{margin-left:25%} */
@@ -80,17 +84,18 @@ span.dots,span.0to1dots{display:inline-block}
 .svg-container{
   position:relative;
   width:100%;
-  z-index:-1;
+  z-index:-2;
 }
-svg.flow,svg.logo,svg.0to1{
-  overflow:visible;
-  fill:transparent;
-  stroke:black;
-  stroke-width:.3rem;
-}
-svg.flow,svg.0to1{
+/* aside .svg-container{z-index:-2} */
+svg.flow{
   position:absolute;
   width:100%;
+}
+svg.flow{
+  overflow:visible;
+  fill:transparent;
+  stroke:pink;
+  stroke-width:.3rem;
 }
 svg.logo{
   width:20vw;
