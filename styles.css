@@ -49,8 +49,8 @@ ol,ul{
 main{margin-top:var(--s-rem)}
 main>section{margin-top:var(--xxl-rem)}
 footer{margin:var(--xl-rem) 0 var(--l-rem)}
+.cv section section{margin-top:var(--m-rem)}
 .cv section section+section{margin-top:var(--xs-rem)}
-.cv h2{margin-bottom:var(--m-rem)}
 .recipe h2{margin-bottom:var(--l-rem)}
 .recipe ul{margin-top:var(--xs-rem)}
 article{
@@ -78,20 +78,17 @@ article{grid-column-gap:var(--s-rem)}
 /* p.sub{margin-left:25%} */
 
 /********************************************************* layout */
-span.dots,span.0to1dots{display:inline-block}
+.dots,span.0to1dots{display:inline-block}
 .cv i,.edu strong{display:block}
 
-.svg-container{
-  position:relative;
+.svg-container{position:absolute}
+aside .svg-container{
   width:100%;
-  z-index:-2;
+  z-index:-1;
 }
-/* aside .svg-container{z-index:-2} */
 svg.flow{
   position:absolute;
   width:100%;
-}
-svg.flow{
   overflow:visible;
   fill:transparent;
   stroke:pink;

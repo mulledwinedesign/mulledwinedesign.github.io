@@ -47,21 +47,19 @@ function getViewportSize() {
   }
   return {width: w, height: h};
 }
-
 function updateViewBox() {
   document.getElementsByClassName("flow")[0].setAttribute("viewBox","0 0 "+getViewportSize().width+" "+getViewportSize().height);
 }
-
 function connectDots() {
   let d = [];
   let dots2BConnected = document.getElementsByClassName("dots");
   for(item of dots2BConnected) {
     let xLeft = item.getBoundingClientRect().left +window.pageXOffset;
-    let xRight = item.getBoundingClientRect().left +window.pageXOffset +item.clientWidth;
-    let y = item.getBoundingClientRect().top +window.pageYOffset +item.clientHeight/2;
+    let xRight = item.getBoundingClientRect().right +window.pageXOffset;
+    let y = item.getBoundingClientRect().top +window.pageYOffset +item.getBoundingClientRect().height/2;
     d.push({xLeft:xLeft,xRight:xRight,y:y});
   }
-  // console.log(d);
+  console.log(d);
   document.getElementById("flowpath").setAttribute("d",
     "M"+d[0].xLeft +" "+d[0].y+
     "C"+d[0].xLeft+" "+(d[0].y+(d[1].y-d[0].y)*1.618)+","
@@ -85,7 +83,6 @@ function connectDots() {
     "L"+d[7].xLeft +" "+d[7].y
   );
 }
-
 updateViewBox();
 window.addEventListener("load", connectDots);
 window.addEventListener("resize", updateViewBox);
@@ -102,10 +99,11 @@ function draw0to1() {
   let dots2BConnected = document.getElementsByClassName("0to1dots");
   for(item of dots2BConnected) {
     let xLeft = item.getBoundingClientRect().left +window.pageXOffset;
-    let xRight = item.getBoundingClientRect().left +window.pageXOffset +item.clientWidth;
-    let y = item.getBoundingClientRect().top +window.pageYOffset +item.clientHeight/2;
-    d.push({xLeft:xLeft,xRight:xRight,y:y});
+    let xRight = item.getBoundingClientRect().right +window.pageXOffset;
+    let y = item.getBoundingClientRect().top +window.pageYOffset +item.getBoundingClientRect().height/2;
+    c.push({xLeft:xLeft,xRight:xRight,y:y});
   }
+  console.log(c);
   // draw 0
   let gap = c[1].xLeft-c[0].xRight;
   let y = c[0].y;
