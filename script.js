@@ -35,7 +35,7 @@ function callback (entries, observer) {
 let observer = new IntersectionObserver(callback, options);
 document.querySelectorAll('.cs-cloudrone p').forEach(p => { observer.observe(p) });
 
-// svg flow line
+// svg flow
 function getViewportSize() {
   let docEle = (document.compatMode && document.compatMode === "CSS1Compat") ? document.documentElement : document.body;
   let w = docEle.clientWidth;
@@ -47,62 +47,56 @@ function getViewportSize() {
   }
   return {width: w, height: h};
 }
-function updateViewBox() {
-  document.getElementsByClassName("flow")[0].setAttribute("viewBox","0 0 "+getViewportSize().width+" "+getViewportSize().height);
-}
-function connectDots() {
-  let d = [];
-  let dots2BConnected = document.getElementsByClassName("dots");
-  for(item of dots2BConnected) {
+function collectNodeCoordinates(nodeClassName) {
+  let coord = [];
+  let nodes = document.getElementsByClassName(nodeClassName);
+  for(item of nodes) {
     let xLeft = item.getBoundingClientRect().left +window.pageXOffset;
     let xRight = item.getBoundingClientRect().right +window.pageXOffset;
     let y = item.getBoundingClientRect().top +window.pageYOffset +item.getBoundingClientRect().height/2;
-    d.push({xLeft:xLeft,xRight:xRight,y:y});
+    coord.push({xLeft:xLeft,xRight:xRight,y:y});
   }
-  console.log(d);
+  return coord;
+}
+function drawFlow() {
+  // update viewBox size
+  document.getElementsByClassName("flow")[0].setAttribute("viewBox","0 0 "+getViewportSize().width+" "+getViewportSize().height);
+  // draw flow
+  let n = collectNodeCoordinates("flownode");
+  console.log(n);
   document.getElementById("flowpath").setAttribute("d",
-    "M"+d[0].xLeft +" "+d[0].y+
-    "C"+d[0].xLeft+" "+(d[0].y+(d[1].y-d[0].y)*1.618)+","
-       +(d[1].xRight+(d[0].xLeft-d[1].xRight)*0.618)+" "+d[1].y+","
-       +d[1].xRight+" "+d[1].y+
-    "M"+d[1].xLeft +" "+d[1].y+"h-20"+
-    "C"+d[1].xLeft+" "+(d[1].y+(d[2].y-d[1].y)*0.618/2)+","
-       +d[1].xLeft*0.618+" "+(d[1].y+(d[2].y-d[1].y)*0.618)+","
-       +d[2].xLeft +" "+d[2].y+
-    "M"+d[2].xRight+" "+d[2].y+
-    "C"+(d[2].xRight+(d[3].xLeft-d[2].xRight)*0.3)+" "+d[2].y*0.95+","
-       +(d[2].xRight+(d[3].xLeft-d[2].xRight)*0.6)+" "+d[2].y*1.01+","
-       +d[3].xLeft +" "+d[3].y+
-    "M"+d[3].xRight+" "+d[3].y+
-    "L"+d[4].xRight+" "+d[4].y+
-    "M"+d[4].xLeft +" "+d[4].y+
-    "L"+d[5].xLeft +" "+d[5].y+
-    "M"+d[5].xRight+" "+d[5].y+
-    "L"+d[6].xLeft +" "+d[6].y+
-    "M"+d[6].xRight+" "+d[6].y+
-    "L"+d[7].xLeft +" "+d[7].y
+    "M"+n[0].xLeft +" "+n[0].y+
+    "C"+n[0].xLeft+" "+(n[0].y+(n[1].y-n[0].y)*1.618)+","
+       +(n[1].xRight+(n[0].xLeft-n[1].xRight)*0.618)+" "+n[1].y+","
+       +n[1].xRight+" "+n[1].y+
+    "M"+n[1].xLeft +" "+n[1].y+"h-20"+
+    "C"+n[1].xLeft+" "+(n[1].y+(n[2].y-n[1].y)*0.618/2)+","
+       +n[1].xLeft*0.618+" "+(n[1].y+(n[2].y-n[1].y)*0.618)+","
+       +n[2].xLeft +" "+n[2].y+
+    "M"+n[2].xRight+" "+n[2].y+
+    "C"+(n[2].xRight+(n[3].xLeft-n[2].xRight)*0.3)+" "+n[2].y*0.95+","
+       +(n[2].xRight+(n[3].xLeft-n[2].xRight)*0.6)+" "+n[2].y*1.01+","
+       +n[3].xLeft +" "+n[3].y+
+    "M"+n[3].xRight+" "+n[3].y+
+    "L"+n[4].xRight+" "+n[4].y+
+    "M"+n[4].xLeft +" "+n[4].y+
+    "L"+n[5].xLeft +" "+n[5].y+
+    "M"+n[5].xRight+" "+n[5].y+
+    "L"+n[6].xLeft +" "+n[6].y+
+    "M"+n[6].xRight+" "+n[6].y+
+    "L"+n[7].xLeft +" "+n[7].y
   );
 }
-updateViewBox();
-window.addEventListener("load", connectDots);
-window.addEventListener("resize", updateViewBox);
-window.addEventListener("resize", connectDots);
+window.addEventListener("load", drawFlow);
+window.addEventListener("resize", drawFlow);
 
 // svg recipe line: from 0 to 1
 function draw0to1() {
-  // get recipeBox size
+  // update recipeBox's viewBox size
   let recipeBox = document.getElementsByClassName("recipe")[0];
-  // update recipeBox viewBox
   document.getElementsByClassName("0to1")[0].setAttribute("viewBox","0 0 "+recipeBox.clientWidth+" "+recipeBox.clientHeight);
-  // collect 0to1dots coordinates
-  let c = [];
-  let dots2BConnected = document.getElementsByClassName("0to1dots");
-  for(item of dots2BConnected) {
-    let xLeft = item.getBoundingClientRect().left +window.pageXOffset;
-    let xRight = item.getBoundingClientRect().right +window.pageXOffset;
-    let y = item.getBoundingClientRect().top +window.pageYOffset +item.getBoundingClientRect().height/2;
-    c.push({xLeft:xLeft,xRight:xRight,y:y});
-  }
+  
+  let c = collectNodeCoordinates("0to1node");
   console.log(c);
   // draw 0
   let gap = c[1].xLeft-c[0].xRight;
@@ -111,7 +105,7 @@ function draw0to1() {
   document.getElementById("0").setAttribute("cx",c[0].xLeft-gap-r);
   document.getElementById("0").setAttribute("cy",y);
   document.getElementById("0").setAttribute("r",r);
-  // connect 0to1dots to draw the line
+  // connect 0to1nodes to draw the line
   document.getElementById("0to1path").setAttribute("d",
     "M"+(c[0].xLeft-gap)+" "+y+
     "H"+c[0].xLeft+" "+
