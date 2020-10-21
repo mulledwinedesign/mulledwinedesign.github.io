@@ -78,16 +78,13 @@ article{grid-column-gap:var(--s-rem)}
 /* p.sub{margin-left:25%} */
 
 /********************************************************* layout */
-.dots,span.0to1dots{display:inline-block}
+/* .flownode,span.recipenode{display:inline-block} */
 .cv i,.edu strong{display:block}
 
-.svg-container{position:absolute}
-aside .svg-container{
-  width:100%;
-  z-index:-1;
-}
+.svg-container{position:relative}
 svg.flow{
   position:absolute;
+  z-index:-1;
   width:100%;
   overflow:visible;
   fill:transparent;
@@ -98,10 +95,20 @@ svg.logo{
   width:20vw;
   min-width:100px;
 }
+svg.zero2one{
+  position:absolute;
+  z-index:-1;
+  top:0;
+  left:0;
+  width:100%;
+  fill:transparent;
+  stroke:black;
+  stroke-width:.3rem;
+}
 
-.logo-container,.recipe>ol,.cs nav{display:flex}
+.logo-container,.recipe ol,.cs nav{display:flex}
 .logo-container{justify-content:flex-end}
-.recipe>ol{justify-content:space-evenly}
+.recipe ol{justify-content:space-evenly}
 .cs nav{justify-content:space-between}
 
 button.left,button.right{
