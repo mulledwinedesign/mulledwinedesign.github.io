@@ -95,7 +95,7 @@ svg.logo{
   width:20vw;
   min-width:100px;
 }
-svg.zero2one{
+svg.recipeLine{
   position:absolute;
   z-index:-1;
   top:0;

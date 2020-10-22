@@ -96,17 +96,16 @@ function drawRecipe() {
   let zero = document.getElementById("zero");
   let one = document.getElementById("one");
   let c = collectNodeCoordinates("recipeNode");
+  let gap = c[0].xLeft-recipeBox.getBoundingClientRect().left;
+  let y = c[0].relativeY;
+  let r = gap*.1618;
+  let strokeW = Number(getComputedStyle(recipeLine).strokeWidth.match(/\d+\.\d*/)[0]);
+  // let cx = c[0].xLeft-gap+r+strokeW-document.getElementsByClassName("recipe")[0].getBoundingClientRect().left;
 
   // update recipeBox's viewBox size
   recipeLine.setAttribute("viewBox","0 0 "+recipeBox.getBoundingClientRect().width+" "+recipeBox.getBoundingClientRect().height);
   // draw 0
-  let gap = c[0].xLeft-recipeBox.getBoundingClientRect().left;
-  let y = c[0].relativeY;
-  let r = gap*.1618;
-  // let rem = getComputedStyle(document.documentElement).fontSize.match(/\d+/)[0];
-  // let strokeW = 0.2*rem;
-  let strokeW = Number(getComputedStyle(recipeLine).strokeWidth.match(/\d+\.\d*/)[0]);
-  zero.setAttribute("cx",c[0].xLeft-gap+r+strokeW-document.getElementsByClassName("recipe")[0].getBoundingClientRect().left);
+  zero.setAttribute("cx",r+strokeW/2);
   zero.setAttribute("cy",y);
   zero.setAttribute("r",r);
   // connect recipeNodes to draw the line between 0 and 1
