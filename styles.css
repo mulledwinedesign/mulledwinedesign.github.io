@@ -102,8 +102,8 @@ svg.zero2one{
   left:0;
   width:100%;
   fill:transparent;
-  stroke:black;
-  stroke-width:.3rem;
+  stroke:grey;
+  stroke-width:.2rem;
 }
 
 .logo-container,.recipe ol,.cs nav{display:flex}

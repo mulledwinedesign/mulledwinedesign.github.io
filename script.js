@@ -91,21 +91,26 @@ window.addEventListener("resize", drawFlow);
 
 // svg recipe line: from 0 to 1
 function drawRecipe() {
-  // update recipeBox's viewBox size
   let recipeBox = document.getElementsByClassName("recipeBox")[0];
-  document.getElementsByClassName("zero2one")[0].setAttribute("viewBox","0 0 "+recipeBox.getBoundingClientRect().width+" "+recipeBox.getBoundingClientRect().height);
-
+  let recipeLine = document.getElementsByClassName("recipeLine")[0];
+  let zero = document.getElementById("zero");
+  let one = document.getElementById("one");
   let c = collectNodeCoordinates("recipeNode");
+
+  // update recipeBox's viewBox size
+  recipeLine.setAttribute("viewBox","0 0 "+recipeBox.getBoundingClientRect().width+" "+recipeBox.getBoundingClientRect().height);
   // draw 0
   let gap = c[0].xLeft-recipeBox.getBoundingClientRect().left;
   let y = c[0].relativeY;
-  console.log(c[0].relativeY);
   let r = gap*.1618;
-  document.getElementById("zero").setAttribute("cx",c[0].xLeft-gap-r);
-  document.getElementById("zero").setAttribute("cy",y);
-  document.getElementById("zero").setAttribute("r",r);
-  // connect 0to1nodes to draw the line
-  document.getElementById("zero2onePath").setAttribute("d",
+  // let rem = getComputedStyle(document.documentElement).fontSize.match(/\d+/)[0];
+  // let strokeW = 0.2*rem;
+  let strokeW = Number(getComputedStyle(recipeLine).strokeWidth.match(/\d+\.\d*/)[0]);
+  zero.setAttribute("cx",c[0].xLeft-gap+r+strokeW-document.getElementsByClassName("recipe")[0].getBoundingClientRect().left);
+  zero.setAttribute("cy",y);
+  zero.setAttribute("r",r);
+  // connect recipeNodes to draw the line between 0 and 1
+  document.getElementById("zero2one").setAttribute("d",
     "M"+(c[0].xLeft-gap)+" "+y+
     "H"+c[0].xLeft+" "+
     "M"+c[0].xRight+" "+y+
@@ -120,10 +125,10 @@ function drawRecipe() {
     "h"+gap
   );
   // draw 1
-  document.getElementById("one").setAttribute("x1",c[4].xRight+gap);
-  document.getElementById("one").setAttribute("y1",y-r);
-  document.getElementById("one").setAttribute("x2",c[4].xRight+gap);
-  document.getElementById("one").setAttribute("y2",y+r);
+  one.setAttribute("x1",c[4].xRight+gap);
+  one.setAttribute("y1",y-r);
+  one.setAttribute("x2",c[4].xRight+gap);
+  one.setAttribute("y2",y+r);
 }
 window.addEventListener("load", drawRecipe);
 window.addEventListener("resize", drawRecipe);
