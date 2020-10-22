@@ -96,12 +96,11 @@ function drawRecipe() {
   let zero = document.getElementById("zero");
   let one = document.getElementById("one");
   let c = collectNodeCoordinates("recipeNode");
-  let gap = c[0].xLeft-recipeBox.getBoundingClientRect().left;
+  let leftMargin = recipeBox.getBoundingClientRect().left;
+  let gap = c[0].xLeft-leftMargin;
   let y = c[0].relativeY;
   let r = gap*.1618;
   let strokeW = Number(getComputedStyle(recipeLine).strokeWidth.match(/\d+\.\d*/)[0]);
-  // let cx = c[0].xLeft-gap+r+strokeW-document.getElementsByClassName("recipe")[0].getBoundingClientRect().left;
-
   // update recipeBox's viewBox size
   recipeLine.setAttribute("viewBox","0 0 "+recipeBox.getBoundingClientRect().width+" "+recipeBox.getBoundingClientRect().height);
   // draw 0
@@ -110,24 +109,25 @@ function drawRecipe() {
   zero.setAttribute("r",r);
   // connect recipeNodes to draw the line between 0 and 1
   document.getElementById("zero2one").setAttribute("d",
-    "M"+(c[0].xLeft-gap)+" "+y+
-    "H"+c[0].xLeft+" "+
-    "M"+c[0].xRight+" "+y+
-    "H"+c[1].xLeft+" "+
-    "M"+c[1].xRight+" "+y+
-    "H"+c[2].xLeft+" "+
-    "M"+c[2].xRight+" "+y+
-    "H"+c[3].xLeft+" "+
-    "M"+c[3].xRight+" "+y+
-    // "C"+  c[4].xLeft+" "+
-    "M"+c[4].xRight+" "+y+
+    "M"+(r*2+strokeW/2)+" "+y+
+    "H"+(c[0].xLeft-leftMargin-r/4)+" "+
+    "M"+(c[0].xRight-leftMargin+r/4)+" "+y+
+    "H"+(c[1].xLeft-leftMargin-r/4)+" "+
+    "M"+(c[1].xRight-leftMargin+r/4)+" "+y+
+    "H"+(c[2].xLeft-leftMargin-r/4)+" "+
+    "M"+(c[2].xRight-leftMargin+r/4)+" "+y+
+    "H"+(c[3].xLeft-leftMargin-r/4)+" "+
+    "M"+(c[3].xRight-leftMargin+r/4)+" "+y+
+    // "C"+  (c[3].xLeft-leftMargin-r/4)+" "+
+    "M"+(c[4].xRight-leftMargin+r/4)+" "+y+
     "h"+gap
   );
   // draw 1
-  one.setAttribute("x1",c[4].xRight+gap);
-  one.setAttribute("y1",y-r);
-  one.setAttribute("x2",c[4].xRight+gap);
-  one.setAttribute("y2",y+r);
+  let x1 = recipeBox.getBoundingClientRect().right-leftMargin-strokeW/2;
+  one.setAttribute("x1",x1);
+  one.setAttribute("y1",y-r-strokeW);
+  one.setAttribute("x2",x1);
+  one.setAttribute("y2",y+r+strokeW);
 }
 window.addEventListener("load", drawRecipe);
 window.addEventListener("resize", drawRecipe);
