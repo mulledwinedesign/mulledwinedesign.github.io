@@ -46,35 +46,31 @@ function getViewportSize() {
   }
   return {width: w, height: h};
 }
-function collectNodeCoordinates(nodeClassName) {
-  let coord = [];
-  let nodes = document.getElementsByClassName(nodeClassName);
-  for(item of nodes) {
-    let xLeft = item.getBoundingClientRect().left +window.pageXOffset;
-    let xRight = item.getBoundingClientRect().right +window.pageXOffset;
-    let relativeY = item.getBoundingClientRect().height/2;
-    let y = item.getBoundingClientRect().top +window.pageYOffset +relativeY;
-    coord.push({xLeft:xLeft,xRight:xRight,relativeY:relativeY,y:y});
-  }
-  return coord;
-}
 function drawFlow() {
   // update viewBox size
   document.getElementsByClassName("flow")[0].setAttribute("viewBox","0 0 "+getViewportSize().width+" "+getViewportSize().height);
+  // collect node coordinates
+  let n = [];
+  let nodes = document.getElementsByClassName("flowNode");
+  for(item of nodes) {
+    let xLeft = item.getBoundingClientRect().left+window.pageXOffset;
+    let xRight = item.getBoundingClientRect().right+window.pageXOffset;
+    let y = item.getBoundingClientRect().top+window.pageYOffset+item.getBoundingClientRect().height/2;
+    n.push({xLeft:xLeft,xRight:xRight,y:y});
+  }
   // draw flow
-  let n = collectNodeCoordinates("flowNode");
   document.getElementById("flowPath").setAttribute("d",
     "M"+n[0].xLeft +" "+n[0].y+
-    "C"+n[0].xLeft+" "+(n[0].y+(n[1].y-n[0].y)*1.618)+","
-       +(n[1].xRight+(n[0].xLeft-n[1].xRight)*0.618)+" "+n[1].y+","
+    "C"+n[0].xLeft+" "+(n[0].y+(n[1].y-n[0].y)*1.618)+" "
+       +(n[1].xRight+(n[0].xLeft-n[1].xRight)*0.618)+" "+n[1].y+" "
        +n[1].xRight+" "+n[1].y+
     "M"+n[1].xLeft +" "+n[1].y+"h-20"+
-    "C"+n[1].xLeft+" "+(n[1].y+(n[2].y-n[1].y)*0.618/2)+","
-       +n[1].xLeft*0.618+" "+(n[1].y+(n[2].y-n[1].y)*0.618)+","
+    "C"+n[1].xLeft+" "+(n[1].y+(n[2].y-n[1].y)*0.618/2)+" "
+       +n[1].xLeft*0.618+" "+(n[1].y+(n[2].y-n[1].y)*0.618)+" "
        +n[2].xLeft +" "+n[2].y+
     "M"+n[2].xRight+" "+n[2].y+
-    "C"+(n[2].xRight+(n[3].xLeft-n[2].xRight)*0.3)+" "+n[2].y*0.95+","
-       +(n[2].xRight+(n[3].xLeft-n[2].xRight)*0.6)+" "+n[2].y*1.01+","
+    "C"+(n[2].xRight+(n[3].xLeft-n[2].xRight)*0.3)+" "+n[2].y*0.95+" "
+       +(n[2].xRight+(n[3].xLeft-n[2].xRight)*0.6)+" "+n[2].y*1.01+" "
        +n[3].xLeft +" "+n[3].y+
     "M"+n[3].xRight+" "+n[3].y+
     "L"+n[4].xRight+" "+n[4].y+
@@ -95,34 +91,49 @@ function drawRecipe() {
   let recipeLine = document.getElementsByClassName("recipeLine")[0];
   let zero = document.getElementById("zero");
   let one = document.getElementById("one");
-  let c = collectNodeCoordinates("recipeNode");
-  let leftMargin = recipeBox.getBoundingClientRect().left;
-  let gap = c[0].xLeft-leftMargin;
-  let y = c[0].relativeY;
-  let r = gap*.1618;
-  let strokeW = Number(getComputedStyle(recipeLine).strokeWidth.match(/\d+\.\d*/)[0]);
   // update recipeBox's viewBox size
   recipeLine.setAttribute("viewBox","0 0 "+recipeBox.getBoundingClientRect().width+" "+recipeBox.getBoundingClientRect().height);
-  // draw 0
+  // collect node coordinates
+  let c = [];
+  let nodes = document.getElementsByClassName("recipeNode");
+  let leftMargin = recipeBox.getBoundingClientRect().left;
+  for(item of nodes) {
+    let xLeft = item.getBoundingClientRect().left+window.pageXOffset-leftMargin;
+    let xRight = item.getBoundingClientRect().right+window.pageXOffset-leftMargin;
+    let y = item.getBoundingClientRect().height;
+    c.push({xLeft:xLeft,xRight:xRight,y:y});
+  }
+  // draw 0: flush left
+  let gap = c[0].xLeft;
+  let rem = getComputedStyle(document.documentElement).fontSize.match(/\d+/)[0];
+  let r = rem*.45;
+  let strokeW = Number(getComputedStyle(recipeLine).strokeWidth.match(/\d+\.\d*/)[0]);
+  let y = c[0].y/1.78;
   zero.setAttribute("cx",r+strokeW/2);
   zero.setAttribute("cy",y);
   zero.setAttribute("r",r);
-  // connect recipeNodes to draw the line between 0 and 1
+  // connect recipeNodes to draw the line from 0 to 1
+  let offset = r/4;
+  let pigtailStart = c[3].xRight+offset;
+  let pigtailEnd = c[4].xLeft-offset;
+  let pigtailW = pigtailEnd-pigtailStart;
   document.getElementById("zero2one").setAttribute("d",
     "M"+(r*2+strokeW/2)+" "+y+
-    "H"+(c[0].xLeft-leftMargin-r/4)+" "+
-    "M"+(c[0].xRight-leftMargin+r/4)+" "+y+
-    "H"+(c[1].xLeft-leftMargin-r/4)+" "+
-    "M"+(c[1].xRight-leftMargin+r/4)+" "+y+
-    "H"+(c[2].xLeft-leftMargin-r/4)+" "+
-    "M"+(c[2].xRight-leftMargin+r/4)+" "+y+
-    "H"+(c[3].xLeft-leftMargin-r/4)+" "+
-    "M"+(c[3].xRight-leftMargin+r/4)+" "+y+
-    // "C"+  (c[3].xLeft-leftMargin-r/4)+" "+
-    "M"+(c[4].xRight-leftMargin+r/4)+" "+y+
+    "H"+(c[0].xLeft-offset)+
+    "M"+(c[0].xRight+offset)+" "+y+
+    "H"+(c[1].xLeft-offset)+
+    "M"+(c[1].xRight+offset)+" "+y+
+    "H"+(c[2].xLeft-offset)+
+    "M"+(c[2].xRight+offset)+" "+y+
+    "H"+(c[3].xLeft-offset)+
+    "M"+pigtailStart+" "+y+
+    "C"+(pigtailEnd+pigtailW*0.618)+" "+0+" "+
+        (pigtailStart-pigtailW*0.2)+" "+(-y/2)+" "+
+        pigtailEnd+" "+y+
+    "M"+(c[4].xRight+offset)+" "+y+
     "h"+gap
   );
-  // draw 1
+  // draw 1: flush right
   let x1 = recipeBox.getBoundingClientRect().right-leftMargin-strokeW/2;
   one.setAttribute("x1",x1);
   one.setAttribute("y1",y-r-strokeW);

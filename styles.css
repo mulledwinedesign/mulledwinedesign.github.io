@@ -84,7 +84,7 @@ article{grid-column-gap:var(--s-rem)}
 .svg-container{position:relative}
 svg.flow{
   position:absolute;
-  z-index:-1;
+  z-index:-2;
   width:100%;
   overflow:visible;
   fill:transparent;
@@ -103,7 +103,7 @@ svg.recipeLine{
   width:100%;
   fill:transparent;
   stroke:grey;
-  stroke-width:.2rem;
+  stroke-width:.12rem;
 }
 
 .logo-container,.recipe ol,.cs nav{display:flex}
