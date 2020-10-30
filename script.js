@@ -117,6 +117,7 @@ function drawRecipe() {
   let pigtailStart = c[3].xRight+offset;
   let pigtailEnd = c[4].xLeft-offset;
   let pigtailW = pigtailEnd-pigtailStart;
+  let x1 = recipeBox.getBoundingClientRect().right-leftMargin-strokeW/2;
   document.getElementById("zero2one").setAttribute("d",
     "M"+(r*2+strokeW/2)+" "+y+
     "H"+(c[0].xLeft-offset)+
@@ -131,10 +132,9 @@ function drawRecipe() {
         (pigtailStart-pigtailW*0.2)+" "+(-y/2)+" "+
         pigtailEnd+" "+y+
     "M"+(c[4].xRight+offset)+" "+y+
-    "h"+gap
+    "h"+x1
   );
   // draw 1: flush right
-  let x1 = recipeBox.getBoundingClientRect().right-leftMargin-strokeW/2;
   one.setAttribute("x1",x1);
   one.setAttribute("y1",y-r-strokeW);
   one.setAttribute("x2",x1);

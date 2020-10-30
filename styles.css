@@ -51,7 +51,7 @@ main>section{margin-top:var(--xxl-rem)}
 footer{margin:var(--xl-rem) 0 var(--l-rem)}
 .cv section section{margin-top:var(--m-rem)}
 .cv section section+section{margin-top:var(--xs-rem)}
-.recipe h2{margin-bottom:var(--l-rem)}
+.recipe h2,.cs>h2{margin-bottom:var(--l-rem)}
 .recipe ul{margin-top:var(--xs-rem)}
 article{
   margin-top:var(--l-rem);
@@ -65,7 +65,7 @@ p+h4{margin-top:var(--m-rem)}
 header{padding:var(--xxl-vw) var(--xxl-vw) 0 0}
 .name,.cv,footer{padding:0 var(--xxxl-vw)}
 .cv{grid-gap:var(--s-rem)}
-.recipe h2{text-align:center}
+.recipe h2,.cs>h2{text-align:center}
 /* .cs>nav,article>h2{padding:0 11.089vw}
 .info,article>section{padding:0 11.089vw 0 17.942vw} */
 .recipe{
@@ -102,8 +102,8 @@ svg.recipeLine{
   left:0;
   width:100%;
   fill:transparent;
-  stroke:grey;
-  stroke-width:.12rem;
+  stroke:black;
+  stroke-width:.1rem;
 }
 
 .logo-container,.recipe ol,.cs nav{display:flex}
@@ -164,7 +164,7 @@ h1 span:nth-child(n+2){
   font-size:var(--s-rem);
   font-family:;
 } */
-.cv h2,.recipe h2{
+h2{
   font-weight:300;
   font-size:var(--s-rem);
   font-family:"Canela Deck Light";
@@ -195,7 +195,7 @@ h1 span:nth-child(n+2){
   font-size:var(--s-rem);
   font-family:"Canela Text Light";
 }
-.cs h2{
+.cs article h2{
   font-weight:400;
   font-size:var(--m-rem);
   font-family:"Canela Text Regular No 2";
