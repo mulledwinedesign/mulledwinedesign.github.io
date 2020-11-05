@@ -1,5 +1,8 @@
-// Intersection Observer
-let obj = {['']: {ratio:''}};
+// Intersection Observer:
+// the ele that has the biggest intersection ratio w/ vp
+//            = takes majority space
+//            = currently being read
+let obj = {['']: {ratio:''}}; //obj auto-remove duplicate keys = ids are always unique
 let data = [];
 function buildThresholdList (numSteps) {
   let thresholds = [];
@@ -19,20 +22,26 @@ const options = {threshold: buildThresholdList(10)};
 function callback (entries, observer) {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
+      // store current id n ratio
       obj = {[entry.target.id]: {ratio: entry.intersectionRatio}};
       if (data.length === 0) {data.push(obj);}
       else if (idExistsInData(entry.target.id)) {
+        // update ratio only = store only current ratios
         for (const ele of data) {
           if (Object.keys(ele)[0] === Object.keys(obj)[0]) {
             Object.values(ele)[0].ratio = Object.values(obj)[0].ratio;
           }
         }
-      } else {data.push(obj);}
+      } else {
+        data.push(obj);
+        // debug tip: array keeps updating until – number shown – it's manually unfolded
+        console.log(data);
+      }
     }
   });
 }
 let observer = new IntersectionObserver(callback, options);
-document.querySelectorAll('.cs-cloudrone p').forEach(p => { observer.observe(p) });
+document.querySelectorAll('section p').forEach(p => { observer.observe(p) });
 
 // svg flow
 function getViewportSize() {

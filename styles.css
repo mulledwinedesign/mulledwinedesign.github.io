@@ -66,13 +66,7 @@ header{padding:var(--xxl-vw) var(--xxl-vw) 0 0}
 .name,.cv,footer{padding:0 var(--xxxl-vw)}
 .cv{grid-gap:var(--s-rem)}
 .recipe h2,.cs>h2{text-align:center}
-/* .cs>nav,article>h2{padding:0 11.089vw}
-.info,article>section{padding:0 11.089vw 0 17.942vw} */
-.recipe{
-  margin-left:var(--xxl-vw);
-  margin-right:var(--xxl-vw);
-}
-.cs{padding:0 var(--xxl-vw)}
+.recipe,.cs{padding:0 var(--xxl-vw)}
 article{grid-column-gap:var(--s-rem)}
 /* p{max-width:70ch} */
 /* p.sub{margin-left:25%} */
@@ -123,8 +117,8 @@ button.left,button.right{
   grid-template-columns:repeat(2,1fr);
   grid-auto-flow:column;
 }
-article{grid-template-columns:auto 1fr}
-.cs h2,.overview{grid-column:1/-1}
+/* article{grid-template-columns:auto 1fr} */
+/* .cs h2,.overview{grid-column:1/-1}
 article>h3{grid-column:1/2}
 article>h3+section{
   grid-column:2/-1;
@@ -132,7 +126,7 @@ article>h3+section{
 }
 h4,.cs div{grid-column:1/-1}
 h4+p{grid-column:1/4}
-.sub{grid-column:2/4}
+.sub{grid-column:2/4} */
 
 .rq-container{
   margin:var(--xxs-rem) 0;
