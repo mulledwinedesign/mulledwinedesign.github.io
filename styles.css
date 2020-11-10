@@ -46,12 +46,13 @@ ol,ul{
 }
 
 /************************************************ vertical rhythm */
-main{margin-top:var(--s-rem)}
+main{margin:var(--s-rem) 0 var(--xl-rem)}
 main>section{margin-top:var(--xxl-rem)}
-footer{margin:var(--xl-rem) 0 var(--l-rem)}
+.cv{margin-bottom:var(--xxl-rem)}
+footer{margin-bottom:var(--l-rem)}
+h2.recipe,.cs>h2{margin-bottom:var(--l-rem)}
 .cv section section{margin-top:var(--m-rem)}
 .cv section section+section{margin-top:var(--xs-rem)}
-.recipe h2,.cs>h2{margin-bottom:var(--l-rem)}
 .recipe ul{margin-top:var(--xs-rem)}
 article{
   margin-top:var(--l-rem);
@@ -65,14 +66,15 @@ p+h4{margin-top:var(--m-rem)}
 header{padding:var(--xxl-vw) var(--xxl-vw) 0 0}
 .name,.cv,footer{padding:0 var(--xxxl-vw)}
 .cv{grid-gap:var(--s-rem)}
-.recipe h2,.cs>h2{text-align:center}
-.recipe,.cs{padding:0 var(--xxl-vw)}
+h2.recipe,.cs>h2{text-align:center}
+h2.recipe,.cs{padding:0 var(--xxl-vw)}
+div.recipe{margin:0 var(--xxl-vw)}
 article{grid-column-gap:var(--s-rem)}
 /* p{max-width:70ch} */
 /* p.sub{margin-left:25%} */
 
 /********************************************************* layout */
-/* .flownode,span.recipenode{display:inline-block} */
+/* .flownode,span.recipeNode{display:inline-block} */
 .cv i,.edu strong{display:block}
 
 .svg-container{position:relative}
@@ -98,6 +100,12 @@ svg.recipeLine{
   fill:transparent;
   stroke:black;
   stroke-width:.1rem;
+}
+
+.sticky{
+  position:sticky;
+  top:var(--xs-rem);
+  background:#FFF;
 }
 
 .logo-container,.recipe ol,.cs nav{display:flex}

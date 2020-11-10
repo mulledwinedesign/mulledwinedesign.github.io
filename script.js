@@ -141,7 +141,7 @@ function drawRecipe() {
         (pigtailStart-pigtailW*0.2)+" "+(-y/2)+" "+
         pigtailEnd+" "+y+
     "M"+(c[4].xRight+offset)+" "+y+
-    "h"+x1
+    "H"+x1
   );
   // draw 1: flush right
   one.setAttribute("x1",x1);
