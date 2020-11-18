@@ -46,10 +46,9 @@ ol,ul{
 }
 
 /************************************************ vertical rhythm */
-main{margin:var(--s-rem) 0 var(--xl-rem)}
+main{margin:var(--s-rem) 0 var(--xxxl-rem)}
 main>section{margin-top:var(--xxl-rem)}
 .cv{margin-bottom:var(--xxl-rem)}
-footer{margin-bottom:var(--l-rem)}
 h2.recipe,.cs>h2{margin-bottom:var(--l-rem)}
 .cv section section{margin-top:var(--m-rem)}
 .cv section section+section{margin-top:var(--xs-rem)}
@@ -61,13 +60,14 @@ article{
 h4{margin-bottom:var(--xs-rem)}
 p+p{margin-top:var(--xs-rem)}
 p+h4{margin-top:var(--m-rem)}
+footer{margin-bottom:var(--m-rem)}
 
 /********************************************** horizontal rhythm */
 header{padding:var(--xxl-vw) var(--xxl-vw) 0 0}
-.name,.cv,footer{padding:0 var(--xxxl-vw)}
+.name,.cv{padding:0 var(--xxxl-vw)}
 .cv{grid-gap:var(--s-rem)}
 h2.recipe,.cs>h2{text-align:center}
-h2.recipe,.cs{padding:0 var(--xxl-vw)}
+h2.recipe,.cs,footer{padding:0 var(--xxl-vw)}
 div.recipe{margin:0 var(--xxl-vw)}
 article{grid-column-gap:var(--s-rem)}
 /* p{max-width:70ch} */
@@ -78,7 +78,8 @@ article{grid-column-gap:var(--s-rem)}
 aside,
 .less,.more,
 .print-cv, */
-.cellar,.cs article
+/* .cs article, */
+.cellar
 {display:none}
 
 .cv i,.edu strong,
@@ -87,7 +88,7 @@ aside,
 #casestudy-situation:target
 {display:block}
 
-.svg-container{position:relative}
+/* .svg-container{position:relative} */
 svg.flow{
   position:absolute;
   z-index:-2;

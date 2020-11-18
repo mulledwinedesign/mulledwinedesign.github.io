@@ -151,3 +151,14 @@ function drawRecipe() {
 }
 window.addEventListener("load", drawRecipe);
 window.addEventListener("resize", drawRecipe);
+
+function showCaseStudy(id) {
+  document.querySelectorAll('.cs article').forEach(article => {
+    article.style.display = "none"
+  });
+  let el = document.getElementById(id);
+  console.log(el.style.display);
+  if (el.style.display === "none") {
+    el.style.display = "block";
+  }
+}
