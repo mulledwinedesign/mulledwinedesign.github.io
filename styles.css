@@ -4,6 +4,7 @@
   --font-display-text:"canela text",serif;
   --font-caption:"aktiv",sans-serif;
   --font-body:"bernina","bernino",sans-serif; */
+  --highlight:black;
   /* --color-base:#;
   --color-mid:#;
   --color-dim:#; */
@@ -78,14 +79,12 @@ article{grid-column-gap:var(--s-rem)}
 aside,
 .less,.more,
 .print-cv, */
-/* .cs article, */
-.cellar
-{display:none}
+/* .cellar{display:none} */
 
-.cv i,.edu strong,
-#casestudy-cloudrone:target,
+/* #casestudy-cloudrone:target,
 #casestudy-mofad:target,
-#casestudy-situation:target
+#casestudy-situation:target, */
+.cv i,.edu strong
 {display:block}
 
 /* .svg-container{position:relative} */
@@ -208,6 +207,10 @@ h2{
   font-size:var(--s-rem);
   font-family:"Canela Text Light";
 }
+
+.cs button:hover{--highlight:red}
+li.cs1{color:var(--highlight)}
+
 .cs article h2{
   font-weight:400;
   font-size:var(--m-rem);
