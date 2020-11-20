@@ -4,7 +4,6 @@
   --font-display-text:"canela text",serif;
   --font-caption:"aktiv",sans-serif;
   --font-body:"bernina","bernino",sans-serif; */
-  --highlight:black;
   /* --color-base:#;
   --color-mid:#;
   --color-dim:#; */
@@ -207,9 +206,6 @@ h2{
   font-size:var(--s-rem);
   font-family:"Canela Text Light";
 }
-
-.cs button:hover{--highlight:red}
-li.cs1{color:var(--highlight)}
 
 .cs article h2{
   font-weight:400;

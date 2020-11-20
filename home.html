@@ -148,11 +148,11 @@
               <!--CONTEXT context observe-->
             </h3>
             <ul>
-              <li class="cs1">project&sol;client&rsquo;s&nbsp;goals</li>
+              <li class="cs1 cs2">project&sol;client&rsquo;s&nbsp;goals</li>
               <li>users&rsquo;&nbsp;needs</li>
               <li>target&nbsp;audience</li>
-              <li>project&nbsp;scope</li>
-              <li>constrainsts</li>
+              <li class="cs2">project&nbsp;scope</li>
+              <li class="cs2">constrainsts</li>
               <li>priorities</li>
             </ul>
           </li>
@@ -162,12 +162,12 @@
               <!--INSPIRATION inspiration describe-->
             </h3>
             <ul>
-              <li class="cs1">research</li>
-              <li>user&nbsp;data</li>
-              <li>competitors</li>
+              <li class="cs1 cs2 cs3">research</li>
+              <li class="cs2">user&nbsp;data</li>
+              <li class="cs2">competitors</li>
               <li>moodboard</li>
               <li class="cs1">shadowing</li>
-              <li class="cs1">interviews</li>
+              <li class="cs1 cs2">interviews</li>
             </ul>
           </li>
           <li>
@@ -177,11 +177,11 @@
             </h3>
             <ul>
               <li>brainstorm</li>
-              <li class="cs1">how&nbsp;might&nbsp;we</li>
+              <li class="cs1 cs2">how&nbsp;might&nbsp;we</li>
               <li class="cs1">personas</li>
               <li>maps</li>
               <li class="cs1">storyboards</li>
-              <li>sketches</li>
+              <li class="cs2">sketches</li>
             </ul>
           </li>
           <li>
@@ -190,12 +190,12 @@
               <!--IMPLEMENTATION implementation develop-->
             </h3>
             <ul>
-              <li>design&nbsp;system</li>
-              <li>wireframes</li>
-              <li class="cs1">prototypes</li>
-              <li>testing</li>
-              <li>assets</li>
-              <li class="cs1">making</li>
+              <li class="cs2">design&nbsp;system</li>
+              <li class="cs2">wireframes</li>
+              <li class="cs1 cs2">prototypes</li>
+              <li class="cs1 cs2 cs3">testing</li>
+              <li class="cs2">assets</li>
+              <li class="cs1 cs3">making</li>
             </ul>
           </li>
           <li>
@@ -204,9 +204,12 @@
               <!--iterate-->
             </h3>
             <ul>
-              <li class="cs1">presentations</li>
-              <li>feedback</li>
-              <li>reflection</li>
+              <li class="cs1 cs3">presentations</li>
+              <li>demos</li>
+              <li class="cs2">meetings</li>
+              <li>workshops</li>
+              <li class="cs1 cs2 cs3">feedback</li>
+              <li class="cs2">reflection</li>
             </ul>
           </li>
         </ol>
@@ -221,17 +224,17 @@
         <nav role="navigation">
           <span class="flowNode">
             <!-- <a href="#case-study-01"> -->
-              <button type="button" name="cloudrone" onclick="showCaseStudy('case-study-01')">Cloudrone</button>
+              <button type="button" name="cloudrone" onmouseenter="toggleHighlight('cs1','1')" onmouseleave="toggleHighlight('cs1','0')" onclick="showCaseStudy('case-study-01')">Cloudrone</button>
             <!-- </a> -->
           </span>
           <span class="flowNode">
             <!-- <a href="#case-study-02"> -->
-              <button type="button" name="mofad" onclick="showCaseStudy('case-study-02')">MOFAD City</button>
+              <button type="button" name="mofad" onmouseenter="toggleHighlight('cs2','1')" onmouseleave="toggleHighlight('cs2','0')" onclick="showCaseStudy('case-study-02')">MOFAD City</button>
             <!-- </a> -->
           </span>
           <span class="flowNode">
             <!-- <a href="#case-study-03"> -->
-              <button type="button" name="situation" onclick="showCaseStudy('case-study-03')">Situation, Adventure!</button>
+              <button type="button" name="situation" onmouseenter="toggleHighlight('cs3','1')" onmouseleave="toggleHighlight('cs3','0')" onclick="showCaseStudy('case-study-03')">Situation, Adventure!</button>
             <!-- </a> -->
           </span>
         </nav>

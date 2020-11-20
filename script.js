@@ -14,7 +14,7 @@ function buildThresholdList (numSteps) {
   return thresholds;
 }
 function idExistsInData(id) {
-  let bool;
+  let bool = true;
   data.forEach(element => {bool = element.hasOwnProperty(id)});
   return bool;
 }
@@ -60,11 +60,10 @@ function drawFlow() {
   document.getElementsByClassName("flow")[0].setAttribute("viewBox","0 0 "+getViewportSize().width+" "+getViewportSize().height);
   // collect node coordinates
   let n = [];
-  let nodes = document.getElementsByClassName("flowNode");
-  for(item of nodes) {
-    let xLeft = item.getBoundingClientRect().left+window.pageXOffset;
-    let xRight = item.getBoundingClientRect().right+window.pageXOffset;
-    let y = item.getBoundingClientRect().top+window.pageYOffset+item.getBoundingClientRect().height/2;
+  for(const node of document.getElementsByClassName("flowNode")) {
+    let xLeft = node.getBoundingClientRect().left+window.pageXOffset;
+    let xRight = node.getBoundingClientRect().right+window.pageXOffset;
+    let y = node.getBoundingClientRect().top+window.pageYOffset+node.getBoundingClientRect().height/2;
     n.push({xLeft:xLeft,xRight:xRight,y:y});
   }
   // draw flow
@@ -104,12 +103,11 @@ function drawRecipe() {
   recipeLine.setAttribute("viewBox","0 0 "+recipeBox.getBoundingClientRect().width+" "+recipeBox.getBoundingClientRect().height);
   // collect node coordinates
   let c = [];
-  let nodes = document.getElementsByClassName("recipeNode");
   let leftMargin = recipeBox.getBoundingClientRect().left;
-  for(item of nodes) {
-    let xLeft = item.getBoundingClientRect().left+window.pageXOffset-leftMargin;
-    let xRight = item.getBoundingClientRect().right+window.pageXOffset-leftMargin;
-    let y = item.getBoundingClientRect().height;
+  for(const node of document.getElementsByClassName("recipeNode")) {
+    let xLeft = node.getBoundingClientRect().left+window.pageXOffset-leftMargin;
+    let xRight = node.getBoundingClientRect().right+window.pageXOffset-leftMargin;
+    let y = node.getBoundingClientRect().height;
     c.push({xLeft:xLeft,xRight:xRight,y:y});
   }
   // draw 0: flush left
@@ -156,9 +154,18 @@ function showCaseStudy(id) {
   document.querySelectorAll('.cs article').forEach(article => {
     article.style.display = "none"
   });
-  let el = document.getElementById(id);
-  console.log(el.style.display);
-  if (el.style.display === "none") {
-    el.style.display = "block";
+  let element = document.getElementById(id);
+  if (element.style.display === "none") {
+    element.style.display = "block";
+  }
+}
+
+function toggleHighlight(className,bool) {
+  for (const element of document.getElementsByClassName(className)) {
+    if (bool === "1") {
+      element.style.color = "red";
+    } else {
+      element.style.color = "";
+    }
   }
 }
