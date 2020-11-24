@@ -78,11 +78,9 @@ article{grid-column-gap:var(--s-rem)}
 aside,
 .less,.more,
 .print-cv, */
-/* .cellar{display:none} */
+/* .cellar, */
+.cs article{display:none}
 
-/* #casestudy-cloudrone:target,
-#casestudy-mofad:target,
-#casestudy-situation:target, */
 .cv i,.edu strong
 {display:block}
 
