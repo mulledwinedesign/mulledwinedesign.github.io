@@ -99,7 +99,7 @@ function drawRecipe() {
   let recipeLine = document.getElementsByClassName("recipeLine")[0];
   let zero = document.getElementById("zero");
   let one = document.getElementById("one");
-  // update recipeBox's viewBox size
+  // update viewBox size
   recipeLine.setAttribute("viewBox","0 0 "+recipeBox.getBoundingClientRect().width+" "+recipeBox.getBoundingClientRect().height);
   // collect node coordinates
   let c = [];
@@ -151,13 +151,19 @@ window.addEventListener("load", drawRecipe);
 window.addEventListener("resize", drawRecipe);
 
 function showCaseStudy(id) {
+  // display article (n scroll past sticky top
   document.querySelectorAll('.cs article').forEach(article => {
-    article.style.display = "none"
+    article.style.display = "none";
+    // article.style.scrollMarginTop = "40rem";
   });
   let element = document.getElementById(id);
   if (element.style.display === "none") {
     element.style.display = "block";
   }
+  // update url hash
+  // window.location.hash=id;
+  // (but there's a jump instantly
+  // (also need to handle direct visit to url#id
 }
 
 function toggleHighlight(className,bool) {
@@ -169,6 +175,3 @@ function toggleHighlight(className,bool) {
     }
   }
 }
-
-.cs article:target
-{scroll-margin-top:30rem}
