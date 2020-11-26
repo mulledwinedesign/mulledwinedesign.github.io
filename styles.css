@@ -81,6 +81,13 @@ aside,
 /* .cellar, */
 .cs article{display:none}
 
+#case-study-01:target,
+#case-study-02:target,
+#case-study-03:target{
+  display:block;
+  /* scroll-margin-top:var(--l-rem); */
+}
+
 .cv i,.edu strong
 {display:block}
 

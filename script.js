@@ -150,22 +150,6 @@ function drawRecipe() {
 window.addEventListener("load", drawRecipe);
 window.addEventListener("resize", drawRecipe);
 
-function showCaseStudy(id) {
-  // display article (n scroll past sticky top
-  document.querySelectorAll('.cs article').forEach(article => {
-    article.style.display = "none";
-    // article.style.scrollMarginTop = "40rem";
-  });
-  let element = document.getElementById(id);
-  if (element.style.display === "none") {
-    element.style.display = "block";
-  }
-  // update url hash
-  // window.location.hash=id;
-  // (but there's a jump instantly
-  // (also need to handle direct visit to url#id
-}
-
 function toggleHighlight(className,bool) {
   for (const element of document.getElementsByClassName(className)) {
     if (bool === "1") {
@@ -175,3 +159,24 @@ function toggleHighlight(className,bool) {
     }
   }
 }
+
+// function showCaseStudy(id) {
+//   // display article n scroll past sticky top
+//   document.querySelectorAll('.cs article').forEach(article => {
+//     article.style.display = "none";
+//     article.style.scrollMarginTop += "40rem";
+//     //document.querySelector("div.recipe").getBoundingClientRect().bottom;
+//   });
+//   let element = document.getElementById(id);
+//   if (element.style.display === "none") {
+//     element.style.display = "block";
+//   }
+//   // update url hash
+//   // window.location.hash=id;
+//   // (but there's a jump instantly
+//   // (also need to handle direct visit to url#id
+// }
+
+// document.querySelectorAll('article').forEach(article => {
+//   article.
+// });
