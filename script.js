@@ -94,6 +94,7 @@ window.addEventListener("load", drawFlow);
 window.addEventListener("resize", drawFlow);
 
 // svg recipe line: from 0 to 1
+let rem = getComputedStyle(document.documentElement).fontSize.match(/\d+/)[0];
 function drawRecipe() {
   let recipeBox = document.getElementsByClassName("recipeBox")[0];
   let recipeLine = document.getElementsByClassName("recipeLine")[0];
@@ -112,7 +113,6 @@ function drawRecipe() {
   }
   // draw 0: flush left
   let gap = c[0].xLeft;
-  let rem = getComputedStyle(document.documentElement).fontSize.match(/\d+/)[0];
   let r = rem*.45;
   let strokeW = Number(getComputedStyle(recipeLine).strokeWidth.match(/\d+\.\d*/)[0]);
   let y = c[0].y/1.78;
@@ -159,13 +159,10 @@ function toggleHighlight(className,bool) {
     }
   }
 }
-
 // function showCaseStudy(id) {
-//   // display article n scroll past sticky top
+//   // display article
 //   document.querySelectorAll('.cs article').forEach(article => {
 //     article.style.display = "none";
-//     article.style.scrollMarginTop += "40rem";
-//     //document.querySelector("div.recipe").getBoundingClientRect().bottom;
 //   });
 //   let element = document.getElementById(id);
 //   if (element.style.display === "none") {
@@ -176,7 +173,13 @@ function toggleHighlight(className,bool) {
 //   // (but there's a jump instantly
 //   // (also need to handle direct visit to url#id
 // }
-
-// document.querySelectorAll('article').forEach(article => {
-//   article.
-// });
+function scrollPastSticky() {
+  let scrollMT = rem*4.236 + document.querySelector('div.recipe').getBoundingClientRect().bottom;
+  console.log(scrollMT);
+  document.querySelectorAll('.cs article').forEach(article => {
+    if (article.style.display !== 'none') {
+      article.style.scrollMarginTop = scrollMT+'px';
+    }
+    // toggleHighlight(className,'1');
+  });
+}
