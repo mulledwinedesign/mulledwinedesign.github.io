@@ -83,9 +83,8 @@ aside,
 
 #case-study-01:target,
 #case-study-02:target,
-#case-study-03:target{
-  display:block;
-}
+#case-study-03:target
+{display:block}
 
 .cv i,.edu strong
 {display:block}

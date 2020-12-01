@@ -151,14 +151,26 @@ window.addEventListener("load", drawRecipe);
 window.addEventListener("resize", drawRecipe);
 
 //handle nav links' interactions
+let csArticle = document.querySelectorAll('.cs article');
 function scrollPastSticky() {
   let scrollMT = rem*4.236 + document.querySelector('div.recipe').getBoundingClientRect().bottom;
-  document.querySelectorAll('.cs article').forEach(article => {
+  csArticle.forEach(article => {
     if (article.style.display !== 'none') {
       article.style.scrollMarginTop = scrollMT+'px';
     }
   });
 }
+function dimLi() {
+// dzn decision to make
+}
+// csArticle.forEach(article => {
+//   if (article.style.display !== 'none') {
+//     document.querySelectorAll('ul>li:not(.cs1)').forEach(li => {
+//       li.style.color = "grey";
+//     });
+//   }
+// });
+
 function toggleHighlight(className,bool) {
   for (const element of document.getElementsByClassName(className)) {
     if (bool === "1") {
@@ -177,11 +189,19 @@ document.querySelectorAll('.cs nav a').forEach(anchor => {
   anchor.addEventListener('mouseleave', function () {
     toggleHighlight(this.className,'0');
   });
-  // tab
-  anchor.addEventListener('focus', function () {
-    toggleHighlight(this.className,'1');
-  });
-  anchor.addEventListener('blur', function () {
-    toggleHighlight(this.className,'0');
-  });
+  // tab – glitchy when tab focus on one, mouse hover on another
+  // anchor.addEventListener('focus', function () {
+  //   toggleHighlight(this.className,'1');
+  // });
+  // anchor.addEventListener('blur', function () {
+  //   toggleHighlight(this.className,'0');
+  // });
 });
+
+// document.querySelectorAll('.cs article').forEach(article => {
+//   article.style.display = "none";
+// });
+// let element = document.getElementById(id);
+// if (element.style.display === "none") {
+//   element.style.display = "block";
+// }
