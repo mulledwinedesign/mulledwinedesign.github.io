@@ -150,20 +150,15 @@ function drawRecipe() {
 window.addEventListener("load", drawRecipe);
 window.addEventListener("resize", drawRecipe);
 
-// function showCaseStudy(id) {
-//   // display article
-//   document.querySelectorAll('.cs article').forEach(article => {
-//       article.style.display = "none";
-//     });
-//     let element = document.getElementById(id);
-//     if (element.style.display === "none") {
-//         element.style.display = "block";
-//     }
-//     // update url hash
-//     // window.location.hash=id;
-//     // (but there's a jump instantly
-//     // (also need to handle direct visit to url#id
-// }
+//handle nav links' interactions
+function scrollPastSticky() {
+  let scrollMT = rem*4.236 + document.querySelector('div.recipe').getBoundingClientRect().bottom;
+  document.querySelectorAll('.cs article').forEach(article => {
+    if (article.style.display !== 'none') {
+      article.style.scrollMarginTop = scrollMT+'px';
+    }
+  });
+}
 function toggleHighlight(className,bool) {
   for (const element of document.getElementsByClassName(className)) {
     if (bool === "1") {
@@ -173,20 +168,20 @@ function toggleHighlight(className,bool) {
     }
   }
 }
-function scrollPastSticky() {
-  let scrollMT = rem*4.236 + document.querySelector('div.recipe').getBoundingClientRect().bottom;
-  console.log(scrollMT);
-  document.querySelectorAll('.cs article').forEach(article => {
-    if (article.style.display !== 'none') {
-      article.style.scrollMarginTop = scrollMT+'px';
-    }
-  });
-}
 document.querySelectorAll('.cs nav a').forEach(anchor => {
   anchor.addEventListener('click', scrollPastSticky);
-  anchor.addEventListener('click', function (e) {
+  // hover
+  anchor.addEventListener('mouseenter', function () {
     toggleHighlight(this.className,'1');
-    // console.log(e.target);
-    // console.log(e.currentTarget);
+  });
+  anchor.addEventListener('mouseleave', function () {
+    toggleHighlight(this.className,'0');
+  });
+  // tab
+  anchor.addEventListener('focus', function () {
+    toggleHighlight(this.className,'1');
+  });
+  anchor.addEventListener('blur', function () {
+    toggleHighlight(this.className,'0');
   });
 });

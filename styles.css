@@ -85,7 +85,6 @@ aside,
 #case-study-02:target,
 #case-study-03:target{
   display:block;
-  /* scroll-margin-top:var(--l-rem); */
 }
 
 .cv i,.edu strong
