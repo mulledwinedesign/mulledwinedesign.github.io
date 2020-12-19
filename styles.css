@@ -46,10 +46,12 @@ ol,ul{
 }
 
 /************************************************ vertical rhythm */
+.top-nav{padding-bottom:var(--xxs-rem)}
 main{margin:var(--s-rem) 0 var(--xxxl-rem)}
 main>section{margin-top:var(--xxl-rem)}
 .cv{margin-bottom:var(--xxl-rem)}
 h2.recipe,.cs>h2{margin-bottom:var(--l-rem)}
+.recipe.sticky{padding-bottom:var(--xxs-rem)}
 .cv section section{margin-top:var(--m-rem)}
 .cv section section+section{margin-top:var(--xs-rem)}
 .recipe ul{margin-top:var(--xs-rem)}
@@ -60,12 +62,12 @@ article{
 h4{margin-bottom:var(--xs-rem)}
 p+p{margin-top:var(--xs-rem)}
 p+h4{margin-top:var(--m-rem)}
-footer{margin-bottom:var(--m-rem)}
+footer{margin-bottom:var(--s-rem)}
 
 /********************************************** horizontal rhythm */
 header{padding:var(--xxl-vw) var(--xxl-vw) 0 0}
 .name,.cv{padding:0 var(--xxxl-vw)}
-.cv{grid-gap:var(--s-rem)}
+.cv{grid-gap:var(--m-vw)}
 h2.recipe,.cs>h2{text-align:center}
 h2.recipe,.cs,footer{padding:0 var(--xxl-vw)}
 div.recipe{margin:0 var(--xxl-vw)}
@@ -79,15 +81,25 @@ aside,
 .less,.more,
 .print-cv, */
 /* .cellar, */
-.cs article{display:none}
+.top-nav,.cs article{display:none}
+
+.cv i,.edu strong
+{display:block}
 
 #case-study-01:target,
 #case-study-02:target,
 #case-study-03:target
 {display:block}
 
-.cv i,.edu strong
-{display:block}
+#resume:target{scroll-margin-top:var(--s-rem)}
+
+.sticky{
+  position:sticky;
+  background:#FFF;
+}
+nav.sticky{top:0}
+.recipe.sticky{top:var(--s-rem)}
+/* ol ul{display:none} */
 
 /* .svg-container{position:relative} */
 svg.flow{
@@ -112,12 +124,6 @@ svg.recipeLine{
   fill:transparent;
   stroke:black;
   stroke-width:.1rem;
-}
-
-.sticky{
-  position:sticky;
-  top:var(--xs-rem);
-  background:#FFF;
 }
 
 .logo-container,.recipe ol,.cs nav{display:flex}
@@ -183,14 +189,14 @@ h2{
   font-size:var(--s-rem);
   font-family:"Canela Deck Light";
 }
-.cv,.recipe ul{
+.cv,.recipe ul,.top-nav{
   font-weight:400;
   font-size:var(--xs-rem);
   font-family:aktiv-grotesk,sans-serif;
 }
 .cv i{font-style:normal}
 
-.recipe h3{
+div.recipe h3{
   font-weight:400;
   font-size:var(--s-rem);
   font-family:"Canela Text Regular";
@@ -210,7 +216,7 @@ h2{
   font-family:"Canela Text Light";
 }
 
-.cs article h2{
+.cs article>h3{
   font-weight:400;
   font-size:var(--m-rem);
   font-family:"Canela Text Regular No 2";
@@ -220,17 +226,17 @@ h2{
   font-size:var(--xs-rem);
   font-family:jaf-bernino-sans;
 }
-h3{
+h4{
   font-weight:300;
   font-size:var(--s-rem);
   font-family:"Canela Deck Light";
 }
-h4{
+h5{
   font-weight:700;
   font-size:var(--xs-rem);
   font-family:jaf-bernino-sans;
 }
-h5{}
+h6{}
 p{
   font-weight:400;
   font-family:jaf-bernino-sans;

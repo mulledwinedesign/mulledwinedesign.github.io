@@ -1,3 +1,5 @@
+let rem = getComputedStyle(document.documentElement).fontSize.match(/\d+/)[0];
+
 // Intersection Observer:
 // the ele that has the biggest intersection ratio w/ vp
 //            = takes majority space
@@ -18,8 +20,8 @@ function idExistsInData(id) {
   data.forEach(element => {bool = element.hasOwnProperty(id)});
   return bool;
 }
-const options = {threshold: buildThresholdList(10)};
-function callback (entries, observer) {
+const currentlyReadingOptions = {threshold:buildThresholdList(10)};
+function currentlyReadingCallback (entries) {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       // store current id n ratio
@@ -40,8 +42,32 @@ function callback (entries, observer) {
     }
   });
 }
-let observer = new IntersectionObserver(callback, options);
-document.querySelectorAll('section p').forEach(p => { observer.observe(p) });
+let currentlyReadingObserver = new IntersectionObserver(currentlyReadingCallback, currentlyReadingOptions);
+document.querySelectorAll('section p').forEach(p => { currentlyReadingObserver.observe(p) });
+
+// listen to .cs>h2 scroll event when it's in vp
+// show .top-nav when .cs>h2 scrolls above sticky recipe
+let target = document.querySelector('.cs>h2');
+let topNav = document.getElementsByClassName("top-nav")[0];
+let inViewportOptions = {threshold:0};
+function showTopNav() {
+  console.log(target.getBoundingClientRect().top);
+  if (target.getBoundingClientRect().top <= rem*1.618) {
+    topNav.style.display = 'block';
+  } else {
+    topNav.style.display = 'none';
+  }
+}
+function inViewportCallback (entries) {
+  if (entries[0].isIntersecting) {
+    window.addEventListener('scroll', showTopNav);
+  } else {
+    window.removeEventListener('scroll', showTopNav);
+  }
+}
+let inViewportObserver = new IntersectionObserver(inViewportCallback, inViewportOptions);
+inViewportObserver.observe(target);
+
 
 // svg flow
 function getViewportSize() {
@@ -94,7 +120,6 @@ window.addEventListener("load", drawFlow);
 window.addEventListener("resize", drawFlow);
 
 // svg recipe line: from 0 to 1
-let rem = getComputedStyle(document.documentElement).fontSize.match(/\d+/)[0];
 function drawRecipe() {
   let recipeBox = document.getElementsByClassName("recipeBox")[0];
   let recipeLine = document.getElementsByClassName("recipeLine")[0];
@@ -150,8 +175,11 @@ function drawRecipe() {
 window.addEventListener("load", drawRecipe);
 window.addEventListener("resize", drawRecipe);
 
-//handle nav links' interactions
+//handle cs nav links' interactions
 function scrollPastSticky() {
+  // un-stick <li> part of recipe
+
+  // scroll past sticky recipe
   let scrollMT = rem*4.236 + document.querySelector('div.recipe').getBoundingClientRect().bottom;
   document.querySelectorAll('.cs article').forEach(article => {
     if (article.style.display !== 'none') {
