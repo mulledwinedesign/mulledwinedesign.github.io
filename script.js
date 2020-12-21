@@ -54,8 +54,8 @@ function showTopNav() {
   console.log(target.getBoundingClientRect().top);
   if (target.getBoundingClientRect().top <= rem*1.618) {
     topNav.style.display = 'block';
-  } else {
-    topNav.style.display = 'none';
+  // } else {
+  //   topNav.style.display = 'none';
   }
 }
 function inViewportCallback (entries) {
