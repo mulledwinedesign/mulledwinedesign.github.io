@@ -7,6 +7,7 @@
   /* --color-base:#;
   --color-mid:#;
   --color-dim:#; */
+  --xxxs-rem:.309rem;
   --xxs-rem:.618rem;
   --xs-rem:1rem;
   --s-rem:1.618rem;
@@ -24,6 +25,7 @@
   --xl-vw:6.854vw;
   --xxl-vw:11.089vw;
   --xxxl-vw:17.942vw;
+  --isShown:false;
 }
 
 *{
@@ -46,7 +48,8 @@ ol,ul{
 }
 
 /************************************************ vertical rhythm */
-.top-nav{padding-bottom:var(--xxs-rem)}
+.top-nav{padding:var(--xxxs-rem) 0}
+.top-nav>a{vertical-align:middle}
 main{margin:var(--s-rem) 0 var(--xxxl-rem)}
 main>section{margin-top:var(--xxl-rem)}
 .cv{margin-bottom:var(--xxl-rem)}
@@ -65,6 +68,8 @@ p+h4{margin-top:var(--m-rem)}
 footer{margin-bottom:var(--s-rem)}
 
 /********************************************** horizontal rhythm */
+.top-nav{padding-left:var(--s-vw)}
+.top-nav>a+a{margin-left:var(--xxs-vw)}
 header{padding:var(--xxl-vw) var(--xxl-vw) 0 0}
 .name,.cv{padding:0 var(--xxxl-vw)}
 .cv{grid-gap:var(--m-vw)}
@@ -88,17 +93,19 @@ aside,
 
 #case-study-01:target,
 #case-study-02:target,
-#case-study-03:target
-{display:block}
+#case-study-03:target{
+  display:block;
+  --isShown:true;
+}
 
-#resume:target{scroll-margin-top:var(--s-rem)}
+#resume:target{scroll-margin-top:var(--m-rem)}
 
 .sticky{
   position:sticky;
   background:#FFF;
 }
-nav.sticky{top:0}
-.recipe.sticky{top:var(--s-rem)}
+.top-nav.sticky{top:0}
+.recipe.sticky{top:var(--xs-rem)}
 /* ol ul{display:none} */
 
 /* .svg-container{position:relative} */
@@ -168,6 +175,14 @@ h4+p{grid-column:1/4}
 }
 
 /*********************************************************** text */
+.top-nav>a{
+  font-weight:400;
+  font-size:var(--xs-rem);
+  font-family:jaf-bernino-sans,sans-serif;
+  color:grey;
+  text-decoration:none;
+}
+.top-nav>a:hover{text-decoration:underline}
 h1{
   font-weight:500;
   font-size:var(--l-rem);

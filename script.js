@@ -1,74 +1,5 @@
 let rem = getComputedStyle(document.documentElement).fontSize.match(/\d+/)[0];
 
-// Intersection Observer:
-// the ele that has the biggest intersection ratio w/ vp
-//            = takes majority space
-//            = currently being read
-let obj = {['']: {ratio:''}}; //obj auto-remove duplicate keys = ids are always unique
-let data = [];
-function buildThresholdList (numSteps) {
-  let thresholds = [];
-  for (let i=1.0; i<=numSteps; i++) {
-    let ratio = i/numSteps;
-    thresholds.push(ratio);
-  }
-  thresholds.push(0);
-  return thresholds;
-}
-function idExistsInData(id) {
-  let bool = true;
-  data.forEach(element => {bool = element.hasOwnProperty(id)});
-  return bool;
-}
-const currentlyReadingOptions = {threshold:buildThresholdList(10)};
-function currentlyReadingCallback (entries) {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      // store current id n ratio
-      obj = {[entry.target.id]: {ratio: entry.intersectionRatio}};
-      if (data.length === 0) {data.push(obj);}
-      else if (idExistsInData(entry.target.id)) {
-        // update ratio only = store only current ratios
-        for (const ele of data) {
-          if (Object.keys(ele)[0] === Object.keys(obj)[0]) {
-            Object.values(ele)[0].ratio = Object.values(obj)[0].ratio;
-          }
-        }
-      } else {
-        data.push(obj);
-        // debug tip: array keeps updating until – number shown – it's manually unfolded
-        console.log(data);
-      }
-    }
-  });
-}
-let currentlyReadingObserver = new IntersectionObserver(currentlyReadingCallback, currentlyReadingOptions);
-document.querySelectorAll('section p').forEach(p => { currentlyReadingObserver.observe(p) });
-
-// listen to .cs>h2 scroll event when it's in vp
-// show .top-nav when .cs>h2 scrolls above sticky recipe
-let target = document.querySelector('.cs>h2');
-let topNav = document.getElementsByClassName("top-nav")[0];
-let inViewportOptions = {threshold:0};
-function showTopNav() {
-  console.log(target.getBoundingClientRect().top);
-  if (target.getBoundingClientRect().top <= rem*1.618) {
-    topNav.style.display = 'block';
-  // } else {
-  //   topNav.style.display = 'none';
-  }
-}
-function inViewportCallback (entries) {
-  if (entries[0].isIntersecting) {
-    window.addEventListener('scroll', showTopNav);
-  } else {
-    window.removeEventListener('scroll', showTopNav);
-  }
-}
-let inViewportObserver = new IntersectionObserver(inViewportCallback, inViewportOptions);
-inViewportObserver.observe(target);
-
-
 // svg flow
 function getViewportSize() {
   let docEle = (document.compatMode && document.compatMode === "CSS1Compat") ? document.documentElement : document.body;
@@ -175,21 +106,41 @@ function drawRecipe() {
 window.addEventListener("load", drawRecipe);
 window.addEventListener("resize", drawRecipe);
 
-//handle cs nav links' interactions
-function scrollPastSticky() {
-  // un-stick <li> part of recipe
+let topNav = document.getElementsByClassName("top-nav")[0];
+let articles = document.querySelectorAll('.cs article');
+function checkIfShown() {
+  console.log('topnav '+getComputedStyle(topNav).getPropertyValue("--isShown"));
+  articles.forEach(article => {
+    console.log('article '+getComputedStyle(article).getPropertyValue("--isShown"));
+  });
+  console.log('end');
 
-  // scroll past sticky recipe
-  let scrollMT = rem*4.236 + document.querySelector('div.recipe').getBoundingClientRect().bottom;
-  document.querySelectorAll('.cs article').forEach(article => {
-    if (article.style.display !== 'none') {
-      article.style.scrollMarginTop = scrollMT+'px';
+  if (getComputedStyle(topNav).getPropertyValue("--isShown") === true) {
+    topNav.style.display = 'block';
+  } else {
+    // topNav.style.display = 'none';
+    // topNav.style.setProperty("--isShown",false);
+  }
+
+  articles.forEach(article => {
+    if (getComputedStyle(article).getPropertyValue("--isShown") === true) {
+      article.style.display = 'block';
+    } else {
+      // article.style.display = 'none';
+      // article.style.setProperty("--isShown",false);
     }
   });
 }
+window.addEventListener("load", checkIfShown);
+window.addEventListener("hashchange", checkIfShown);
+
+function showTopNav() {
+  topNav.style.display = 'block'; // once shown, do not hide again
+  topNav.style.setProperty("--isShown",true);
+}
 function toggleHighlight(className,bool) {
   for (const element of document.getElementsByClassName(className)) {
-    if (bool === "1") {
+    if (bool === true) {
       element.style.color = "red";
     } else {
       element.style.color = "";
@@ -197,12 +148,89 @@ function toggleHighlight(className,bool) {
   }
 }
 document.querySelectorAll('.cs nav a').forEach(anchor => {
-  anchor.addEventListener('click', scrollPastSticky);
-  // hover
   anchor.addEventListener('mouseenter', function () {
-    toggleHighlight(this.className,'1');
+    toggleHighlight(this.className,true);
   });
   anchor.addEventListener('mouseleave', function () {
-    toggleHighlight(this.className,'0');
+    toggleHighlight(this.className,false);
+  });
+  anchor.addEventListener('click', function () {
+    // slowly?
+    let scrollMT = rem*4.236 + document.querySelector('div.recipe').getBoundingClientRect().bottom;
+    articles.forEach(article => {
+      if (article.style.display !== 'none') {
+        showTopNav();
+        // scroll past sticky recipe
+        article.style.scrollMarginTop = scrollMT+'px';
+      }
+    });
+    // un-stick <li> part of recipe
+
   });
 });
+
+// currently reading Intersection Observer:
+// the ele that has the biggest intersection ratio w/ vp
+//            = takes majority space
+//            = currently being read
+let obj = {['']: {ratio:''}}; //obj auto-remove duplicate keys = ids are always unique
+let data = [];
+function buildThresholdList (numSteps) {
+  let thresholds = [];
+  for (let i=1.0; i<=numSteps; i++) {
+    let ratio = i/numSteps;
+    thresholds.push(ratio);
+  }
+  thresholds.push(0);
+  return thresholds;
+}
+function idExistsInData(id) {
+  let bool = true;
+  data.forEach(element => {bool = element.hasOwnProperty(id)});
+  return bool;
+}
+const currentlyReadingOptions = {threshold:buildThresholdList(10)};
+function currentlyReadingCallback (entries) {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // store current id n ratio
+      obj = {[entry.target.id]: {ratio: entry.intersectionRatio}};
+      if (data.length === 0) {data.push(obj);}
+      else if (idExistsInData(entry.target.id)) {
+        // update ratio only = store only current ratios
+        for (const ele of data) {
+          if (Object.keys(ele)[0] === Object.keys(obj)[0]) {
+            Object.values(ele)[0].ratio = Object.values(obj)[0].ratio;
+          }
+        }
+      } else {
+        data.push(obj);
+        // debug tip: array keeps updating until – number shown – it's manually unfolded
+        console.log(data);
+      }
+    }
+  });
+}
+let currentlyReadingObserver = new IntersectionObserver(currentlyReadingCallback, currentlyReadingOptions);
+document.querySelectorAll('section p').forEach(p => { currentlyReadingObserver.observe(p) });
+
+// listen to .cs>h2 scroll event when it's in vp
+// show .top-nav when .cs>h2 scrolls above sticky recipe
+// let target = document.querySelector('.cs>h2');
+// let topNav = document.getElementsByClassName("top-nav")[0];
+// let inViewportOptions = {threshold:0};
+// function showTopNav() {
+//   console.log(target.getBoundingClientRect().top);
+//   if (target.getBoundingClientRect().top <= rem*1.618) {
+//     topNav.style.display = 'block'; // once shown, do not hide again
+//   }
+// }
+// function inViewportCallback (entries) {
+//   if (entries[0].isIntersecting) {
+//     window.addEventListener('scroll', showTopNav);
+//   } else {
+//     window.removeEventListener('scroll', showTopNav);
+//   }
+// }
+// let inViewportObserver = new IntersectionObserver(inViewportCallback, inViewportOptions);
+// inViewportObserver.observe(target);
