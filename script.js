@@ -107,37 +107,72 @@ window.addEventListener("load", drawRecipe);
 window.addEventListener("resize", drawRecipe);
 
 let topNav = document.getElementsByClassName("top-nav")[0];
-let articles = document.querySelectorAll('.cs article');
-function checkIfShown() {
-  console.log('topnav '+getComputedStyle(topNav).getPropertyValue("--isShown"));
-  articles.forEach(article => {
-    console.log('article '+getComputedStyle(article).getPropertyValue("--isShown"));
-  });
-  console.log('end');
-
-  if (getComputedStyle(topNav).getPropertyValue("--isShown") === true) {
-    topNav.style.display = 'block';
-  } else {
-    // topNav.style.display = 'none';
-    // topNav.style.setProperty("--isShown",false);
+let articles = document.querySelectorAll(".cs article");
+function maintainState(storeState) {
+  console.log("topnav "+storeState.topNavDisplay);
+  console.log(storeState.articlesDisplay);
+  console.log("–");
+  if (storeState.topNavDisplay === "block") {
+    topNav.style.display = "block";
+  // } else {
+    // topNav.style.display = "none";
   }
-
-  articles.forEach(article => {
-    if (getComputedStyle(article).getPropertyValue("--isShown") === true) {
-      article.style.display = 'block';
-    } else {
-      // article.style.display = 'none';
-      // article.style.setProperty("--isShown",false);
+  articles.forEach((article,i) => {
+    if (storeState.articlesDisplay[i] === "block") {
+      article.style.display = "block";
+    // } else {
+      // article.style.display = "none";
     }
   });
 }
-window.addEventListener("load", checkIfShown);
-window.addEventListener("hashchange", checkIfShown);
-
-function showTopNav() {
-  topNav.style.display = 'block'; // once shown, do not hide again
-  topNav.style.setProperty("--isShown",true);
+// from developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API
+function storageAvailable(type) {
+    var storage;
+    try {
+        storage = window[type];
+        var x = "__storage_test__";
+        storage.setItem(x, x);
+        storage.removeItem(x);
+        return true;
+    }
+    catch(e) {
+        return e instanceof DOMException && (
+            // everything except Firefox
+            e.code === 22 ||
+            // Firefox
+            e.code === 1014 ||
+            // test name field too, because code might not be present
+            // everything except Firefox
+            e.name === "QuotaExceededError" ||
+            // Firefox
+            e.name === "NS_ERROR_DOM_QUOTA_REACHED") &&
+            // acknowledge QuotaExceededError only if there"s something already stored
+            (storage && storage.length !== 0);
+    }
 }
+function setSessionStorage() {
+  if (storageAvailable("sessionStorage")) {
+    // Yippee! We can use sessionStorage awesomeness
+    sessionStorage.setItem("topNavDisplay",getComputedStyle(topNav).display);
+    articles.forEach((article,i) => {
+      sessionStorage.setItem("articleDisplay"+i,getComputedStyle(article).display);
+    });
+  } else {
+    // Too bad, no sessionStorage for us
+  }
+}
+function applySessionStorage() {
+  if (storageAvailable("sessionStorage")) {
+    // Yippee! We can use sessionStorage awesomeness
+    topNav.style.display = sessionStorage.getItem("topNavDisplay");
+  } else {
+    // Too bad, no sessionStorage for us
+  }
+}
+window.addEventListener("beforeunload", setSessionStorage);
+window.addEventListener("load", applySessionStorage);
+window.addEventListener("hashchange", applySessionStorage);
+
 function toggleHighlight(className,bool) {
   for (const element of document.getElementsByClassName(className)) {
     if (bool === true) {
@@ -147,21 +182,20 @@ function toggleHighlight(className,bool) {
     }
   }
 }
-document.querySelectorAll('.cs nav a').forEach(anchor => {
-  anchor.addEventListener('mouseenter', function () {
+document.querySelectorAll(".cs nav a").forEach(anchor => {
+  anchor.addEventListener("mouseenter", function () {
     toggleHighlight(this.className,true);
   });
-  anchor.addEventListener('mouseleave', function () {
+  anchor.addEventListener("mouseleave", function () {
     toggleHighlight(this.className,false);
   });
-  anchor.addEventListener('click', function () {
+  anchor.addEventListener("click", function () {
     // slowly?
-    let scrollMT = rem*4.236 + document.querySelector('div.recipe').getBoundingClientRect().bottom;
+    let scrollMT = rem*4.236 + document.querySelector("div.recipe").getBoundingClientRect().bottom;
     articles.forEach(article => {
-      if (article.style.display !== 'none') {
-        showTopNav();
-        // scroll past sticky recipe
-        article.style.scrollMarginTop = scrollMT+'px';
+      if (article.style.display !== "none") {
+        article.style.scrollMarginTop = scrollMT+"px";
+        topNav.style.display = "block";
       }
     });
     // un-stick <li> part of recipe
@@ -173,7 +207,7 @@ document.querySelectorAll('.cs nav a').forEach(anchor => {
 // the ele that has the biggest intersection ratio w/ vp
 //            = takes majority space
 //            = currently being read
-let obj = {['']: {ratio:''}}; //obj auto-remove duplicate keys = ids are always unique
+let obj = {[""]: {ratio:""}}; //obj auto-remove duplicate keys = ids are always unique
 let data = [];
 function buildThresholdList (numSteps) {
   let thresholds = [];
@@ -205,32 +239,11 @@ function currentlyReadingCallback (entries) {
         }
       } else {
         data.push(obj);
-        // debug tip: array keeps updating until – number shown – it's manually unfolded
+        // debug tip: array keeps updating until – number shown – it"s manually unfolded
         console.log(data);
       }
     }
   });
 }
 let currentlyReadingObserver = new IntersectionObserver(currentlyReadingCallback, currentlyReadingOptions);
-document.querySelectorAll('section p').forEach(p => { currentlyReadingObserver.observe(p) });
-
-// listen to .cs>h2 scroll event when it's in vp
-// show .top-nav when .cs>h2 scrolls above sticky recipe
-// let target = document.querySelector('.cs>h2');
-// let topNav = document.getElementsByClassName("top-nav")[0];
-// let inViewportOptions = {threshold:0};
-// function showTopNav() {
-//   console.log(target.getBoundingClientRect().top);
-//   if (target.getBoundingClientRect().top <= rem*1.618) {
-//     topNav.style.display = 'block'; // once shown, do not hide again
-//   }
-// }
-// function inViewportCallback (entries) {
-//   if (entries[0].isIntersecting) {
-//     window.addEventListener('scroll', showTopNav);
-//   } else {
-//     window.removeEventListener('scroll', showTopNav);
-//   }
-// }
-// let inViewportObserver = new IntersectionObserver(inViewportCallback, inViewportOptions);
-// inViewportObserver.observe(target);
+document.querySelectorAll("section p").forEach(p => { currentlyReadingObserver.observe(p) });

@@ -25,7 +25,6 @@
   --xl-vw:6.854vw;
   --xxl-vw:11.089vw;
   --xxxl-vw:17.942vw;
-  --isShown:false;
 }
 
 *{
@@ -93,10 +92,7 @@ aside,
 
 #case-study-01:target,
 #case-study-02:target,
-#case-study-03:target{
-  display:block;
-  --isShown:true;
-}
+#case-study-03:target{display:block}
 
 #resume:target{scroll-margin-top:var(--m-rem)}
 
