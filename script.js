@@ -108,24 +108,7 @@ window.addEventListener("resize", drawRecipe);
 
 let topNav = document.getElementsByClassName("top-nav")[0];
 let articles = document.querySelectorAll(".cs article");
-function maintainState(storeState) {
-  console.log("topnav "+storeState.topNavDisplay);
-  console.log(storeState.articlesDisplay);
-  console.log("–");
-  if (storeState.topNavDisplay === "block") {
-    topNav.style.display = "block";
-  // } else {
-    // topNav.style.display = "none";
-  }
-  articles.forEach((article,i) => {
-    if (storeState.articlesDisplay[i] === "block") {
-      article.style.display = "block";
-    // } else {
-      // article.style.display = "none";
-    }
-  });
-}
-// from developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API
+// function storageAvailable(type) from developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API
 function storageAvailable(type) {
     var storage;
     try {
@@ -152,7 +135,6 @@ function storageAvailable(type) {
 }
 function setSessionStorage() {
   if (storageAvailable("sessionStorage")) {
-    // Yippee! We can use sessionStorage awesomeness
     sessionStorage.setItem("topNavDisplay",getComputedStyle(topNav).display);
     articles.forEach((article,i) => {
       sessionStorage.setItem("articleDisplay"+i,getComputedStyle(article).display);
@@ -162,11 +144,28 @@ function setSessionStorage() {
   }
 }
 function applySessionStorage() {
+  // if (storageAvailable("sessionStorage")) {
+  //   // check if sessionStorage exists, aka if it's the 1st page load
+  //   if (sessionStorage.getItem("topNavDisplay")) {
+  //     topNav.style.display = sessionStorage.getItem("topNavDisplay");
+  //   }
+  //   // ==
+  //   topNav.style.display = sessionStorage.getItem("topNavDisplay")||topNav.style.display;
+  //
+  //   articles.forEach((article,i) => {
+  //     article.style.display = sessionStorage.getItem("articleDisplay"+i);
+  //   });
+  // // } else {
+  // //   // Too bad, no sessionStorage for us
+  // }
+
   if (storageAvailable("sessionStorage")) {
-    // Yippee! We can use sessionStorage awesomeness
-    topNav.style.display = sessionStorage.getItem("topNavDisplay");
-  } else {
-    // Too bad, no sessionStorage for us
+    topNav.style.display = sessionStorage.getItem("topNavDisplay")||topNav.style.display;
+    articles.forEach((article,i) => {
+      article.style.display = sessionStorage.getItem("articleDisplay"+i)||article.style.display;
+    });
+  // } else {
+  //   // Too bad, no sessionStorage for us
   }
 }
 window.addEventListener("beforeunload", setSessionStorage);
