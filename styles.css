@@ -87,9 +87,7 @@ aside,
 /* .cellar, */
 .top-nav,.cs article{display:none}
 
-.cv i,.edu strong
-{display:block}
-
+.cv i,.edu strong,
 #case-study-01:target,
 #case-study-02:target,
 #case-study-03:target{display:block}

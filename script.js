@@ -1,54 +1,54 @@
 let rem = getComputedStyle(document.documentElement).fontSize.match(/\d+/)[0];
 
 // svg flow
-function getViewportSize() {
-  let docEle = (document.compatMode && document.compatMode === "CSS1Compat") ? document.documentElement : document.body;
-  let w = docEle.clientWidth;
-  let h = docEle.clientHeight;
-  // mobile zoomed in?
-  if (window.innerWidth && w > window.innerWidth) {
-    w = window.innerWidth;
-    h = window.innerHeight;
-  }
-  return {width: w, height: h};
-}
-function drawFlow() {
-  // update viewBox size
-  document.getElementsByClassName("flow")[0].setAttribute("viewBox","0 0 "+getViewportSize().width+" "+getViewportSize().height);
-  // collect node coordinates
-  let n = [];
-  for(const node of document.getElementsByClassName("flowNode")) {
-    let xLeft = node.getBoundingClientRect().left+window.pageXOffset;
-    let xRight = node.getBoundingClientRect().right+window.pageXOffset;
-    let y = node.getBoundingClientRect().top+window.pageYOffset+node.getBoundingClientRect().height/2;
-    n.push({xLeft:xLeft,xRight:xRight,y:y});
-  }
-  // draw flow
-  document.getElementById("flowPath").setAttribute("d",
-    "M"+n[0].xLeft +" "+n[0].y+
-    "C"+n[0].xLeft+" "+(n[0].y+(n[1].y-n[0].y)*1.618)+" "
-       +(n[1].xRight+(n[0].xLeft-n[1].xRight)*0.618)+" "+n[1].y+" "
-       +n[1].xRight+" "+n[1].y+
-    "M"+n[1].xLeft +" "+n[1].y+"h-20"+
-    "C"+n[1].xLeft+" "+(n[1].y+(n[2].y-n[1].y)*0.618/2)+" "
-       +n[1].xLeft*0.618+" "+(n[1].y+(n[2].y-n[1].y)*0.618)+" "
-       +n[2].xLeft +" "+n[2].y+
-    "M"+n[2].xRight+" "+n[2].y+
-    "C"+(n[2].xRight+(n[3].xLeft-n[2].xRight)*0.3)+" "+n[2].y*0.95+" "
-       +(n[2].xRight+(n[3].xLeft-n[2].xRight)*0.6)+" "+n[2].y*1.01+" "
-       +n[3].xLeft +" "+n[3].y+
-    "M"+n[3].xRight+" "+n[3].y+
-    "L"+n[4].xRight+" "+n[4].y+
-    "M"+n[4].xLeft +" "+n[4].y+
-    "L"+n[5].xLeft +" "+n[5].y+
-    "M"+n[5].xRight+" "+n[5].y+
-    "L"+n[6].xLeft +" "+n[6].y+
-    "M"+n[6].xRight+" "+n[6].y+
-    "L"+n[7].xLeft +" "+n[7].y
-  );
-}
-window.addEventListener("load", drawFlow);
-window.addEventListener("resize", drawFlow);
+// function getViewportSize() {
+//   let docEle = (document.compatMode && document.compatMode === "CSS1Compat") ? document.documentElement : document.body;
+//   let w = docEle.clientWidth;
+//   let h = docEle.clientHeight;
+//   // mobile zoomed in?
+//   if (window.innerWidth && w > window.innerWidth) {
+//     w = window.innerWidth;
+//     h = window.innerHeight;
+//   }
+//   return {width: w, height: h};
+// }
+// function drawFlow() {
+//   // update viewBox size
+//   document.getElementsByClassName("flow")[0].setAttribute("viewBox","0 0 "+getViewportSize().width+" "+getViewportSize().height);
+//   // collect node coordinates
+//   let n = [];
+//   for(const node of document.getElementsByClassName("flowNode")) {
+//     let xLeft = node.getBoundingClientRect().left+window.pageXOffset;
+//     let xRight = node.getBoundingClientRect().right+window.pageXOffset;
+//     let y = node.getBoundingClientRect().top+window.pageYOffset+node.getBoundingClientRect().height/2;
+//     n.push({xLeft:xLeft,xRight:xRight,y:y});
+//   }
+//   // draw flow
+//   document.getElementById("flowPath").setAttribute("d",
+//     "M"+n[0].xLeft +" "+n[0].y+
+//     "C"+n[0].xLeft+" "+(n[0].y+(n[1].y-n[0].y)*1.618)+" "
+//        +(n[1].xRight+(n[0].xLeft-n[1].xRight)*0.618)+" "+n[1].y+" "
+//        +n[1].xRight+" "+n[1].y+
+//     "M"+n[1].xLeft +" "+n[1].y+"h-20"+
+//     "C"+n[1].xLeft+" "+(n[1].y+(n[2].y-n[1].y)*0.618/2)+" "
+//        +n[1].xLeft*0.618+" "+(n[1].y+(n[2].y-n[1].y)*0.618)+" "
+//        +n[2].xLeft +" "+n[2].y+
+//     "M"+n[2].xRight+" "+n[2].y+
+//     "C"+(n[2].xRight+(n[3].xLeft-n[2].xRight)*0.3)+" "+n[2].y*0.95+" "
+//        +(n[2].xRight+(n[3].xLeft-n[2].xRight)*0.6)+" "+n[2].y*1.01+" "
+//        +n[3].xLeft +" "+n[3].y+
+//     "M"+n[3].xRight+" "+n[3].y+
+//     "L"+n[4].xRight+" "+n[4].y+
+//     "M"+n[4].xLeft +" "+n[4].y+
+//     "L"+n[5].xLeft +" "+n[5].y+
+//     "M"+n[5].xRight+" "+n[5].y+
+//     "L"+n[6].xLeft +" "+n[6].y+
+//     "M"+n[6].xRight+" "+n[6].y+
+//     "L"+n[7].xLeft +" "+n[7].y
+//   );
+// }
+// window.addEventListener("load", drawFlow);
+// window.addEventListener("resize", drawFlow);
 
 // svg recipe line: from 0 to 1
 function drawRecipe() {
@@ -137,7 +137,7 @@ function setSessionStorage() {
   if (storageAvailable("sessionStorage")) {
     sessionStorage.setItem("topNavDisplay",getComputedStyle(topNav).display);
     articles.forEach((article,i) => {
-      sessionStorage.setItem("articleDisplay"+i,getComputedStyle(article).display);
+      sessionStorage.setItem("article"+i+"Display",getComputedStyle(article).display);
     });
   } else {
     // Too bad, no sessionStorage for us
@@ -160,9 +160,10 @@ function applySessionStorage() {
   // }
 
   if (storageAvailable("sessionStorage")) {
+    console.log(sessionStorage);
     topNav.style.display = sessionStorage.getItem("topNavDisplay")||topNav.style.display;
     articles.forEach((article,i) => {
-      article.style.display = sessionStorage.getItem("articleDisplay"+i)||article.style.display;
+      article.style.display = sessionStorage.getItem("article"+i+"Display")||article.style.display;
     });
   // } else {
   //   // Too bad, no sessionStorage for us
@@ -170,7 +171,7 @@ function applySessionStorage() {
 }
 window.addEventListener("beforeunload", setSessionStorage);
 window.addEventListener("load", applySessionStorage);
-window.addEventListener("hashchange", applySessionStorage);
+// window.addEventListener("hashchange", applySessionStorage);
 
 function toggleHighlight(className,bool) {
   for (const element of document.getElementsByClassName(className)) {
