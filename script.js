@@ -139,11 +139,13 @@ function setSessionStorage() {
     articles.forEach((article,i) => {
       sessionStorage.setItem("article"+i+"Display",getComputedStyle(article).display);
     });
-  } else {
+    console.log("set ss: "+sessionStorage);
+  // } else {
     // Too bad, no sessionStorage for us
   }
 }
-function applySessionStorage() {
+setSessionStorage();
+// function applySessionStorage() {
   // if (storageAvailable("sessionStorage")) {
   //   // check if sessionStorage exists, aka if it's the 1st page load
   //   if (sessionStorage.getItem("topNavDisplay")) {
@@ -160,17 +162,17 @@ function applySessionStorage() {
   // }
 
   if (storageAvailable("sessionStorage")) {
-    console.log(sessionStorage);
     topNav.style.display = sessionStorage.getItem("topNavDisplay")||topNav.style.display;
     articles.forEach((article,i) => {
       article.style.display = sessionStorage.getItem("article"+i+"Display")||article.style.display;
     });
+    console.log("apply ss: "+sessionStorage);
   // } else {
   //   // Too bad, no sessionStorage for us
   }
-}
-window.addEventListener("beforeunload", setSessionStorage);
-window.addEventListener("load", applySessionStorage);
+// }
+// window.addEventListener("beforeunload", setSessionStorage);
+// window.addEventListener("load", applySessionStorage);
 // window.addEventListener("hashchange", applySessionStorage);
 
 function toggleHighlight(className,bool) {
@@ -196,6 +198,7 @@ document.querySelectorAll(".cs nav a").forEach(anchor => {
       if (article.style.display !== "none") {
         article.style.scrollMarginTop = scrollMT+"px";
         topNav.style.display = "block";
+        setSessionStorage();
       }
     });
     // un-stick <li> part of recipe
