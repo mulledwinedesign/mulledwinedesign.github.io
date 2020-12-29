@@ -144,7 +144,6 @@ function setSessionStorage() {
     // Too bad, no sessionStorage for us
   }
 }
-setSessionStorage();
 // function applySessionStorage() {
   // if (storageAvailable("sessionStorage")) {
   //   // check if sessionStorage exists, aka if it's the 1st page load
@@ -171,7 +170,7 @@ setSessionStorage();
   //   // Too bad, no sessionStorage for us
   }
 // }
-// window.addEventListener("beforeunload", setSessionStorage);
+window.addEventListener("beforeunload", setSessionStorage);
 // window.addEventListener("load", applySessionStorage);
 // window.addEventListener("hashchange", applySessionStorage);
 
