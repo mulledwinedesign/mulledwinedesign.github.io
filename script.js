@@ -133,44 +133,21 @@ function storageAvailable(type) {
             (storage && storage.length !== 0);
     }
 }
-function setSessionStorage() {
-  if (storageAvailable("sessionStorage")) {
-    sessionStorage.setItem("topNavDisplay",getComputedStyle(topNav).display);
-    articles.forEach((article,i) => {
-      sessionStorage.setItem("article"+i+"Display",getComputedStyle(article).display);
-    });
-    console.log("set ss: "+sessionStorage);
-  // } else {
-    // Too bad, no sessionStorage for us
+if (storageAvailable("sessionStorage")) {
+  sessionStorage.setItem("topNavDisplay",getComputedStyle(topNav).display);
+  articles.forEach((article,i) => {
+    sessionStorage.setItem("article"+i+"Display",getComputedStyle(article).display);
+  });
+  if (sessionStorage.getItem("topNavDisplay") === "block") {
+    topNav.style.display = "block";
   }
+  articles.forEach((article,i) => {
+    if (sessionStorage.getItem("article"+i+"Display") === "block") {
+      article.style.display = "block";
+    }
+  });
 }
-// function applySessionStorage() {
-  // if (storageAvailable("sessionStorage")) {
-  //   // check if sessionStorage exists, aka if it's the 1st page load
-  //   if (sessionStorage.getItem("topNavDisplay")) {
-  //     topNav.style.display = sessionStorage.getItem("topNavDisplay");
-  //   }
-  //   // ==
-  //   topNav.style.display = sessionStorage.getItem("topNavDisplay")||topNav.style.display;
-  //
-  //   articles.forEach((article,i) => {
-  //     article.style.display = sessionStorage.getItem("articleDisplay"+i);
-  //   });
-  // // } else {
-  // //   // Too bad, no sessionStorage for us
-  // }
-
-  if (storageAvailable("sessionStorage")) {
-    topNav.style.display = sessionStorage.getItem("topNavDisplay")||topNav.style.display;
-    articles.forEach((article,i) => {
-      article.style.display = sessionStorage.getItem("article"+i+"Display")||article.style.display;
-    });
-    console.log("apply ss: "+sessionStorage);
-  // } else {
-  //   // Too bad, no sessionStorage for us
-  }
-// }
-window.addEventListener("beforeunload", setSessionStorage);
+// window.addEventListener("beforeunload", setSessionStorage);
 // window.addEventListener("load", applySessionStorage);
 // window.addEventListener("hashchange", applySessionStorage);
 
@@ -194,12 +171,9 @@ document.querySelectorAll(".cs nav a").forEach(anchor => {
     // slowly?
     let scrollMT = rem*4.236 + document.querySelector("div.recipe").getBoundingClientRect().bottom;
     articles.forEach(article => {
-      if (article.style.display !== "none") {
-        article.style.scrollMarginTop = scrollMT+"px";
-        topNav.style.display = "block";
-        setSessionStorage();
-      }
+      article.style.scrollMarginTop = scrollMT+"px";
     });
+    topNav.style.display = "block";
     // un-stick <li> part of recipe
 
   });
