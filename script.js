@@ -106,45 +106,21 @@ function drawRecipe() {
 window.addEventListener("load", drawRecipe);
 window.addEventListener("resize", drawRecipe);
 
+// maintain display states between pg loads n interactions
 let topNav = document.getElementsByClassName("top-nav")[0];
 let articles = document.querySelectorAll(".cs article");
-// function storageAvailable(type) from developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API
-// function storageAvailable(type) {
-//     var storage;
-//     try {
-//         storage = window[type];
-//         var x = "__storage_test__";
-//         storage.setItem(x, x);
-//         storage.removeItem(x);
-//         return true;
-//     }
-//     catch(e) {
-//         return e instanceof DOMException && (
-//             // everything except Firefox
-//             e.code === 22 ||
-//             // Firefox
-//             e.code === 1014 ||
-//             // test name field too, because code might not be present
-//             // everything except Firefox
-//             e.name === "QuotaExceededError" ||
-//             // Firefox
-//             e.name === "NS_ERROR_DOM_QUOTA_REACHED") &&
-//             // acknowledge QuotaExceededError only if there"s something already stored
-//             (storage && storage.length !== 0);
-//     }
-// }
-// if (storageAvailable("sessionStorage")) {
-// }
-
 function checkStorage() {
   if (sessionStorage.getItem("topNavDisplay") === "block") {
     topNav.classList.remove("hidden");
   }
+  articles.forEach((article,i) => {
+    if (sessionStorage.getItem("article"+i+"Display") === "grid") {
+      article.classList.remove("hidden");
+    }
+  });
 }
-// window.addEventListener("beforeunload", setSessionStorage);
 window.addEventListener("load", checkStorage);
 window.addEventListener("hashchange", checkStorage);
-
 function toggleHighlight(className,bool) {
   for (const element of document.getElementsByClassName(className)) {
     if (bool === true) {
@@ -167,8 +143,14 @@ document.querySelectorAll(".cs nav a").forEach(anchor => {
 
     // slowly?
     let scrollMT = rem*4.236 + document.querySelector("div.recipe").getBoundingClientRect().bottom;
-    articles.forEach(article => {
+    articles.forEach((article,i) => {
       article.style.scrollMarginTop = scrollMT+"px";
+      if ("#"+article.id === this.hash) {
+        article.classList.remove("hidden");
+      } else {
+        article.classList.add("hidden");
+      }
+      sessionStorage.setItem("article"+i+"Display",getComputedStyle(article).display);
     });
 
     // un-stick <li> part of recipe

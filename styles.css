@@ -86,13 +86,8 @@ aside,
 .print-cv,
 .cellar{display:none} */
 
-.shown{display:block}
+.cv i,.edu strong{display:block}
 .hidden{display:none}
-
-.cv i,.edu strong,
-#case-study-01:target,
-#case-study-02:target,
-#case-study-03:target{display:block}
 
 #resume:target{scroll-margin-top:var(--m-rem)}
 
