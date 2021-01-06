@@ -106,7 +106,7 @@ function drawRecipe() {
 window.addEventListener("load", drawRecipe);
 window.addEventListener("resize", drawRecipe);
 
-// maintain display states between pg loads n interactions
+// maintain display states between pg loads n #id clicks
 let topNav = document.getElementsByClassName("top-nav")[0];
 let articles = document.querySelectorAll(".cs article");
 function checkStorage() {
