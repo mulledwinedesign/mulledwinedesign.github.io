@@ -83,9 +83,11 @@ article{grid-column-gap:var(--s-rem)}
 /* ins,
 aside,
 .less,.more,
-.print-cv, */
-/* .cellar, */
-.top-nav,.cs article{display:none}
+.print-cv,
+.cellar{display:none} */
+
+.shown{display:block}
+.hidden{display:none}
 
 .cv i,.edu strong,
 #case-study-01:target,

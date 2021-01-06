@@ -109,47 +109,41 @@ window.addEventListener("resize", drawRecipe);
 let topNav = document.getElementsByClassName("top-nav")[0];
 let articles = document.querySelectorAll(".cs article");
 // function storageAvailable(type) from developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API
-function storageAvailable(type) {
-    var storage;
-    try {
-        storage = window[type];
-        var x = "__storage_test__";
-        storage.setItem(x, x);
-        storage.removeItem(x);
-        return true;
-    }
-    catch(e) {
-        return e instanceof DOMException && (
-            // everything except Firefox
-            e.code === 22 ||
-            // Firefox
-            e.code === 1014 ||
-            // test name field too, because code might not be present
-            // everything except Firefox
-            e.name === "QuotaExceededError" ||
-            // Firefox
-            e.name === "NS_ERROR_DOM_QUOTA_REACHED") &&
-            // acknowledge QuotaExceededError only if there"s something already stored
-            (storage && storage.length !== 0);
-    }
-}
-if (storageAvailable("sessionStorage")) {
-  sessionStorage.setItem("topNavDisplay",getComputedStyle(topNav).display);
-  articles.forEach((article,i) => {
-    sessionStorage.setItem("article"+i+"Display",getComputedStyle(article).display);
-  });
+// function storageAvailable(type) {
+//     var storage;
+//     try {
+//         storage = window[type];
+//         var x = "__storage_test__";
+//         storage.setItem(x, x);
+//         storage.removeItem(x);
+//         return true;
+//     }
+//     catch(e) {
+//         return e instanceof DOMException && (
+//             // everything except Firefox
+//             e.code === 22 ||
+//             // Firefox
+//             e.code === 1014 ||
+//             // test name field too, because code might not be present
+//             // everything except Firefox
+//             e.name === "QuotaExceededError" ||
+//             // Firefox
+//             e.name === "NS_ERROR_DOM_QUOTA_REACHED") &&
+//             // acknowledge QuotaExceededError only if there"s something already stored
+//             (storage && storage.length !== 0);
+//     }
+// }
+// if (storageAvailable("sessionStorage")) {
+// }
+
+function checkStorage() {
   if (sessionStorage.getItem("topNavDisplay") === "block") {
-    topNav.style.display = "block";
+    topNav.classList.remove("hidden");
   }
-  articles.forEach((article,i) => {
-    if (sessionStorage.getItem("article"+i+"Display") === "block") {
-      article.style.display = "block";
-    }
-  });
 }
 // window.addEventListener("beforeunload", setSessionStorage);
-// window.addEventListener("load", applySessionStorage);
-// window.addEventListener("hashchange", applySessionStorage);
+window.addEventListener("load", checkStorage);
+window.addEventListener("hashchange", checkStorage);
 
 function toggleHighlight(className,bool) {
   for (const element of document.getElementsByClassName(className)) {
@@ -168,12 +162,15 @@ document.querySelectorAll(".cs nav a").forEach(anchor => {
     toggleHighlight(this.className,false);
   });
   anchor.addEventListener("click", function () {
+    topNav.classList.remove("hidden");
+    sessionStorage.setItem("topNavDisplay",getComputedStyle(topNav).display);
+
     // slowly?
     let scrollMT = rem*4.236 + document.querySelector("div.recipe").getBoundingClientRect().bottom;
     articles.forEach(article => {
       article.style.scrollMarginTop = scrollMT+"px";
     });
-    topNav.style.display = "block";
+
     // un-stick <li> part of recipe
 
   });
@@ -183,43 +180,43 @@ document.querySelectorAll(".cs nav a").forEach(anchor => {
 // the ele that has the biggest intersection ratio w/ vp
 //            = takes majority space
 //            = currently being read
-let obj = {[""]: {ratio:""}}; //obj auto-remove duplicate keys = ids are always unique
-let data = [];
-function buildThresholdList (numSteps) {
-  let thresholds = [];
-  for (let i=1.0; i<=numSteps; i++) {
-    let ratio = i/numSteps;
-    thresholds.push(ratio);
-  }
-  thresholds.push(0);
-  return thresholds;
-}
-function idExistsInData(id) {
-  let bool = true;
-  data.forEach(element => {bool = element.hasOwnProperty(id)});
-  return bool;
-}
-const currentlyReadingOptions = {threshold:buildThresholdList(10)};
-function currentlyReadingCallback (entries) {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      // store current id n ratio
-      obj = {[entry.target.id]: {ratio: entry.intersectionRatio}};
-      if (data.length === 0) {data.push(obj);}
-      else if (idExistsInData(entry.target.id)) {
-        // update ratio only = store only current ratios
-        for (const ele of data) {
-          if (Object.keys(ele)[0] === Object.keys(obj)[0]) {
-            Object.values(ele)[0].ratio = Object.values(obj)[0].ratio;
-          }
-        }
-      } else {
-        data.push(obj);
-        // debug tip: array keeps updating until – number shown – it"s manually unfolded
-        console.log(data);
-      }
-    }
-  });
-}
-let currentlyReadingObserver = new IntersectionObserver(currentlyReadingCallback, currentlyReadingOptions);
-document.querySelectorAll("section p").forEach(p => { currentlyReadingObserver.observe(p) });
+// let obj = {[""]: {ratio:""}}; //obj auto-remove duplicate keys = ids are always unique
+// let data = [];
+// function buildThresholdList (numSteps) {
+//   let thresholds = [];
+//   for (let i=1.0; i<=numSteps; i++) {
+//     let ratio = i/numSteps;
+//     thresholds.push(ratio);
+//   }
+//   thresholds.push(0);
+//   return thresholds;
+// }
+// function idExistsInData(id) {
+//   let bool = true;
+//   data.forEach(element => {bool = element.hasOwnProperty(id)});
+//   return bool;
+// }
+// const currentlyReadingOptions = {threshold:buildThresholdList(10)};
+// function currentlyReadingCallback (entries) {
+//   entries.forEach(entry => {
+//     if (entry.isIntersecting) {
+//       // store current id n ratio
+//       obj = {[entry.target.id]: {ratio: entry.intersectionRatio}};
+//       if (data.length === 0) {data.push(obj);}
+//       else if (idExistsInData(entry.target.id)) {
+//         // update ratio only = store only current ratios
+//         for (const ele of data) {
+//           if (Object.keys(ele)[0] === Object.keys(obj)[0]) {
+//             Object.values(ele)[0].ratio = Object.values(obj)[0].ratio;
+//           }
+//         }
+//       } else {
+//         data.push(obj);
+//         // debug tip: array keeps updating until – number shown – it"s manually unfolded
+//         console.log(data);
+//       }
+//     }
+//   });
+// }
+// let currentlyReadingObserver = new IntersectionObserver(currentlyReadingCallback, currentlyReadingOptions);
+// document.querySelectorAll("section p").forEach(p => { currentlyReadingObserver.observe(p) });
