@@ -49,7 +49,7 @@ ol,ul{
 /************************************************ vertical rhythm */
 .top-nav{padding:var(--xxxs-rem) 0}
 .top-nav>a{vertical-align:middle}
-main{margin:var(--s-rem) 0 var(--xxxl-rem)}
+main{margin:var(--s-rem) 0 var(--xxl-rem)}
 main>section{margin-top:var(--xxl-rem)}
 .cv{margin-bottom:var(--xxl-rem)}
 h2.recipe,.cs>h2{margin-bottom:var(--l-rem)}
@@ -151,7 +151,7 @@ article>h3+section{
 h4,.cs div{grid-column:1/-1}
 h4+p{grid-column:1/4}
 .sub{grid-column:2/4} */
-article>h3,section[class*="overview"],h4{display:none}
+h4{display:none}
 section[class="context"]{grid-area:context}
 section[class="inspiration"]{grid-area:inspiration}
 section[class="ideation"]{grid-area:ideation}
@@ -180,6 +180,8 @@ article{
 }
 
 /*********************************************************** text */
+abbr,.cs nav a{text-decoration:none}
+.smallcaps{font-variant:small-caps}
 .top-nav>a{
   font-weight:400;
   font-size:var(--xs-rem);
@@ -226,19 +228,19 @@ div.recipe h3{
   font-weight:;
   font-size:;
 } */
-.cs nav button{
-  padding:1ex;
-  /* padding:.618ex;
-  border-width:0 0 .382ex 0;
-  background-color:transparent; */
+.cs nav h3{
+  padding:.618ex 1ex;
+  /* border:.2ex solid grey; */
+}
+.cs nav a{
+  color:black;
   font-weight:300;
   font-size:var(--s-rem);
   font-family:"Canela Text Light";
 }
-
-.cs article>h3{
+.cs nav a:hover{
   font-weight:400;
-  font-size:var(--m-rem);
+  /* font-size:var(--s-rem); */
   font-family:"Canela Text Regular No 2";
 }
 .overview{
@@ -270,8 +272,6 @@ p{
   font-size:var(--s-rem);
   font-family:"Canela Text Thin";
 }
-abbr{text-decoration:none}
-.smallcaps{font-variant:small-caps}
 
 /*************************************************** media queries */
 @media(max-width:31.25em){
