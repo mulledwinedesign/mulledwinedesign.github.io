@@ -71,11 +71,12 @@ footer{margin-bottom:var(--s-rem)}
 .top-nav>a+a{margin-left:var(--xxs-vw)}
 header{padding:var(--xxl-vw) var(--xxl-vw) 0 0}
 .name,.cv{padding:0 var(--xxxl-vw)}
-.cv{grid-gap:var(--m-vw)}
+.cv>.exp{padding-right:var(--xl-vw)}
+/* .cv{gap:var(--m-vw)} */
 h2.recipe,.cs>h2{text-align:center}
 h2.recipe,.cs,footer{padding:0 var(--xxl-vw)}
 div.recipe{margin:0 var(--xxl-vw)}
-article{grid-column-gap:var(--s-rem)}
+article{column-gap:var(--s-rem)}
 /* p{max-width:70ch} */
 /* p.sub{margin-left:25%} */
 
@@ -124,9 +125,8 @@ svg.recipeLine{
   stroke-width:.1rem;
 }
 
-.logo-container,.recipe ol,.cs nav{display:flex}
+.logo-container,.cs nav{display:flex}
 .logo-container{justify-content:flex-end}
-.recipe ol{justify-content:space-evenly}
 .cs nav{justify-content:space-between}
 
 button.left,button.right{
@@ -136,11 +136,13 @@ button.left,button.right{
 .left{left:1vw}
 .right{right:1vw}
 
-.cv,article{display:grid}
-.cv{
-  grid-template-columns:repeat(2,1fr);
-  grid-auto-flow:column;
+.cv,.recipe ol{display:grid}
+.cv{grid-template-columns:1fr 1fr}
+.recipe ol{
+  grid-template-columns:repeat(5,min-content);
 }
+.recipe ol{justify-content:space-evenly}
+
 /* article{grid-template-columns:auto 1fr} */
 /* .cs h2,.overview{grid-column:1/-1}
 article>h3{grid-column:1/2}
