@@ -1,17 +1,17 @@
 let rem = getComputedStyle(document.documentElement).fontSize.match(/\d+/)[0];
 
 // svg flow
-// function getViewportSize() {
-//   let docEle = (document.compatMode && document.compatMode === "CSS1Compat") ? document.documentElement : document.body;
-//   let w = docEle.clientWidth;
-//   let h = docEle.clientHeight;
-//   // mobile zoomed in?
-//   if (window.innerWidth && w > window.innerWidth) {
-//     w = window.innerWidth;
-//     h = window.innerHeight;
-//   }
-//   return {width: w, height: h};
-// }
+function getViewportSize() {
+  let docEle = (document.compatMode && document.compatMode === "CSS1Compat") ? document.documentElement : document.body;
+  let w = docEle.clientWidth;
+  let h = docEle.clientHeight;
+  // mobile zoomed in?
+  if (window.innerWidth && w > window.innerWidth) {
+    w = window.innerWidth;
+    h = window.innerHeight;
+  }
+  return {width:w,height:h};
+}
 // function drawFlow() {
 //   // update viewBox size
 //   document.getElementsByClassName("flow")[0].setAttribute("viewBox","0 0 "+getViewportSize().width+" "+getViewportSize().height);
@@ -51,7 +51,7 @@ let rem = getComputedStyle(document.documentElement).fontSize.match(/\d+/)[0];
 // window.addEventListener("resize", drawFlow);
 
 // svg recipe line: from 0 to 1
-function drawRecipe() {
+function drawRecipeNGrid() {
   let recipeBox = document.getElementsByClassName("recipeBox")[0];
   let recipeLine = document.getElementsByClassName("recipeLine")[0];
   let zero = document.getElementById("zero");
@@ -102,9 +102,21 @@ function drawRecipe() {
   one.setAttribute("y1",y-r-strokeW);
   one.setAttribute("x2",x1);
   one.setAttribute("y2",y+r+strokeW);
+
+  // set cs article's grid cols based on recipeBox lists
+  let col = "";
+  for(const li of document.querySelectorAll(".recipeBox>li")) {
+    col += li.getBoundingClientRect().width + " ";
+  }
+  articles.forEach(article => {
+    article.style.gridTemplateColumns = col;
+    article.style.marginLeft = gap+"px";
+    article.style.columnGap = gap+"px";
+  });
+
 }
-window.addEventListener("load", drawRecipe);
-window.addEventListener("resize", drawRecipe);
+window.addEventListener("load",drawRecipeNGrid);
+window.addEventListener("resize",drawRecipeNGrid);
 
 // maintain display states between pg loads n #id clicks
 let topNav = document.getElementsByClassName("top-nav")[0];
@@ -119,8 +131,8 @@ function checkStorage() {
     }
   });
 }
-window.addEventListener("load", checkStorage);
-window.addEventListener("hashchange", checkStorage);
+window.addEventListener("load",checkStorage);
+window.addEventListener("hashchange",checkStorage);
 function toggleHighlight(className,bool) {
   for (const element of document.getElementsByClassName(className)) {
     if (bool === true) {
