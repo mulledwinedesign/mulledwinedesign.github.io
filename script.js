@@ -103,17 +103,16 @@ function drawRecipeNGrid() {
   one.setAttribute("x2",x1);
   one.setAttribute("y2",y+r+strokeW);
 
-  // set cs article's grid cols based on recipeBox lists
+  // set article grid cols based on recipeBox lists
   let col = "";
   for(const li of document.querySelectorAll(".recipeBox>li")) {
-    col += li.getBoundingClientRect().width + " ";
+    col += li.getBoundingClientRect().width+"px"+" ";
   }
   articles.forEach(article => {
     article.style.gridTemplateColumns = col;
     article.style.marginLeft = gap+"px";
     article.style.columnGap = gap+"px";
   });
-
 }
 window.addEventListener("load",drawRecipeNGrid);
 window.addEventListener("resize",drawRecipeNGrid);
