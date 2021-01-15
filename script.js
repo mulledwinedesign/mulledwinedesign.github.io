@@ -1,55 +1,5 @@
 let rem = getComputedStyle(document.documentElement).fontSize.match(/\d+/)[0];
 
-// svg flow
-function getViewportSize() {
-  let docEle = (document.compatMode && document.compatMode === "CSS1Compat") ? document.documentElement : document.body;
-  let w = docEle.clientWidth;
-  let h = docEle.clientHeight;
-  // mobile zoomed in?
-  if (window.innerWidth && w > window.innerWidth) {
-    w = window.innerWidth;
-    h = window.innerHeight;
-  }
-  return {width:w,height:h};
-}
-// function drawFlow() {
-//   // update viewBox size
-//   document.getElementsByClassName("flow")[0].setAttribute("viewBox","0 0 "+getViewportSize().width+" "+getViewportSize().height);
-//   // collect node coordinates
-//   let n = [];
-//   for(const node of document.getElementsByClassName("flowNode")) {
-//     let xLeft = node.getBoundingClientRect().left+window.pageXOffset;
-//     let xRight = node.getBoundingClientRect().right+window.pageXOffset;
-//     let y = node.getBoundingClientRect().top+window.pageYOffset+node.getBoundingClientRect().height/2;
-//     n.push({xLeft:xLeft,xRight:xRight,y:y});
-//   }
-//   // draw flow
-//   document.getElementById("flowPath").setAttribute("d",
-//     "M"+n[0].xLeft +" "+n[0].y+
-//     "C"+n[0].xLeft+" "+(n[0].y+(n[1].y-n[0].y)*1.618)+" "
-//        +(n[1].xRight+(n[0].xLeft-n[1].xRight)*0.618)+" "+n[1].y+" "
-//        +n[1].xRight+" "+n[1].y+
-//     "M"+n[1].xLeft +" "+n[1].y+"h-20"+
-//     "C"+n[1].xLeft+" "+(n[1].y+(n[2].y-n[1].y)*0.618/2)+" "
-//        +n[1].xLeft*0.618+" "+(n[1].y+(n[2].y-n[1].y)*0.618)+" "
-//        +n[2].xLeft +" "+n[2].y+
-//     "M"+n[2].xRight+" "+n[2].y+
-//     "C"+(n[2].xRight+(n[3].xLeft-n[2].xRight)*0.3)+" "+n[2].y*0.95+" "
-//        +(n[2].xRight+(n[3].xLeft-n[2].xRight)*0.6)+" "+n[2].y*1.01+" "
-//        +n[3].xLeft +" "+n[3].y+
-//     "M"+n[3].xRight+" "+n[3].y+
-//     "L"+n[4].xRight+" "+n[4].y+
-//     "M"+n[4].xLeft +" "+n[4].y+
-//     "L"+n[5].xLeft +" "+n[5].y+
-//     "M"+n[5].xRight+" "+n[5].y+
-//     "L"+n[6].xLeft +" "+n[6].y+
-//     "M"+n[6].xRight+" "+n[6].y+
-//     "L"+n[7].xLeft +" "+n[7].y
-//   );
-// }
-// window.addEventListener("load", drawFlow);
-// window.addEventListener("resize", drawFlow);
-
 // svg recipe line: from 0 to 1
 function drawRecipeNGrid() {
   let recipeBox = document.getElementsByClassName("recipeBox")[0];
@@ -102,7 +52,6 @@ function drawRecipeNGrid() {
   one.setAttribute("y1",y-r-strokeW);
   one.setAttribute("x2",x1);
   one.setAttribute("y2",y+r+strokeW);
-
   // set article grid cols based on recipeBox lists
   let col = "";
   for(const li of document.querySelectorAll(".recipeBox>li")) {
@@ -132,27 +81,25 @@ function checkStorage() {
 }
 window.addEventListener("load",checkStorage);
 window.addEventListener("hashchange",checkStorage);
-function toggleHighlight(className,bool) {
+
+// handle cs title anchor events
+function toggleHighlight(className,color) {
   for (const element of document.getElementsByClassName(className)) {
-    if (bool === true) {
-      element.style.color = "red";
-    } else {
-      element.style.color = "";
-    }
+    element.style.color = color;
   }
 }
 document.querySelectorAll(".cs nav a").forEach(anchor => {
   anchor.addEventListener("mouseenter", function () {
-    toggleHighlight(this.className,true);
+    toggleHighlight(this.className,"green");
   });
   anchor.addEventListener("mouseleave", function () {
-    toggleHighlight(this.className,false);
+    toggleHighlight(this.className,"");
   });
   anchor.addEventListener("click", function () {
+    // show topNav n save display state
     topNav.classList.remove("hidden");
     sessionStorage.setItem("topNavDisplay",getComputedStyle(topNav).display);
-
-    // slowly?
+    // slowly? show n scroll article into place, n save display state
     let scrollMT = rem*4.236 + document.querySelector("div.recipe").getBoundingClientRect().bottom;
     articles.forEach((article,i) => {
       article.style.scrollMarginTop = scrollMT+"px";
@@ -163,9 +110,17 @@ document.querySelectorAll(".cs nav a").forEach(anchor => {
       }
       sessionStorage.setItem("article"+i+"Display",getComputedStyle(article).display);
     });
-
-    // un-stick <li> part of recipe
-
+    // highlight relevant ul>li
+    // toggleHighlight(this.className,"red");
+    // dim irrelevant ul>li
+    document.querySelectorAll(".recipe ul li").forEach(li => {
+      if (li.classList.contains(this.className)) {
+        // li.style.color = "red";
+      } else {
+        li.style.color = "grey";
+        li.classList.add("hidden");
+      }
+    });
   });
 });
 
@@ -213,3 +168,53 @@ document.querySelectorAll(".cs nav a").forEach(anchor => {
 // }
 // let currentlyReadingObserver = new IntersectionObserver(currentlyReadingCallback, currentlyReadingOptions);
 // document.querySelectorAll("section p").forEach(p => { currentlyReadingObserver.observe(p) });
+
+// svg flow
+// function getViewportSize() {
+//   let docEle = (document.compatMode && document.compatMode === "CSS1Compat") ? document.documentElement : document.body;
+//   let w = docEle.clientWidth;
+//   let h = docEle.clientHeight;
+//   // mobile zoomed in?
+//   if (window.innerWidth && w > window.innerWidth) {
+//     w = window.innerWidth;
+//     h = window.innerHeight;
+//   }
+//   return {width:w,height:h};
+// }
+// function drawFlow() {
+//   // update viewBox size
+//   document.getElementsByClassName("flow")[0].setAttribute("viewBox","0 0 "+getViewportSize().width+" "+getViewportSize().height);
+//   // collect node coordinates
+//   let n = [];
+//   for(const node of document.getElementsByClassName("flowNode")) {
+//     let xLeft = node.getBoundingClientRect().left+window.pageXOffset;
+//     let xRight = node.getBoundingClientRect().right+window.pageXOffset;
+//     let y = node.getBoundingClientRect().top+window.pageYOffset+node.getBoundingClientRect().height/2;
+//     n.push({xLeft:xLeft,xRight:xRight,y:y});
+//   }
+//   // draw flow
+//   document.getElementById("flowPath").setAttribute("d",
+//     "M"+n[0].xLeft +" "+n[0].y+
+//     "C"+n[0].xLeft+" "+(n[0].y+(n[1].y-n[0].y)*1.618)+" "
+//        +(n[1].xRight+(n[0].xLeft-n[1].xRight)*0.618)+" "+n[1].y+" "
+//        +n[1].xRight+" "+n[1].y+
+//     "M"+n[1].xLeft +" "+n[1].y+"h-20"+
+//     "C"+n[1].xLeft+" "+(n[1].y+(n[2].y-n[1].y)*0.618/2)+" "
+//        +n[1].xLeft*0.618+" "+(n[1].y+(n[2].y-n[1].y)*0.618)+" "
+//        +n[2].xLeft +" "+n[2].y+
+//     "M"+n[2].xRight+" "+n[2].y+
+//     "C"+(n[2].xRight+(n[3].xLeft-n[2].xRight)*0.3)+" "+n[2].y*0.95+" "
+//        +(n[2].xRight+(n[3].xLeft-n[2].xRight)*0.6)+" "+n[2].y*1.01+" "
+//        +n[3].xLeft +" "+n[3].y+
+//     "M"+n[3].xRight+" "+n[3].y+
+//     "L"+n[4].xRight+" "+n[4].y+
+//     "M"+n[4].xLeft +" "+n[4].y+
+//     "L"+n[5].xLeft +" "+n[5].y+
+//     "M"+n[5].xRight+" "+n[5].y+
+//     "L"+n[6].xLeft +" "+n[6].y+
+//     "M"+n[6].xRight+" "+n[6].y+
+//     "L"+n[7].xLeft +" "+n[7].y
+//   );
+// }
+// window.addEventListener("load", drawFlow);
+// window.addEventListener("resize", drawFlow);
