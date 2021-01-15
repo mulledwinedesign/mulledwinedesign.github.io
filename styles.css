@@ -39,6 +39,7 @@
 html{
   -webkit-font-smoothing:antialiased;
   margin:0 auto;
+  scroll-behavior:smooth;
   /* font-family:jaf-bernino-sans; */
 }
 ol,ul{
