@@ -83,17 +83,17 @@ window.addEventListener("load",checkStorage);
 window.addEventListener("hashchange",checkStorage);
 
 // handle cs title anchor events
-function toggleHighlight(className,color) {
-  for (const element of document.getElementsByClassName(className)) {
-    element.style.color = color;
-  }
-}
+// function toggleHighlight(className,color) {
+//   for (const element of document.getElementsByClassName(className)) {
+//     element.style.color = color;
+//   }
+// }
 document.querySelectorAll(".cs nav a").forEach(anchor => {
   anchor.addEventListener("mouseenter", function () {
-    toggleHighlight(this.className,"green");
+    // toggleHighlight(this.className,"green");
   });
   anchor.addEventListener("mouseleave", function () {
-    toggleHighlight(this.className,"");
+    // toggleHighlight(this.className,"");
   });
   anchor.addEventListener("click", function () {
     // show topNav n save display state
@@ -118,7 +118,7 @@ document.querySelectorAll(".cs nav a").forEach(anchor => {
         // li.style.color = "red";
       } else {
         li.style.color = "grey";
-        li.classList.add("hidden");
+        // li.classList.add("hidden");
       }
     });
   });

@@ -105,7 +105,7 @@ aside,
 .cellar{display:none} */
 
 .cv i,.edu strong{display:block}
-.hidden{display:none}
+.hidden,h4{display:none}
 
 #resume:target{scroll-margin-top:var(--m-rem)}
 
@@ -118,7 +118,7 @@ aside,
 /* ol ul{display:none} */
 
 /* .svg-container{position:relative} */
-svg.flow{
+/* svg.flow{
   position:absolute;
   z-index:-2;
   width:100%;
@@ -126,7 +126,7 @@ svg.flow{
   fill:transparent;
   stroke:pink;
   stroke-width:.3rem;
-}
+} */
 svg.logo{
   width:20vw;
   min-width:100px;
@@ -146,16 +146,16 @@ svg.recipeLine{
 .logo-container{justify-content:flex-end}
 .recipe ol{justify-content:space-evenly}
 .cs nav{justify-content:space-between}
-
-button.left,button.right{
-  position:fixed;
-  bottom:1vw;
+/* .cs nav{
+  grid-template-columns:repeat(3,30%);
+  column-gap:5%;
 }
-.left{left:1vw}
-.right{right:1vw}
+.cs nav>*:not(:last-child){margin-right:auto}
+.cs nav>*:not(:first-child){margin-left:auto} */
 
 .cv,article{display:grid}
-.cv{grid-template-columns:1fr 1fr}
+.cv{grid-template-columns:repeat(2,1fr)}
+
 /* article{grid-template-columns:auto 1fr} */
 /* .cs h2,.overview{grid-column:1/-1}
 article>h3{grid-column:1/2}
@@ -166,7 +166,6 @@ article>h3+section{
 h4,.cs div{grid-column:1/-1}
 h4+p{grid-column:1/4}
 .sub{grid-column:2/4} */
-h4{display:none}
 section[class="context"]{grid-area:context}
 section[class="inspiration"]{grid-area:inspiration}
 section[class="ideation"]{grid-area:ideation}
@@ -178,6 +177,13 @@ article{
     ". . ideation ideation ideation"
     ". . . implementation implementation";
 }
+
+/* button.left,button.right{
+  position:fixed;
+  bottom:1vw;
+}
+.left{left:1vw}
+.right{right:1vw} */
 
 .rq-container{
   margin:var(--xxs-rem) 0;
@@ -241,17 +247,19 @@ div.recipe h3{
   font-weight:;
   font-size:;
 } */
-.cs nav h3{
-  padding:.618ex 1ex;
-  /* border:.2ex solid grey; */
-}
 .cs nav a{
+  display:block;
   color:black;
+  padding:.618ex 1ex;
+  border:thin solid black;
   font-weight:300;
   font-size:var(--s-rem);
   font-family:"Canela Text Light";
 }
 .cs nav a:hover{
+  /* scroll-behavior:auto; */
+  color:green;
+  border-color:green;
   font-weight:400;
   /* font-size:var(--s-rem); */
   font-family:"Canela Text Regular No 2";
