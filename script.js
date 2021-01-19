@@ -83,24 +83,34 @@ window.addEventListener("load",checkStorage);
 window.addEventListener("hashchange",checkStorage);
 
 // handle cs title anchor events
-// function toggleHighlight(className,color) {
-//   for (const element of document.getElementsByClassName(className)) {
-//     element.style.color = color;
-//   }
-// }
-document.querySelectorAll(".cs nav a").forEach(anchor => {
+function toggleHighlight(className,color) {
+  for (const element of document.getElementsByClassName(className)) {
+    // ¿add/remove util class?
+    element.style.color = color;
+  }
+}
+let anchors = document.querySelectorAll(".cs nav a");
+anchors.forEach(anchor => {
+  // hover to highlight cs title n recipe>li
   anchor.addEventListener("mouseenter", function () {
-    // toggleHighlight(this.className,"green");
+    toggleHighlight(this.className,"green");
   });
   anchor.addEventListener("mouseleave", function () {
-    // toggleHighlight(this.className,"");
+    toggleHighlight(this.className,"");
   });
+  // handle many layout changes once click
   anchor.addEventListener("click", function () {
+    // hide the other two anchors n ¿show overview
+    for (const a of anchors) {
+      if (!a.classList.contains(this.className)) {
+        a.style.visibility = "hidden";
+      }
+    }
     // show topNav n save display state
     topNav.classList.remove("hidden");
     sessionStorage.setItem("topNavDisplay",getComputedStyle(topNav).display);
-    // slowly? show n scroll article into place, n save display state
-    let scrollMT = rem*4.236 + document.querySelector("div.recipe").getBoundingClientRect().bottom;
+    // show n scroll article into place, n save display state
+    let scrollMT = rem*4.236 + document.getElementsByClassName("recipeBox")[0].getBoundingClientRect().bottom;
     articles.forEach((article,i) => {
       article.style.scrollMarginTop = scrollMT+"px";
       if ("#"+article.id === this.hash) {
@@ -110,8 +120,8 @@ document.querySelectorAll(".cs nav a").forEach(anchor => {
       }
       sessionStorage.setItem("article"+i+"Display",getComputedStyle(article).display);
     });
-    // highlight relevant ul>li
-    // toggleHighlight(this.className,"red");
+    // ¿remain? highlight relevant ul>li
+    toggleHighlight(this.className,"red");
     // dim irrelevant ul>li
     document.querySelectorAll(".recipe ul li").forEach(li => {
       if (li.classList.contains(this.className)) {

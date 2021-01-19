@@ -146,12 +146,6 @@ svg.recipeLine{
 .logo-container{justify-content:flex-end}
 .recipe ol{justify-content:space-evenly}
 .cs nav{justify-content:space-between}
-/* .cs nav{
-  grid-template-columns:repeat(3,30%);
-  column-gap:5%;
-}
-.cs nav>*:not(:last-child){margin-right:auto}
-.cs nav>*:not(:first-child){margin-left:auto} */
 
 .cv,article{display:grid}
 .cv{grid-template-columns:repeat(2,1fr)}
@@ -257,8 +251,7 @@ div.recipe h3{
   font-family:"Canela Text Light";
 }
 .cs nav a:hover{
-  /* scroll-behavior:auto; */
-  color:green;
+  /* color:green; */
   border-color:green;
   font-weight:400;
   /* font-size:var(--s-rem); */
