@@ -43,7 +43,7 @@ html{
   /* font-family:jaf-bernino-sans; */
 }
 ol,ul{
-  padding:0;
+  padding-left:0;
   list-style:none;
 }
 
@@ -53,69 +53,53 @@ ol,ul{
   padding-bottom:var(--xxxs-rem);
 }
 .top-nav>a{vertical-align:middle}
+.top-nav.sticky{top:0}
 header{padding-top:var(--xxl-vw)}
-main{
-  margin-top:var(--s-rem);
-  margin-bottom:var(--xxl-rem);
-}
+main{margin-top:var(--s-rem)}
 main>section{margin-top:var(--xxl-rem)}
-.cv{margin-bottom:var(--xxl-rem)}
-h2.recipe,.cs>h2{margin-bottom:var(--l-rem)}
-.recipe.sticky{padding-bottom:var(--xxs-rem)}
+main,.cv{margin-bottom:var(--xxl-rem)}
+#resume:target{scroll-margin-top:var(--m-rem)}
 .cv section section{margin-top:var(--m-rem)}
-.cv section section+section{margin-top:var(--xs-rem)}
-.recipe ul{margin-top:var(--xs-rem)}
+.cv section section+section,.recipe ul,p+p{margin-top:var(--xs-rem)}
+h2.recipe,.cs>h2{margin-bottom:var(--l-rem)}
+.recipe.sticky{top:var(--xs-rem)}
+.recipeBox{padding-bottom:var(--xxs-rem)}
 article{
   margin-top:var(--l-rem);
   row-gap:var(--l-rem);
 }
-h4{margin-bottom:var(--xs-rem)}
-p+p{margin-top:var(--xs-rem)}
-p+h4{margin-top:var(--m-rem)}
+/* h4{margin-bottom:var(--xs-rem)} */
+/* p+h4{margin-top:var(--m-rem)} */
 footer{margin-bottom:var(--s-rem)}
 
 /********************************************** horizontal rhythm */
 .top-nav{padding-left:var(--s-vw)}
 .top-nav>a+a{margin-left:var(--xxs-vw)}
-header{padding-right:var(--xxl-vw)}
+header,h2.recipe,.cs,footer{padding-right:var(--xxl-vw)}
 .name,.cv{
   padding-left:var(--xxxl-vw);
   padding-right:var(--xxxl-vw);
 }
 .cv>.exp{padding-right:var(--xl-vw)}
 /* .cv{gap:var(--m-vw)} */
+h2.recipe,.cs,footer{padding-left:var(--xxl-vw)}
 h2.recipe,.cs>h2{text-align:center}
-h2.recipe,.cs,footer{
-  padding-left:var(--xxl-vw);
-  padding-right:var(--xxl-vw);
-}
-div.recipe{
+.recipe.sticky{
   margin-left:var(--xxl-vw);
   margin-right:var(--xxl-vw);
 }
-/* article{column-gap:var(--s-rem)} */
 /* p{max-width:70ch} */
 /* p.sub{margin-left:25%} */
 
 /********************************************************* layout */
-/* ins,
-aside,
-.less,.more,
-.print-cv,
-.cellar{display:none} */
-
-.cv i,.edu strong{display:block}
+/* ins,aside,.less,.more,.print-cv,.cellar{display:none} */
 .hidden,h4{display:none}
-
-#resume:target{scroll-margin-top:var(--m-rem)}
+.cv i,.edu strong{display:block}
 
 .sticky{
   position:sticky;
   background:#FFF;
 }
-.top-nav.sticky{top:0}
-.recipe.sticky{top:var(--xs-rem)}
-/* ol ul{display:none} */
 
 /* .svg-container{position:relative} */
 /* svg.flow{
@@ -139,27 +123,16 @@ svg.recipeLine{
   width:100%;
   fill:transparent;
   stroke:black;
-  stroke-width:.1rem;
+  stroke-width:.3ex;
 }
 
-.logo-container,.recipe ol,.cs nav{display:flex}
+.logo-container,.recipeBox,.cs nav{display:flex}
 .logo-container{justify-content:flex-end}
-.recipe ol{justify-content:space-evenly}
+.recipeBox{justify-content:space-evenly}
 .cs nav{justify-content:space-between}
 
 .cv,article{display:grid}
 .cv{grid-template-columns:repeat(2,1fr)}
-
-/* article{grid-template-columns:auto 1fr} */
-/* .cs h2,.overview{grid-column:1/-1}
-article>h3{grid-column:1/2}
-article>h3+section{
-  grid-column:2/-1;
-  grid-template-columns:repeat(4,1fr);
-}
-h4,.cs div{grid-column:1/-1}
-h4+p{grid-column:1/4}
-.sub{grid-column:2/4} */
 section[class="context"]{grid-area:context}
 section[class="inspiration"]{grid-area:inspiration}
 section[class="ideation"]{grid-area:ideation}
@@ -171,6 +144,16 @@ article{
     ". . ideation ideation ideation"
     ". . . implementation implementation";
 }
+/* article{grid-template-columns:auto 1fr} */
+/* .cs h2,.overview{grid-column:1/-1}
+article>h3{grid-column:1/2}
+article>h3+section{
+grid-column:2/-1;
+grid-template-columns:repeat(4,1fr);
+}
+h4,.cs div{grid-column:1/-1}
+h4+p{grid-column:1/4}
+.sub{grid-column:2/4} */
 
 /* button.left,button.right{
   position:fixed;
@@ -231,7 +214,7 @@ h2{
 }
 .cv i{font-style:normal}
 
-div.recipe h3{
+.recipe h3{
   font-weight:400;
   font-size:var(--s-rem);
   font-family:"Canela Text Regular";
@@ -245,17 +228,17 @@ div.recipe h3{
   display:block;
   color:black;
   padding:.618ex 1ex;
-  border:thin solid black;
-  font-weight:300;
+  border:.2ex dashed black;
+  font-weight:400;
   font-size:var(--s-rem);
-  font-family:"Canela Text Light";
+  font-family:"Canela Text Regular No 2";
 }
 .cs nav a:hover{
   /* color:green; */
   border-color:green;
-  font-weight:400;
+  /* font-weight:400; */
   /* font-size:var(--s-rem); */
-  font-family:"Canela Text Regular No 2";
+  /* font-family:"Canela Text Regular No 2"; */
 }
 .overview{
   font-weight:400;

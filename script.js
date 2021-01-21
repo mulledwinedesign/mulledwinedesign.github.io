@@ -1,8 +1,8 @@
 let rem = getComputedStyle(document.documentElement).fontSize.match(/\d+/)[0];
+let recipeBox = document.getElementsByClassName("recipeBox")[0];
 
 // svg recipe line: from 0 to 1
 function drawRecipeNGrid() {
-  let recipeBox = document.getElementsByClassName("recipeBox")[0];
   let recipeLine = document.getElementsByClassName("recipeLine")[0];
   let zero = document.getElementById("zero");
   let one = document.getElementById("one");
@@ -98,39 +98,41 @@ anchors.forEach(anchor => {
   anchor.addEventListener("mouseleave", function () {
     toggleHighlight(this.className,"");
   });
-  // handle many layout changes once click
+  // handle many layout changes once click, n save display state
   anchor.addEventListener("click", function () {
-    // hide the other two anchors n ¿show overview
+    // solid border current anchor
     for (const a of anchors) {
-      if (!a.classList.contains(this.className)) {
-        a.style.visibility = "hidden";
+      if (a.classList.contains(this.className)) {
+        a.style.borderStyle = "solid";
+      } else {
+        a.style.borderStyle = "dashed";
       }
     }
-    // show topNav n save display state
+    // show topNav
     topNav.classList.remove("hidden");
     sessionStorage.setItem("topNavDisplay",getComputedStyle(topNav).display);
-    // show n scroll article into place, n save display state
-    let scrollMT = rem*4.236 + document.getElementsByClassName("recipeBox")[0].getBoundingClientRect().bottom;
+    // show n scroll article into place
+    let scrollMT = recipeBox.getBoundingClientRect().height + anchor.getBoundingClientRect().height + rem*5.618; // xs+recipeBox.h+(xs-xxs)+anchor.h+l = recipeBox.h+anchor.h+(2-.618+4.236)
     articles.forEach((article,i) => {
-      article.style.scrollMarginTop = scrollMT+"px";
       if ("#"+article.id === this.hash) {
         article.classList.remove("hidden");
       } else {
         article.classList.add("hidden");
       }
       sessionStorage.setItem("article"+i+"Display",getComputedStyle(article).display);
+      article.style.scrollMarginTop = scrollMT+"px";
     });
     // ¿remain? highlight relevant ul>li
     toggleHighlight(this.className,"red");
     // dim irrelevant ul>li
-    document.querySelectorAll(".recipe ul li").forEach(li => {
+    for(const li of document.querySelectorAll(".recipe ul li")){
       if (li.classList.contains(this.className)) {
         // li.style.color = "red";
       } else {
         li.style.color = "grey";
         // li.classList.add("hidden");
       }
-    });
+    }
   });
 });
 
