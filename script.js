@@ -83,31 +83,70 @@ window.addEventListener("load",checkStorage);
 window.addEventListener("hashchange",checkStorage);
 
 // handle cs title anchor events
-function toggleHighlight(className,color) {
-  for (const element of document.getElementsByClassName(className)) {
-    // ¿add/remove util class?
-    element.style.color = color;
+let anchors = document.querySelectorAll(".cs nav a");
+let lis = document.querySelectorAll(".recipe ul li");
+function checkBorderNHighlight() {
+  for (const article of articles) {
+    // for current article
+    if (!article.classList.contains("hidden")) {
+      // solid border
+      for (const anchor of anchors) {
+        if (anchor.hash === "#"+article.id) {
+          anchor.style.borderStyle = "solid";
+        } else {
+          anchor.style.borderStyle = "";
+        }
+      }
+      // underline respective li
+      for (const li of lis) {
+        if (li.classList.contains("cs"+article.id.charAt(article.id.length-1))) {
+          console.log(li.firstElementChild);
+          li.firstElementChild.style.borderBottomWidth = ".3ex";
+          li.firstElementChild.style.borderBottomStyle = "solid";
+        } else {
+          li.firstElementChild.style.borderBottomWidth = "";
+          li.firstElementChild.style.borderBottomStyle = "";
+        }
+      }
+
+
+      // keep anchor n li highlight
+      // for (const element of document.getElementsByClassName("cs"+article.id.charAt(article.id.length-1))) {
+      //   element.classList.add("highlight");
+      // }
+
+      // dim irrelevant li
+      // for (const li of lis) {
+      //   if (!li.classList.contains("cs"+article.id.charAt(article.id.length-1))) {
+      //     li.classList.add("dim");
+      //   }
+      // }
+    }
   }
 }
-let anchors = document.querySelectorAll(".cs nav a");
+window.addEventListener("load",checkBorderNHighlight);
+window.addEventListener("hashchange",checkBorderNHighlight);
 anchors.forEach(anchor => {
-  // hover to highlight cs title n recipe>li
+  // hover to highlight recipe list items that match anchor
   anchor.addEventListener("mouseenter", function () {
-    toggleHighlight(this.className,"green");
-  });
-  anchor.addEventListener("mouseleave", function () {
-    toggleHighlight(this.className,"");
-  });
-  // handle many layout changes once click, n save display state
-  anchor.addEventListener("click", function () {
-    // solid border current anchor
-    for (const a of anchors) {
-      if (a.classList.contains(this.className)) {
-        a.style.borderStyle = "solid";
-      } else {
-        a.style.borderStyle = "dashed";
+    for (const li of lis) {
+      li.classList.remove("highlight");
+      if (li.classList.contains("cs"+this.hash.charAt(this.hash.length-1))) {
+        li.classList.add("highlight");
       }
     }
+  });
+  anchor.addEventListener("mouseleave", function () {
+    for (const li of lis) {
+      if (li.classList.contains("cs"+this.hash.charAt(this.hash.length-1))) {
+        // && sessionStorage.getItem("article"+this.hash.charAt(this.hash.length-1)+"Display") !== "none"
+        li.classList.remove("highlight");
+      }
+    }
+  });
+  // handle several layout changes once click, n save display state
+  anchor.addEventListener("click",checkBorderNHighlight);
+  anchor.addEventListener("click", function () {
     // show topNav
     topNav.classList.remove("hidden");
     sessionStorage.setItem("topNavDisplay",getComputedStyle(topNav).display);
@@ -122,17 +161,6 @@ anchors.forEach(anchor => {
       sessionStorage.setItem("article"+i+"Display",getComputedStyle(article).display);
       article.style.scrollMarginTop = scrollMT+"px";
     });
-    // ¿remain? highlight relevant ul>li
-    toggleHighlight(this.className,"red");
-    // dim irrelevant ul>li
-    for(const li of document.querySelectorAll(".recipe ul li")){
-      if (li.classList.contains(this.className)) {
-        // li.style.color = "red";
-      } else {
-        li.style.color = "grey";
-        // li.classList.add("hidden");
-      }
-    }
   });
 });
 

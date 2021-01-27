@@ -4,9 +4,10 @@
   --font-display-text:"canela text",serif;
   --font-caption:"aktiv",sans-serif;
   --font-body:"bernina","bernino",sans-serif; */
-  /* --color-base:#;
-  --color-mid:#;
-  --color-dim:#; */
+  --color-base:black;
+  --color-dim:grey;
+  --color-highlight:red;
+  /* --color-mid:#; */
   --xxxs-rem:.309rem;
   --xxs-rem:.618rem;
   --xs-rem:1rem;
@@ -178,11 +179,13 @@ h4+p{grid-column:1/4}
 /*********************************************************** text */
 abbr,.cs nav a{text-decoration:none}
 .smallcaps{font-variant:small-caps}
+/* .dim{color:var(--color-dim)} */
+.highlight{color:var(--color-highlight)}
 .top-nav>a{
   font-weight:400;
   font-size:var(--xs-rem);
   font-family:jaf-bernino-sans,sans-serif;
-  color:grey;
+  color:var(--color-dim);
   text-decoration:none;
 }
 .top-nav>a:hover{text-decoration:underline}
@@ -226,16 +229,16 @@ h2{
 } */
 .cs nav a{
   display:block;
-  color:black;
+  color:var(--color-base);
   padding:.618ex 1ex;
-  border:.2ex dashed black;
+  border:.2ex dashed;
   font-weight:400;
   font-size:var(--s-rem);
   font-family:"Canela Text Regular No 2";
 }
 .cs nav a:hover{
-  /* color:green; */
-  border-color:green;
+  color:var(--color-highlight);
+  border-color:var(--color-highlight);
   /* font-weight:400; */
   /* font-size:var(--s-rem); */
   /* font-family:"Canela Text Regular No 2"; */
