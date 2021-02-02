@@ -97,18 +97,18 @@ function checkBorderNHighlight() {
           anchor.style.borderStyle = "";
         }
       }
-      // underline respective li
-      for (const li of lis) {
-        if (li.classList.contains("cs"+article.id.charAt(article.id.length-1))) {
-          console.log(li.firstElementChild);
-          li.firstElementChild.style.borderBottomWidth = ".3ex";
-          li.firstElementChild.style.borderBottomStyle = "solid";
-        } else {
-          li.firstElementChild.style.borderBottomWidth = "";
-          li.firstElementChild.style.borderBottomStyle = "";
-        }
-      }
 
+      // underline respective li
+      // for (const li of lis) {
+      //   if (li.classList.contains("cs"+article.id.charAt(article.id.length-1))) {
+      //     console.log(li.firstElementChild);
+      //     li.firstElementChild.style.borderBottomWidth = ".3ex";
+      //     li.firstElementChild.style.borderBottomStyle = "solid";
+      //   } else {
+      //     li.firstElementChild.style.borderBottomWidth = "";
+      //     li.firstElementChild.style.borderBottomStyle = "";
+      //   }
+      // }
 
       // keep anchor n li highlight
       // for (const element of document.getElementsByClassName("cs"+article.id.charAt(article.id.length-1))) {
