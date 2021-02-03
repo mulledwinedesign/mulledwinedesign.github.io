@@ -5,7 +5,8 @@
   --font-caption:"aktiv",sans-serif;
   --font-body:"bernina","bernino",sans-serif; */
   --color-base:black;
-  --color-dim:#E7E9E7;
+  --color-bkg:#E7E9E7;
+  --color-dim:#F2F0EB;
   --color-highlight:#833C3F;
   /* --color-mid:#; */
   --xxxs-rem:.309rem;
@@ -40,6 +41,7 @@
 html{
   -webkit-font-smoothing:antialiased;
   margin:0 auto;
+  background-color:var(--color-bkg);
   scroll-behavior:smooth;
   /* font-family:jaf-bernino-sans; */
 }
@@ -99,7 +101,7 @@ h2.recipe,.cs>h2{text-align:center}
 
 .sticky{
   position:sticky;
-  background:#FFF;
+  background:var(--color-bkg);
 }
 
 /* .svg-container{position:relative} */

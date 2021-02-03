@@ -1,5 +1,9 @@
 let rem = getComputedStyle(document.documentElement).fontSize.match(/\d+/)[0];
 let recipeBox = document.getElementsByClassName("recipeBox")[0];
+let topNav = document.getElementsByClassName("top-nav")[0];
+let articles = document.querySelectorAll(".cs article");
+let anchors = document.querySelectorAll(".cs nav a");
+let lis = document.querySelectorAll(".recipe ul li");
 
 // svg recipe line: from 0 to 1
 function drawRecipeNGrid() {
@@ -66,9 +70,7 @@ function drawRecipeNGrid() {
 window.addEventListener("load",drawRecipeNGrid);
 window.addEventListener("resize",drawRecipeNGrid);
 
-// maintain display states between pg loads n #id clicks
-let topNav = document.getElementsByClassName("top-nav")[0];
-let articles = document.querySelectorAll(".cs article");
+// maintain display states between page loads n #id clicks
 function checkStorage() {
   if (sessionStorage.getItem("topNavDisplay") === "block") {
     // keep showing topNav
@@ -90,7 +92,6 @@ function checkStorage() {
       }
       // keep dimming irrelevant li
       for (const li of lis) {
-        // li.classList.remove("dim");
         if (!li.classList.contains("cs"+article.id.charAt(article.id.length-1))) {
           li.classList.add("dim");
         }
@@ -102,70 +103,37 @@ function checkStorage() {
 window.addEventListener("load",checkStorage);
 window.addEventListener("hashchange",checkStorage);
 
-// handle cs title anchor events
-let anchors = document.querySelectorAll(".cs nav a");
-let lis = document.querySelectorAll(".recipe ul li");
-function checkBorderNHighlight() {
-  // for (const article of articles) {
-    // for current article
-    // if (!article.classList.contains("hidden")) {
-
-      // underline respective li
-      // for (const li of lis) {
-      //   if (li.classList.contains("cs"+article.id.charAt(article.id.length-1))) {
-      //     console.log(li.firstElementChild);
-      //     li.firstElementChild.style.borderBottomWidth = ".3ex";
-      //     li.firstElementChild.style.borderBottomStyle = "solid";
-      //   } else {
-      //     li.firstElementChild.style.borderBottomWidth = "";
-      //     li.firstElementChild.style.borderBottomStyle = "";
-      //   }
-      // }
-
-      // keep anchor n li highlight
-      // for (const element of document.getElementsByClassName("cs"+article.id.charAt(article.id.length-1))) {
-      //   element.classList.add("highlight");
-      // }
-
-  //   }
-  // }
-}
+// handle anchor hover n click events
 anchors.forEach(anchor => {
-  // dim irrelevant li for hovered anchor
   anchor.addEventListener("mouseenter", function () {
     for (const li of lis) {
       li.classList.remove("dim");
+      // dim irrelevant li for the hovered anchor
       if (!li.classList.contains("cs"+this.hash.charAt(this.hash.length-1))) {
         li.classList.add("dim");
       }
     }
   });
-  // dim irrelevant li for the shown article-anchor
   anchor.addEventListener("mouseleave", function () {
     let articlesDisplay = [];
-    articles.forEach(i => {
+    articles.forEach((article,i) => {
       articlesDisplay.push(sessionStorage.getItem("article"+Number(i+1)+"Display"));
     });
-    console.log(articlesDisplay);
-    // fr 1loc.dev: Check if all array elements are equal to a given value
-    const isEqual = (array, value) => !array.some(item => item !== value);
-    // if there is (at least one) shown article ==for now== if not all null
-    if (!isEqual(articlesDisplay,null)) {
-    }
-
-    if (articlesDisplay.some(item => item === "grid")) {
-
-    }
-
-    for (const li of lis) {
-      // if li is irrelevant to hovered anchor
-      if (!li.classList.contains("cs"+this.hash.charAt(this.hash.length-1))) {
-        // && sessionStorage.getItem("article"+this.hash.charAt(this.hash.length-1)+"Display") !== "none"
+    if (articlesDisplay.some(item => item === "grid")) { // if there is (at least one) shown article
+      for (const li of lis) {
+        li.classList.remove("dim");
+        // dim irrelevant li for the shown article
+        if (!li.classList.contains("cs"+Number(articlesDisplay.indexOf("grid")+1))) {
+          li.classList.add("dim");
+        }
+      }
+    } else { // if there is no shown article
+      for (const li of lis) {
         li.classList.remove("dim");
       }
     }
   });
-  // handle layout changes once click, n save display state
+  // handle layout changes on click, n save display state
   anchor.addEventListener("click", function () {
     // show topNav
     topNav.classList.remove("hidden");
