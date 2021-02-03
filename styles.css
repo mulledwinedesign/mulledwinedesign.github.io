@@ -237,8 +237,8 @@ h2{
   font-family:"Canela Text Regular No 2";
 }
 .cs nav a:hover{
-  color:var(--color-highlight);
-  border-color:var(--color-highlight);
+  /* color:var(--color-highlight); */
+  border-style:solid;
   /* font-weight:400; */
   /* font-size:var(--s-rem); */
   /* font-family:"Canela Text Regular No 2"; */

@@ -71,11 +71,31 @@ let topNav = document.getElementsByClassName("top-nav")[0];
 let articles = document.querySelectorAll(".cs article");
 function checkStorage() {
   if (sessionStorage.getItem("topNavDisplay") === "block") {
+    // keep showing topNav
     topNav.classList.remove("hidden");
   }
   articles.forEach((article,i) => {
-    if (sessionStorage.getItem("article"+i+"Display") === "grid") {
+    if (sessionStorage.getItem("article"+Number(i+1)+"Display") === "grid") {
+      // keep showing article
       article.classList.remove("hidden");
+      // anchor: solid border n highlight color
+      for (const anchor of anchors) {
+        if (anchor.hash === "#"+article.id) {
+          anchor.style.borderStyle = "solid";
+          anchor.style.color = "var(--color-highlight)";
+        } else {
+          anchor.style.borderStyle = "";
+          anchor.style.color = "";
+        }
+      }
+      // keep dimming irrelevant li
+      for (const li of lis) {
+        // li.classList.remove("dim");
+        if (!li.classList.contains("cs"+article.id.charAt(article.id.length-1))) {
+          li.classList.add("dim");
+        }
+      }
+
     }
   });
 }
@@ -86,17 +106,9 @@ window.addEventListener("hashchange",checkStorage);
 let anchors = document.querySelectorAll(".cs nav a");
 let lis = document.querySelectorAll(".recipe ul li");
 function checkBorderNHighlight() {
-  for (const article of articles) {
+  // for (const article of articles) {
     // for current article
-    if (!article.classList.contains("hidden")) {
-      // solid border
-      for (const anchor of anchors) {
-        if (anchor.hash === "#"+article.id) {
-          anchor.style.borderStyle = "solid";
-        } else {
-          anchor.style.borderStyle = "";
-        }
-      }
+    // if (!article.classList.contains("hidden")) {
 
       // underline respective li
       // for (const li of lis) {
@@ -115,19 +127,11 @@ function checkBorderNHighlight() {
       //   element.classList.add("highlight");
       // }
 
-      // dim irrelevant li
-      // for (const li of lis) {
-      //   if (!li.classList.contains("cs"+article.id.charAt(article.id.length-1))) {
-      //     li.classList.add("dim");
-      //   }
-      // }
-    }
-  }
+  //   }
+  // }
 }
-window.addEventListener("load",checkBorderNHighlight);
-window.addEventListener("hashchange",checkBorderNHighlight);
 anchors.forEach(anchor => {
-  // hover to dim irrelevant li
+  // dim irrelevant li for hovered anchor
   anchor.addEventListener("mouseenter", function () {
     for (const li of lis) {
       li.classList.remove("dim");
@@ -136,16 +140,32 @@ anchors.forEach(anchor => {
       }
     }
   });
+  // dim irrelevant li for the shown article-anchor
   anchor.addEventListener("mouseleave", function () {
+    let articlesDisplay = [];
+    articles.forEach(i => {
+      articlesDisplay.push(sessionStorage.getItem("article"+Number(i+1)+"Display"));
+    });
+    console.log(articlesDisplay);
+    // fr 1loc.dev: Check if all array elements are equal to a given value
+    const isEqual = (array, value) => !array.some(item => item !== value);
+    // if there is (at least one) shown article ==for now== if not all null
+    if (!isEqual(articlesDisplay,null)) {
+    }
+
+    if (articlesDisplay.some(item => item === "grid")) {
+
+    }
+
     for (const li of lis) {
+      // if li is irrelevant to hovered anchor
       if (!li.classList.contains("cs"+this.hash.charAt(this.hash.length-1))) {
         // && sessionStorage.getItem("article"+this.hash.charAt(this.hash.length-1)+"Display") !== "none"
         li.classList.remove("dim");
       }
     }
   });
-  // handle several layout changes once click, n save display state
-  anchor.addEventListener("click",checkBorderNHighlight);
+  // handle layout changes once click, n save display state
   anchor.addEventListener("click", function () {
     // show topNav
     topNav.classList.remove("hidden");
@@ -158,7 +178,7 @@ anchors.forEach(anchor => {
       } else {
         article.classList.add("hidden");
       }
-      sessionStorage.setItem("article"+i+"Display",getComputedStyle(article).display);
+      sessionStorage.setItem("article"+Number(i+1)+"Display",getComputedStyle(article).display);
       article.style.scrollMarginTop = scrollMT+"px";
     });
   });
