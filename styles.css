@@ -5,8 +5,8 @@
   --font-caption:"aktiv",sans-serif;
   --font-body:"bernina","bernino",sans-serif; */
   --color-base:black;
-  --color-dim:grey;
-  --color-highlight:#822B34;
+  --color-dim:#E7E9E7;
+  --color-highlight:#833C3F;
   /* --color-mid:#; */
   --xxxs-rem:.309rem;
   --xxs-rem:.618rem;
@@ -179,7 +179,7 @@ h4+p{grid-column:1/4}
 /*********************************************************** text */
 abbr,.cs nav a{text-decoration:none}
 .smallcaps{font-variant:small-caps}
-/* .dim{color:var(--color-dim)} */
+.dim{color:var(--color-dim)}
 .highlight{color:var(--color-highlight)}
 .top-nav>a{
   font-weight:400;

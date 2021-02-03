@@ -127,20 +127,20 @@ function checkBorderNHighlight() {
 window.addEventListener("load",checkBorderNHighlight);
 window.addEventListener("hashchange",checkBorderNHighlight);
 anchors.forEach(anchor => {
-  // hover to highlight recipe list items that match anchor
+  // hover to dim irrelevant li
   anchor.addEventListener("mouseenter", function () {
     for (const li of lis) {
-      li.classList.remove("highlight");
-      if (li.classList.contains("cs"+this.hash.charAt(this.hash.length-1))) {
-        li.classList.add("highlight");
+      li.classList.remove("dim");
+      if (!li.classList.contains("cs"+this.hash.charAt(this.hash.length-1))) {
+        li.classList.add("dim");
       }
     }
   });
   anchor.addEventListener("mouseleave", function () {
     for (const li of lis) {
-      if (li.classList.contains("cs"+this.hash.charAt(this.hash.length-1))) {
+      if (!li.classList.contains("cs"+this.hash.charAt(this.hash.length-1))) {
         // && sessionStorage.getItem("article"+this.hash.charAt(this.hash.length-1)+"Display") !== "none"
-        li.classList.remove("highlight");
+        li.classList.remove("dim");
       }
     }
   });
