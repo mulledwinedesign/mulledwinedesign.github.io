@@ -4,10 +4,12 @@
   --font-display-text:"canela text",serif;
   --font-caption:"aktiv",sans-serif;
   --font-body:"bernina","bernino",sans-serif; */
-  --color-base:black;
-  --color-bkg:#E7E9E7;
-  --color-dim:#F2F0EB;
-  --color-highlight:#833C3F;
+  --color-bkg:#E9E9E7; /* 11-4800 tpg blanc de blanc */
+  --color-mid:#97999B; /* cool gray 7 c */
+  --color-dim:#939597; /* 17-5104 tcx ultimate gray */
+  --color-base:#1C1619; /* 20-0198 tpm moondrop grapes */
+  --color-highlight:#A6343A; /* 18-1548 tsx winery */
+  --color-yellow:#F5DF4D; /* 13-0647 tcx illuminating */
   /* --color-mid:#; */
   --xxxs-rem:.309rem;
   --xxs-rem:.618rem;
@@ -187,7 +189,7 @@ abbr,.cs nav a{text-decoration:none}
   font-weight:400;
   font-size:var(--xs-rem);
   font-family:jaf-bernino-sans,sans-serif;
-  color:var(--color-dim);
+  color:var(--color-mid);
   text-decoration:none;
 }
 .top-nav>a:hover{text-decoration:underline}
