@@ -4,6 +4,7 @@
   --font-display-text:"canela text",serif;
   --font-caption:"aktiv",sans-serif;
   --font-body:"bernina","bernino",sans-serif; */
+  --color-shadow:white;
   --color-bkg:#E9E9E7; /* 11-4800 tpg blanc de blanc */
   --color-mid:#97999B; /* cool gray 7 c */
   --color-dim:#939597; /* 17-5104 tcx ultimate gray */
@@ -188,9 +189,11 @@ abbr,.cs nav a{text-decoration:none}
 .top-nav>a{
   font-weight:400;
   font-size:var(--xs-rem);
-  font-family:jaf-bernino-sans,sans-serif;
+  font-family:aktiv-grotesk,sans-serif;
   color:var(--color-mid);
   text-decoration:none;
+  text-underline-position:under;
+  /* text-shadow: 0px 1px 1px var(--color-shadow); */
 }
 .top-nav>a:hover{text-decoration:underline}
 h1{
@@ -243,6 +246,7 @@ h2{
 .cs nav a:hover{
   /* color:var(--color-highlight); */
   border-style:solid;
+  border-radius:.2ex;
   /* font-weight:400; */
   /* font-size:var(--s-rem); */
   /* font-family:"Canela Text Regular No 2"; */

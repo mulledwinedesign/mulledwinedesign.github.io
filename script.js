@@ -84,9 +84,11 @@ function checkStorage() {
       for (const anchor of anchors) {
         if (anchor.hash === "#"+article.id) {
           anchor.style.borderStyle = "solid";
+          anchor.style.borderRadius = ".2ex";
           anchor.style.color = "var(--color-highlight)";
         } else {
           anchor.style.borderStyle = "";
+          anchor.style.borderRadius = "";
           anchor.style.color = "";
         }
       }
