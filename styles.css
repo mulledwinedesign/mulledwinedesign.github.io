@@ -187,9 +187,6 @@ abbr,.cs nav a{text-decoration:none}
 .dim{color:var(--color-dim)}
 .highlight{color:var(--color-highlight)}
 .top-nav>a{
-  font-weight:400;
-  font-size:var(--xs-rem);
-  font-family:aktiv-grotesk,sans-serif;
   color:var(--color-mid);
   text-decoration:none;
   text-underline-position:under;
@@ -217,7 +214,7 @@ h2{
   font-size:var(--s-rem);
   font-family:"Canela Deck Light";
 }
-.cv,.recipe ul,.top-nav{
+.cv,.recipe ul,.top-nav,footer{
   font-weight:400;
   font-size:var(--xs-rem);
   font-family:aktiv-grotesk,sans-serif;
