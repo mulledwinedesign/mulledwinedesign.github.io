@@ -11,7 +11,6 @@
   --color-base:#1C1619; /* 20-0198 tpm moondrop grapes */
   --color-highlight:#A6343A; /* 18-1548 tsx winery */
   --color-yellow:#F5DF4D; /* 13-0647 tcx illuminating */
-  /* --color-mid:#; */
   --xxxs-rem:.309rem;
   --xxs-rem:.618rem;
   --xs-rem:1rem;
@@ -44,6 +43,7 @@
 html{
   -webkit-font-smoothing:antialiased;
   margin:0 auto;
+  color:var(--color-base);
   background-color:var(--color-bkg);
   scroll-behavior:smooth;
   /* font-family:jaf-bernino-sans; */
@@ -61,7 +61,7 @@ ol,ul{
 .top-nav>a{vertical-align:middle}
 .top-nav.sticky{top:0}
 header{padding-top:var(--xxl-vw)}
-main{margin-top:var(--s-rem)}
+main,figure{margin-top:var(--s-rem)}
 main>section{margin-top:var(--xxl-rem)}
 main,.cv{margin-bottom:var(--xxl-rem)}
 #resume:target{scroll-margin-top:var(--m-rem)}
@@ -74,9 +74,10 @@ article{
   margin-top:var(--l-rem);
   row-gap:var(--l-rem);
 }
-/* h4{margin-bottom:var(--xs-rem)} */
-/* p+h4{margin-top:var(--m-rem)} */
-footer{margin-bottom:var(--s-rem)}
+.mindmap,.mindmap ol>li{align-items:center}
+h4,.mindmap>ol>li>ol>li{margin-bottom:var(--xs-rem)}
+p+h4{margin-top:var(--m-rem)}
+figure,footer{margin-bottom:var(--s-rem)}
 
 /********************************************** horizontal rhythm */
 .top-nav{padding-left:var(--s-vw)}
@@ -87,19 +88,20 @@ header,h2.recipe,.cs,footer{padding-right:var(--xxl-vw)}
   padding-right:var(--xxxl-vw);
 }
 .cv>.exp{padding-right:var(--xl-vw)}
-/* .cv{gap:var(--m-vw)} */
+/* .cv{column-gap:var(--m-vw)} */
 h2.recipe,.cs,footer{padding-left:var(--xxl-vw)}
 h2.recipe,.cs>h2{text-align:center}
 .recipe.sticky{
   margin-left:var(--xxl-vw);
   margin-right:var(--xxl-vw);
 }
+.mindmap,.mindmap ol>li{column-gap:var(--l-vw)}
 /* p{max-width:70ch} */
 /* p.sub{margin-left:25%} */
 
 /********************************************************* layout */
 /* ins,aside,.less,.more,.print-cv,.cellar{display:none} */
-.hidden,h4{display:none}
+.hidden{display:none}
 .cv i,.edu strong{display:block}
 
 .sticky{
@@ -137,19 +139,21 @@ svg.recipeLine{
 .recipeBox{justify-content:space-evenly}
 .cs nav{justify-content:space-between}
 
-.cv,article{display:grid}
+.cv,article,.mindmap,.mindmap ol>li{display:grid}
 .cv{grid-template-columns:repeat(2,1fr)}
-section[class="context"]{grid-area:context}
-section[class="inspiration"]{grid-area:inspiration}
-section[class="ideation"]{grid-area:ideation}
-section[class="implementation"]{grid-area:implementation}
+.overview{grid-area:overview}
+.context{grid-area:context}
+.inspiration{grid-area:inspiration}
+.ideation{grid-area:ideation}
+.implementation{grid-area:implementation}
 article{
   grid-template-areas:
-    "context context context . ."
+    "context context context overview overview"
     ". inspiration inspiration inspiration ."
     ". . ideation ideation ideation"
     ". . . implementation implementation";
 }
+.mindmap,.mindmap ol>li{grid-auto-flow:column}
 /* article{grid-template-columns:auto 1fr} */
 /* .cs h2,.overview{grid-column:1/-1}
 article>h3{grid-column:1/2}
@@ -168,6 +172,7 @@ h4+p{grid-column:1/4}
 .left{left:1vw}
 .right{right:1vw} */
 
+/*
 .rq-container{
   margin:var(--xxs-rem) 0;
   padding-right:50%;
@@ -180,12 +185,13 @@ h4+p{grid-column:1/4}
   margin-right:-200%;
   vertical-align:top;
 }
-
+ */
 /*********************************************************** text */
 abbr,.cs nav a{text-decoration:none}
 .smallcaps{font-variant:small-caps}
 .dim{color:var(--color-dim)}
 .highlight{color:var(--color-highlight)}
+a{color:var(--color-base)}
 .top-nav>a{
   color:var(--color-mid);
   text-decoration:none;
@@ -214,7 +220,7 @@ h2{
   font-size:var(--s-rem);
   font-family:"Canela Deck Light";
 }
-.cv,.recipe ul,.top-nav,footer{
+.cv,.recipe ul,.top-nav,.mindmap,footer{
   font-weight:400;
   font-size:var(--xs-rem);
   font-family:aktiv-grotesk,sans-serif;
@@ -233,7 +239,7 @@ h2{
 } */
 .cs nav a{
   display:block;
-  color:var(--color-base);
+  /* color:var(--color-base); */
   padding:.618ex 1ex;
   border:.2ex dashed;
   font-weight:400;
@@ -253,12 +259,12 @@ h2{
   font-size:var(--xs-rem);
   font-family:jaf-bernino-sans;
 }
-h4{
+/* h4{
   font-weight:300;
   font-size:var(--s-rem);
   font-family:"Canela Deck Light";
-}
-h5{
+} */
+h4{
   font-weight:700;
   font-size:var(--xs-rem);
   font-family:jaf-bernino-sans;
@@ -266,17 +272,18 @@ h5{
 h6{}
 p{
   font-weight:400;
+  /* font-size:18px; */
   font-family:jaf-bernino-sans;
 }
 /* .sub{
   font-weight:400;
   font-family:jaf-bernino-sans-narrow;
 } */
-.cs strong{
+/* .cs strong{
   font-weight:100;
   font-size:var(--s-rem);
   font-family:"Canela Text Thin";
-}
+} */
 
 /*************************************************** media queries */
 @media(max-width:31.25em){
