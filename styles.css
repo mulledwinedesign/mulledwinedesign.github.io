@@ -74,7 +74,7 @@ article{
   margin-top:var(--l-rem);
   row-gap:var(--l-rem);
 }
-.mindmapGrid,.mindmapGrid ol>li{align-items:center}
+.mindmapGrid,.mindmapGrid li{align-items:center}
 h4,.mindmapGrid>ol>li>ol>li{margin-bottom:var(--xs-rem)}
 p+h4{margin-top:var(--m-rem)}
 figure,footer{margin-bottom:var(--s-rem)}
@@ -95,7 +95,7 @@ h2.recipe,.cs>h2{text-align:center}
   margin-left:var(--xxl-vw);
   margin-right:var(--xxl-vw);
 }
-.mindmapGrid,.mindmapGrid ol>li{column-gap:var(--l-vw)}
+.mindmapGrid,.mindmapGrid li{column-gap:var(--l-vw)}
 /* p{max-width:70ch} */
 /* p.sub{margin-left:25%} */
 
@@ -128,20 +128,26 @@ svg.recipeLine{
   position:absolute;
   z-index:-1;
   top:0;
-  left:0;
-  width:100%;
+  /* left:0;
+  width:100%; */
   fill:transparent;
-  stroke:black;
+  stroke:var(--color-base);
   stroke-width:.3ex;
 }
-.mindmap{position:relative}
+.mindmap{
+  position:relative;
+  z-index:-1;
+}
 svg.mindmapLines{
   position:absolute;
   z-index:-1;
   top:0;
   /* left:0;
   width:100%; */
-  overflow:visible;
+  fill:transparent;
+  stroke:var(--color-highlight);
+  stroke-width:.3ex;
+  /* overflow:visible; */
 }
 
 .logo-container,.recipeBox,.cs nav{display:flex}
@@ -149,7 +155,7 @@ svg.mindmapLines{
 .recipeBox{justify-content:space-evenly}
 .cs nav{justify-content:space-between}
 
-.cv,article,.mindmapGrid,.mindmapGrid ol>li{display:grid}
+.cv,article,.mindmapGrid,.mindmapGrid li{display:grid}
 .cv{grid-template-columns:repeat(2,1fr)}
 .overview{grid-area:overview}
 .context{grid-area:context}
@@ -163,7 +169,7 @@ article{
     ". . ideation ideation ideation"
     ". . . implementation implementation";
 }
-.mindmapGrid,.mindmapGrid ol>li{grid-auto-flow:column}
+.mindmapGrid,.mindmapGrid li{grid-auto-flow:column}
 /* article{grid-template-columns:auto 1fr} */
 /* .cs h2,.overview{grid-column:1/-1}
 article>h3{grid-column:1/2}

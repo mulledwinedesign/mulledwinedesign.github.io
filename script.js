@@ -163,33 +163,27 @@ function drawMindmap() {
   mindmapLines.setAttribute("viewBox","0 0 "+mindmapGrid.getBoundingClientRect().width+" "+mindmapGrid.getBoundingClientRect().height);
   // collect node coordinates
   let m = [];
-  for(let node of document.querySelectorAll(".mindmap li")) {
-    node = node.firstElementChild; // get all <ln>, n=1~6
+  let leftMargin = mindmapGrid.getBoundingClientRect().left;
+  for(let li of document.querySelectorAll(".mindmap li")) {
+    let node = li.firstElementChild; // get all <ln>, n=1~6
     if (node.nextElementSibling !== null) { // only those <ln> followed by <ol>
-      let thisR = [window.pageXOffset+node.getBoundingClientRect().right, window.pageYOffset+node.getBoundingClientRect().top+node.getBoundingClientRect().height/2]; // [x,y]
+      let thisR = [window.pageXOffset-leftMargin+node.getBoundingClientRect().right, window.pageYOffset-leftMargin+node.getBoundingClientRect().top+node.getBoundingClientRect().height/2];
       for (const child of node.nextElementSibling.children) { // ln+ol>li
-        let nextL = [window.pageXOffset+child.getBoundingClientRect().left, window.pageYOffset+child.getBoundingClientRect().top+child.getBoundingClientRect().height/2]; // [x,y]
-        m.push({lineStart:thisR,lineEnd:nextL});
+        let nextL = [window.pageXOffset-leftMargin+child.getBoundingClientRect().left, window.pageYOffset-leftMargin+child.getBoundingClientRect().top+child.getBoundingClientRect().height/2];
+        m.push({lineStartX:thisR[0],lineStartY:thisR[1],lineEndX:nextL[0],lineEndY:nextL[1]});
       }
     }
   }
-
   let path = "";
   for(const item of m) {
-    path += "M"+item.lineStart[0]+" "+item.lineStart[1]+
-            "C"+x1+" "+y1+" "
-               +x2+" "+y2+" "
-               +x+" "+y+
-    ;
+    let cx = (item.lineEndX - item.lineStartX)/2+item.lineStartX;
+    path += "M"+item.lineStartX+" "+item.lineStartY+
+            "C"+cx+" "+item.lineStartY+" "
+               +cx+" "+item.lineEndY+" "
+               +item.lineEndX+" "+item.lineEndY;
   }
-  console.log(path);
   // draw mindmap lines
-  // document.getElementById("mindmapPath").setAttribute("d",
-  //   "M"+m[0].lineStart[0]+" "+m[0].lineStart[1]+
-  //   "C"+m[0].xLeft+" "+(m[0].y+(m[1].y-m[0].y)*1.618)+" "
-  //      +(m[1].xRight+(m[0].xLeft-m[1].xRight)*0.618)+" "+m[1].y+" "
-  //      +m[1].xRight+" "+m[1].y+
-  // );
+  document.getElementById("mindmapPath").setAttribute("d",path);
 }
 window.addEventListener("load",drawMindmap);
 window.addEventListener("resize",drawMindmap);
