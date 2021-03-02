@@ -16,10 +16,11 @@ function drawRecipeNGrid() {
   let c = [];
   let leftMargin = recipeBox.getBoundingClientRect().left;
   for(const node of document.getElementsByClassName("recipeNode")) {
-    let xLeft = node.getBoundingClientRect().left+window.pageXOffset-leftMargin;
-    let xRight = node.getBoundingClientRect().right+window.pageXOffset-leftMargin;
-    let y = node.getBoundingClientRect().height;
-    c.push({xLeft:xLeft,xRight:xRight,y:y});
+    c.push({
+      xLeft:window.pageXOffset-leftMargin+node.getBoundingClientRect().left,
+      xRight:window.pageXOffset-leftMargin+node.getBoundingClientRect().right,
+      y:node.getBoundingClientRect().height
+    });
   }
   // draw 0: flush left
   let gap = c[0].xLeft;
@@ -153,6 +154,45 @@ anchors.forEach(anchor => {
     });
   });
 });
+
+// svg mindmap lines
+function drawMindmap() {
+  let mindmapGrid = document.getElementsByClassName("mindmapGrid")[0];
+  let mindmapLines = document.getElementsByClassName("mindmapLines")[0];
+  // update viewBox size
+  mindmapLines.setAttribute("viewBox","0 0 "+mindmapGrid.getBoundingClientRect().width+" "+mindmapGrid.getBoundingClientRect().height);
+  // collect node coordinates
+  let m = [];
+  for(let node of document.querySelectorAll(".mindmap li")) {
+    node = node.firstElementChild; // get all <ln>, n=1~6
+    if (node.nextElementSibling !== null) { // only those <ln> followed by <ol>
+      let thisR = [window.pageXOffset+node.getBoundingClientRect().right, window.pageYOffset+node.getBoundingClientRect().top+node.getBoundingClientRect().height/2]; // [x,y]
+      for (const child of node.nextElementSibling.children) { // ln+ol>li
+        let nextL = [window.pageXOffset+child.getBoundingClientRect().left, window.pageYOffset+child.getBoundingClientRect().top+child.getBoundingClientRect().height/2]; // [x,y]
+        m.push({lineStart:thisR,lineEnd:nextL});
+      }
+    }
+  }
+
+  let path = "";
+  for(const item of m) {
+    path += "M"+item.lineStart[0]+" "+item.lineStart[1]+
+            "C"+x1+" "+y1+" "
+               +x2+" "+y2+" "
+               +x+" "+y+
+    ;
+  }
+  console.log(path);
+  // draw mindmap lines
+  // document.getElementById("mindmapPath").setAttribute("d",
+  //   "M"+m[0].lineStart[0]+" "+m[0].lineStart[1]+
+  //   "C"+m[0].xLeft+" "+(m[0].y+(m[1].y-m[0].y)*1.618)+" "
+  //      +(m[1].xRight+(m[0].xLeft-m[1].xRight)*0.618)+" "+m[1].y+" "
+  //      +m[1].xRight+" "+m[1].y+
+  // );
+}
+window.addEventListener("load",drawMindmap);
+window.addEventListener("resize",drawMindmap);
 
 // currently reading Intersection Observer:
 // the ele that has the biggest intersection ratio w/ vp

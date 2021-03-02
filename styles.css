@@ -74,8 +74,8 @@ article{
   margin-top:var(--l-rem);
   row-gap:var(--l-rem);
 }
-.mindmap,.mindmap ol>li{align-items:center}
-h4,.mindmap>ol>li>ol>li{margin-bottom:var(--xs-rem)}
+.mindmapGrid,.mindmapGrid ol>li{align-items:center}
+h4,.mindmapGrid>ol>li>ol>li{margin-bottom:var(--xs-rem)}
 p+h4{margin-top:var(--m-rem)}
 figure,footer{margin-bottom:var(--s-rem)}
 
@@ -95,7 +95,7 @@ h2.recipe,.cs>h2{text-align:center}
   margin-left:var(--xxl-vw);
   margin-right:var(--xxl-vw);
 }
-.mindmap,.mindmap ol>li{column-gap:var(--l-vw)}
+.mindmapGrid,.mindmapGrid ol>li{column-gap:var(--l-vw)}
 /* p{max-width:70ch} */
 /* p.sub{margin-left:25%} */
 
@@ -123,6 +123,7 @@ svg.logo{
   width:20vw;
   min-width:100px;
 }
+/* ol+svg{} */
 svg.recipeLine{
   position:absolute;
   z-index:-1;
@@ -133,13 +134,22 @@ svg.recipeLine{
   stroke:black;
   stroke-width:.3ex;
 }
+.mindmap{position:relative}
+svg.mindmapLines{
+  position:absolute;
+  z-index:-1;
+  top:0;
+  /* left:0;
+  width:100%; */
+  overflow:visible;
+}
 
 .logo-container,.recipeBox,.cs nav{display:flex}
 .logo-container{justify-content:flex-end}
 .recipeBox{justify-content:space-evenly}
 .cs nav{justify-content:space-between}
 
-.cv,article,.mindmap,.mindmap ol>li{display:grid}
+.cv,article,.mindmapGrid,.mindmapGrid ol>li{display:grid}
 .cv{grid-template-columns:repeat(2,1fr)}
 .overview{grid-area:overview}
 .context{grid-area:context}
@@ -153,7 +163,7 @@ article{
     ". . ideation ideation ideation"
     ". . . implementation implementation";
 }
-.mindmap,.mindmap ol>li{grid-auto-flow:column}
+.mindmapGrid,.mindmapGrid ol>li{grid-auto-flow:column}
 /* article{grid-template-columns:auto 1fr} */
 /* .cs h2,.overview{grid-column:1/-1}
 article>h3{grid-column:1/2}
@@ -220,7 +230,7 @@ h2{
   font-size:var(--s-rem);
   font-family:"Canela Deck Light";
 }
-.cv,.recipe ul,.top-nav,.mindmap,footer{
+.cv,.recipe ul,.top-nav,.mindmapGrid,footer{
   font-weight:400;
   font-size:var(--xs-rem);
   font-family:aktiv-grotesk,sans-serif;
