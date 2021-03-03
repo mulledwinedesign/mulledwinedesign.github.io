@@ -17,8 +17,8 @@ function drawRecipeNGrid() {
   let leftMargin = recipeBox.getBoundingClientRect().left;
   for(const node of document.getElementsByClassName("recipeNode")) {
     c.push({
-      xLeft:window.pageXOffset-leftMargin+node.getBoundingClientRect().left,
-      xRight:window.pageXOffset-leftMargin+node.getBoundingClientRect().right,
+      xLeft:node.getBoundingClientRect().left-leftMargin,
+      xRight:node.getBoundingClientRect().right-leftMargin,
       y:node.getBoundingClientRect().height
     });
   }
@@ -161,15 +161,15 @@ function drawMindmap() {
   let mindmapLines = document.getElementsByClassName("mindmapLines")[0];
   // update viewBox size
   mindmapLines.setAttribute("viewBox","0 0 "+mindmapGrid.getBoundingClientRect().width+" "+mindmapGrid.getBoundingClientRect().height);
-  // collect node coordinates
+  // collect map node coordinates
   let m = [];
   let leftMargin = mindmapGrid.getBoundingClientRect().left;
   for(let li of document.querySelectorAll(".mindmap li")) {
     let node = li.firstElementChild; // get all <ln>, n=1~6
     if (node.nextElementSibling !== null) { // only those <ln> followed by <ol>
-      let thisR = [window.pageXOffset-leftMargin+node.getBoundingClientRect().right, window.pageYOffset-leftMargin+node.getBoundingClientRect().top+node.getBoundingClientRect().height/2];
+      let thisR = [node.offsetLeft+node.getBoundingClientRect().width, node.offsetTop+node.getBoundingClientRect().height/2];
       for (const child of node.nextElementSibling.children) { // ln+ol>li
-        let nextL = [window.pageXOffset-leftMargin+child.getBoundingClientRect().left, window.pageYOffset-leftMargin+child.getBoundingClientRect().top+child.getBoundingClientRect().height/2];
+        let nextL = [child.offsetLeft, child.offsetTop+child.getBoundingClientRect().height/2];
         m.push({lineStartX:thisR[0],lineStartY:thisR[1],lineEndX:nextL[0],lineEndY:nextL[1]});
       }
     }
@@ -251,9 +251,9 @@ window.addEventListener("resize",drawMindmap);
 //   // collect node coordinates
 //   let n = [];
 //   for(const node of document.getElementsByClassName("flowNode")) {
-//     let xLeft = node.getBoundingClientRect().left+window.pageXOffset;
-//     let xRight = node.getBoundingClientRect().right+window.pageXOffset;
-//     let y = node.getBoundingClientRect().top+window.pageYOffset+node.getBoundingClientRect().height/2;
+//     let xLeft = window.pageXOffset+node.getBoundingClientRect().left;
+//     let xRight = window.pageXOffset+node.getBoundingClientRect().right;
+//     let y = window.pageYOffset+node.getBoundingClientRect().top+node.getBoundingClientRect().height/2;
 //     n.push({xLeft:xLeft,xRight:xRight,y:y});
 //   }
 //   // draw flow

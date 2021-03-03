@@ -142,13 +142,14 @@ svg.mindmapLines{
   position:absolute;
   z-index:-1;
   top:0;
-  /* left:0;
-  width:100%; */
+  left:0;
+  /* width:100%; */
   fill:transparent;
-  stroke:var(--color-highlight);
+  stroke:var(--color-dim);
   stroke-width:.3ex;
   /* overflow:visible; */
 }
+/* #mindmapPath{position:absolute} */
 
 .logo-container,.recipeBox,.cs nav{display:flex}
 .logo-container{justify-content:flex-end}
