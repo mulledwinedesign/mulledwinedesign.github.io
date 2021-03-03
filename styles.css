@@ -74,7 +74,7 @@ article{
   margin-top:var(--l-rem);
   row-gap:var(--l-rem);
 }
-.mindmapGrid,.mindmapGrid li{align-items:center}
+.mindmapGrid li{align-items:center}
 h4,.mindmapGrid>ol>li>ol>li{margin-bottom:var(--xs-rem)}
 p+h4{margin-top:var(--m-rem)}
 figure,footer{margin-bottom:var(--s-rem)}
@@ -95,7 +95,7 @@ h2.recipe,.cs>h2{text-align:center}
   margin-left:var(--xxl-vw);
   margin-right:var(--xxl-vw);
 }
-.mindmapGrid,.mindmapGrid li{column-gap:var(--l-vw)}
+.mindmapGrid li{column-gap:var(--l-vw)}
 /* p{max-width:70ch} */
 /* p.sub{margin-left:25%} */
 
@@ -103,6 +103,7 @@ h2.recipe,.cs>h2{text-align:center}
 /* ins,aside,.less,.more,.print-cv,.cellar{display:none} */
 .hidden{display:none}
 .cv i,.edu strong{display:block}
+/* l1,l2,l3,l4,l5,l6{display:inline} */
 
 .sticky{
   position:sticky;
@@ -142,21 +143,20 @@ svg.mindmapLines{
   position:absolute;
   z-index:-1;
   top:0;
-  left:0;
+  /* left:0; */
   /* width:100%; */
   fill:transparent;
   stroke:var(--color-dim);
-  stroke-width:.3ex;
-  /* overflow:visible; */
+  stroke-width:.2ex;
+  overflow:visible;
 }
-/* #mindmapPath{position:absolute} */
 
 .logo-container,.recipeBox,.cs nav{display:flex}
 .logo-container{justify-content:flex-end}
 .recipeBox{justify-content:space-evenly}
 .cs nav{justify-content:space-between}
 
-.cv,article,.mindmapGrid,.mindmapGrid li{display:grid}
+.cv,article,.mindmapGrid li{display:grid}
 .cv{grid-template-columns:repeat(2,1fr)}
 .overview{grid-area:overview}
 .context{grid-area:context}
@@ -170,7 +170,11 @@ article{
     ". . ideation ideation ideation"
     ". . . implementation implementation";
 }
-.mindmapGrid,.mindmapGrid li{grid-auto-flow:column}
+.mindmapGrid li{
+  grid-auto-flow:column;
+  justify-content:start;
+}
+
 /* article{grid-template-columns:auto 1fr} */
 /* .cs h2,.overview{grid-column:1/-1}
 article>h3{grid-column:1/2}

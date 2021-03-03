@@ -163,7 +163,6 @@ function drawMindmap() {
   mindmapLines.setAttribute("viewBox","0 0 "+mindmapGrid.getBoundingClientRect().width+" "+mindmapGrid.getBoundingClientRect().height);
   // collect map node coordinates
   let m = [];
-  let leftMargin = mindmapGrid.getBoundingClientRect().left;
   for(let li of document.querySelectorAll(".mindmap li")) {
     let node = li.firstElementChild; // get all <ln>, n=1~6
     if (node.nextElementSibling !== null) { // only those <ln> followed by <ol>
@@ -174,6 +173,7 @@ function drawMindmap() {
       }
     }
   }
+  // draw mindmap lines
   let path = "";
   for(const item of m) {
     let cx = (item.lineEndX - item.lineStartX)/2+item.lineStartX;
@@ -182,11 +182,11 @@ function drawMindmap() {
                +cx+" "+item.lineEndY+" "
                +item.lineEndX+" "+item.lineEndY;
   }
-  // draw mindmap lines
   document.getElementById("mindmapPath").setAttribute("d",path);
 }
 window.addEventListener("load",drawMindmap);
 window.addEventListener("resize",drawMindmap);
+window.addEventListener("hashchange",drawMindmap);
 
 // currently reading Intersection Observer:
 // the ele that has the biggest intersection ratio w/ vp
