@@ -125,13 +125,15 @@ svg.logo{
   min-width:100px;
 }
 /* ol+svg{} */
-svg.recipeLine{
+svg.recipeLine,svg.mindmapLines{
   position:absolute;
   z-index:-1;
   top:0;
   /* left:0;
   width:100%; */
   fill:transparent;
+}
+svg.recipeLine{
   stroke:var(--color-base);
   stroke-width:.3ex;
 }
@@ -140,12 +142,6 @@ svg.recipeLine{
   z-index:-1;
 }
 svg.mindmapLines{
-  position:absolute;
-  z-index:-1;
-  top:0;
-  /* left:0; */
-  /* width:100%; */
-  fill:transparent;
   stroke:var(--color-dim);
   stroke-width:.2ex;
   overflow:visible;
