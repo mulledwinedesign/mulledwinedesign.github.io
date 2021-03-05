@@ -48,10 +48,6 @@ html{
   scroll-behavior:smooth;
   /* font-family:jaf-bernino-sans; */
 }
-ol,ul{
-  padding-left:0;
-  list-style:none;
-}
 
 /************************************************ vertical rhythm */
 .top-nav{
@@ -95,7 +91,9 @@ h2.recipe,.cs>h2{text-align:center}
   margin-left:var(--xxl-vw);
   margin-right:var(--xxl-vw);
 }
+.recipe ol,.recipe ul,.mindmap ol,.shadowing ul{padding-left:0}
 .mindmapGrid li{column-gap:var(--l-vw)}
+
 /* p{max-width:70ch} */
 /* p.sub{margin-left:25%} */
 
@@ -152,23 +150,30 @@ svg.mindmapLines{
 .recipeBox{justify-content:space-evenly}
 .cs nav{justify-content:space-between}
 
-.cv,article,.mindmapGrid li{display:grid}
+.cv,article,.mindmapGrid li,.shadowing li{display:grid}
 .cv{grid-template-columns:repeat(2,1fr)}
 .overview{grid-area:overview}
 .context{grid-area:context}
 .inspiration{grid-area:inspiration}
 .ideation{grid-area:ideation}
 .implementation{grid-area:implementation}
-article{
-  grid-template-areas:
-    "context context context overview overview"
-    ". inspiration inspiration inspiration ."
-    ". . ideation ideation ideation"
-    ". . . implementation implementation";
+article{grid-template-areas:
+  "context context context overview overview"
+  ". inspiration inspiration inspiration ."
+  ". . ideation ideation ideation"
+  ". . . implementation implementation";
 }
 .mindmapGrid li{
   grid-auto-flow:column;
   justify-content:start;
+}
+.shadowing>ul>li>ul>li{
+  grid-auto-flow:column;
+  column-gap:var(--xs-vw);
+}
+.shadowing>ul>li>ul>li>ul>li{
+  grid-template-columns:25% 75%;
+  column-gap:var(--xs-vw);
 }
 
 /* article{grid-template-columns:auto 1fr} */
@@ -243,12 +248,12 @@ h2{
   font-family:aktiv-grotesk,sans-serif;
 }
 .cv i{font-style:normal}
-
 .recipe h3{
   font-weight:400;
   font-size:var(--s-rem);
   font-family:"Canela Text Regular";
 }
+.recipe ol,.recipe ul,.mindmap ol{list-style:none}
 /* .cv mark{
   background-color:transparent;
   font-weight:;
@@ -286,7 +291,7 @@ h4{
   font-size:var(--xs-rem);
   font-family:jaf-bernino-sans;
 }
-h6{}
+h5{}
 p{
   font-weight:400;
   /* font-size:18px; */
