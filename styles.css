@@ -70,10 +70,11 @@ article{
   margin-top:var(--l-rem);
   row-gap:var(--l-rem);
 }
-.mindmapGrid li{align-items:center}
 h4,.mindmapGrid>ol>li>ol>li{margin-bottom:var(--xs-rem)}
 p+h4{margin-top:var(--m-rem)}
 figure,footer{margin-bottom:var(--s-rem)}
+.mindmapGrid li{align-items:center}
+.shadowing l2,.shadowing l3{align-self:center}
 
 /********************************************** horizontal rhythm */
 .top-nav{padding-left:var(--s-vw)}
@@ -92,7 +93,11 @@ h2.recipe,.cs>h2{text-align:center}
   margin-right:var(--xxl-vw);
 }
 .recipe ol,.recipe ul,.mindmap ol{padding-left:0}
-.mindmapGrid li{column-gap:var(--l-vw)}
+.mindmapGrid li{
+  column-gap:var(--l-vw);
+  justify-content:start;
+}
+.shadowing{column-gap:var(--xs-vw)}
 
 /* p{max-width:70ch} */
 /* p.sub{margin-left:25%} */
@@ -167,14 +172,7 @@ article{grid-template-areas:
   grid-auto-flow:column;
   justify-content:start;
 }
-.shadowing{
-  grid-template-columns:1fr fit-content(25%) auto;
-  /* grid-template-rows:repeat(4,1fr); */
-  column-gap:var(--xs-vw);
-  /* row-gap:1px;
-  background-color:var(--color-dim); */
-}
-/* .shadowing *{background-color:var(--color-bkg)} */
+.shadowing{grid-template-columns:1fr fit-content(25%) auto}
 .shadowing l1{grid-row:1/2}
 .shadowing l1:first-of-type{grid-column:1/3}
 .shadowing l1:last-of-type{grid-column:3/4}
@@ -183,7 +181,6 @@ article{grid-template-areas:
 .shadowing l2:last-of-type{grid-row:span 7}
 .shadowing l3{grid-column:2/3;grid-row:span 2}
 .shadowing l3:last-of-type{grid-row:span 5}
-.shadowing l2,.shadowing l3{align-self:center}
 .shadowing l4{grid-column:3/4}
 
 /* article{grid-template-columns:auto 1fr} */
