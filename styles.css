@@ -66,6 +66,7 @@ main,.cv{margin-bottom:var(--xxl-rem)}
 h2.recipe,.cs>h2{margin-bottom:var(--l-rem)}
 .recipe.sticky{top:var(--xs-rem)}
 .recipeBox{padding-bottom:var(--xxs-rem)}
+svg.recipeLine,svg.mindmapLines{top:0}
 article{
   margin-top:var(--l-rem);
   row-gap:var(--l-rem);
@@ -80,6 +81,10 @@ figure,footer{margin-bottom:var(--s-rem)}
 .top-nav{padding-left:var(--s-vw)}
 .top-nav>a+a{margin-left:var(--xxs-vw)}
 header,h2.recipe,.cs,footer{padding-right:var(--xxl-vw)}
+svg.logo{
+  width:20vw;
+  min-width:100px;
+}
 .name,.cv{
   padding-left:var(--xxxl-vw);
   padding-right:var(--xxxl-vw);
@@ -93,11 +98,14 @@ h2.recipe,.cs>h2{text-align:center}
   margin-right:var(--xxl-vw);
 }
 .recipe ol,.recipe ul,.mindmap ol{padding-left:0}
+.cs nav a{padding:.618ex 1ex}
 .mindmapGrid li{
   column-gap:var(--l-vw);
   justify-content:start;
 }
-.shadowing{column-gap:var(--xs-vw)}
+/* .shadowing {column-gap:var(--xs-vw)} */
+.shadowing{column-gap:.2ex}
+.shadowing l1+l1,.shadowing l3,.shadowing l4{padding-left:var(--xs-vw)}
 
 /* p{max-width:70ch} */
 /* p.sub{margin-left:25%} */
@@ -106,13 +114,7 @@ h2.recipe,.cs>h2{text-align:center}
 /* ins,aside,.less,.more,.print-cv,.cellar{display:none} */
 .hidden{display:none}
 .cv i,.edu strong{display:block}
-/* l1,l2,l3,l4,l5,l6{display:inline} */
-
-.sticky{
-  position:sticky;
-  background:var(--color-bkg);
-}
-
+.sticky{position:sticky}
 /* .svg-container{position:relative} */
 /* svg.flow{
   position:absolute;
@@ -123,32 +125,15 @@ h2.recipe,.cs>h2{text-align:center}
   stroke:pink;
   stroke-width:.3rem;
 } */
-svg.logo{
-  width:20vw;
-  min-width:100px;
-}
-/* ol+svg{} */
 svg.recipeLine,svg.mindmapLines{
   position:absolute;
   z-index:-1;
-  top:0;
-  /* left:0;
-  width:100%; */
-  fill:transparent;
-}
-svg.recipeLine{
-  stroke:var(--color-base);
-  stroke-width:.3ex;
 }
 .mindmap{
   position:relative;
   z-index:-1;
 }
-svg.mindmapLines{
-  stroke:var(--color-dim);
-  stroke-width:.2ex;
-  overflow:visible;
-}
+svg.mindmapLines{overflow:visible}
 
 .logo-container,.recipeBox,.cs nav{display:flex}
 .logo-container{justify-content:flex-end}
@@ -215,17 +200,34 @@ h4+p{grid-column:1/4}
   vertical-align:top;
 }
  */
-/*********************************************************** text */
+
+ /********************************************************** color */
+ .dim{color:var(--color-dim)}
+ .highlight{color:var(--color-highlight)}
+
+ .sticky{background:var(--color-bkg)}
+ a{color:var(--color-base)}
+ .top-nav>a{
+   color:var(--color-mid);
+   /* text-shadow: 0px 1px 1px var(--color-shadow); */
+ }
+
+ svg.recipeLine,svg.mindmapLines{fill:transparent}
+ svg.recipeLine{
+   stroke:var(--color-base);
+   stroke-width:.3ex;
+ }
+ svg.mindmapLines{
+   stroke:var(--color-dim);
+   stroke-width:.2ex;
+ }
+
+ /*********************************************************** text */
 abbr,.cs nav a{text-decoration:none}
 .smallcaps{font-variant:small-caps}
-.dim{color:var(--color-dim)}
-.highlight{color:var(--color-highlight)}
-a{color:var(--color-base)}
 .top-nav>a{
-  color:var(--color-mid);
   text-decoration:none;
   text-underline-position:under;
-  /* text-shadow: 0px 1px 1px var(--color-shadow); */
 }
 .top-nav>a:hover{text-decoration:underline}
 h1{
@@ -254,7 +256,7 @@ h2{
   font-size:var(--xs-rem);
   font-family:aktiv-grotesk,sans-serif;
 }
-.cv i{font-style:normal}
+.cv i,.shadowing address{font-style:normal}
 .recipe h3{
   font-weight:400;
   font-size:var(--s-rem);
@@ -268,21 +270,23 @@ h2{
 } */
 .cs nav a{
   display:block;
-  /* color:var(--color-base); */
-  padding:.618ex 1ex;
   border:.2ex dashed;
   font-weight:400;
   font-size:var(--s-rem);
   font-family:"Canela Text Regular No 2";
 }
 .cs nav a:hover{
-  /* color:var(--color-highlight); */
   border-style:solid;
   border-radius:.2ex;
   /* font-weight:400; */
   /* font-size:var(--s-rem); */
   /* font-family:"Canela Text Regular No 2"; */
 }
+/* .cs strong{
+  font-weight:100;
+  font-size:var(--s-rem);
+  font-family:"Canela Text Thin";
+} */
 .overview{
   font-weight:400;
   font-size:var(--xs-rem);
@@ -308,14 +312,8 @@ p{
   font-weight:400;
   font-family:jaf-bernino-sans-narrow;
 } */
-/* .cs strong{
-  font-weight:100;
-  font-size:var(--s-rem);
-  font-family:"Canela Text Thin";
-} */
 .shadowing address{
   display:inline;
-  font-style:normal;
   white-space:nowrap;
 }
 
