@@ -131,6 +131,10 @@ h2.recipe,.cs>h2{text-align:center}
 }
 /* p{max-width:70ch} */
 /* p.sub{margin-left:25%} */
+.interview{
+  max-width:100%;
+  /* overflow:scroll; */
+}
 
 /*************************************************** layout */
 /* ins,aside,.less,.more,.print-cv,.cellar{display:none} */
@@ -159,7 +163,7 @@ svg.mindmapLines{overflow:visible}
 
 .logo-container,.recipeBox,.cs nav,
 .shadowing l2,.shadowing l3{display:flex}
-.cv,article,.mindmapGrid li,.shadowing{display:grid}
+.cv,article,.mindmapGrid li,.shadowing,.interview{display:grid}
 .cv{grid-template-columns:repeat(2,1fr)}
 .overview{grid-area:overview}
 .context{grid-area:context}
@@ -183,6 +187,10 @@ article{grid-template-areas:
 .shadowing l3{grid-column:2/3;grid-row:span 2}
 .shadowing l3:last-of-type{grid-row:span 5}
 .shadowing l4{grid-column:3/4}
+
+.interview{grid-template-columns:repeat(7,1fr)}
+.interview q1{grid-column:1/3}
+.interview q1:nth-of-type(4){grid-column:1/2;grid-row:4/8}
 
 /* article{grid-template-columns:auto 1fr} */
 /* .cs h2,.overview{grid-column:1/-1}
@@ -245,6 +253,11 @@ h4+p{grid-column:1/4}
 }
 /* .shadowing>l1,.shadowing>:not(l1):not(:last-of-type){border-bottom:var(--thin-line) solid var(--color-dim)} */
 .shadowing>*:not(l1,l4),.shadowing>l1:not(:last-of-type){border-right:var(--thin-line) solid var(--color-dim)}
+
+.interview>*{
+  border-bottom:var(--thin-line) solid var(--color-dim);
+  border-right:var(--thin-line) solid var(--color-dim);
+}
  /**************************************************** text */
 abbr,.cs nav a{text-decoration:none}
 .smallcaps{font-variant:small-caps}
