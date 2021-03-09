@@ -4,13 +4,11 @@
   --font-display-text:"canela text",serif;
   --font-caption:"aktiv",sans-serif;
   --font-body:"bernina","bernino",sans-serif; */
-  --color-shadow:white;
-  --color-bkg:#E9E9E7; /* 11-4800 tpg blanc de blanc */
-  --color-mid:#97999B; /* cool gray 7 c */
-  --color-dim:#939597; /* 17-5104 tcx ultimate gray */
-  --color-base:#1C1619; /* 20-0198 tpm moondrop grapes */
-  --color-highlight:#A6343A; /* 18-1548 tsx winery */
-  --color-yellow:#F5DF4D; /* 13-0647 tcx illuminating */
+  --line-height:calc(1em + .618vw);
+
+  --thin-line:.2ex;
+  --mid-line:.3ex;
+
   --xxxs-rem:.309rem;
   --xxs-rem:.618rem;
   --xs-rem:1rem;
@@ -20,7 +18,8 @@
   --xl-rem:6.854rem;
   --xxl-rem:11.089rem;
   --xxxl-rem:17.942rem;
-  --line-height:calc(1em + .618vw);
+
+  --xxxs-vw:.309vw;
   --xxs-vw:.618vw;
   --xs-vw:1vw;
   --s-vw:1.618vw;
@@ -29,6 +28,14 @@
   --xl-vw:6.854vw;
   --xxl-vw:11.089vw;
   --xxxl-vw:17.942vw;
+
+  --color-shadow:white;
+  --color-bkg:#E9E9E7; /* 11-4800 tpg blanc de blanc */
+  --color-dimmer:#97999B; /* cool gray 7 c */
+  --color-dim:#939597; /* 17-5104 tcx ultimate gray */
+  --color-base:#1C1619; /* 20-0198 tpm moondrop grapes */
+  --color-highlight:#A6343A; /* 18-1548 tsx winery */
+  --color-yellow:#F5DF4D; /* 13-0647 tcx illuminating */
 }
 
 *{
@@ -49,8 +56,8 @@ html{
   /* font-family:jaf-bernino-sans; */
 }
 
-/************************************************ vertical rhythm */
-.top-nav{
+/****************************************** vertical rhythm */
+.top-nav,.shadowing>*{
   padding-top:var(--xxxs-rem);
   padding-bottom:var(--xxxs-rem);
 }
@@ -67,6 +74,10 @@ h2.recipe,.cs>h2{margin-bottom:var(--l-rem)}
 .recipe.sticky{top:var(--xs-rem)}
 .recipeBox{padding-bottom:var(--xxs-rem)}
 svg.recipeLine,svg.mindmapLines{top:0}
+.cs nav a{
+  padding-top:var(--xxs-rem);
+  padding-bottom:var(--xxs-rem);
+}
 article{
   margin-top:var(--l-rem);
   row-gap:var(--l-rem);
@@ -75,12 +86,15 @@ h4,.mindmapGrid>ol>li>ol>li{margin-bottom:var(--xs-rem)}
 p+h4{margin-top:var(--m-rem)}
 figure,footer{margin-bottom:var(--s-rem)}
 .mindmapGrid li{align-items:center}
-.shadowing l2,.shadowing l3{align-self:center}
-
-/********************************************** horizontal rhythm */
+.shadowing l2,.shadowing l3{
+  flex-direction:column;
+  justify-content:center;
+}
+/**************************************** horizontal rhythm */
 .top-nav{padding-left:var(--s-vw)}
 .top-nav>a+a{margin-left:var(--xxs-vw)}
 header,h2.recipe,.cs,footer{padding-right:var(--xxl-vw)}
+.logo-container{justify-content:flex-end}
 svg.logo{
   width:20vw;
   min-width:100px;
@@ -98,19 +112,27 @@ h2.recipe,.cs>h2{text-align:center}
   margin-right:var(--xxl-vw);
 }
 .recipe ol,.recipe ul,.mindmap ol{padding-left:0}
-.cs nav a{padding:.618ex 1ex}
+.recipeBox{justify-content:space-evenly}
+.cs nav{justify-content:space-between}
+.cs nav a,.shadowing>*{
+  padding-left:var(--xs-vw);
+  padding-right:var(--xs-vw);
+}
 .mindmapGrid li{
   column-gap:var(--l-vw);
   justify-content:start;
 }
-/* .shadowing {column-gap:var(--xs-vw)} */
-.shadowing{column-gap:.2ex}
-.shadowing l1+l1,.shadowing l3,.shadowing l4{padding-left:var(--xs-vw)}
-
+/* .shadowing{column-gap:var(--xs-vw)} */
+/* .shadowing{column-gap:var(--thin-line)} */
+/* .shadowing l1+l1,.shadowing l3,.shadowing l4{padding-left:var(--xs-vw)} */
+.shadowing ul{
+  padding-left:var(--s-vw);
+  list-style-type:circle;
+}
 /* p{max-width:70ch} */
 /* p.sub{margin-left:25%} */
 
-/********************************************************* layout */
+/*************************************************** layout */
 /* ins,aside,.less,.more,.print-cv,.cellar{display:none} */
 .hidden{display:none}
 .cv i,.edu strong{display:block}
@@ -135,11 +157,8 @@ svg.recipeLine,svg.mindmapLines{
 }
 svg.mindmapLines{overflow:visible}
 
-.logo-container,.recipeBox,.cs nav{display:flex}
-.logo-container{justify-content:flex-end}
-.recipeBox{justify-content:space-evenly}
-.cs nav{justify-content:space-between}
-
+.logo-container,.recipeBox,.cs nav,
+.shadowing l2,.shadowing l3{display:flex}
 .cv,article,.mindmapGrid li,.shadowing{display:grid}
 .cv{grid-template-columns:repeat(2,1fr)}
 .overview{grid-area:overview}
@@ -153,10 +172,7 @@ article{grid-template-areas:
   ". . ideation ideation ideation"
   ". . . implementation implementation";
 }
-.mindmapGrid li{
-  grid-auto-flow:column;
-  justify-content:start;
-}
+.mindmapGrid li{grid-auto-flow:column}
 .shadowing{grid-template-columns:1fr fit-content(25%) auto}
 .shadowing l1{grid-row:1/2}
 .shadowing l1:first-of-type{grid-column:1/3}
@@ -201,28 +217,35 @@ h4+p{grid-column:1/4}
 }
  */
 
- /********************************************************** color */
+ /*************************************************** color */
  .dim{color:var(--color-dim)}
  .highlight{color:var(--color-highlight)}
 
- .sticky{background:var(--color-bkg)}
+ .sticky{background-color:var(--color-bkg)}
  a{color:var(--color-base)}
  .top-nav>a{
-   color:var(--color-mid);
+   color:var(--color-dimmer);
    /* text-shadow: 0px 1px 1px var(--color-shadow); */
  }
 
  svg.recipeLine,svg.mindmapLines{fill:transparent}
  svg.recipeLine{
    stroke:var(--color-base);
-   stroke-width:.3ex;
+   stroke-width:var(--mid-line);
  }
  svg.mindmapLines{
    stroke:var(--color-dim);
-   stroke-width:.2ex;
+   stroke-width:var(--thin-line);
  }
 
- /*********************************************************** text */
+.shadowing>l1{border-top:var(--thin-line) solid var(--color-dim)}
+.shadowing>*{
+  border-bottom:var(--thin-line) solid var(--color-dim);
+  /* border-right:var(--thin-line) solid var(--color-dim); */
+}
+/* .shadowing>l1,.shadowing>:not(l1):not(:last-of-type){border-bottom:var(--thin-line) solid var(--color-dim)} */
+.shadowing>*:not(l1,l4),.shadowing>l1:not(:last-of-type){border-right:var(--thin-line) solid var(--color-dim)}
+ /**************************************************** text */
 abbr,.cs nav a{text-decoration:none}
 .smallcaps{font-variant:small-caps}
 .top-nav>a{
@@ -270,14 +293,14 @@ h2{
 } */
 .cs nav a{
   display:block;
-  border:.2ex dashed;
+  border:var(--thin-line) dashed;
   font-weight:400;
   font-size:var(--s-rem);
   font-family:"Canela Text Regular No 2";
 }
 .cs nav a:hover{
   border-style:solid;
-  border-radius:.2ex;
+  border-radius:var(--thin-line);
   /* font-weight:400; */
   /* font-size:var(--s-rem); */
   /* font-family:"Canela Text Regular No 2"; */
@@ -317,7 +340,7 @@ p{
   white-space:nowrap;
 }
 
-/*************************************************** media queries */
+/******************************************** media queries */
 @media(max-width:31.25em){
   /* mobile < 500px < desktop */
 
