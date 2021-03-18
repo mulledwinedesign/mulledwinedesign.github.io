@@ -88,7 +88,7 @@ h4,.mindmapGrid>ol>li>ol>li{margin-bottom:var(--xs-rem)}
 p+h4{margin-top:var(--m-rem)}
 figure,footer{margin-bottom:var(--s-rem)}
 .mindmapGrid li{align-items:center}
-.shadowing l2,.shadowing l3{
+.shadowing>*:not(l1,l4),.persona>div>l2{
   flex-direction:column;
   justify-content:center;
 }
@@ -129,7 +129,7 @@ h2.recipe,.cs>h2{text-align:center}
   padding-left:var(--s-vw);
   list-style-type:circle;
 }
-.interview{max-width:100%}
+/* .interview{max-width:100%} */
 /* p{max-width:70ch} */
 /* p.sub{margin-left:25%} */
 
@@ -159,7 +159,7 @@ svg.recipeLine,svg.mindmapLines{
 svg.mindmapLines{overflow:visible}
 
 .logo-container,.recipeBox,.cs nav,
-.shadowing l2,.shadowing l3{display:flex}
+.shadowing>*:not(l1,l4),.persona>div>l2{display:flex}
 .cv,article,.mindmapGrid li,.shadowing,.interview,.persona,.persona>div{display:grid}
 .cv{grid-template-columns:repeat(2,1fr)}
 .overview{grid-area:overview}
