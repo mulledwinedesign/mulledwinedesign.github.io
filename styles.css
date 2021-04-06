@@ -162,16 +162,19 @@ svg.mindmapLines{overflow:visible}
 .shadowing>*:not(l1,l4),.persona>div>l2{display:flex}
 .cv,article,.mindmapGrid li,.shadowing,.interview,.persona,.persona>div{display:grid}
 .cv{grid-template-columns:repeat(2,1fr)}
-.overview{grid-area:overview}
-.context{grid-area:context}
-.inspiration{grid-area:inspiration}
-.ideation{grid-area:ideation}
-.implementation{grid-area:implementation}
-article{grid-template-areas:
-  "context context context overview overview"
-  ". inspiration inspiration inspiration ."
-  ". . ideation ideation ideation"
-  ". . . implementation implementation"}
+
+article>.overview{grid-column:4/-1}
+article>.context{grid-column:1/4}
+article>.inspiration{grid-column:2/5}
+article>.ideation{grid-column:3/-1}
+article>.implementation{grid-column:4/-1}
+article>figure{grid-column:1/-1}
+/* article{grid-template-areas:
+  "context  context     context     overview        overview"
+  ".        inspiration inspiration inspiration     ."
+  ".        .           ideation    ideation        ideation"
+  ".        .           .           implementation  implementation"} */
+
 .mindmapGrid li{grid-auto-flow:column}
 .shadowing{grid-template-columns:repeat(2,min-content) 50% min-content}
 .shadowing l1:first-of-type{grid-column:1/3}
