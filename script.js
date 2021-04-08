@@ -1,5 +1,7 @@
 let rem = getComputedStyle(document.documentElement).fontSize.match(/\d+/)[0];
 let recipeBox = document.getElementsByClassName("recipeBox")[0];
+let recipeBoxW = recipeBox.getBoundingClientRect().width;
+let gap;
 let topNav = document.getElementsByClassName("top-nav")[0];
 let articles = document.querySelectorAll(".cs article");
 let anchors = document.querySelectorAll(".cs nav a");
@@ -11,7 +13,7 @@ function drawRecipeNGrid() {
   let zero = document.getElementById("zero");
   let one = document.getElementById("one");
   // update viewBox size
-  recipeLine.setAttribute("viewBox","0 0 "+recipeBox.getBoundingClientRect().width+" "+recipeBox.getBoundingClientRect().height);
+  recipeLine.setAttribute("viewBox","0 0 "+recipeBoxW+" "+recipeBox.getBoundingClientRect().height);
   // collect node coordinates
   let c = [];
   let leftMargin = recipeBox.getBoundingClientRect().left;
@@ -23,7 +25,7 @@ function drawRecipeNGrid() {
     });
   }
   // draw 0: flush left
-  let gap = c[0].xLeft;
+  gap = c[0].xLeft;
   let r = rem*.45;
   let strokeW = Number(getComputedStyle(recipeLine).strokeWidth.match(/\d+\.\d*/)[0]);
   let y = c[0].y/1.78;
@@ -60,13 +62,13 @@ function drawRecipeNGrid() {
   // set article grid cols based on recipeBox lists
   let col = "";
   for(const li of document.querySelectorAll(".recipeBox>li")) {
-    col += li.getBoundingClientRect().width+"px"+" ";
+    col += li.getBoundingClientRect().width+"px ";
   }
-  articles.forEach(article => {
+  for (const article of articles) {
     article.style.gridTemplateColumns = col;
     article.style.marginLeft = gap+"px";
     article.style.columnGap = gap+"px";
-  });
+  }
 }
 window.addEventListener("load",drawRecipeNGrid);
 window.addEventListener("resize",drawRecipeNGrid);
@@ -107,7 +109,7 @@ window.addEventListener("load",checkStorage);
 window.addEventListener("hashchange",checkStorage);
 
 // handle anchor hover n click events
-anchors.forEach(anchor => {
+for (const anchor of anchors) {
   anchor.addEventListener("mouseenter", function () {
     for (const li of lis) {
       li.classList.remove("dim");
@@ -153,7 +155,7 @@ anchors.forEach(anchor => {
       article.style.scrollMarginTop = scrollMT+"px";
     });
   });
-});
+}
 
 // svg mindmap lines
 function drawMindmap() {
@@ -163,7 +165,7 @@ function drawMindmap() {
   mindmapLines.setAttribute("viewBox","0 0 "+mindmapGrid.getBoundingClientRect().width+" "+mindmapGrid.getBoundingClientRect().height);
   // collect map node coordinates
   let m = [];
-  for(let li of document.querySelectorAll(".mindmap li")) {
+  for(const li of document.querySelectorAll(".mindmap li")) {
     let node = li.firstElementChild; // get all <ln>, n=1~6
     if (node.nextElementSibling !== null) { // only those <ln> followed by <ol>
       let thisR = [node.offsetLeft+node.getBoundingClientRect().width, node.offsetTop+node.getBoundingClientRect().height/2];
@@ -187,6 +189,20 @@ function drawMindmap() {
 window.addEventListener("load",drawMindmap);
 window.addEventListener("resize",drawMindmap);
 window.addEventListener("hashchange",drawMindmap);
+
+// figure padding scroll
+function setFigurePadding() {
+  for (const figure of document.querySelectorAll("article>figure")) {
+    for (const child of figure.children) {
+      child.style.paddingLeft = figure.previousElementSibling.offsetLeft+"px";
+    }
+    // figure.style.width = recipeBoxW+"px";
+    // figure.scrollBy(figure.previousElementSibling.offsetLeft,0);
+  }
+}
+window.addEventListener("load",setFigurePadding);
+window.addEventListener("resize",setFigurePadding);
+window.addEventListener("hashchange",setFigurePadding);
 
 // currently reading Intersection Observer:
 // the ele that has the biggest intersection ratio w/ vp

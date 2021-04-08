@@ -39,7 +39,7 @@
 }
 
 *{
-  box-sizing:border-box;
+  /* box-sizing:border-box; */
   margin:0;
   margin-block-start:0;
   margin-block-end:0;
@@ -82,7 +82,7 @@ svg.recipeLine,svg.mindmapLines{top:0}
 }
 article{
   margin-top:var(--l-rem);
-  row-gap:var(--l-rem);
+  /* row-gap:var(--l-rem); */
 }
 h4,.mindmapGrid>ol>li>ol>li{margin-bottom:var(--xs-rem)}
 p+h4{margin-top:var(--m-rem)}
@@ -116,6 +116,7 @@ h2.recipe,.cs>h2{text-align:center}
 .recipe ol,.recipe ul,.mindmap ol{padding-left:0}
 .recipeBox{justify-content:space-evenly}
 .cs nav{justify-content:space-between}
+/* article>figure{width:100%} */
 .cs nav a,.shadowing>*,.interview>*,
 .persona>*:not(div),.persona>div>*{
   padding-left:var(--xs-vw);
@@ -148,23 +149,27 @@ h2.recipe,.cs>h2{text-align:center}
   stroke:pink;
   stroke-width:.3rem;
 } */
-svg.recipeLine,svg.mindmapLines{
-  position:absolute;
-  z-index:-1;
-}
-.mindmap{
-  position:relative;
-  z-index:-1;
-}
-svg.mindmapLines{overflow:visible}
-
+svg.recipeLine,svg.mindmapLines{position:absolute}
+article,.mindmap{position:relative}
+svg.recipeLine,svg.mindmapLines
+/* ,article */
+{z-index:-1}
+/* svg.mindmapLines{overflow-x:visible}
+article>figure{overflow-x:visible} */
+article>figure *:not(figcaption){overflow-x:scroll}
+/* article>figure::before{ */
+  /* display:block; */
+  /* content:"\200B";
+  margin-left:var(--l-vw);
+} */
+.shadowing{display:inline-grid}
 .logo-container,.recipeBox,.cs nav,
 .shadowing>*:not(l1,l4),.persona>div>l2{display:flex}
-.cv,article,.mindmapGrid li,.shadowing,.interview,.persona,.persona>div{display:grid}
+.cv,article,.mindmapGrid li,.interview,.persona,.persona>div{display:grid}
 .cv{grid-template-columns:repeat(2,1fr)}
 
 article>.overview{grid-column:4/-1}
-article>.context{grid-column:1/4}
+article>.context{grid-column:1/4;grid-row-start:1}
 article>.inspiration{grid-column:2/5}
 article>.ideation{grid-column:3/-1}
 article>.implementation{grid-column:4/-1}
@@ -174,7 +179,6 @@ article>figure{grid-column:1/-1}
   ".        inspiration inspiration inspiration     ."
   ".        .           ideation    ideation        ideation"
   ".        .           .           implementation  implementation"} */
-
 .mindmapGrid li{grid-auto-flow:column}
 .shadowing{grid-template-columns:repeat(2,min-content) 50% min-content}
 .shadowing l1:first-of-type{grid-column:1/3}
