@@ -59,13 +59,18 @@ function drawRecipeNGrid() {
   one.setAttribute("y1",y-r-strokeW);
   one.setAttribute("x2",x1);
   one.setAttribute("y2",y+r+strokeW);
+
   // set article grid cols based on recipeBox lists
-  let col = "";
+  let col = [];
+  let colString = "";
+  // let recipeBoxLis = document.querySelectorAll(".recipeBox>li");
   for(const li of document.querySelectorAll(".recipeBox>li")) {
-    col += li.getBoundingClientRect().width+"px ";
+    col.push(li.getBoundingClientRect().width);
   }
+  col[col.length-1] += gap;
+  for (const value of col) {colString += value+"px ";}
   for (const article of articles) {
-    article.style.gridTemplateColumns = col;
+    article.style.gridTemplateColumns = colString;
     article.style.marginLeft = gap+"px";
     article.style.columnGap = gap+"px";
   }
@@ -160,12 +165,8 @@ for (const anchor of anchors) {
 function figurePadddingNMindmapLines() {
   // set figure paddingLeft to align
   for (const figure of document.querySelectorAll("article>figure")) {
-    figure.children[1].style.paddingLeft = figure.previousElementSibling.offsetLeft+"px"; // align with prev <p>
-    figure.children[0].style.paddingLeft = figure.previousElementSibling.offsetLeft-getComputedStyle(figure.children[0].firstElementChild).paddingLeft.match(/\d+/)[0]+"px"; // minus 1st col paddingLeft to align text left
-    // console.log(figure.style.id);
-    // for (const child of figure.children) {
-    //     child.style.paddingLeft = (figure.previousElementSibling.offsetLeft-figure.firstElementChild.firstElementChild.style.paddingLeft)+"px";
-    // }
+    figure.children[1].style.paddingLeft = figure.previousElementSibling.offsetLeft+"px"; // <figcaption>: align with prev <p>
+    figure.children[0].style.paddingLeft = figure.previousElementSibling.offsetLeft-getComputedStyle(figure.children[0].firstElementChild).paddingLeft.match(/\d+/)[0]+"px"; // <div>: minus 1st col's paddingLeft to align text left
     // figure.style.width = recipeBoxW+"px";
   }
 
@@ -178,8 +179,6 @@ function figurePadddingNMindmapLines() {
   let m = [];
   for(const li of document.querySelectorAll(".mindmap li")) {
     let node = li.firstElementChild; // get all <ln>, n=1~6
-    // console.log(node.offsetParent.style.paddingLeft);
-    // console.log(getComputedStyle(node.offsetParent).paddingLeft);
     if (node.nextElementSibling !== null) { // only those <ln> followed by <ol>
       let thisR = [node.offsetLeft
         -node.offsetParent.style.paddingLeft.match(/\d+/)[0]
@@ -204,7 +203,6 @@ function figurePadddingNMindmapLines() {
     +item.lineEndX+" "+item.lineEndY;
   }
   document.getElementById("mindmapPath").setAttribute("d",path);
-
 }
 window.addEventListener("load",figurePadddingNMindmapLines);
 window.addEventListener("resize",figurePadddingNMindmapLines);
