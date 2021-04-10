@@ -157,8 +157,19 @@ for (const anchor of anchors) {
   });
 }
 
-// svg mindmap lines
-function drawMindmap() {
+function figurePadddingNMindmapLines() {
+  // set figure paddingLeft to align
+  for (const figure of document.querySelectorAll("article>figure")) {
+    figure.children[1].style.paddingLeft = figure.previousElementSibling.offsetLeft+"px"; // align with prev <p>
+    figure.children[0].style.paddingLeft = figure.previousElementSibling.offsetLeft-getComputedStyle(figure.children[0].firstElementChild).paddingLeft.match(/\d+/)[0]+"px"; // minus 1st col paddingLeft to align text left
+    // console.log(figure.style.id);
+    // for (const child of figure.children) {
+    //     child.style.paddingLeft = (figure.previousElementSibling.offsetLeft-figure.firstElementChild.firstElementChild.style.paddingLeft)+"px";
+    // }
+    // figure.style.width = recipeBoxW+"px";
+  }
+
+  // for figure.mindmap only
   let mindmapGrid = document.getElementsByClassName("mindmapGrid")[0];
   let mindmapLines = document.getElementsByClassName("mindmapLines")[0];
   // update viewBox size
@@ -167,11 +178,19 @@ function drawMindmap() {
   let m = [];
   for(const li of document.querySelectorAll(".mindmap li")) {
     let node = li.firstElementChild; // get all <ln>, n=1~6
+    // console.log(node.offsetParent.style.paddingLeft);
+    // console.log(getComputedStyle(node.offsetParent).paddingLeft);
     if (node.nextElementSibling !== null) { // only those <ln> followed by <ol>
-      let thisR = [node.offsetLeft+node.getBoundingClientRect().width, node.offsetTop+node.getBoundingClientRect().height/2];
+      let thisR = [node.offsetLeft
+        -node.offsetParent.style.paddingLeft.match(/\d+/)[0]
+        +node.getBoundingClientRect().width,
+        node.offsetTop+node.getBoundingClientRect().height/2];
       for (const child of node.nextElementSibling.children) { // ln+ol>li
-        let nextL = [child.offsetLeft, child.offsetTop+child.getBoundingClientRect().height/2];
-        m.push({lineStartX:thisR[0],lineStartY:thisR[1],lineEndX:nextL[0],lineEndY:nextL[1]});
+        let nextL = [child.offsetLeft
+          -node.offsetParent.style.paddingLeft.match(/\d+/)[0],
+          child.offsetTop+child.getBoundingClientRect().height/2];
+        m.push({lineStartX:thisR[0],lineStartY:thisR[1],
+          lineEndX:nextL[0],lineEndY:nextL[1]});
       }
     }
   }
@@ -180,29 +199,20 @@ function drawMindmap() {
   for(const item of m) {
     let cx = (item.lineEndX - item.lineStartX)/2+item.lineStartX;
     path += "M"+item.lineStartX+" "+item.lineStartY+
-            "C"+cx+" "+item.lineStartY+" "
-               +cx+" "+item.lineEndY+" "
-               +item.lineEndX+" "+item.lineEndY;
+    "C"+cx+" "+item.lineStartY+" "
+    +cx+" "+item.lineEndY+" "
+    +item.lineEndX+" "+item.lineEndY;
   }
   document.getElementById("mindmapPath").setAttribute("d",path);
-}
-window.addEventListener("load",drawMindmap);
-window.addEventListener("resize",drawMindmap);
-window.addEventListener("hashchange",drawMindmap);
 
-// figure padding scroll
-function setFigurePadding() {
-  for (const figure of document.querySelectorAll("article>figure")) {
-    for (const child of figure.children) {
-      child.style.paddingLeft = figure.previousElementSibling.offsetLeft+"px";
-    }
-    // figure.style.width = recipeBoxW+"px";
-    // figure.scrollBy(figure.previousElementSibling.offsetLeft,0);
-  }
 }
-window.addEventListener("load",setFigurePadding);
-window.addEventListener("resize",setFigurePadding);
-window.addEventListener("hashchange",setFigurePadding);
+window.addEventListener("load",figurePadddingNMindmapLines);
+window.addEventListener("resize",figurePadddingNMindmapLines);
+window.addEventListener("hashchange",figurePadddingNMindmapLines);
+
+// window.addEventListener("load",drawMindmap);
+// window.addEventListener("resize",drawMindmap);
+// window.addEventListener("hashchange",drawMindmap);
 
 // currently reading Intersection Observer:
 // the ele that has the biggest intersection ratio w/ vp

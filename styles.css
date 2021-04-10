@@ -154,9 +154,9 @@ article,.mindmap{position:relative}
 svg.recipeLine,svg.mindmapLines
 /* ,article */
 {z-index:-1}
-/* svg.mindmapLines{overflow-x:visible}
-article>figure{overflow-x:visible} */
-article>figure *:not(figcaption){overflow-x:scroll}
+svg.mindmapLines{overflow:visible}
+/* article>figure{overflow-x:visible} */
+article>figure>*:not(figcaption){overflow-x:scroll}
 /* article>figure::before{ */
   /* display:block; */
   /* content:"\200B";
