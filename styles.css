@@ -57,7 +57,7 @@ html{
   /* font-family:jaf-bernino-sans; */
 }
 
-/****************************************** vertical rhythm */
+/**************************************** vertical rhythm */
 .top-nav,.shadowing>*,.interview>*,
 .persona>*:not(div),.persona>div>*{
   padding-top:var(--xxxs-rem);
@@ -92,7 +92,7 @@ figure,footer{margin-bottom:var(--s-rem)}
   flex-direction:column;
   justify-content:center;
 }
-/**************************************** horizontal rhythm */
+/************************************** horizontal rhythm */
 .top-nav{padding-left:var(--s-vw)}
 .top-nav>a+a{margin-left:var(--xxs-vw)}
 header,h2.recipe,.cs,footer{padding-right:var(--xxl-vw)}
@@ -134,8 +134,9 @@ h2.recipe,.cs>h2{text-align:center}
 /* p{max-width:70ch} */
 /* p.sub{margin-left:25%} */
 
-/*************************************************** layout */
+/************************************************* layout */
 /* ins,aside,.less,.more,.print-cv,.cellar{display:none} */
+/* header{visibility:hidden} */
 .hidden,ins{display:none}
 .cv i,.edu strong{display:block}
 .sticky{position:sticky}
@@ -152,16 +153,11 @@ h2.recipe,.cs>h2{text-align:center}
 svg.recipeLine,svg.mindmapLines{position:absolute}
 article,.mindmap{position:relative}
 svg.recipeLine,svg.mindmapLines
-/* ,article */
+,article
 {z-index:-1}
 svg.mindmapLines{overflow:visible}
 /* article>figure{overflow-x:visible} */
 article>figure>*:not(figcaption){overflow-x:scroll}
-/* article>figure::before{ */
-  /* display:block; */
-  /* content:"\200B";
-  margin-left:var(--l-vw);
-} */
 .shadowing{display:inline-grid}
 .logo-container,.recipeBox,.cs nav,
 .shadowing>*:not(l1,l4),.persona>div>l2{display:flex}
@@ -235,7 +231,7 @@ h4+p{grid-column:1/4}
   vertical-align:top;
 } */
 
-/*************************************************** color */
+/************************************************** color */
 .dim,figcaption{color:var(--color-dim)}
 .highlight{color:var(--color-highlight)}
 
@@ -245,7 +241,7 @@ a{color:var(--color-base)}
  color:var(--color-dimmer);
  /* text-shadow: 0px 1px 1px var(--color-shadow); */
 }
-
+svg.logo{fill:var(--color-shadow)}
 svg.recipeLine,svg.mindmapLines{fill:transparent}
 svg.recipeLine{
  stroke:var(--color-base);
@@ -278,7 +274,7 @@ svg.mindmapLines{
 .persona>div>l3:nth-of-type(-n+6)
 {border-right:var(--thin-line) solid var(--color-dim)}
 
- /**************************************************** text */
+ /************************************************** text */
 abbr,ins,.cs nav a{text-decoration:none}
 .smallcaps{font-variant:small-caps}
 span.hmw{font-variant:all-small-caps}
@@ -376,7 +372,7 @@ p{
   white-space:nowrap;
 }
 
-/******************************************** media queries */
+/****************************************** media queries */
 @media(max-width:31.25em){
   /* mobile < 500px < desktop */
 
