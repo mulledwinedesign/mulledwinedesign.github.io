@@ -64,7 +64,7 @@ html{
   padding-bottom:var(--xxxs-rem);
 }
 .top-nav>a{vertical-align:middle}
-.top-nav.sticky{top:0}
+.top-nav.sticky,svg.recipeLine,svg.mindmapLines{top:0}
 header{padding-top:var(--xxl-vw)}
 main,figure,figcaption+.persona{margin-top:var(--s-rem)}
 main>section{margin-top:var(--xxl-rem)}
@@ -75,7 +75,6 @@ main,.cv{margin-bottom:var(--xxl-rem)}
 h2.recipe,.cs>h2{margin-bottom:var(--l-rem)}
 .recipe.sticky{top:var(--xs-rem)}
 .recipeBox{padding-bottom:var(--xxs-rem)}
-svg.recipeLine,svg.mindmapLines{top:0}
 .cs nav a{
   padding-top:var(--xxs-rem);
   padding-bottom:var(--xxs-rem);
@@ -108,7 +107,7 @@ svg.logo{
 .cv>.exp{padding-right:var(--xl-vw)}
 /* .cv{column-gap:var(--m-vw)} */
 h2.recipe,.cs,footer{padding-left:var(--xxl-vw)}
-h2.recipe,.cs>h2{text-align:center}
+.wip,h2.recipe,.cs>h2{text-align:center}
 .recipe.sticky{
   margin-left:var(--xxl-vw);
   margin-right:var(--xxl-vw);
@@ -232,6 +231,10 @@ h4+p{grid-column:1/4}
 } */
 
 /************************************************** color */
+.wip{background-color:var(--color-highlight)}
+.wip,.wip a{color:var(--color-bkg)}
+svg.logo{fill:var(--color-shadow)}
+
 .dim,figcaption{color:var(--color-dim)}
 .highlight{color:var(--color-highlight)}
 
@@ -241,7 +244,7 @@ a{color:var(--color-base)}
  color:var(--color-dimmer);
  /* text-shadow: 0px 1px 1px var(--color-shadow); */
 }
-svg.logo{fill:var(--color-shadow)}
+
 svg.recipeLine,svg.mindmapLines{fill:transparent}
 svg.recipeLine{
  stroke:var(--color-base);
@@ -279,11 +282,15 @@ abbr,ins,.cs nav a{text-decoration:none}
 .smallcaps{font-variant:small-caps}
 span.hmw{font-variant:all-small-caps}
 p>span.hmw{font-weight:600}
+.wip a{
+  text-decoration:none;
+  font-style:italic;
+}
 .top-nav>a{
   text-decoration:none;
   text-underline-position:under;
 }
-.top-nav>a:hover{text-decoration:underline}
+.wip a:hover,.top-nav>a:hover{text-decoration:underline}
 h1{
   font-weight:500;
   font-size:var(--l-rem);
@@ -341,7 +348,7 @@ h2{
   font-size:var(--s-rem);
   font-family:"Canela Text Thin";
 } */
-.overview{
+.wip,.overview{
   font-weight:400;
   font-size:var(--xs-rem);
   font-family:jaf-bernino-sans;
