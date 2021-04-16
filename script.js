@@ -77,6 +77,7 @@ function drawRecipeNGrid() {
 }
 window.addEventListener("load",drawRecipeNGrid);
 window.addEventListener("resize",drawRecipeNGrid);
+// window.addEventListener("hashchange",drawRecipeNGrid);
 
 // maintain display states between page loads n #id clicks
 function checkStorage() {
