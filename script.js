@@ -165,9 +165,17 @@ for (const anchor of anchors) {
 function figurePadddingNMindmapLines() {
   // set figure paddingLeft to align
   for (const figure of document.querySelectorAll("article>figure")) {
-    figure.children[1].style.paddingLeft = figure.previousElementSibling.offsetLeft+"px"; // <figcaption>: align with prev <p>
-    figure.children[0].style.paddingLeft = figure.previousElementSibling.offsetLeft-getComputedStyle(figure.children[0].firstElementChild).paddingLeft.match(/\d+/)[0]+"px"; // <div>: minus 1st col's paddingLeft to align text left
-    // figure.style.width = recipeBoxW+"px";
+    let prev = figure.previousElementSibling;
+    while (prev.tagName !== "SECTION" ) {
+      prev = prev.previousElementSibling;
+    }
+    // <figcaption>: align with prev <p>
+    figure.children[1].style.paddingLeft = prev.offsetLeft+"px";
+    // <div>: minus 1st col's paddingLeft to align text left
+    figure.children[0].style.paddingLeft = prev.offsetLeft-getComputedStyle(figure.children[0].firstElementChild).paddingLeft.match(/\d+/)[0]+"px";
+
+    // figure.style.width = recipeBoxW-gap+"px";
+    // figure.children[0].style.width = recipeBoxW-gap+"px";
   }
 
   // for figure.mindmap only

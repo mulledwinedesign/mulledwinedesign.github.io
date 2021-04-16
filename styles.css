@@ -72,8 +72,7 @@ main,.cv{margin-bottom:var(--xxl-rem)}
 article,*+h4{margin-top:var(--l-rem)}
 h2.recipe,.cs>h2{margin-bottom:var(--l-rem)}
 #resume:target{scroll-margin-top:var(--m-rem)}
-.cv section section,article>section+figure{margin-top:var(--m-rem)}
-article>section+figure{margin-bottom:var(--m-rem)}
+.cv section section,article>*+*{margin-top:var(--m-rem)}
 main,figcaption+.persona{margin-top:var(--s-rem)}
 footer{margin-bottom:var(--s-rem)}
 .recipe.sticky{top:var(--xs-rem)}
@@ -154,8 +153,9 @@ svg.recipeLine,svg.mindmapLines{position:absolute}
 article,.mindmap{position:relative}
 svg.recipeLine,svg.mindmapLines{z-index:-1}
 svg.mindmapLines{overflow:visible}
-/* article>figure{overflow-x:visible} */
-article>figure>*:not(figcaption){overflow-x:scroll}
+/* article{overflow-x:hidden} */
+article>figure{overflow-x:scroll}
+/* article>figure>*:not(figcaption){overflow-x:scroll} */
 .shadowing{display:inline-grid}
 .logo-container,.recipeBox,.cs nav,
 .shadowing>*:not(l1,l4),.persona>div>l2{display:flex}
@@ -173,6 +173,7 @@ article>figure{grid-column:1/-1}
   ".        inspiration inspiration inspiration     ."
   ".        .           ideation    ideation        ideation"
   ".        .           .           implementation  implementation"} */
+.shadowing,.interview,.persona{width:100%}
 .mindmapGrid li{grid-auto-flow:column}
 .shadowing{grid-template-columns:repeat(2,min-content) 50% min-content}
 .shadowing l1:first-of-type{grid-column:1/3}
