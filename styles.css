@@ -292,6 +292,11 @@ p>span.hmw{font-weight:600}
   text-underline-position:under;
 }
 .wip a:hover,.top-nav>a:hover{text-decoration:underline}
+p{
+  font-weight:400;
+  font-size:18px;
+  font-family:jaf-bernino-sans;
+}
 h1{
   font-weight:500;
   font-size:var(--l-rem);
@@ -313,7 +318,7 @@ h2{
   font-size:var(--s-rem);
   font-family:"Canela Deck Light";
 }
-.cv,.recipe ul,.top-nav,figure,footer{
+.cv,.recipe ul,.top-nav,figure *,footer{
   font-weight:400;
   font-size:var(--xs-rem);
   font-family:aktiv-grotesk,sans-serif;
@@ -366,11 +371,6 @@ h4{
   font-family:jaf-bernino-sans;
 }
 h5{}
-p{
-  font-weight:400;
-  font-size:18px;
-  font-family:jaf-bernino-sans;
-}
 /* .sub{
   font-weight:400;
   font-family:jaf-bernino-sans-narrow;
