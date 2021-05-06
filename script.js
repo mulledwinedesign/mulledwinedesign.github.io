@@ -150,7 +150,8 @@ for (const anchor of anchors) {
     topNav.classList.remove("hidden");
     sessionStorage.setItem("topNavDisplay",getComputedStyle(topNav).display);
     // show n scroll article into place
-    let scrollMT = recipeBox.getBoundingClientRect().height + anchor.getBoundingClientRect().height + rem*5.618; // xs+recipeBox.h+(xs-xxs)+anchor.h+l = recipeBox.h+anchor.h+(2-.618+4.236)
+    let scrollMT = recipeBox.getBoundingClientRect().height + anchor.parentElement.getBoundingClientRect().height + rem*5.618;
+    // xs+recipeBox.h+(xs-xxs)+anchor.h+l = recipeBox.h+<h3>.h+(2-.618+4.236)
     articles.forEach((article,i) => {
       if ("#"+article.id === this.hash) {
         article.classList.remove("hidden");
