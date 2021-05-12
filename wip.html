@@ -720,33 +720,76 @@
             <p>The scenarios depicted above envisioned how enhanced drones could be&nbsp;used in&nbsp;a&nbsp;city to&nbsp;facilitate air quality related activities&NoBreak;&mdash;we&nbsp;can easily fly a&nbsp;drone to&nbsp;get a&nbsp;reading of&nbsp;the air quality indices, and view the data synthesized on&nbsp;a&nbsp;mobile app. Building these scenarios helped our design solution taking shape.</p>
             <h4>Forming a&nbsp;Solution</h4>
             <p>The idea we&nbsp;came up&nbsp;with was to&nbsp;integrate sensors to&nbsp;an&nbsp;existing drone, provided it&nbsp;could hold the aggregate weight of&nbsp;all the electronics, enabling the drone to&nbsp;measure air quality indices. The numbers would then be&nbsp;sent to&nbsp;an&nbsp;app, which would synthesize and present the data to&nbsp;the user.</p>
+            <figure>
+              <img src="" alt="post-it: data flow n tech needed">
+              <figcaption>Illustrating data flow and technologies needed for each step</figcaption>
+            </figure>
             <p>Accordingly there would be&nbsp;two parts&NoBreak;&mdash;a&nbsp;drone and an&nbsp;app. This project <em>focused on&nbsp;the former part</em> since our material here was commercial drones. We&nbsp;wanted to&nbsp;focus on&nbsp;exploring physical computing opportunities to&nbsp;reinforce <em>existing</em> drones, rather than spreading out our energies all at&nbsp;once on&nbsp;tackling aeromechanics to&nbsp;engineer the drone machinery, or&nbsp;building a&nbsp;cloud to&nbsp;receive, host and distribute air quality data, or&nbsp;deploying a&nbsp;system to&nbsp;station our devices in&nbsp;the city&NoBreak;&mdash;these directions would each worth a&nbsp;separate project.</p>
             <figure>
-              <img src="" alt="post-it: data flow n solutions needed">
-              <figcaption>Illustrating data flow and technologies needed for each step</figcaption>
+              <img src="" alt="post-it: user n data flow with solutions needed">
+              <figcaption>Incorporating user touchpoints with data flow and<br>clarifying solutions needed for each step</figcaption>
             </figure>
             <p>Our long-term strategy was to&nbsp;make full use of&nbsp;current wheels by&nbsp;<em>collaborating with service providers</em> on&nbsp;the market. For instance, our drones could upload sensor readings to&nbsp;an&nbsp;open-source database instead of&nbsp;maintaining our own cloud. An&nbsp;air quality and drone management section could be&nbsp;integrated into an&nbsp;app people already have, such as&nbsp;weather forecast, ride sharing, bus/subway time, maps, payment, restaurant booking and other local services, since the scenarios these apps are used certainly <em>overlap with ours</em> on&nbsp;the street. In&nbsp;a&nbsp;parallel project, I&nbsp;individually designed <a href="http://drewcogbill.com/mobilemedia/wp-content/uploads/2015/03/chinaAQI-appMap-wireframe-xueerZhang.pdf">an&nbsp;Apple Watch app</a>&NoBreak;&mdash;before the first Watch launched in&nbsp;April 2015&NoBreak;&mdash;based on&nbsp;an&nbsp;iOS app called <cite>China Air Quality Index</cite>, which covered some of&nbsp;the proposals mentioned above.</p>
             <figure>
-              <img src="" alt="hover: watch app wireframes">
+              <img src="" alt="watch app wireframes">
               <figcaption>Wireframes and prototypes of&nbsp;the&nbsp;Apple Watch app I&nbsp;designed</figcaption>
             </figure>
             <p>We&nbsp;would like to&nbsp;give the drone a&nbsp;cloud-like appearance to&nbsp;keep it&nbsp;public-friendly, expressing the sincere hope that the blue sky and clear cloud would soon return, therefore decided to&nbsp;name it&zwj;&mdash;Cloudrone.</p>
+            <!-- We&nbsp;design the <b>appearance</b> of&nbsp;Cloudrone to&nbsp;be&nbsp;hospitable and user-friendly to&nbsp;express the hope of&nbsp;clearer sky. -->
             <figure>
               <img src="" alt="sketches">
-              <figcaption>Our sketches on appearance design</figcaption>
+              <figcaption>Our sketches on&nbsp;appearance design</figcaption>
             </figure>
           </section>
           <section class="implementation">
+            <h4>Choosing a&nbsp;Sensor</h4>Rapid Prototyping
+            <p>Once we had the general solution logic sketched out, we&nbsp;started making. The first part we&nbsp;implemented was attaching a&nbsp;sensor to&nbsp;our drone, and the first problem we&nbsp;faced was that <em>the air quality was actually not bad in&nbsp;NYC</em>. Although there were PM2.5 sensors available, we&nbsp;would struggle to&nbsp;get a&nbsp;meaningful reading. We&nbsp;had to&nbsp;dial up the particulate diameter that we&nbsp;measured. I&nbsp;looked up&nbsp;online and Haotian met with an&nbsp;expert, Joseph Saavedra, for advices on&nbsp;choosing an&nbsp;effective sensor for our situation. Their conversation helped us&nbsp;clarify a&nbsp;few things about the electronics.</p>
+            <figure>
+              <img src="" alt="PM2.5 sensor principle">
+              <figcaption>The way a Sharp PM2.5 sensor measures data</figcaption>
+            </figure>
+            <p>
+              carbon monoxide sensor reading
+              dust sensor
+              bluetooth
+              wifi
+            </p>
+            <figure>
+              <img src="" alt="sensor n board choices">
+              <figcaption>Some of the sensors, microcontroller boards and add-on modules to choose from</figcaption>
+            </figure>
+
+            Feedback from Joe
+            Mar 21, 2015
+            [Structures]
+            The working principle of drones is that propellers push air and then get a counter-acting force. The propellers will make air flow, which can affect the accuracy of air quality sensors. To keep sensors actuate, we may need to keep sensors about one meter away from propellers. Maybe hang the sensors above or below drones.
+
+            [Sensors & Boards]
+            There are a lot of sensors we can use to measure air quality. We usually use this dust sensor http://www.seeedstudio.com/depot/Grove-Dust-Sensor-p-1050.html with the data sheet http://www.sca-shinyei.com/pdf/PPD42NS.pdf. Also we can use this Seeeduino http://www.seeedstudio.com/depot/Seeeduino-Stalker-v3-p-1882.html, which is small and light. Maybe they are proper for measuring dust such as PM 2.5, PM 10.
+
+            [Air Quality Egg]
+            If we want to use it, we need to contact the company but it’s not a good choice. The Air Quality Egg is very expensive and too heavy for drones. Also, it can’t get accurate results combining with drones directly because of propellers.
+
+            [Data transfer]
+            Arduino Yun can transfer data in a short distance. If drones fly higher or further, we may lose connection. For testing, Bluetooth is a good and convenient way. The best way is to use DJI because it can connect to Wi-Fi and then transfer data and videos. But it is too expensive.
+
+            [Start]
+            Buy the dust sensor and combine it with drones and then measure air quality. Do it again without drones to see if the result is almost the same. Design the structures based on the result.
+
+            <h4>Weight Lifting Tests</h4>
+            tested, chose our biggest drone
+
+            <h4></h4>appearance enclosure
             <p>Because of&nbsp;the rotary motion of&nbsp;drone propellers that are prone to&nbsp;tangle with fabric, we&nbsp;researched on&nbsp;and develop an&nbsp;outer skeleton to&nbsp;place soft materials appropriately.</p>
+
             <p>We&nbsp;believe in&nbsp;the value of&nbsp;deploying Cloudrone to&nbsp;make a&nbsp;<em>social and environmental change</em>.</p>
 
-            <p>
-              \dzn\pttp \solution
-              <!-- ///look for insp: industrial dzn case study -->
-            </p>
+            \dzn\pttp \solution
+            <!-- ///look for insp: industrial dzn case study -->
             <p>
               \dzn\pttp\intro
               Cloudrone is&nbsp;an&nbsp;accessible semi-stationary device for measuring and monitoring air quality in&nbsp;public spaces.
+
               An&nbsp;Accessible, Drone-powered, Semi-stationary
               Air Quality Monitor
 
@@ -757,7 +800,6 @@
               1&nbsp;battery for Arduino,
               1&nbsp;dust sensor
 
-              We&nbsp;design the <b>appearance</b> of&nbsp;Cloudrone to&nbsp;be&nbsp;hospitable and user-friendly to&nbsp;express the hope of&nbsp;clearer sky.
             </p>
             <p>
               \dzn\pttp\modes
@@ -783,7 +825,7 @@
             <p>
               \dzn\pttp\Technical Description
               Hardware
-              The Cloudrone prototype makes use of&nbsp;an&nbsp;Arduino, specifically Sparkfun Redboard, as&nbsp;the core processing and connection unit. It&nbsp;reads data from sensors through Serial port and transmits the data to&nbsp;a&nbsp;database through Bluetooth channels. We&nbsp;have successfully tested the communication between sensors and Arduino as&nbsp;well as&nbsp;that between Arduino and database. In&nbsp;current iteration, we&nbsp;use Processing (a&nbsp;creative coding software) as&nbsp;a&nbsp;data receiver at&nbsp;the database end. We&nbsp;produced data visualization in&nbsp;a&nbsp;Processing sketch to&nbsp;simulate the operation in&nbsp;a&nbsp;real database.
+              The Cloudrone prototype makes use of&nbsp;an&nbsp;Arduino, specifically Sparkfun Redboard, as&nbsp;the core processing and connection unit. It&nbsp;reads data from sensors through Serial port and transmits the data to&nbsp;a&nbsp;database through Bluetooth channels. We&nbsp;have successfully tested the communication between sensors and Arduino as&nbsp;well as&nbsp;that between Arduino and database. In&nbsp;current iteration, we&nbsp;use Processing, a&nbsp;creative coding software, as&nbsp;a&nbsp;data receiver at&nbsp;the database end. We&nbsp;produced data visualization in&nbsp;a&nbsp;Processing sketch to&nbsp;simulate the operation in&nbsp;a&nbsp;real database.
               Power
               The Cloudrone is&nbsp;powered by&nbsp;a&nbsp;7.4V&nbsp;850mAh rechargeable battery, which allows 10&nbsp;minutes continuous flying. The controller requires six AA&nbsp;battery. The Arduino board and bluetooth module is&nbsp;powered by&nbsp;a&nbsp;9V&nbsp;battery. The static stations at&nbsp;local bus stops not only provide shelters for Cloudrone, but also perform as&nbsp;charging stations.
               Sensors

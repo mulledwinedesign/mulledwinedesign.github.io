@@ -76,8 +76,9 @@ h2.recipe,.cs>h2{margin-bottom:var(--l-rem)}
 main,figcaption+.persona{margin-top:var(--s-rem)}
 footer{margin-bottom:var(--s-rem)}
 .recipe.sticky{top:var(--xs-rem)}
-.cv section section+section,.recipe ul,p+p{margin-top:var(--xs-rem)}
+.cv section section+section,p+p{margin-top:var(--xs-rem)}
 h4,.mindmapGrid>ol>li>ol>li{margin-bottom:var(--xs-rem)}
+.recipe ul{margin-top:var(--xxs-rem)}
 .recipeBox{padding-bottom:var(--xxs-rem)}
 .cs nav a,article>section>figure{
   padding-top:var(--xxs-rem);
