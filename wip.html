@@ -304,7 +304,7 @@
               <figcaption>The drones we&nbsp;acquired for this project</figcaption>
             </figure>
             <h4>The Smog</h4>
-            <p>It&nbsp;was the spring of&nbsp;2015. It&nbsp;had been three consecutive winters that hundreds of&nbsp;millions of&nbsp;people in&nbsp;northern China suffered from the alarmingly poisonous smog. Not only big factories contribute greatly to&nbsp;the air pollution, restaurants, gas stations and cars release waste gas without filtration. The documentary <a href="https://www.imdb.com/title/tt4495750/"><cite>Under the Dome</cite></a> had just gone viral online, spurring wide discussions o&nbsp; what the culprits of&nbsp;the air pollution were and how individuals could start to&nbsp;take responsibility.</p>
+            <p>It&nbsp;was the spring of&nbsp;2015. It&nbsp;had been three consecutive winters that hundreds of&nbsp;millions of&nbsp;people in&nbsp;northern China suffered from the alarmingly poisonous smog. Not only big factories contribute greatly to&nbsp;the air pollution, restaurants, gas stations and cars release waste gas without filtration. The documentary <a href="https://www.imdb.com/title/tt4495750/"><cite>Under the Dome</cite></a> had just gone viral online, spurring wide discussions on&nbsp;what the culprits of&nbsp;the air pollution were and how individuals could start to&nbsp;take responsibility.</p>
             <p>My&nbsp;teammate Haotian and I&nbsp;have both lived in&nbsp;Beijing for more than three years. We&nbsp;<em>feel</em> the murky air there, and have certainly witnessed the sales surge of&nbsp;face masks as&nbsp;the air quality deteriorated. We&nbsp;asked ourselves: <strong>how can technology help with this smog situation?</strong></p>
             <p>While the most effective measures would be&nbsp;policies and regulations imposed by&nbsp;the authorities, each citizen can become mindful of&nbsp;culpable behaviors and help report violations.</p>
             <!-- coal: One quarter of people living in urban areas burn scrap brown coal, that is only 20% of the nation's total brown coal burning, but shockingly emitting sulfur dioxide equivalent to all of the power plants together.
@@ -742,7 +742,7 @@
             </figure>
           </section>
           <section class="implementation">
-            <h4>Choosing a&nbsp;Sensor</h4>Rapid Prototyping
+            <h4>Choosing a&nbsp;Sensor</h4>
             <p>Once we had the general solution logic sketched out, we&nbsp;started making. The first part we&nbsp;implemented was attaching a&nbsp;sensor to&nbsp;our drone, and the first problem we&nbsp;faced was that <em>the air quality was actually not bad in&nbsp;NYC</em>. Although there were PM2.5 sensors available, we&nbsp;would struggle to&nbsp;get a&nbsp;meaningful reading. We&nbsp;had to&nbsp;dial up the particulate diameter that we&nbsp;measured. I&nbsp;looked up&nbsp;online and Haotian met with an&nbsp;expert, Joseph Saavedra, for advices on&nbsp;choosing an&nbsp;effective sensor for our situation. Their conversation helped us&nbsp;clarify a&nbsp;few things about the electronics.</p>
             <figure>
               <img src="" alt="PM2.5 sensor principle">
@@ -758,24 +758,23 @@
               <img src="" alt="sensor n board choices">
               <figcaption>Some of the sensors, microcontroller boards and add-on modules to choose from</figcaption>
             </figure>
-
-            Feedback from Joe
-            Mar 21, 2015
-            [Structures]
-            The working principle of drones is that propellers push air and then get a counter-acting force. The propellers will make air flow, which can affect the accuracy of air quality sensors. To keep sensors actuate, we may need to keep sensors about one meter away from propellers. Maybe hang the sensors above or below drones.
-
-            [Sensors & Boards]
-            There are a lot of sensors we can use to measure air quality. We usually use this dust sensor http://www.seeedstudio.com/depot/Grove-Dust-Sensor-p-1050.html with the data sheet http://www.sca-shinyei.com/pdf/PPD42NS.pdf. Also we can use this Seeeduino http://www.seeedstudio.com/depot/Seeeduino-Stalker-v3-p-1882.html, which is small and light. Maybe they are proper for measuring dust such as PM 2.5, PM 10.
-
-            [Air Quality Egg]
-            If we want to use it, we need to contact the company but it’s not a good choice. The Air Quality Egg is very expensive and too heavy for drones. Also, it can’t get accurate results combining with drones directly because of propellers.
-
-            [Data transfer]
-            Arduino Yun can transfer data in a short distance. If drones fly higher or further, we may lose connection. For testing, Bluetooth is a good and convenient way. The best way is to use DJI because it can connect to Wi-Fi and then transfer data and videos. But it is too expensive.
-
-            [Start]
-            Buy the dust sensor and combine it with drones and then measure air quality. Do it again without drones to see if the result is almost the same. Design the structures based on the result.
-
+          </section>
+          <figure>
+            <div class="meeting">
+              <l1>Structures</l1>
+              <l2>The working principle of&nbsp;drones is&nbsp;that propellers push air and then get a&nbsp;counter-acting force. The propellers will make air flow, which can affect the accuracy of&nbsp;air quality sensors. To&nbsp;keep sensors accurate, we&nbsp;may need to&nbsp;keep sensors about one meter away from propellers. Maybe hang the sensors above or&nbsp;below drones.</l2>
+              <l1>Sensors & Boards</l1>
+              <l2>There are a&nbsp;lot of&nbsp;sensors we&nbsp;can use to&nbsp;measure air quality. The Grove dust sensor is&nbsp;popular. There is&nbsp;also Seeeduino Stalker, which is&nbsp;small and light. Maybe they are proper for measuring dust such as&nbsp;PM2.5 and PM10.</l2>
+              <l1>Air Quality Egg</l1>
+              <l2>If&nbsp;we&nbsp;want to&nbsp;use it,&nbsp;we need to&nbsp;contact the company but it’s not a&nbsp;good choice. The Air Quality Egg is&nbsp;very expensive and too heavy for drones. Also, it&nbsp;cannot get accurate results combining with drones directly because of&nbsp;propellers.</l2>
+              <l1>Data Transfer</l1>
+              <l2>Arduino Yun can transfer data in&nbsp;a&nbsp;short distance. If&nbsp;drones fly higher or&nbsp;further, we&nbsp;may lose connection. For testing, Bluetooth is&nbsp;a&nbsp;good and convenient way. The best way is&nbsp;to&nbsp;use DJI because it&nbsp;can connect to&nbsp;Wi-Fi and then transfer data and videos. But it&nbsp;is&nbsp;too expensive.</l2>
+              <l1>Start</l1>
+              <l2>Buy the dust sensor and combine it&nbsp;with drones and then measure air quality. Do&nbsp;it&nbsp;again without drones to&nbsp;see if&nbsp;the result is&nbsp;almost the same. Design the structures based on&nbsp;the result.</l2>
+            </div>
+            <figcaption>Meeting Notes</figcaption>
+          </figure>
+          <section class="implementation">
             <h4>Weight Lifting Tests</h4>
             tested, chose our biggest drone
 

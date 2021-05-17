@@ -85,7 +85,7 @@ h4,.mindmapGrid>ol>li>ol>li{margin-bottom:var(--xs-rem)}
   padding-bottom:var(--xxs-rem);
 }
 .top-nav,.shadowing>*,.interview>*,
-.persona>*:not(div),.persona>div>*{
+.persona>*:not(div),.persona>div>*,.meeting>*{
   padding-top:var(--xxxs-rem);
   padding-bottom:var(--xxxs-rem);
 }
@@ -114,10 +114,10 @@ h2.recipe,.cs,footer{padding-left:var(--xxl-vw)}
 .recipeBox{justify-content:space-evenly}
 .cs nav{justify-content:space-between}
 /* article>figure{width:100%} */
-.interview,.persona{width:100%}
+.interview,.persona,.meeting{width:100%}
 .shadowing *,.interview *,.persona *{min-width:min-content}
 .cs nav a,.shadowing>*,.interview>*,
-.persona>*:not(div),.persona>div>*{
+.persona>*:not(div),.persona>div>*,.meeting>*{
   padding-left:var(--xs-vw);
   padding-right:var(--xs-vw);
 }
@@ -162,7 +162,7 @@ article>figure{overflow-x:scroll}
 .shadowing{display:inline-grid}
 .logo-container,.recipeBox,.cs nav,
 .shadowing>*:not(l1,l4),.persona>div>l2{display:flex}
-.cv,article,.mindmapGrid li,.interview,.persona,.persona>div{display:grid}
+.cv,article,.mindmapGrid li,.interview,.persona,.persona>div,.meeting{display:grid}
 .cv{grid-template-columns:repeat(2,1fr)}
 
 article>.overview{grid-column:4/-1}
@@ -199,7 +199,8 @@ article>figure{grid-column:1/-1}
 .persona2>div>l2:nth-last-of-type(2){grid-row:span 4}
 .persona>div>l3{grid-column:2/3}
 .persona>div>l3:nth-of-type(n+7){grid-column:2/4}
-
+.meeting{grid-template-columns:fit-content(20%) fit-content(80%)}
+.meeting l0{grid-column:span 2}
 /* article{grid-template-columns:auto 1fr} */
 /* .cs h2,.overview{grid-column:1/-1}
 article>h3{grid-column:1/2}
@@ -263,12 +264,15 @@ svg.mindmapLines{
 .interview>a2:first-of-type,
 .interview>a3:first-of-type,
 .interview>a4:first-of-type,
-.interview>k:first-of-type
+.interview>k:first-of-type,
+.meeting>l1:first-of-type,
+.meeting>l2:first-of-type
 {border-top:var(--thin-line) solid var(--color-dim)}
 .shadowing>*,
 .interview>*,
 .persona>*,
-.persona>div>*:not(l2:last-of-type,l3:last-of-type)
+.persona>div>*:not(l2:last-of-type,l3:last-of-type),
+.meeting>*
 {border-bottom:var(--thin-line) solid var(--color-dim)}
 .shadowing>*:not(l1,l5),
 .shadowing>l1:not(:last-of-type),
@@ -276,7 +280,8 @@ svg.mindmapLines{
 .persona>l1:first-of-type,
 .persona>div,
 .persona>div>l2,
-.persona>div>l3:nth-of-type(-n+6)
+.persona>div>l3:nth-of-type(-n+6),
+.meeting>l1
 {border-right:var(--thin-line) solid var(--color-dim)}
 
  /************************************************** text */
