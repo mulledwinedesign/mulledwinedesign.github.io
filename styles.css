@@ -46,6 +46,7 @@
   margin-inline-start:0;
   margin-inline-end:0;
   line-height:var(--line-height);
+  font-variant-numeric:lining-nums;
 }
 html{
   -webkit-font-smoothing:antialiased;
@@ -286,7 +287,8 @@ svg.mindmapLines{
 
  /************************************************** text */
 abbr,ins,.cs nav a{text-decoration:none}
-.smallcaps{font-variant:small-caps}
+.smcp{font-variant:small-caps}
+.allsmcp{font-variant:all-small-caps}
 span.hmw{font-variant:all-small-caps}
 p>span.hmw{font-weight:600}
 .wip a{
