@@ -772,60 +772,50 @@
               <figcaption>Some of&nbsp;the sensors, microcontroller boards and add&#8209;on modules to&nbsp;choose from</figcaption>
             </figure>
             <h4>Weight Lifting Tests</h4>
-            <p>Once we&nbsp;figured out the essential electronic components, we&nbsp;bound them to&nbsp;our drones to&nbsp;see if&nbsp;they could be&nbsp;lifted. Our smallest toy drone could not lift even one regular&#8209;sized Arduino board. The mid&#8209;sized drone would not fly higher than our knees with the load. We&nbsp;had to&nbsp;buy a&nbsp;more powerful drone within our budget. The shipping took some time, but it&nbsp;turned out great. The final model was&nbsp;powered by&nbsp;a&nbsp;7.4V&nbsp;850mAh rechargeable battery, which allowed 10&#8209;minute continuous flying. Including a&nbsp;9V&nbsp;battery that powered the boards and the sensor, the model perfectly handled the combined weight, saving us&nbsp;time to&nbsp;potentially reframe the circuitry with smaller components.</p>
+            <p>Once we&nbsp;figured out the essential electronic components, we&nbsp;bound them to&nbsp;our drones to&nbsp;see if&nbsp;they could be&nbsp;lifted. Our smallest toy drone could not lift even one regular&#8209;sized Arduino board. The mid&#8209;sized drone would not fly higher than our knees with the load. We&nbsp;had to&nbsp;buy a&nbsp;more powerful drone within our budget. The shipping took some time, but it&nbsp;turned out great. The final model was&nbsp;powered by&nbsp;a&nbsp;7.4V 850mAh rechargeable battery, which allowed 10&#8209;minute continuous flying. Including a&nbsp;9V&nbsp;battery that powered the boards and the sensor, the model perfectly handled the combined weight, saving us&nbsp;time to&nbsp;potentially reframe the circuitry with smaller components.</p>
             <figure>
               <img src="" alt="weight lifting tests">
               <figcaption>Weight lifting tests</figcaption>
             </figure>
             <h4>Making a&nbsp;Cloud</h4>
-            <p>We&nbsp;wanted the Cloudrone to&nbsp;look like a&nbsp;cloud to&nbsp;present a&nbsp;pleasant public image. Soft materials, such as&nbsp;polyester fiber, instantly came to&nbsp;us&nbsp;as&nbsp;a&nbsp;way to&nbsp;make a&nbsp;quick prototype. However, the rotary motion of&nbsp;drone propellers made them prone to&nbsp;tangle with loose fiber. We&nbsp;tried to&nbsp;turn to&nbsp;harder materials, considering&nbsp;paper sculpture, papier mâché, 3D&nbsp;printing with plastic filaments and plastic molding. But for one thing, it&nbsp;would be&nbsp;more time&#8209;consuming to&nbsp;make. For another, it&nbsp;would require extra support to&nbsp;stabilize the electronics at&nbsp;the center of&nbsp;a&nbsp;hollow cloud, which would add more weight.</p>
-            <p>We&nbsp;focused on&nbsp;building a&nbsp;<em>minimum viable prototype</em> to&nbsp;demonstrate our concept, leaving possible concerns like heat dissipation and discoloration to&nbsp;a&nbsp;future iteration. Therefore what we&nbsp;needed was a&nbsp;lightweight shell to&nbsp;secure the soft materials appropriately. Felt perfectly did the trick. We&nbsp;cut it&nbsp;to&nbsp;shape and sewn the edges together, enveloping all the components inside with a&nbsp;velcroed opening reserved for recharging batteries.</p>
+            <p>We&nbsp;wanted the Cloudrone to&nbsp;resemble a&nbsp;cloud displaying the shared hope. Soft materials, such as&nbsp;polyester fiber, instantly came to&nbsp;us&nbsp;as&nbsp;a&nbsp;way to&nbsp;make a&nbsp;quick prototype. However, the rotary motion of&nbsp;drone propellers made them prone to&nbsp;tangle with loose fiber. We&nbsp;tried to&nbsp;turn to&nbsp;harder materials, considering&nbsp;paper sculpture, papier mâché, 3D&nbsp;printing with plastic filaments and plastic molding. But for one thing, it&nbsp;would be&nbsp;more time&#8209;consuming to&nbsp;make. For another, it&nbsp;would require extra support to&nbsp;stabilize the electronics at&nbsp;the center of&nbsp;a&nbsp;hollow cloud, which would add more weight.</p>
+            <p>We&nbsp;wanted to&nbsp;focused on&nbsp;building a&nbsp;<em>minimum viable prototype</em> to&nbsp;demonstrate our concept, leaving possible concerns like heat dissipation and discoloration to&nbsp;a&nbsp;future iteration. Therefore what we&nbsp;needed was a&nbsp;lightweight shell to&nbsp;secure the soft materials appropriately. Felt perfectly did the trick. We&nbsp;cut it&nbsp;to&nbsp;shape and sewn the edges together, enveloping all the components inside with a&nbsp;velcroed opening reserved for recharging batteries.</p>
             <figure>
               <img src="" alt="cloud">
               <figcaption>Sewing a cloud</figcaption>
             </figure>
-            <p>The dust sensor needed to&nbsp;be&nbsp;placed away from drone propellers. We&nbsp;drew inspiration from a&nbsp;precedent project and found it&nbsp;easier to&nbsp;hang the sensor below the drone. The wires between the board and the sensor were lengthened, twisted together and protected with insulating tape. We&nbsp;spray&#8209;painted the body of&nbsp;Cloudrone to&nbsp;be&nbsp;bright blue and white&NoBreak;&mdash;the colors that were easily recognizable in&nbsp;a&nbsp;smoggy background. To&nbsp;keep the shapes in&nbsp;line with the colors, we&nbsp;used light blue felt to&nbsp;form a&nbsp;droplet silhouette as&nbsp;the enclosure of&nbsp;the dust sensor.</p>
-
-            <h4>Duo Modes</h4>
-            <p>We&nbsp;believed in&nbsp;the value of&nbsp;deploying Cloudrone to&nbsp;make a&nbsp;<em>social and environmental change</em>.</p>
-
-            \dzn\pttp \solution
-            <!-- ///look for insp: industrial dzn case study -->
-            <p>
-              \dzn\pttp\intro
-              Cloudrone is&nbsp;an&nbsp;accessible semi&#8209;stationary device for measuring and monitoring air quality in&nbsp;public spaces.
-
-              An&nbsp;Accessible, Drone&#8209;powered, Semi&#8209;stationary
-              Air Quality Monitor
-
-              We&nbsp;equip the brain of&nbsp;a&nbsp;commercial drone with an&nbsp;Arduino board and a&nbsp;bluetooth module, and attach an&nbsp;air quality sensor to&nbsp;the bottom of&nbsp;the drone with a&nbsp;distance from the propellers.
-              <b>Parts</b> breakdown:
-              1&nbsp;Arduino Uno,
-              1&nbsp;battery for drone,
-              1&nbsp;battery for Arduino,
-              1&nbsp;dust sensor
-
-              \dzn\pttp\modes
-              Cloudrone has two <b>modes</b>, static mode and mobile mode.
-
-              \dzn\pttp\modes\static
-              We&nbsp;envision to&nbsp;set up&nbsp;these stations at&nbsp;existing bus stops, which can provide shelters for Cloudrone and reduce the cost.
-              We&nbsp;envision this product being deployed along the streets in&nbsp;a&nbsp;city, at&nbsp;existing bus stops, bike stops, telephone booths or&nbsp;wifi stations, where <b>statically</b>, Cloudrone serves as&nbsp;a&nbsp;fixed station measuring concentrations of&nbsp;main harmful chemicals that cause urban smog.
-
-              All the data Cloudrone collects is&nbsp;open&#8209;source, which can be&nbsp;synchronized to&nbsp;a&nbsp;database enabling the general public to&nbsp;check related indices about local air pollution.
-              The Cloudrone sends these data to&nbsp;the database.
-              By&nbsp;analyzing the data captured by&nbsp;Cloudrone, the database is&nbsp;able to&nbsp;send an&nbsp;alert to&nbsp;a&nbsp;city’s air quality monitoring center when an&nbsp;index exceeds its standard reading range.
-
-              It&nbsp;keeps charging through wireless charging method.
-
-              \dzn\pttp\modes\mobile
-              More importantly, When people suspect harmful gas release in&nbsp;the city, they can easily control Cloudrone to&nbsp;measure the air quality at&nbsp;specific sites, such as&nbsp;a&nbsp;place closer to&nbsp;a&nbsp;restaurant’s chimney, a&nbsp;car’s tailpipe or&nbsp;a&nbsp;construction site.
-
-              Once Cloudrone detects a&nbsp;party who release excessive exhaust without proper purification, it&nbsp;sends an&nbsp;alert to&nbsp;a&nbsp;monitoring center.
-            </p>
+            <p>The dust sensor needed to&nbsp;be&nbsp;placed away from drone propellers. We&nbsp;drew inspiration from a&nbsp;precedent project and found it&nbsp;easier to&nbsp;hang the sensor below the drone. The wires between the board and the sensor were lengthened, twisted together and protected with insulating tape. We&nbsp;spray&#8209;painted the body of&nbsp;Cloudrone to&nbsp;be&nbsp;bright blue and white&NoBreak;&mdash;the colors that were easily recognizable in&nbsp;a&nbsp;smoggy background. To&nbsp;keep the shapes in&nbsp;line with the colors, we&nbsp;used light blue felt to&nbsp;form a&nbsp;droplet silhouette as&nbsp;the enclosure of&nbsp;the dust sensor, with a&nbsp;length of&nbsp;transparent plastic straw clearing the detection hole. Hence the Cloudrone prototype was complete.</p>
+            <figure>
+              <img src="" alt="final prototype">
+              <figcaption></figcaption>
+            </figure>
             <h4>Proof of Concept</h4>
-            <p>
-              \dzn\pttp\Technical Description
+            <p>We&nbsp;believed in&nbsp;the value of&nbsp;deploying Cloudrones to&nbsp;<em>make a&nbsp;social and environmental change</em>. On&nbsp;city streets, a&nbsp;Cloudrone would serve as&nbsp;both a&nbsp;<em>static</em> measuring station and a&nbsp;<em>mobile</em> data collector.</p>
+            <figure>
+              <img src="" alt="proof of concept, dual modes">
+              <figcaption>Cloudrone is&nbsp;an&nbsp;accessible, drone&#8209;powered, semi&#8209;stationary air quality monitor.</figcaption>
+            </figure>
+            <p>Statically, we&nbsp;envisioned to&nbsp;set up&nbsp;Cloudrone stations at&nbsp;existing bus stops, bikeshare stops, subway exits, gas stations, convenient stores, outdoor drinking fountains, news stands, telephone booths or&nbsp;Wi&#8209;Fi stations. These places were economic choices that could provide shelters and supply power for Cloudrone, and had already had their own widespread network in&nbsp;cities.</p>
+            <p>When people suspect harmful gas release in&nbsp;the city, they can easily control Cloudrone to&nbsp;measure the air quality indices at&nbsp;specific sites, such as&nbsp;a&nbsp;place close to&nbsp;a&nbsp;restaurant&rsquo;s chimney, near a&nbsp;car&rsquo;s tailpipe or&nbsp;around a&nbsp;construction site.</p>
+            <p>This dual&#8209;mode implementation would engage the public with new technology while improving their sense of&nbsp;trust and responsibility on&nbsp;the environmental issues. All the data Cloudrone collects would be&nbsp;open&#8209;source, which could be&nbsp;synchronized to&nbsp;a&nbsp;public database, and reported to&nbsp;monitoring departments.</p>
+            <!--
+            We&nbsp;equip the brain of&nbsp;a&nbsp;commercial drone with an&nbsp;Arduino board and a&nbsp;bluetooth module, and attach an&nbsp;air quality sensor to&nbsp;the bottom of&nbsp;the drone with a&nbsp;distance from the propellers.
+            <b>Parts</b> breakdown:
+            1&nbsp;Arduino Uno,
+            1&nbsp;battery for drone,
+            1&nbsp;battery for Arduino,
+            1&nbsp;dust sensor
+            enabling the general public to&nbsp;check related indices about local air pollution.
+            Once Cloudrone detects a&nbsp;party who release excessive exhaust without proper purification, it&nbsp;sends an&nbsp;alert to&nbsp;a&nbsp;monitoring center.
+            device for measuring and monitoring air quality in&nbsp;public spaces.
+            Cloudrone has two <b>modes</b>, static mode and mobile mode.
+            We&nbsp;envision this product being deployed along the streets in&nbsp;a&nbsp;city, at&nbsp;existing bus stops, where <b>statically</b>, Cloudrone serves as&nbsp;a&nbsp;fixed station measuring concentrations of&nbsp;main harmful chemicals that cause urban smog.
+            All the data Cloudrone collects is&nbsp;open&#8209;source, which can be&nbsp;synchronized to&nbsp;a&nbsp;database enabling the general public to&nbsp;check related indices about local air pollution.
+            The Cloudrone sends these data to&nbsp;the database.
+            By&nbsp;analyzing the data captured by&nbsp;Cloudrone, the database is&nbsp;able to&nbsp;send an&nbsp;alert to&nbsp;a&nbsp;city’s air quality monitoring center when an&nbsp;index exceeds its standard reading range.
+            It&nbsp;keeps charging through wireless charging method. -->
+            <!-- <div>
+              Technical Description
               Hardware
               The Cloudrone prototype makes use of&nbsp;an&nbsp;Arduino, specifically Sparkfun Redboard, as&nbsp;the core processing and connection unit. It&nbsp;reads data from sensors through Serial port and transmits the data to&nbsp;a&nbsp;database through Bluetooth channels. We&nbsp;have successfully tested the communication between sensors and Arduino as&nbsp;well as&nbsp;that between Arduino and database. In&nbsp;current iteration, we&nbsp;use Processing, a&nbsp;creative coding software, as&nbsp;a&nbsp;data receiver at&nbsp;the database end. We&nbsp;produced data visualization in&nbsp;a&nbsp;Processing sketch to&nbsp;simulate the operation in&nbsp;a&nbsp;real database.
               Power
@@ -845,7 +835,7 @@
               There has not been an&nbsp;accessible air quality monitoring tool available in&nbsp;public. Most countries have dedicated institutions to&nbsp;monitor national air quality. In&nbsp;China, it&nbsp;is&nbsp;the Ministry of&nbsp;Environmental Protection, which is&nbsp;affiliated to&nbsp;the government. There has been doubts about official data source, so&nbsp;we&nbsp;want to&nbsp;create a&nbsp;platform which enables the public to&nbsp;supervise and contribute to&nbsp;the database. By&nbsp;witnessing and engaging with a&nbsp;Cloudrone locally, the public can build a&nbsp;sense of&nbsp;trust and responsibility. In&nbsp;addition, air quality related mobile applications have been as&nbsp;popular as&nbsp;weather forecast applications. We&nbsp;also envision contributing our data to&nbsp;larger databases so&nbsp;that users can check air quality indices provided by&nbsp;Cloudrone on&nbsp;mobile devices and websites.
               Future Potential
               Aiming at&nbsp;a&nbsp;real social and environmental change, Cloudrone serves as&nbsp;an&nbsp;accessible and effective tool for the public to&nbsp;build a&nbsp;more transparent, proactive and convincing platform to&nbsp;contribute to&nbsp;the supervision and management of&nbsp;urban air quality. Cloudrone also has the potential to&nbsp;become a&nbsp;practical strategy which governments use to&nbsp;improve air pollution management policies.
-            </p>
+            </div> -->
           </section>
           <section class="takeaway">
             <!-- \reflt -->
