@@ -137,7 +137,7 @@ h2.recipe,.cs,footer{padding-left:var(--xxl-vw)}
 /************************************************* layout */
 /* ins,aside,.less,.more,.print-cv,.cellar{display:none} */
 /* header{visibility:hidden} */
-.hidden,ins{display:none}
+.hidden,.hidden *,ins{display:none}
 .cv i,.edu strong{display:block}
 .sticky{
   position:sticky;

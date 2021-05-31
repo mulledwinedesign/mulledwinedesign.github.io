@@ -218,54 +218,51 @@ window.addEventListener("load",figurePadddingNMindmapLines);
 window.addEventListener("resize",figurePadddingNMindmapLines);
 window.addEventListener("hashchange",figurePadddingNMindmapLines);
 
-// window.addEventListener("load",drawMindmap);
-// window.addEventListener("resize",drawMindmap);
-// window.addEventListener("hashchange",drawMindmap);
-
 // currently reading Intersection Observer:
 // the ele that has the biggest intersection ratio w/ vp
 //            = takes majority space
 //            = currently being read
-// let obj = {[""]: {ratio:""}}; //obj auto-remove duplicate keys = ids are always unique
-// let data = [];
-// function buildThresholdList (numSteps) {
-//   let thresholds = [];
-//   for (let i=1.0; i<=numSteps; i++) {
-//     let ratio = i/numSteps;
-//     thresholds.push(ratio);
-//   }
-//   thresholds.push(0);
-//   return thresholds;
-// }
-// function idExistsInData(id) {
-//   let bool = true;
-//   data.forEach(element => {bool = element.hasOwnProperty(id)});
-//   return bool;
-// }
-// const currentlyReadingOptions = {threshold:buildThresholdList(10)};
-// function currentlyReadingCallback (entries) {
-//   entries.forEach(entry => {
-//     if (entry.isIntersecting) {
-//       // store current id n ratio
-//       obj = {[entry.target.id]: {ratio: entry.intersectionRatio}};
-//       if (data.length === 0) {data.push(obj);}
-//       else if (idExistsInData(entry.target.id)) {
-//         // update ratio only = store only current ratios
-//         for (const ele of data) {
-//           if (Object.keys(ele)[0] === Object.keys(obj)[0]) {
-//             Object.values(ele)[0].ratio = Object.values(obj)[0].ratio;
-//           }
-//         }
-//       } else {
-//         data.push(obj);
-//         // debug tip: array keeps updating until – number shown – it"s manually unfolded
-//         console.log(data);
-//       }
-//     }
-//   });
-// }
-// let currentlyReadingObserver = new IntersectionObserver(currentlyReadingCallback, currentlyReadingOptions);
-// document.querySelectorAll("section p").forEach(p => { currentlyReadingObserver.observe(p) });
+let obj = {[""]: {ratio:""}}; //obj auto-remove duplicate keys = ids are always unique
+let data = []; //BUT ARRAY ALLOWS DUPLICATES!
+function buildThresholdList (numSteps) {
+  let thresholds = [];
+  for (let i=1.0; i<=numSteps; i++) {
+    let ratio = i/numSteps;
+    thresholds.push(ratio);
+  }
+  thresholds.push(0);
+  return thresholds;
+}
+function idExistsInData(id) {
+  let bool = true;
+  data.forEach(element => {bool = element.hasOwnProperty(id)});
+  console.log(bool);
+  return bool;
+}
+const currentlyReadingOptions = {threshold:buildThresholdList(10)};
+function currentlyReadingCallback (entries) {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // store current id n ratio
+      obj = {[entry.target.id]: {ratio: entry.intersectionRatio}};
+      if (data.length === 0) {data.push(obj);}
+      else if (idExistsInData(entry.target.id)) {
+        // update ratio only = store only current ratios
+        for (const ele of data) {
+          if (Object.keys(ele)[0] === Object.keys(obj)[0]) {
+            Object.values(ele)[0].ratio = Object.values(obj)[0].ratio;
+          }
+        }
+      } else {
+        data.push(obj);
+        // debug tip: array keeps updating until – number shown – it’s manually unfolded
+        console.log(data);
+      }
+    }
+  });
+}
+let currentlyReadingObserver = new IntersectionObserver(currentlyReadingCallback, currentlyReadingOptions);
+document.querySelectorAll(".observeree").forEach(element => {currentlyReadingObserver.observe(element);});
 
 // svg flow
 // function getViewportSize() {
