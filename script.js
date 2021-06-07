@@ -235,6 +235,7 @@ window.addEventListener("hashchange",figurePadddingNMindmapLines);
 //            = takes majority space
 //            = currently being read
 let data = {}; //{id:ratio,...,id:ratio} obj auto-remove duplicate keys = ids are always unique
+let currentId;
 function buildThresholdList (numSteps) {
   let thresholds = [];
   for (let i=1.0; i<=numSteps; i++) {
@@ -257,12 +258,23 @@ function currentlyReadingCallback (entries) {
     if (entry.isIntersecting) {
       data[entry.target.id] = entry.intersectionRatio;
       console.log(data);
-
+      currentId = Object.keys(data).reduce((a, b) => data[a] > data[b] ? a : b); //id of the max ratio = currently being read
+      console.log(currentId);
+      // for >=1 ele's ratio=1:
+      // var obj = {a: 1, b: 2, c: 2};
+      // keys = Object.keys(obj);
+      // largest = Math.max.apply(null, keys.map(x => obj[x]));
+      // result = keys.reduce((result, key) => {
+        //   if(obj[key] === largest){ result.push(key); }
+        //   return result;
+        // }, []);
+    } else {
+      data[entry.target.id] = 0;
     }
   });
 }
 let currentlyReadingObserver = new IntersectionObserver(currentlyReadingCallback, currentlyReadingOptions);
-document.querySelectorAll(".observeree").forEach(element => {currentlyReadingObserver.observe(element);});
+document.querySelectorAll(".observeree").forEach(element => currentlyReadingObserver.observe(element));
 
 // svg flow
 // function getViewportSize() {
