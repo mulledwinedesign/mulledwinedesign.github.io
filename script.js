@@ -1,11 +1,23 @@
 let rem = getComputedStyle(document.documentElement).fontSize.match(/\d+/)[0];
 let recipeBox = document.getElementsByClassName("recipeBox")[0];
-let recipeBoxW = recipeBox.getBoundingClientRect().width;
+// let recipeBoxW = recipeBox.getBoundingClientRect().width;
+// let recipeBoxH = recipeBox.getBoundingClientRect().height;
+// let recipeH,recipeTop;
 let gap;
 let topNav = document.getElementsByClassName("top-nav")[0];
 let articles = document.querySelectorAll(".cs article");
 let anchors = document.querySelectorAll(".cs nav a");
 let lis = document.querySelectorAll(".recipe ul li");
+
+// function stickyRecipeCoords() {
+//   let recipe = recipeBox.parentElement;
+//   console.log(recipe);
+//   let originalPosition = recipe.style.position;
+//   recipe.style.position = "static";
+//   recipeH = recipe.getBoundingClientRect().height;
+//   recipeTop = recipe.getBoundingClientRect().top;
+//   recipe.style.position = originalPosition;
+// }
 
 // svg recipe line: from 0 to 1
 function drawRecipeNGrid() {
@@ -13,7 +25,7 @@ function drawRecipeNGrid() {
   let zero = document.getElementById("zero");
   let one = document.getElementById("one");
   // update viewBox size
-  recipeLine.setAttribute("viewBox","0 0 "+recipeBoxW+" "+recipeBox.getBoundingClientRect().height);
+  recipeLine.setAttribute("viewBox","0 0 "+recipeBox.getBoundingClientRect().width+" "+recipeBox.getBoundingClientRect().height);
   // collect node coordinates
   let c = [];
   let leftMargin = recipeBox.getBoundingClientRect().left;
@@ -222,8 +234,7 @@ window.addEventListener("hashchange",figurePadddingNMindmapLines);
 // the ele that has the biggest intersection ratio w/ vp
 //            = takes majority space
 //            = currently being read
-let obj = {[""]: {ratio:""}}; //obj auto-remove duplicate keys = ids are always unique
-let data = []; //BUT ARRAY ALLOWS DUPLICATES!
+let data = {}; //{id:ratio,...,id:ratio} obj auto-remove duplicate keys = ids are always unique
 function buildThresholdList (numSteps) {
   let thresholds = [];
   for (let i=1.0; i<=numSteps; i++) {
@@ -233,31 +244,20 @@ function buildThresholdList (numSteps) {
   thresholds.push(0);
   return thresholds;
 }
-function idExistsInData(id) {
-  let bool = true;
-  data.forEach(element => {bool = element.hasOwnProperty(id)});
-  console.log(bool);
-  return bool;
-}
-const currentlyReadingOptions = {threshold:buildThresholdList(10)};
+// stickyRecipeCoords();
+// console.log(recipeH,recipeBoxH);
+// console.log(recipeTop,recipeBox.getBoundingClientRect().top);
+// let rootMarginTop = recipeTop+recipeH;
+const currentlyReadingOptions = {
+  rootMargin:-rem-recipeBox.getBoundingClientRect().height+"px 0px 0px 0px",
+  threshold:buildThresholdList(10)
+};
 function currentlyReadingCallback (entries) {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      // store current id n ratio
-      obj = {[entry.target.id]: {ratio: entry.intersectionRatio}};
-      if (data.length === 0) {data.push(obj);}
-      else if (idExistsInData(entry.target.id)) {
-        // update ratio only = store only current ratios
-        for (const ele of data) {
-          if (Object.keys(ele)[0] === Object.keys(obj)[0]) {
-            Object.values(ele)[0].ratio = Object.values(obj)[0].ratio;
-          }
-        }
-      } else {
-        data.push(obj);
-        // debug tip: array keeps updating until – number shown – it’s manually unfolded
-        console.log(data);
-      }
+      data[entry.target.id] = entry.intersectionRatio;
+      console.log(data);
+
     }
   });
 }
