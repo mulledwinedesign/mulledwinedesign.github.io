@@ -1,23 +1,11 @@
 let rem = getComputedStyle(document.documentElement).fontSize.match(/\d+/)[0];
 let recipeBox = document.getElementsByClassName("recipeBox")[0];
 // let recipeBoxW = recipeBox.getBoundingClientRect().width;
-// let recipeBoxH = recipeBox.getBoundingClientRect().height;
-// let recipeH,recipeTop;
 let gap;
 let topNav = document.getElementsByClassName("top-nav")[0];
 let articles = document.querySelectorAll(".cs article");
 let anchors = document.querySelectorAll(".cs nav a");
 let lis = document.querySelectorAll(".recipe ul li");
-
-// function stickyRecipeCoords() {
-//   let recipe = recipeBox.parentElement;
-//   console.log(recipe);
-//   let originalPosition = recipe.style.position;
-//   recipe.style.position = "static";
-//   recipeH = recipe.getBoundingClientRect().height;
-//   recipeTop = recipe.getBoundingClientRect().top;
-//   recipe.style.position = originalPosition;
-// }
 
 // svg recipe line: from 0 to 1
 function drawRecipeNGrid() {
@@ -245,32 +233,24 @@ function buildThresholdList (numSteps) {
   thresholds.push(0);
   return thresholds;
 }
-// stickyRecipeCoords();
-// console.log(recipeH,recipeBoxH);
-// console.log(recipeTop,recipeBox.getBoundingClientRect().top);
-// let rootMarginTop = recipeTop+recipeH;
 const currentlyReadingOptions = {
   rootMargin:-rem-recipeBox.getBoundingClientRect().height+"px 0px 0px 0px",
-  threshold:buildThresholdList(10)
+  threshold:buildThresholdList(100)
 };
 function currentlyReadingCallback (entries) {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      data[entry.target.id] = entry.intersectionRatio;
+      // data[entry.target.id] = entry.intersectionRatio; // area ratio: intersection/target
+      data[entry.target.id] = entry.intersectionRect.height / entry.rootBounds.height; // vertical ratio: intersection/root
       console.log(data);
+      // console.log(Object.values(data).reduce((a, b) => a+b)); // should be 1 when observerees cover rootBounds
       currentId = Object.keys(data).reduce((a, b) => data[a] > data[b] ? a : b); //id of the max ratio = currently being read
       console.log(currentId);
-      // for >=1 ele's ratio=1:
-      // var obj = {a: 1, b: 2, c: 2};
-      // keys = Object.keys(obj);
-      // largest = Math.max.apply(null, keys.map(x => obj[x]));
-      // result = keys.reduce((result, key) => {
-        //   if(obj[key] === largest){ result.push(key); }
-        //   return result;
-        // }, []);
+      // register btn event
     } else {
       data[entry.target.id] = 0;
     }
+    // console.log(entry);
   });
 }
 let currentlyReadingObserver = new IntersectionObserver(currentlyReadingCallback, currentlyReadingOptions);
