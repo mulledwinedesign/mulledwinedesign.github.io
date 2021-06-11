@@ -67,9 +67,9 @@ html{
 }
 .top-nav.sticky,svg.recipeLine,svg.mindmapLines{top:0}
 header{padding-top:var(--xxl-vw)}
-
 main>section{margin-top:var(--xxl-rem)}
 main,.cv{margin-bottom:var(--xxl-rem)}
+#inspiration1a,#ideation1,#implementation1a{margin-top:var(--xl-rem)}
 article,article>section+section{margin-top:var(--l-rem)}
 h2.recipe,.cs>h2{margin-bottom:var(--l-rem)}
 #resume:target{scroll-margin-top:var(--m-rem)}
@@ -77,14 +77,12 @@ h2.recipe,.cs>h2{margin-bottom:var(--l-rem)}
 main,figcaption+.persona{margin-top:var(--s-rem)}
 footer{margin-bottom:var(--s-rem)}
 .recipe.sticky{top:var(--xs-rem)}
-.cv section section+section,p+p{margin-top:var(--xs-rem)}
-h4,.mindmapGrid>ol>li>ol>li{margin-bottom:var(--xs-rem)}
-.recipe ul{margin-top:var(--xxs-rem)}
-.recipeBox{padding-bottom:var(--xxs-rem)}
-.cs nav a,article>section>figure{
-  padding-top:var(--xxs-rem);
-  padding-bottom:var(--xxs-rem);
-}
+.cv section section+section,p+p,article>figure{margin-top:var(--xs-rem)}
+h4,.mindmapGrid>ol>li>ol>li,article>figure{margin-bottom:var(--xs-rem)}
+.recipe ul,article>figure+figure,article>section>figure{margin-top:var(--xxs-rem)}
+article>section>figure{margin-bottom:var(--xxs-rem)}
+.cs nav a{padding-top:var(--xxs-rem)}
+.recipeBox,.cs nav a{padding-bottom:var(--xxs-rem)}
 .top-nav,.shadowing>*,.interview>*,
 .persona>*:not(div),.persona>div>*,.meeting>*{
   padding-top:var(--xxxs-rem);
