@@ -235,22 +235,23 @@ function buildThresholdList (numSteps) {
 }
 const currentlyReadingOptions = {
   rootMargin:-rem-recipeBox.getBoundingClientRect().height+"px 0px 0px 0px",
-  threshold:buildThresholdList(100)
+  threshold:buildThresholdList(10)
 };
 function currentlyReadingCallback (entries) {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      // data[entry.target.id] = entry.intersectionRatio; // area ratio: intersection/target
+      // if (target type === figure) {
+      //   target = target.previousElementSibling section;
+      // }
+      // console.log(entry.target.firstElementChild.innerHTML);
       data[entry.target.id] = entry.intersectionRect.height / entry.rootBounds.height; // vertical ratio: intersection/root
       console.log(data);
-      // console.log(Object.values(data).reduce((a, b) => a+b)); // should be 1 when observerees cover rootBounds
       currentId = Object.keys(data).reduce((a, b) => data[a] > data[b] ? a : b); //id of the max ratio = currently being read
       console.log(currentId);
       // register btn event
     } else {
       data[entry.target.id] = 0;
     }
-    // console.log(entry);
   });
 }
 let currentlyReadingObserver = new IntersectionObserver(currentlyReadingCallback, currentlyReadingOptions);

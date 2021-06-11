@@ -68,12 +68,12 @@ html{
 .top-nav.sticky,svg.recipeLine,svg.mindmapLines{top:0}
 header{padding-top:var(--xxl-vw)}
 
-main>section,article>section+section{margin-top:var(--xxl-rem)}
+main>section{margin-top:var(--xxl-rem)}
 main,.cv{margin-bottom:var(--xxl-rem)}
-article,*+h4{margin-top:var(--l-rem)}
+article,article>section+section{margin-top:var(--l-rem)}
 h2.recipe,.cs>h2{margin-bottom:var(--l-rem)}
 #resume:target{scroll-margin-top:var(--m-rem)}
-.cv section section,article>*+*{margin-top:var(--m-rem)}
+.cv section section{margin-top:var(--m-rem)}
 main,figcaption+.persona{margin-top:var(--s-rem)}
 footer{margin-bottom:var(--s-rem)}
 .recipe.sticky{top:var(--xs-rem)}
@@ -167,7 +167,7 @@ article>figure{overflow-x:scroll}
 .cv{grid-template-columns:repeat(2,1fr)}
 
 article>.overview{grid-column:4/-1}
-article>.context{grid-column:1/4;grid-row-start:1}
+article>.context{grid-column:1/4}
 article>.inspiration{grid-column:2/5}
 article>.ideation{grid-column:3/-1}
 article>.implementation{grid-column:4/-1}
